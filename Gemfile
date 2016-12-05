@@ -33,6 +33,10 @@ gem 'react_on_rails', '~> 6'
 
 gem 'mini_racer', platforms: :ruby
 
+gem 'devise_token_auth', github: 'lynndylanhurley/devise_token_auth'
+
+gem 'devise', '~> 4.2.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
