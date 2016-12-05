@@ -198,7 +198,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
-  devise (~> 4.2.0)
+  devise
   devise_token_auth!
   jbuilder (~> 2.5)
   jquery-rails
