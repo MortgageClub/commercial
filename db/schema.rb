@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161205042654) do
+ActiveRecord::Schema.define(version: 20161205050835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,17 @@ ActiveRecord::Schema.define(version: 20161205042654) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id", using: :btree
+  end
+
+  create_table "agents", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "phone"
+    t.uuid     "loan_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["loan_id"], name: "index_agents_on_loan_id", using: :btree
   end
 
   create_table "borrowers", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
@@ -110,6 +121,7 @@ ActiveRecord::Schema.define(version: 20161205042654) do
     t.index ["subjectable_type", "subjectable_id"], name: "index_users_on_subjectable_type_and_subjectable_id", using: :btree
   end
 
+  add_foreign_key "agents", "loans"
   add_foreign_key "bussinesses", "users"
   add_foreign_key "loans", "borrowers"
   add_foreign_key "properties", "loans"
