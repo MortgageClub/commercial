@@ -10,11 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161205034156) do
+ActiveRecord::Schema.define(version: 20161205042654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
+
+  create_table "addresses", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.string   "street_address"
+    t.string   "street_address2"
+    t.string   "city"
+    t.string   "zip"
+    t.string   "state"
+    t.string   "unit_number"
+    t.string   "full_text"
+    t.string   "addressable_type"
+    t.integer  "addressable_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id", using: :btree
+  end
 
   create_table "borrowers", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "mobile_phone"
@@ -24,11 +39,13 @@ ActiveRecord::Schema.define(version: 20161205034156) do
     t.string   "city"
     t.string   "state"
     t.string   "zip"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "credit_score"
+    t.decimal  "net_worth",    precision: 13, scale: 2
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
-  create_table "bussiness_informations", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+  create_table "bussinesses", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name"
     t.integer  "years"
     t.string   "ein"
@@ -41,6 +58,34 @@ ActiveRecord::Schema.define(version: 20161205034156) do
     t.uuid     "user_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.index ["user_id"], name: "index_bussinesses_on_user_id", using: :btree
+  end
+
+  create_table "loans", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.decimal  "down_payment"
+    t.decimal  "amount"
+    t.boolean  "is_under_contract"
+    t.datetime "closing_date"
+    t.text     "notes"
+    t.uuid     "borrower_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["borrower_id"], name: "index_loans_on_borrower_id", using: :btree
+  end
+
+  create_table "properties", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.decimal  "purchase_price",  precision: 13, scale: 2
+    t.string   "property_type"
+    t.string   "title"
+    t.decimal  "land_size",       precision: 10, scale: 2
+    t.integer  "building_size"
+    t.integer  "number_of_units"
+    t.integer  "year_build"
+    t.integer  "occup"
+    t.uuid     "loan_id"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.index ["loan_id"], name: "index_properties_on_loan_id", using: :btree
   end
 
   create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
@@ -62,6 +107,10 @@ ActiveRecord::Schema.define(version: 20161205034156) do
     t.string   "subjectable_type"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["subjectable_type", "subjectable_id"], name: "index_users_on_subjectable_type_and_subjectable_id", using: :btree
   end
 
+  add_foreign_key "bussinesses", "users"
+  add_foreign_key "loans", "borrowers"
+  add_foreign_key "properties", "loans"
 end

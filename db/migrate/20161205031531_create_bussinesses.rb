@@ -1,6 +1,6 @@
-class CreateBussinessInformations < ActiveRecord::Migration[5.0]
+class CreateBussinesses < ActiveRecord::Migration[5.0]
   def change
-    create_table :bussiness_informations, id: :uuid do |t|
+    create_table :bussinesses, id: :uuid do |t|
       t.string :name
       t.integer :years
       t.string :ein
@@ -10,7 +10,7 @@ class CreateBussinessInformations < ActiveRecord::Migration[5.0]
       t.string :entity_type
       t.string :principal
       t.string :nature
-      t.uuid :user_id
+      t.references :user, index: true, foreign_key: true, type: :uuid
 
       t.timestamps
     end
