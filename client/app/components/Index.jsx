@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import Home from './Home';
+import Home from './pages/home/Index';
 
 class Index extends Component {
   render() {
     return (
       <div>
-        <Home />
         {this.props.children}
       </div>
     )
