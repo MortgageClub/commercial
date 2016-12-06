@@ -83,3 +83,9 @@ production:
   database: commercial_production
   username: commercial
   password: <%= ENV['COMMERCIAL_DATABASE_PASSWORD'] %>
+
+staging:
+  <<: *default
+  database: commercial_production
+  username: commercial
+  password: <%= ENV['COMMERCIAL_DATABASE_PASSWORD'] %>
