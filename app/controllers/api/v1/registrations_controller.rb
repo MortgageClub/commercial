@@ -38,12 +38,13 @@ module Api
           # override email confirmation, must be sent manually from ctrl
           # resource_class.set_callback("create", :after, :send_on_create_confirmation_instructions)
           # resource_class.skip_callback("create", :after, :send_on_create_confirmation_instructions)
-
+          # @resource.confirmed!
           @borrower = Borrower.new(user: @resource)
           if @borrower.save
             yield @resource if block_given?
 
-            unless @resource.confirmed?
+            # unless @resource.confirmed?
+            if false
               # user will require email authentication
               @resource.send_confirmation_instructions({
                 client_config: params[:config_name],

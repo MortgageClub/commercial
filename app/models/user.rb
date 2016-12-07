@@ -5,7 +5,7 @@ class User < ApplicationRecord
   belongs_to :subjectable, polymorphic: true
 
   devise :database_authenticatable, :registerable, :recoverable,
-         :rememberable, :trackable, :validatable, :confirmable
+         :rememberable, :trackable, :validatable
 
   def confirmation_required?
     false
