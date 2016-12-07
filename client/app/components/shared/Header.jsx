@@ -2,6 +2,18 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 class Header extends Component {
+  componentDidMount() {
+    var hth = $('.header-top-bar').height();
+    $(window).on('scroll', function() {
+      if ($(this).scrollTop() > hth){
+        $('#sticky-header').addClass("sticky");
+      }
+      else{
+        $('#sticky-header').removeClass("sticky");
+      }
+    });
+  }
+
   render() {
     return (
       <div>
@@ -12,9 +24,9 @@ class Header extends Component {
               <div className="row">
                 <div className="col-md-3 col-sm-6 col-xs-12">
                   <div className="logo">
-                    <a href="index.html">
-                      <img src="images/logo/logo.png" alt="" />
-                    </a>
+                    <Link to="/">
+                      <img src="images/logo/logo.png" alt=""/>
+                    </Link>
                   </div>
                 </div>
                 <div className="col-md-6 hidden-sm hidden-xs">
@@ -58,9 +70,9 @@ class Header extends Component {
                 <div className="row">
                   <div className="col-md-12">
                     <div className="sticky-logo">
-                      <a href="index.html">
+                      <Link to="/">
                         <img src="images/logo/logo.png" alt=""/>
-                      </a>
+                      </Link>
                     </div>
                     <nav id="primary-menu">
                       <ul className="main-menu text-center">

@@ -24,8 +24,8 @@ class HowItWorks extends Component {
                       <a href="service-details.html"><img src="images/service/1.jpg" alt=""/></a>
                     </div>
                     <div className="service-item-info">
-                      <h5><a href="service-details.html">Get Your Quotes</a></h5>
-                      <p>Tell us about your scenario and we’ll find you at least 3 competitive quotes from our partner lenders.</p>
+                      <h5><a href="service-details.html">Shop</a></h5>
+                      <p>We’ll find you at least 3 competitive quotes for your scenario.</p>
                     </div>
                   </div>
                 </div>
@@ -36,8 +36,8 @@ class HowItWorks extends Component {
                       <a href="service-details.html"><img src="images/service/2.jpg" alt=""/></a>
                     </div>
                     <div className="service-item-info">
-                      <h5><a href="service-details.html">Negotiate</a></h5>
-                      <p>We help you negotiate the best rates and terms.</p>
+                      <h5><a href="service-details.html">Apply</a></h5>
+                      <p>We structure your loan package and present it to the lender.</p>
                     </div>
                   </div>
                 </div>
@@ -48,8 +48,8 @@ class HowItWorks extends Component {
                       <a href="service-details.html"><img src="images/service/3.jpg" alt=""/></a>
                     </div>
                     <div className="service-item-info">
-                      <h5><a href="service-details.html">Apply</a></h5>
-                      <p>We structure your loan package and present to the lender.</p>
+                      <h5><a href="service-details.html">Underwrite</a></h5>
+                      <p>Final underwriting and lender commitment.</p>
                     </div>
                   </div>
                 </div>
@@ -60,8 +60,8 @@ class HowItWorks extends Component {
                       <a href="service-details.html"><img src="images/service/4.jpg" alt=""/></a>
                     </div>
                     <div className="service-item-info">
-                      <h5><a href="service-details.html">Underwriting</a></h5>
-                      <p>Final underwriting and lender commitment</p>
+                      <h5><a href="service-details.html">Closing</a></h5>
+                      <p>Loan closes and funding is completed.</p>
                     </div>
                   </div>
                 </div>
