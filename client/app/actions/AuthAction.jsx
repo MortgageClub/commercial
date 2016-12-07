@@ -24,6 +24,7 @@ export function register(userInfo) {
       })
       .catch(error => {
         var data = error.response.data;
+        console.log(data);
         dispatch(authError(data.errors.full_messages));
       })
   }
