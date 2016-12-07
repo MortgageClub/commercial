@@ -105,7 +105,7 @@ class Header extends Component {
           <Link to="/">About</Link>
         </li>
         <li>
-          <a onClick={this.props.logout()}/>
+          <a onClick={this.props.logout}>Logout</a>
         </li>
       </ul>
     )
@@ -140,5 +140,4 @@ function mapStateToProps(state) {
   };
 }
 
-// export default connect(mapStateToProps, { logout })(Header);
-export default Header;
+export default connect(mapStateToProps, { logout })(Header);
