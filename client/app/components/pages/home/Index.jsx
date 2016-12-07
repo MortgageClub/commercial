@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import Header from '../../shared/Header';
-import Footer from '../../shared/Footer';
-import MobileMenu from '../../shared/MobileMenu';
 import Subscribe from '../../shared/Subscribe';
 import Slider from './Slider';
 import HowItWorks from './HowItWorks';
@@ -15,9 +12,7 @@ import Clients from './Clients';
 class Index extends Component {
   render() {
     return (
-      <div className="wrapper">
-        <Header/>
-        <MobileMenu/>
+      <div>
         <Slider/>
         {/* Start page content */}
         <section id="page-content" className="page-wrapper">
@@ -31,7 +26,6 @@ class Index extends Component {
           <Subscribe />
         </section>
         {/* End page content */}
-        <Footer/>
       </div>
     )
   }

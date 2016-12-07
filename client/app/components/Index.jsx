@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
-import Home from './pages/home/Index';
+import Header from './shared/Header';
+import Footer from './shared/Footer';
+import MobileMenu from './shared/MobileMenu';
 
 class Index extends Component {
   render() {
     return (
-      <div>
+      <div className="wrapper">
+        <Header/>
+        <MobileMenu/>
         {this.props.children}
+        <Footer/>
       </div>
     )
   }
