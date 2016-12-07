@@ -88,4 +88,6 @@ Rails.application.configure do
     'Access-Control-Allow-Origin' => 'https://stg-blackline.herokuapp.com',
     'Access-Control-Request-Method' => 'GET, PUT, POST, DELETE, PATCH, HEAD'
   }
+
+  config.action_mailer.default_url_options = { host: 'https://stg-blackline.herokuapp.com' }
 end
