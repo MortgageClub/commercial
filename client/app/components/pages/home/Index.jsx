@@ -101,7 +101,7 @@ class Index extends Component {
           <HowItWorks/>
           <About/>
           <BookHomeHouse/>
-          <Agents/>
+          {/* <Agents/> */}
           <Clients/>
           <Blog/>
           <Brand/>

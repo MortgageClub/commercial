@@ -5,7 +5,7 @@ class Clients extends Component {
     return (
       <div>
         {/* TESTIMONIAL AREA START */}
-        <div className="testimonial-area pb-115">
+        <div className="testimonial-area pt-115 pb-115">
           <div className="container">
             <div className="row">
               <div className="col-xs-12">

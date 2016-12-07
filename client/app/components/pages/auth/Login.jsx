@@ -1,8 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { Field, reduxForm } from 'redux-form';
+import { login } from '../../../actions/AuthAction';
+import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 
 class Login extends Component {
+  componentWillMount() {
+    if (this.props.authenticated) {
+      browserHistory.goBack();
+    }
+  }
+
   render() {
+    if (this.props.authenticated) {
+      return <div></div>
+    }
+    const { handleSubmit, pristine, submitting, reset } = this.props;
+
     return (
       <div>
         <section id="page-content" className="page-wrapper">
@@ -12,13 +27,27 @@ class Login extends Component {
                 <div className="col-md-offset-3 col-md-6 col-xs-12">
                   <div className="registered-customers mb-50">
                     <h2 className="mb-50">LOGIN</h2>
-                    <form action="#">
+                    <form
+                      onSubmit={handleSubmit(this.submit.bind(this))}>
+                      {this.renderErrors()}
                       <div className="login-account p-30 box-shadow">
                         <p>If you have an account with us, Please log in.</p>
-                        <input type="text" name="name" placeholder="Email Address" />
-                        <input type="password" name="password" placeholder="Password" />
-                        <p><small><Link to="/forgot-password">Forgot our password?</Link></small></p>
-                        <button className="submit-btn-1" type="submit">login</button>
+                        <Field
+                          name="email"
+                          type="email"
+                          component="input"
+                          placeholder="Email" />
+                        <Field
+                          name="password"
+                          type="password"
+                          component="input"
+                          placeholder="Password" />
+                        <p>
+                          <small>
+                            <Link to="/forgot-password">Forgot our password?</Link>
+                          </small>
+                        </p>
+                        <button className="submit-btn-1" type="submit" disabled={pristine || submitting}>Login</button>
                       </div>
                     </form>
                   </div>
@@ -30,6 +59,34 @@ class Login extends Component {
       </div>
     )
   }
+
+  submit(userInfo) {
+    this.props.login(userInfo);
+  }
+
+  renderErrors() {
+    if (this.props.errorMessages) {
+      const errors = this.props.errorMessages.map(error => {
+        return (
+          <li key={error}>{error}</li>
+        )
+      })
+      return (
+        <ul className="alert alert-danger list-unstyled">{errors}</ul>
+      )
+    }
+  }
 }
 
-export default Login;
+function mapStateToProps(state) {
+  return {
+    errorMessages: state.auth.errors,
+    authenticated: state.auth.authenticated
+  }
+}
+
+export default connect(mapStateToProps, { login })(
+  reduxForm({
+    form: 'loginForm'
+  })(Login)
+)

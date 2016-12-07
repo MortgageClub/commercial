@@ -7,7 +7,7 @@ export default function (state = {}, action) {
     case DE_AUTH_USER:
       return { ...state, authenticated: false };
     case AUTH_ERROR:
-      return { ...state, errors: action.payload }
+      return { ...state, errors: action.payload };
   }
   return state;
 }

@@ -1,7 +1,22 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Field, reduxForm } from 'redux-form';
+import { register } from '../../../actions/AuthAction';
+import { browserHistory } from 'react-router';
 
 class Register extends Component {
+  componentWillMount() {
+    if (this.props.authenticated) {
+      browserHistory.goBack();
+    }
+  }
+
   render() {
+    if (this.props.authenticated) {
+      return <div></div>
+    }
+    const { handleSubmit, pristine, submitting, reset } = this.props;
+
     return (
       <div>
         <section id="page-content" className="page-wrapper">
@@ -10,69 +25,49 @@ class Register extends Component {
               <div className="row">
                 <div className="col-md-offset-3 col-md-6 col-xs-12">
                   <div className="new-customers mb-50">
-                    <form action="#">
-                      <h5 className="mb-50">REGISTER</h5>
+                    <h2 className="mb-50">REGISTER</h2>
+                    <form
+                      onSubmit={handleSubmit(this.submit.bind(this))}>
+                      {this.renderErrors()}
                       <div className="login-account p-30 box-shadow">
                         <div className="row">
                           <div className="col-sm-6">
-                            <input type="text" placeholder="First Name" />
+                            <Field
+                              name="first_name"
+                              type="text"
+                              component="input"
+                              placeholder="First Name" />
                           </div>
                           <div className="col-sm-6">
-                            <input type="text" placeholder="last Name" />
-                          </div>
-                          <div className="col-sm-6">
-                            <select className="custom-select-2">
-                              <option value="defalt">country</option>
-                              <option value="c-1">Australia</option>
-                              <option value="c-2">Bangladesh</option>
-                              <option value="c-3">Unitd States</option>
-                              <option value="c-4">Unitd Kingdom</option>
-                            </select>
-                          </div>
-                          <div className="col-sm-6">
-                            <select className="custom-select-2">
-                              <option value="defalt">State</option>
-                              <option value="c-1">Melbourne</option>
-                              <option value="c-2">Dhaka</option>
-                              <option value="c-3">New York</option>
-                              <option value="c-4">London</option>
-                            </select>
-                          </div>
-                          <div className="col-sm-6">
-                            <select className="custom-select-2">
-                              <option value="defalt">Town/City</option>
-                              <option value="c-1">Victoria</option>
-                              <option value="c-2">Chittagong</option>
-                              <option value="c-3">Boston</option>
-                              <option value="c-4">Cambridge</option>
-                            </select>
-                          </div>
-                          <div className="col-sm-6">
-                            <input type="text" placeholder="Phone here..." />
+                            <Field
+                              name="last_name"
+                              type="text"
+                              component="input"
+                              placeholder="Last Name" />
                           </div>
                         </div>
-                        <input type="text" placeholder="Company neme here..." />
-                        <input type="text" placeholder="Email address here..." />
-                        <input type="password" placeholder="Password" />
-                        <input type="password" placeholder="Confirm Password" />
-                        <div className="checkbox">
-                          <label className="mr-10">
-                            <small>
-                            <input type="checkbox" name="signup" />Sign up for our newsletter!
-                            </small>
-                          </label>
-                          <label>
-                            <small>
-                            <input type="checkbox" name="signup" />Receive special offers from our partners!
-                            </small>
-                          </label>
-                        </div>
+                        <Field
+                          name="email"
+                          type="email"
+                          component="input"
+                          placeholder="Email" />
+                        <Field
+                          name="password"
+                          type="password"
+                          component="input"
+                          placeholder="Password" />
+                        <Field
+                          name="password_confirmation"
+                          type="password"
+                          component="input"
+                          placeholder="Confirm Password" />
+
                         <div className="row">
-                          <div className="col-sm-6 col-xs-12">
-                            <button className="submit-btn-1 mt-20" type="submit" value="register">Register</button>
+                          <div className="col-sm-6">
+                            <button className="submit-btn-1 mt-20" type="submit" disabled={pristine || submitting}>Register</button>
                           </div>
-                          <div className="col-sm-6 col-xs-12">
-                            <button className="submit-btn-1 mt-20 f-right" type="reset">Clear</button>
+                          <div className="col-sm-6">
+                            <button className="submit-btn-1 mt-20 f-right" type="reset" disabled={pristine || submitting} onClick={reset}>Clear</button>
                           </div>
                         </div>
                       </div>
@@ -86,6 +81,35 @@ class Register extends Component {
       </div>
     )
   }
+
+  submit(userInfo) {
+    this.props.register(userInfo);
+  }
+
+  renderErrors() {
+    if (this.props.errorMessages) {
+      const errors = this.props.errorMessages.map(error => {
+        return (
+          <li key={error}>{error}</li>
+        )
+      })
+      return (
+        <ul className="alert alert-danger list-unstyled">{errors}</ul>
+      )
+    }
+  }
 }
 
-export default Register;
+function mapStateToProps(state) {
+  return {
+    errorMessages: state.auth.errors,
+    authenticated: state.auth.authenticated
+  }
+}
+
+export default connect(mapStateToProps, { register })(
+  reduxForm({
+    form: 'registerForm'
+  })(Register)
+)
+

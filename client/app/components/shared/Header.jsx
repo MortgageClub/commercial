@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { logout } from '../../actions/AuthAction';
+import { connect } from 'react-redux';
 
 class Header extends Component {
   componentDidMount() {
@@ -75,23 +77,9 @@ class Header extends Component {
                       </Link>
                     </div>
                     <nav id="primary-menu">
-                      <ul className="main-menu text-center">
-                        <li>
-                          <Link to="/">Home</Link>
-                        </li>
-                        <li>
-                          <Link to="/">Service</Link>
-                        </li>
-                        <li>
-                          <Link to="/">About</Link>
-                        </li>
-                        <li>
-                          <Link to="/login">Login</Link>
-                        </li>
-                        <li>
-                          <Link to="/register">Register</Link>
-                        </li>
-                      </ul>
+                      {
+                        this.props.authenticated ? this.loggedInLinks() : this.loggedOutLinks()
+                      }
                     </nav>
                   </div>
                 </div>
@@ -103,6 +91,54 @@ class Header extends Component {
       </div>
     )
   }
+
+  loggedInLinks() {
+    return (
+      <ul className="main-menu text-center">
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/">Service</Link>
+        </li>
+        <li>
+          <Link to="/">About</Link>
+        </li>
+        <li>
+          <a onClick={this.props.logout()}/>
+        </li>
+      </ul>
+    )
+  }
+
+  loggedOutLinks() {
+    return (
+      <ul className="main-menu text-center">
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/">Service</Link>
+        </li>
+        <li>
+          <Link to="/">About</Link>
+        </li>
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+        <li>
+          <Link to="/register">Register</Link>
+        </li>
+      </ul>
+    )
+  }
 }
 
+function mapStateToProps(state) {
+  return {
+    authenticated: state.auth.authenticated
+  };
+}
+
+// export default connect(mapStateToProps, { logout })(Header);
 export default Header;

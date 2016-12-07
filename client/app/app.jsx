@@ -22,3 +22,6 @@ const App = (_props, _railsContext) => {
 
 ReactOnRails.register({ App });
 
+import { configApi } from './settings/ApiConfig';
+
+configApi();

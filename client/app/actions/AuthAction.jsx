@@ -3,9 +3,9 @@ import { browserHistory } from 'react-router';
 import { AUTH_USER, DE_AUTH_USER } from '../actions/Types';
 import { authError, authFromHeader } from '../utils/AuthUtils'
 
-export function signInUser({ email, password }) {
+export function login(userInfo) {
   return function (dispatch) {
-    axios.post('/users/sign_in', { email, password })
+    axios.post('/users/sign_in', userInfo)
       .then(response => {
         handleSuccessAuthen(dispatch, response);
       })
@@ -16,9 +16,9 @@ export function signInUser({ email, password }) {
   }
 }
 
-export function signUpUser({ email, password }) {
+export function register(userInfo) {
   return function (dispatch) {
-    axios.post('/users', { email, password })
+    axios.post('/users', userInfo)
       .then(response => {
         handleSuccessAuthen(dispatch, response);
       })
@@ -29,7 +29,7 @@ export function signUpUser({ email, password }) {
   }
 }
 
-export function signOutUser() {
+export function logout() {
   return function (dispatch) {
     dispatch({ type: DE_AUTH_USER });
     localStorage.removeItem('auth');
