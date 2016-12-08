@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Header from './shared/Header';
 import Footer from './shared/Footer';
 import MobileMenu from './shared/MobileMenu';
+import { fetch } from '../actions/AuthAction';
+import { connect } from 'react-redux';
 
 class Index extends Component {
   componentDidMount() {
@@ -11,6 +13,10 @@ class Index extends Component {
       scrollSpeed: 900,
       animation: 'fade'
     });
+
+    if(window.localStorage.getItem('auth') !== null){
+      this.props.fetch();
+    }
   }
 
   render() {
@@ -25,4 +31,12 @@ class Index extends Component {
   }
 }
 
-export default Index;
+function mapStateToProps(state) {
+  return {
+    authenticated: state.auth.authenticated,
+    userInfo: state.auth.userInfo
+  }
+}
+
+export default connect(mapStateToProps, { fetch })(Index)
+

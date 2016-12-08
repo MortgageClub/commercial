@@ -4,7 +4,7 @@ module Users
       require_authen!
 
       def process
-
+        @user
       end
     end
   end

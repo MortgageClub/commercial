@@ -7,7 +7,7 @@ export function login(userInfo) {
   return function (dispatch) {
     axios.post('/auth/sign_in', userInfo)
       .then(response => {
-        handleSuccessAuthen(dispatch, response);
+        handleSuccessAuthen(dispatch, response.data.data, response.headers);
       })
       .catch(error => {
         var data = error.response.data;
@@ -20,7 +20,7 @@ export function register(userInfo) {
   return function (dispatch) {
     axios.post('/auth', userInfo)
       .then(response => {
-        handleSuccessAuthen(dispatch, response);
+        handleSuccessAuthen(dispatch, response.data.data, response.headers);
       })
       .catch(error => {
         var data = error.response.data;
@@ -33,21 +33,35 @@ export function logout() {
   return function (dispatch) {
     axios.delete('/auth/sign_out', { headers: authFromLocal() })
       .then(response => {
-        dispatch({ type: DE_AUTH_USER });
-        localStorage.removeItem('auth');
-        browserHistory.push('');
+        handleErrorAuthen(dispatch);
       })
       .catch(error => {
-        dispatch({ type: DE_AUTH_USER });
-        localStorage.removeItem('auth');
-        browserHistory.push('');
+        handleErrorAuthen(dispatch);
       })
   }
 }
 
-function handleSuccessAuthen(dispatch, response) {
-  dispatch({ type: AUTH_USER, payload: response.data.data });
-  localStorage.setItem('auth', authFromHeader(response.headers));
+export function fetch() {
+  return function (dispatch) {
+    axios.get('/users/fetch', { headers: authFromLocal() })
+      .then(response => {
+        handleSuccessAuthen(dispatch, response.data, response.headers);
+      })
+      .catch(error => {
+        handleErrorAuthen(dispatch);
+      })
+  }
+}
+
+function handleSuccessAuthen(dispatch, data, headers) {
+  dispatch({ type: AUTH_USER, payload: data });
+  localStorage.setItem('auth', authFromHeader(headers));
   browserHistory.push('');
   dispatch(authError(null));
+}
+
+function handleErrorAuthen(dispatch) {
+  dispatch({ type: DE_AUTH_USER });
+  localStorage.removeItem('auth');
+  browserHistory.push('');
 }

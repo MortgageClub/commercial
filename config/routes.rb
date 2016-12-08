@@ -9,11 +9,11 @@ Rails.application.routes.draw do
         registrations: 'api/v1/registrations'
       }
 
-      # resources :users, only: [] do
-      #   collection do
-      #     get :fetch
-      #   end
-      # end
+      resources :users, only: [] do
+        collection do
+          get :fetch
+        end
+      end
 
       # resources :recipes, except: [:new, :edit] do
       #   member do

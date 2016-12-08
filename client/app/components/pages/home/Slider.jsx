@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { login } from '../../../actions/AuthAction';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
+import { STATES, PROPERTY_TYPES, PURPOSES } from '../../../utils/ValueUtils';
 
 class Slider extends Component {
   render() {
@@ -29,24 +30,11 @@ class Slider extends Component {
                           component="select"
                           className="custom-select-2">
                           <option>State</option>
-                          <option value="ff0000">Alabama</option>
-                          <option value="00ff00">Alaska</option>
-                          <option value="0000ff">Arizona</option>
-                          <option value="0000ff">Arkansas</option>
-                          <option value="0000ff">California</option>
-                          <option value="0000ff">Colorado</option>
-                          <option value="0000ff">Connecticut</option>
-                          <option value="0000ff">Florida</option>
-                          <option value="0000ff">Georgia</option>
-                          <option value="0000ff">Hawaii</option>
-                          <option value="0000ff">Idaho</option>
-                          <option value="0000ff">Illinois</option>
-                          <option value="0000ff">Indiana</option>
-                          <option value="0000ff">Iowa</option>
-                          <option value="0000ff">Kansas</option>
-                          <option value="0000ff">Kentucky</option>
-                          <option value="0000ff">Louisiana</option>
-                          <option value="0000ff">Maine</option>
+                          {
+                            STATES.map(state => {
+                              return <option key={state.key} value={state.key}>{state.value}</option>
+                            })
+                          }
                         </Field>
                       </div>
                     </div>
@@ -57,14 +45,11 @@ class Slider extends Component {
                           component="select"
                           className="custom-select-2">
                           <option>Property Type</option>
-                          <option value="ff0000">Retail</option>
-                          <option value="00ff00">Multifamily</option>
-                          <option value="0000ff">Office</option>
-                          <option value="0000ff">Industrial</option>
-                          <option value="0000ff">Self-storage</option>
-                          <option value="0000ff">Manufactured Housing</option>
-                          <option value="0000ff">Hotel</option>
-                          <option value="0000ff">Other</option>
+                          {
+                            PROPERTY_TYPES.map(property_type => {
+                              return <option key={property_type.key} value={property_type.key}>{property_type.value}</option>
+                            })
+                          }
                         </Field>
                       </div>
                     </div>
@@ -75,9 +60,11 @@ class Slider extends Component {
                           component="select"
                           className="custom-select-2">
                           <option>Purpose</option>
-                          <option value="ff0000">Purchase</option>
-                          <option value="00ff00">Refinace</option>
-                          <option value="0000ff">Cash-out Refinace</option>
+                          {
+                            PURPOSES.map(purpose => {
+                              return <option key={purpose.key} value={purpose.key}>{purpose.value}</option>
+                            })
+                          }
                         </Field>
                       </div>
                     </div>
@@ -90,32 +77,22 @@ class Slider extends Component {
                           placeholder="Loan amount"/>
                       </div>
                     </div>
-                    <div className="col-sm-6 col-xs-12">
+                    <div className="col-sm-12 col-xs-12">
                       <div className="find-home-item">
                         <Field
-                          name="full_name"
+                          name="detail"
                           type="text"
-                          component="input"
-                          placeholder="Your name"/>
-                      </div>
-                    </div>
-                    <div className="col-sm-6 col-xs-12">
-                      <div className="find-home-item">
-                        <Field
-                          name="email"
-                          type="email"
-                          component="input"
-                          placeholder="Email"/>
+                          component="textarea"
+                          placeholder="Please give us some details about what you’re looking for."/>
                       </div>
                     </div>
                     <div className="col-xs-12">
                       <div className="row">
                         <div className="col-sm-7 col-xs-12">
-                          Please give us some details about what you’re looking for.
                         </div>
                         <div className="col-sm-5 col-xs-12">
                           <div className="find-home-item">
-                            <a className="button-1 btn-block btn-hover-1" href="#">SUBMIT</a>
+                            <button className="button-1 btn-block btn-hover-1" type="submit" disabled={pristine || submitting}>SUBMIT</button>
                           </div>
                         </div>
                       </div>
@@ -131,8 +108,8 @@ class Slider extends Component {
     )
   }
 
-  submit() {
-    console.log(1);
+  submit(fillInfo) {
+    console.log(fillInfo);
   }
 }
 
