@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import { Field, reduxForm } from 'redux-form';
+import { login } from '../../../actions/AuthAction';
+import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 
 class Slider extends Component {
   render() {
+    const { handleSubmit, pristine, submitting, reset } = this.props;
+
     return (
       <div>
         {/* SLIDER SECTION START */}
@@ -10,96 +16,112 @@ class Slider extends Component {
             <div className="find-home-box">
               <div className="section-title text-white">
                 <h3>FIND YOUR</h3>
-                <h2 className="h1">HOME HERE</h2>
+                <h2 className="h1">LOAN HERE</h2>
               </div>
               <div className="find-homes">
-                <div className="row">
-                  <div className="col-sm-6 col-xs-12">
-                    <div className="find-home-item custom-select">
-                      <select className="selectpicker" title="Location" data-hide-disabled="true" data-live-search="true">
-                        <optgroup disabled="disabled" label="disabled">
-                          <option>Hidden</option>
-                        </optgroup>
-                        <optgroup label="Australia">
-                          <option>Sydney</option>
-                          <option>Melbourne</option>
-                          <option>Cairns</option>
-                        </optgroup>
-                        <optgroup label="USA">
-                          <option>South Carolina</option>
-                          <option>Florida</option>
-                          <option>Rhode Island</option>
-                        </optgroup>
-                      </select>
-                    </div>
-                  </div>
-                  <div className="col-sm-6 col-xs-12">
-                    <div className="find-home-item custom-select">
-                      <select className="selectpicker" title="Sub - Location" data-hide-disabled="true" data-live-search="true">
-                        <optgroup disabled="disabled" label="disabled">
-                          <option>Hidden</option>
-                        </optgroup>
-                        <optgroup label="Australia">
-                          <option>southeastern coast</option>
-                          <option>southeastern tip</option>
-                          <option>northwest corner</option>
-                        </optgroup>
-                        <optgroup label="USA">
-                          <option>Charleston</option>
-                          <option>St. Petersburg</option>
-                          <option>Newport</option>
-                        </optgroup>
-                      </select>
-                    </div>
-                  </div>
-                  <div className="col-sm-6 col-xs-12">
-                    <div className="find-home-item">
-                      <input type="text" name="min-area" placeholder="Min area (sqft)" />
-                    </div>
-                  </div>
-                  <div className="col-sm-6 col-xs-12">
-                    <div className="find-home-item">
-                      <input type="text" name="max-area" placeholder="Max area (sqft)" />
-                    </div>
-                  </div>
-                  <div className="col-sm-6 col-xs-12">
-                    <div className="find-home-item  custom-select">
-                      <select className="selectpicker" title="No. of Beadrooms" data-hide-disabled="true">
-                        <optgroup  label="1">
-                          <option label="1">1 Beadrooms</option>
-                          <option>2 Beadrooms</option>
-                          <option>3 Beadrooms</option>
-                          <option>4 Beadrooms</option>
-                          <option>5 Beadrooms</option>
-                        </optgroup>
-                      </select>
-                    </div>
-                  </div>
-                  <div className="col-sm-6 col-xs-12">
-                    <div className="find-home-item custom-select">
-                      <select className="selectpicker" title="No. of Bathrooms" data-hide-disabled="true">
-                        <optgroup label="2">
-                          <option>1 Bathrooms</option>
-                          <option>2 Bathrooms</option>
-                          <option>3 Bathrooms</option>
-                          <option>4 Bathrooms</option>
-                          <option>5 Bathrooms</option>
-                        </optgroup>
-                      </select>
-                    </div>
-                  </div>
-                  <div className="col-xs-12">
-                    <div className="row">
-                      <div className="col-sm-7 col-xs-12">
+                <form
+                  onSubmit={handleSubmit(this.submit.bind(this))} >
+                  <div className="row">
+                    <div className="col-sm-6 col-xs-12">
+                      <div className="find-home-item">
+                        <Field
+                          name="state"
+                          component="select"
+                          className="custom-select-2">
+                          <option>State</option>
+                          <option value="ff0000">Alabama</option>
+                          <option value="00ff00">Alaska</option>
+                          <option value="0000ff">Arizona</option>
+                          <option value="0000ff">Arkansas</option>
+                          <option value="0000ff">California</option>
+                          <option value="0000ff">Colorado</option>
+                          <option value="0000ff">Connecticut</option>
+                          <option value="0000ff">Florida</option>
+                          <option value="0000ff">Georgia</option>
+                          <option value="0000ff">Hawaii</option>
+                          <option value="0000ff">Idaho</option>
+                          <option value="0000ff">Illinois</option>
+                          <option value="0000ff">Indiana</option>
+                          <option value="0000ff">Iowa</option>
+                          <option value="0000ff">Kansas</option>
+                          <option value="0000ff">Kentucky</option>
+                          <option value="0000ff">Louisiana</option>
+                          <option value="0000ff">Maine</option>
+                        </Field>
                       </div>
-                      <div className="col-sm-5 col-xs-12">
-                        <div className="find-home-item">
-                          <a className="button-1 btn-block btn-hover-1" href="#">SEARCH</a>
+                    </div>
+                    <div className="col-sm-6 col-xs-12">
+                      <div className="find-home-item">
+                        <Field
+                          name="property_type"
+                          component="select"
+                          className="custom-select-2">
+                          <option>Property Type</option>
+                          <option value="ff0000">Retail</option>
+                          <option value="00ff00">Multifamily</option>
+                          <option value="0000ff">Office</option>
+                          <option value="0000ff">Industrial</option>
+                          <option value="0000ff">Self-storage</option>
+                          <option value="0000ff">Manufactured Housing</option>
+                          <option value="0000ff">Hotel</option>
+                          <option value="0000ff">Other</option>
+                        </Field>
+                      </div>
+                    </div>
+                    <div className="col-sm-6 col-xs-12">
+                      <div className="find-home-item">
+                        <Field
+                          name="purpose"
+                          component="select"
+                          className="custom-select-2">
+                          <option>Purpose</option>
+                          <option value="ff0000">Purchase</option>
+                          <option value="00ff00">Refinace</option>
+                          <option value="0000ff">Cash-out Refinace</option>
+                        </Field>
+                      </div>
+                    </div>
+                    <div className="col-sm-6 col-xs-12">
+                      <div className="find-home-item">
+                        <Field
+                          name="loan_amount"
+                          type="text"
+                          component="input"
+                          placeholder="Loan amount"/>
+                      </div>
+                    </div>
+                    <div className="col-sm-6 col-xs-12">
+                      <div className="find-home-item">
+                        <Field
+                          name="full_name"
+                          type="text"
+                          component="input"
+                          placeholder="Your name"/>
+                      </div>
+                    </div>
+                    <div className="col-sm-6 col-xs-12">
+                      <div className="find-home-item">
+                        <Field
+                          name="email"
+                          type="email"
+                          component="input"
+                          placeholder="Email"/>
+                      </div>
+                    </div>
+                    <div className="col-xs-12">
+                      <div className="row">
+                        <div className="col-sm-7 col-xs-12">
+                          Please give us some details about what you’re looking for.
+                        </div>
+                        <div className="col-sm-5 col-xs-12">
+                          <div className="find-home-item">
+                            <a className="button-1 btn-block btn-hover-1" href="#">SUBMIT</a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </form>
               </div>
             </div>
           </div>
@@ -108,6 +130,21 @@ class Slider extends Component {
       </div>
     )
   }
+
+  submit() {
+    console.log(1);
+  }
 }
 
-export default Slider;
+function mapStateToProps(state) {
+  return {
+    errorMessages: state.auth.errors,
+    authenticated: state.auth.authenticated
+  }
+}
+
+export default connect(mapStateToProps)(
+  reduxForm({
+    form: 'fillForm'
+  })(Slider)
+)

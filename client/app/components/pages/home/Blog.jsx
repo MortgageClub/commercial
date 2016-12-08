@@ -11,7 +11,7 @@ class Blog extends Component {
               <div className="col-md-12">
                 <div className="section-title-2 text-center">
                   <h2>FROM BLOG</h2>
-                  <p>Sheltek is the best theme for  elit, sed do eiusmod tempor dolor sit amet, conse ctetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et lorna aliquatd minim veniam, quis nostrud</p>
+                  <p>Commercial real estate news, financing tips, investing advice, market trends, and more.</p>
                 </div>
               </div>
             </div>

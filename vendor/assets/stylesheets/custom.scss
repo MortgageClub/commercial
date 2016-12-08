@@ -21,3 +21,13 @@ select {
 .submit-btn-1:hover {
   cursor: pointer;
 }
+
+.main-menu > li > a, .drop-menu li a {
+  cursor: pointer;
+}
+
+.find-home-item {
+  .custom-select-2 {
+    margin-bottom: 0px;
+  }
+}

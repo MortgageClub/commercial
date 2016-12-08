@@ -5,9 +5,15 @@ Rails.application.routes.draw do
 
   namespace :api do
     scope module: :v1, constraints: ApiConstraint.new(version: :v1) do
-      mount_devise_token_auth_for 'User', at: 'users', controllers: {
+      mount_devise_token_auth_for 'User', at: 'auth', controllers: {
         registrations: 'api/v1/registrations'
       }
+
+      # resources :users, only: [] do
+      #   collection do
+      #     get :fetch
+      #   end
+      # end
 
       # resources :recipes, except: [:new, :edit] do
       #   member do
