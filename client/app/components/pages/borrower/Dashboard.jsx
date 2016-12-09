@@ -22,9 +22,13 @@ class Dashboard extends Component {
     )
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log(this.props);
+  }
+
   loan(loan) {
     return (
-      <div key="{loan.id}" className="col-md-4 col-sm-6 col-xs-12">
+      <div key={loan.id} className="col-md-4 col-sm-6 col-xs-12">
         <div className="flat-item">
           <div className="flat-item-image">
             <a href="properties-details.html"><img src="images/flat/1.jpg" alt="" /></a>
