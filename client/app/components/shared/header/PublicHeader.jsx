@@ -1,25 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { logout } from '../../actions/AuthAction';
+import { logout } from '../../../actions/AuthAction';
 import { connect } from 'react-redux';
 
-class Header extends Component {
-  componentDidMount() {
-    var hth = $('.header-top-bar').height();
-    $(window).on('scroll', function() {
-      if ($(this).scrollTop() > hth){
-        $('#sticky-header').addClass("sticky");
-      }
-      else{
-        $('#sticky-header').removeClass("sticky");
-      }
-    });
-  }
-
+class PublicHeader extends Component {
   render() {
     return (
       <div>
-        {/* HEADER AREA START */}
         <header className="header-area header-wrapper">
           <div className="header-top-bar bg-white">
             <div className="container">
@@ -87,7 +74,6 @@ class Header extends Component {
             </div>
           </div>
         </header>
-        {/* HEADER AREA END */}
       </div>
     )
   }
@@ -105,10 +91,7 @@ class Header extends Component {
           <Link to="/">About</Link>
         </li>
         <li>
-          <a>{this.props.userInfo.first_name + " " + this.props.userInfo.last_name}</a>
-          <ul className="drop-menu menu-right">
-            <li><a onClick={this.props.logout}>Logout</a></li>
-          </ul>
+          <a onClick={this.props.logout}>Logout</a>
         </li>
       </ul>
     )
@@ -139,9 +122,8 @@ class Header extends Component {
 
 function mapStateToProps(state) {
   return {
-    authenticated: state.auth.authenticated,
-    userInfo: state.auth.userInfo
+    authenticated: state.auth.authenticated
   };
 }
 
-export default connect(mapStateToProps, { logout })(Header);
+export default connect(mapStateToProps, { logout })(PublicHeader);

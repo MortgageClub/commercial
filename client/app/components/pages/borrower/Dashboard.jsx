@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getAll } from '../../../actions/LoanAction';
+import { formatCurrency } from '../../../utils/FormatUtils';
+import { browserHistory } from 'react-router';
+
 class Dashboard extends Component {
   componentDidMount() {
-    this.props.getAll();
+    if(window.localStorage.getItem('auth') !== null){
+      this.props.getAll();
+    }else{
+      browserHistory.push('');
+    }
   }
 
   render() {
     return (
-      <div className="pt-80 container" style={{"minHeight": "400px"}}>
+      <div className="pt-115 container" style={{"minHeight": "400px"}}>
         <div className="featured-flat">
           <div className="row">
             {
@@ -22,11 +29,8 @@ class Dashboard extends Component {
     )
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log(this.props);
-  }
-
   loan(loan) {
+    console.log(loan);
     return (
       <div key={loan.id} className="col-md-4 col-sm-6 col-xs-12">
         <div className="flat-item">
@@ -52,10 +56,21 @@ class Dashboard extends Component {
           </div>
           <div className="flat-item-info">
             <div className="flat-title-price">
-              <h5><a href="properties-details.html">Masons de Villa </a></h5>
-              <span className="price">$52,350</span>
+              <h5>
+                <a>
+                {
+                  loan.property.address
+                  ?
+                    loan.property.address.full_address
+                  :
+                    "Unknown Address"
+                }
+                </a>
+              </h5>
             </div>
-            <p><img src="images/icons/location.png" alt="" />568 E 1st Ave, Ney Jersey</p>
+            <div className="flat-title-price">
+              <span className="price">{formatCurrency(loan.amount)}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -65,7 +80,6 @@ class Dashboard extends Component {
 
 function mapStateToProps(state) {
   return {
-    authenticated: state.auth.authenticated,
     loans: state.loans.all
   }
 }

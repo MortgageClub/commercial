@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from './shared/Header';
+import Header from './shared/header/Index';
 import Footer from './shared/Footer';
 import MobileMenu from './shared/MobileMenu';
 import { fetch } from '../actions/AuthAction';
@@ -33,8 +33,7 @@ class Index extends Component {
 
 function mapStateToProps(state) {
   return {
-    authenticated: state.auth.authenticated,
-    userInfo: state.auth.userInfo
+    authenticated: state.auth.authenticated
   }
 }
 

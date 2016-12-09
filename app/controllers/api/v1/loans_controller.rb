@@ -8,6 +8,10 @@ module Api
       def create
         execute
       end
+
+      def show
+        execute
+      end
     end
   end
 end
