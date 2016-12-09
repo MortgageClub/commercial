@@ -15,6 +15,9 @@ Rails.application.routes.draw do
         end
       end
 
+      resources :loans do
+      end
+
       # resources :recipes, except: [:new, :edit] do
       #   member do
       #     post :add_ingredients

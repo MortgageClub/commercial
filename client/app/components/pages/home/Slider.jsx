@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { login } from '../../../actions/AuthAction';
+import { create } from '../../../actions/LoanAction';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { STATES, PROPERTY_TYPES, PURPOSES } from '../../../utils/ValueUtils';
@@ -109,7 +109,7 @@ class Slider extends Component {
   }
 
   submit(fillInfo) {
-    console.log(fillInfo);
+    this.props.create(fillInfo);
   }
 }
 
@@ -120,7 +120,7 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(
+export default connect(mapStateToProps, { create })(
   reduxForm({
     form: 'fillForm'
   })(Slider)
