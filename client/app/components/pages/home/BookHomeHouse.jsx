@@ -21,7 +21,7 @@ class BookHomeHouse extends Component {
                     <h2 className="h5">CALL US ON : +0123  456  789  </h2>
                   </div>
                   <div className="booking-imgae">
-                    <img src="images/others/booking.png" alt=""/>
+                    <img src="/images/others/booking.png" alt=""/>
                   </div>
                 </div>
               </div>

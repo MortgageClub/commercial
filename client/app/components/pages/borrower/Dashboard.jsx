@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getAll } from '../../../actions/LoanAction';
 import { formatCurrency } from '../../../utils/FormatUtils';
-import { browserHistory } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -30,26 +30,25 @@ class Dashboard extends Component {
   }
 
   loan(loan) {
-    console.log(loan);
     return (
       <div key={loan.id} className="col-md-4 col-sm-6 col-xs-12">
         <div className="flat-item">
           <div className="flat-item-image">
-            <a href="properties-details.html"><img src="images/flat/1.jpg" alt="" /></a>
+            <a href="properties-details.html"><img src="/images/flat/1.jpg" alt="" /></a>
             <div className="flat-link">
-              <a href="properties-details.html">More Details</a>
+              <Link to={`/loans/${loan.id}`}>More Details</Link>
             </div>
             <ul className="flat-desc">
               <li>
-                <img src="images/icons/4.png" alt="" />
+                <img src="/images/icons/4.png" alt="" />
                 <span>450 sqft</span>
               </li>
               <li>
-                <img src="images/icons/5.png" alt="" />
+                <img src="/images/icons/5.png" alt="" />
                 <span>5</span>
               </li>
               <li>
-                <img src="images/icons/6.png" alt="" />
+                <img src="/images/icons/6.png" alt="" />
                 <span>3</span>
               </li>
             </ul>

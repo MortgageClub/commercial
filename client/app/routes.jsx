@@ -6,13 +6,15 @@ import Login from './components/pages/auth/Login';
 import Register from './components/pages/auth/Register';
 import ForgotPassword from './components/pages/auth/ForgotPassword';
 import Dashboard from './components/pages/borrower/Dashboard';
+import Loan from './components/pages/borrower/loan/Index';
 
 export default (
   <Route path="/" component={Index}>
     <IndexRoute component={Home}/>
-    <Route path="login" component={Login} />
-    <Route path="register" component={Register} />
-    <Route path="forgot-password" component={ForgotPassword} />
-    <Route path="dashboard" component={Dashboard} />
+    <Route path="/login" component={Login} />
+    <Route path="/register" component={Register} />
+    <Route path="/forgot-password" component={ForgotPassword} />
+    <Route path="/dashboard" component={Dashboard} />
+    <Route path="/loans/:id" component={Loan} />
   </Route>
 );

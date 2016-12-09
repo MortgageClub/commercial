@@ -16,7 +16,7 @@ class Footer extends Component {
                     <ul className="footer-address">
                       <li>
                         <div className="address-icon">
-                          <img src="images/icons/location-2.png" alt=""/>
+                          <img src="/images/icons/location-2.png" alt=""/>
                         </div>
                         <div className="address-info">
                           <span>8901 Marmora Raod,</span>
@@ -25,7 +25,7 @@ class Footer extends Component {
                       </li>
                       <li>
                         <div className="address-icon">
-                          <img src="images/icons/phone-3.png" alt=""/>
+                          <img src="/images/icons/phone-3.png" alt=""/>
                         </div>
                         <div className="address-info">
                           <span>Telephone : (801) 4256  9856</span>
@@ -34,7 +34,7 @@ class Footer extends Component {
                       </li>
                       <li>
                         <div className="address-icon">
-                          <img src="images/icons/world.png" alt=""/>
+                          <img src="/images/icons/world.png" alt=""/>
                         </div>
                         <div className="address-info">
                           <span>Email : info@sheltek.com</span>
@@ -51,7 +51,7 @@ class Footer extends Component {
                     <ul className="footer-latest-news">
                       <li>
                         <div className="latest-news-image">
-                          <a href="single-blog.html"><img src="images/blog/1.jpg" alt=""/></a>
+                          <a href="single-blog.html"><img src="/images/blog/1.jpg" alt=""/></a>
                         </div>
                         <div className="latest-news-info">
                           <h6><a href="single-blog.html">Beautiful Home</a></h6>
@@ -60,7 +60,7 @@ class Footer extends Component {
                       </li>
                       <li>
                         <div className="latest-news-image">
-                          <a href="single-blog.html"><img src="images/blog/2.jpg" alt=""/></a>
+                          <a href="single-blog.html"><img src="/images/blog/2.jpg" alt=""/></a>
                         </div>
                         <div className="latest-news-info">
                           <h6><a href="single-blog.html">Beautiful Home</a></h6>
@@ -69,7 +69,7 @@ class Footer extends Component {
                       </li>
                       <li>
                         <div className="latest-news-image">
-                          <a href="single-blog.html"><img src="images/blog/3.jpg" alt=""/></a>
+                          <a href="single-blog.html"><img src="/images/blog/3.jpg" alt=""/></a>
                         </div>
                         <div className="latest-news-info">
                           <h6><a href="single-blog.html">Beautiful Home</a></h6>

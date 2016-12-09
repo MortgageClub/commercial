@@ -16,7 +16,7 @@ class BorrowerHeader extends Component {
                   <div className="col-md-12">
                     <div className="sticky-logo">
                       <Link to="/">
-                        <img src="images/logo/logo.png" alt=""/>
+                        <img src="/images/logo/logo.png" alt=""/>
                       </Link>
                     </div>
                     <nav id="primary-menu">

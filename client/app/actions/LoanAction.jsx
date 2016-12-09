@@ -26,3 +26,15 @@ export function create(loanInfo) {
       })
   }
 }
+
+export function fetch(loanId) {
+  return function (dispatch) {
+    axios.get('/loans/' + loanId, { headers: authFromLocal() })
+      .then(response => {
+        console.log(fetch);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+}

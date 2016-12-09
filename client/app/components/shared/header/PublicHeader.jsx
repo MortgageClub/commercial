@@ -14,7 +14,7 @@ class PublicHeader extends Component {
                 <div className="col-md-3 col-sm-6 col-xs-12">
                   <div className="logo">
                     <Link to="/">
-                      <img src="images/logo/logo.png" alt=""/>
+                      <img src="/images/logo/logo.png" alt=""/>
                     </Link>
                   </div>
                 </div>
@@ -22,7 +22,7 @@ class PublicHeader extends Component {
                   <div className="company-info clearfix">
                     <div className="company-info-item">
                       <div className="header-icon">
-                        <img src="images/icons/phone.png" alt="" />
+                        <img src="/images/icons/phone.png" alt="" />
                       </div>
                       <div className="header-info">
                         <h6>+88 (012) 564 979 56</h6>
@@ -31,7 +31,7 @@ class PublicHeader extends Component {
                     </div>
                     <div className="company-info-item">
                       <div className="header-icon">
-                        <img src="images/icons/mail-open.png" alt="" />
+                        <img src="/images/icons/mail-open.png" alt="" />
                       </div>
                       <div className="header-info">
                         <h6><a href="mailto:hnasir770@gmail.com">info@sheltek.com</a></h6>
@@ -44,7 +44,7 @@ class PublicHeader extends Component {
                   <div className="header-search clearfix">
                     <form action="#">
                       <button className="search-icon" type="submit">
-                      <img src="images/icons/search.png" alt=""/>
+                      <img src="/images/icons/search.png" alt=""/>
                       </button>
                       <input type="text" placeholder="Search..." />
                     </form>
@@ -60,7 +60,7 @@ class PublicHeader extends Component {
                   <div className="col-md-12">
                     <div className="sticky-logo">
                       <Link to="/">
-                        <img src="images/logo/logo.png" alt=""/>
+                        <img src="/images/logo/logo.png" alt=""/>
                       </Link>
                     </div>
                     <nav id="primary-menu">

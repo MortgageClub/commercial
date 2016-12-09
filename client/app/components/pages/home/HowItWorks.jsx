@@ -21,7 +21,7 @@ class HowItWorks extends Component {
                 <div className="col-md-12">
                   <div className="service-item">
                     <div className="service-item-image">
-                      <a href="service-details.html"><img src="images/service/1.jpg" alt=""/></a>
+                      <a href="service-details.html"><img src="/images/service/1.jpg" alt=""/></a>
                     </div>
                     <div className="service-item-info">
                       <h5><a href="service-details.html">Shop</a></h5>
@@ -33,7 +33,7 @@ class HowItWorks extends Component {
                 <div className="col-md-12">
                   <div className="service-item">
                     <div className="service-item-image">
-                      <a href="service-details.html"><img src="images/service/2.jpg" alt=""/></a>
+                      <a href="service-details.html"><img src="/images/service/2.jpg" alt=""/></a>
                     </div>
                     <div className="service-item-info">
                       <h5><a href="service-details.html">Apply</a></h5>
@@ -45,7 +45,7 @@ class HowItWorks extends Component {
                 <div className="col-md-12">
                   <div className="service-item">
                     <div className="service-item-image">
-                      <a href="service-details.html"><img src="images/service/3.jpg" alt=""/></a>
+                      <a href="service-details.html"><img src="/images/service/3.jpg" alt=""/></a>
                     </div>
                     <div className="service-item-info">
                       <h5><a href="service-details.html">Underwrite</a></h5>
@@ -57,7 +57,7 @@ class HowItWorks extends Component {
                 <div className="col-md-12">
                   <div className="service-item">
                     <div className="service-item-image">
-                      <a href="service-details.html"><img src="images/service/4.jpg" alt=""/></a>
+                      <a href="service-details.html"><img src="/images/service/4.jpg" alt=""/></a>
                     </div>
                     <div className="service-item-info">
                       <h5><a href="service-details.html">Closing</a></h5>

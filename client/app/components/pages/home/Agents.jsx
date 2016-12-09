@@ -22,7 +22,7 @@ class Agents extends Component {
                   <div className="col-md-12">
                     <div className="single-agent">
                       <div className="agent-image">
-                        <img src="images/agents/1.jpg" alt=""/>
+                        <img src="/images/agents/1.jpg" alt=""/>
                       </div>
                       <div className="agent-info">
                         <div className="agent-name">
@@ -36,8 +36,8 @@ class Agents extends Component {
                           <p>Real Estate Agent</p>
                         </div>
                         <ul className="agent-address">
-                          <li><img src="images/icons/phone-2.png" alt=""/>+1245  785  659 </li>
-                          <li><img src="images/icons/mail-close.png" alt=""/>eva@gmail.com </li>
+                          <li><img src="/images/icons/phone-2.png" alt=""/>+1245  785  659 </li>
+                          <li><img src="/images/icons/mail-close.png" alt=""/>eva@gmail.com </li>
                         </ul>
                         <ul className="social-media">
                           <li><a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -52,7 +52,7 @@ class Agents extends Component {
                   <div className="col-md-12">
                     <div className="single-agent">
                       <div className="agent-image">
-                        <img src="images/agents/2.jpg" alt=""/>
+                        <img src="/images/agents/2.jpg" alt=""/>
                       </div>
                       <div className="agent-info">
                         <div className="agent-name">
@@ -66,8 +66,8 @@ class Agents extends Component {
                           <p>Real Estate Broker</p>
                         </div>
                         <ul className="agent-address">
-                          <li><img src="images/icons/phone-2.png" alt=""/>+1245  785  659 </li>
-                          <li><img src="images/icons/mail-close.png" alt=""/>eva@gmail.com </li>
+                          <li><img src="/images/icons/phone-2.png" alt=""/>+1245  785  659 </li>
+                          <li><img src="/images/icons/mail-close.png" alt=""/>eva@gmail.com </li>
                         </ul>
                         <ul className="social-media">
                           <li><a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -82,7 +82,7 @@ class Agents extends Component {
                   <div className="col-md-12">
                     <div className="single-agent">
                       <div className="agent-image">
-                        <img src="images/agents/3.jpg" alt=""/>
+                        <img src="/images/agents/3.jpg" alt=""/>
                       </div>
                       <div className="agent-info">
                         <div className="agent-name">
@@ -96,8 +96,8 @@ class Agents extends Component {
                           <p>Real Estate Broker</p>
                         </div>
                         <ul className="agent-address">
-                          <li><img src="images/icons/phone-2.png" alt=""/>+1245  785  659 </li>
-                          <li><img src="images/icons/mail-close.png" alt=""/>eva@gmail.com </li>
+                          <li><img src="/images/icons/phone-2.png" alt=""/>+1245  785  659 </li>
+                          <li><img src="/images/icons/mail-close.png" alt=""/>eva@gmail.com </li>
                         </ul>
                         <ul className="social-media">
                           <li><a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -112,7 +112,7 @@ class Agents extends Component {
                   <div className="col-md-12">
                     <div className="single-agent">
                       <div className="agent-image">
-                        <img src="images/agents/4.jpg" alt=""/>
+                        <img src="/images/agents/4.jpg" alt=""/>
                       </div>
                       <div className="agent-info">
                         <div className="agent-name">
@@ -126,8 +126,8 @@ class Agents extends Component {
                           <p>Real Estate Agent</p>
                         </div>
                         <ul className="agent-address">
-                          <li><img src="images/icons/phone-2.png" alt=""/>+1245  785  659 </li>
-                          <li><img src="images/icons/mail-close.png" alt=""/>eva@gmail.com </li>
+                          <li><img src="/images/icons/phone-2.png" alt=""/>+1245  785  659 </li>
+                          <li><img src="/images/icons/mail-close.png" alt=""/>eva@gmail.com </li>
                         </ul>
                         <ul className="social-media">
                           <li><a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -142,7 +142,7 @@ class Agents extends Component {
                   <div className="col-md-12">
                     <div className="single-agent">
                       <div className="agent-image">
-                        <img src="images/agents/3.jpg" alt=""/>
+                        <img src="/images/agents/3.jpg" alt=""/>
                       </div>
                       <div className="agent-info">
                         <div className="agent-name">
@@ -156,8 +156,8 @@ class Agents extends Component {
                           <p>Real Estate Broker</p>
                         </div>
                         <ul className="agent-address">
-                          <li><img src="images/icons/phone-2.png" alt=""/>+1245  785  659 </li>
-                          <li><img src="images/icons/mail-close.png" alt=""/>eva@gmail.com </li>
+                          <li><img src="/images/icons/phone-2.png" alt=""/>+1245  785  659 </li>
+                          <li><img src="/images/icons/mail-close.png" alt=""/>eva@gmail.com </li>
                         </ul>
                         <ul className="social-media">
                           <li><a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a></li>

@@ -21,7 +21,7 @@ class Blog extends Component {
                 <div className="col-md-12">
                   <article className="blog-item bg-gray">
                     <div className="blog-image">
-                      <a href="single-blog.html"><img src="images/blog/1.jpg" alt=""/></a>
+                      <a href="single-blog.html"><img src="/images/blog/1.jpg" alt=""/></a>
                     </div>
                     <div className="blog-info">
                       <div className="post-title-time">
@@ -37,7 +37,7 @@ class Blog extends Component {
                 <div className="col-md-12">
                   <article className="blog-item bg-gray">
                     <div className="blog-image">
-                      <a href="single-blog.html"><img src="images/blog/2.jpg" alt=""/></a>
+                      <a href="single-blog.html"><img src="/images/blog/2.jpg" alt=""/></a>
                     </div>
                     <div className="blog-info">
                       <div className="post-title-time">
@@ -53,7 +53,7 @@ class Blog extends Component {
                 <div className="col-md-12">
                   <article className="blog-item bg-gray">
                     <div className="blog-image">
-                      <a href="single-blog.html"><img src="images/blog/3.jpg" alt=""/></a>
+                      <a href="single-blog.html"><img src="/images/blog/3.jpg" alt=""/></a>
                     </div>
                     <div className="blog-info">
                       <div className="post-title-time">
@@ -69,7 +69,7 @@ class Blog extends Component {
                 <div className="col-md-12">
                   <article className="blog-item bg-gray">
                     <div className="blog-image">
-                      <a href="single-blog.html"><img src="images/blog/2.jpg" alt=""/></a>
+                      <a href="single-blog.html"><img src="/images/blog/2.jpg" alt=""/></a>
                     </div>
                     <div className="blog-info">
                       <div className="post-title-time">

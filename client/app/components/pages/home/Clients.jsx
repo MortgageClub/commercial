@@ -42,7 +42,7 @@ class Clients extends Component {
                     </div>
                     <div className="col-md-4 col-sm-3">
                       <div className="testimonial-image">
-                        <img src="images/others/testimonial.jpg" alt=""/>
+                        <img src="/images/others/testimonial.jpg" alt=""/>
                       </div>
                     </div>
                   </div>
