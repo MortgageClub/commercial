@@ -23,6 +23,21 @@ class Slider extends Component {
                 <form
                   onSubmit={handleSubmit(this.submit.bind(this))} >
                   <div className="row">
+                    <div className="col-sm-12 col-xs-12">
+                      <div className="find-home-item">
+                        <Field
+                          name="property_address"
+                          component="select"
+                          className="custom-select-2">
+                          <option>Property Address</option>
+                          {
+                            PROPERTY_TYPES.map(property_type => {
+                              return <option key={property_type.key} value={property_type.key}>{property_type.value}</option>
+                            })
+                          }
+                        </Field>
+                      </div>
+                    </div>
                     <div className="col-sm-6 col-xs-12">
                       <div className="find-home-item">
                         <Field
