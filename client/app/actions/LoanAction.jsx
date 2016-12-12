@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { LOANS_LIST } from '../actions/Types';
+import { LOANS_LIST, LOAN_DETAILS } from '../actions/Types';
 import { authFromLocal } from '../utils/AuthUtils'
 
 export function getAll() {
@@ -31,7 +31,7 @@ export function fetch(loanId) {
   return function (dispatch) {
     axios.get('/loans/' + loanId, { headers: authFromLocal() })
       .then(response => {
-        console.log(fetch);
+        dispatch({ type: LOAN_DETAILS, payload: response.data });
       })
       .catch(error => {
         console.log(error);

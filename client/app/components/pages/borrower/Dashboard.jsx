@@ -20,7 +20,7 @@ class Dashboard extends Component {
           <div className="row">
             {
               this.props.loans && this.props.loans.map(loan => {
-                return this.loan(loan);
+                return this.loanDetails(loan);
               })
             }
           </div>
@@ -29,12 +29,12 @@ class Dashboard extends Component {
     )
   }
 
-  loan(loan) {
+  loanDetails(loan) {
     return (
       <div key={loan.id} className="col-md-4 col-sm-6 col-xs-12">
         <div className="flat-item">
           <div className="flat-item-image">
-            <a href="properties-details.html"><img src="/images/flat/1.jpg" alt="" /></a>
+            <Link to={`/loans/${loan.id}`}><img src="/images/flat/1.jpg" alt="" /></Link>
             <div className="flat-link">
               <Link to={`/loans/${loan.id}`}>More Details</Link>
             </div>

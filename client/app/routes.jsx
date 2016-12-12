@@ -5,8 +5,8 @@ import Home from './components/pages/home/Index';
 import Login from './components/pages/auth/Login';
 import Register from './components/pages/auth/Register';
 import ForgotPassword from './components/pages/auth/ForgotPassword';
-import Dashboard from './components/pages/borrower/Dashboard';
-import Loan from './components/pages/borrower/loan/Index';
+import BorrowerDashboard from './components/pages/borrower/Dashboard';
+import LoanDashboard from './components/pages/borrower/loan/show/Index';
 
 export default (
   <Route path="/" component={Index}>
@@ -14,7 +14,7 @@ export default (
     <Route path="/login" component={Login} />
     <Route path="/register" component={Register} />
     <Route path="/forgot-password" component={ForgotPassword} />
-    <Route path="/dashboard" component={Dashboard} />
-    <Route path="/loans/:id" component={Loan} />
+    <Route path="/dashboard" component={BorrowerDashboard} />
+    <Route path="/loans/:id" component={LoanDashboard} />
   </Route>
 );

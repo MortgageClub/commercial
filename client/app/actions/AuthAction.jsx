@@ -56,7 +56,7 @@ export function fetch() {
 function handleSuccessAuthen(dispatch, data, headers) {
   dispatch({ type: AUTH_USER, payload: data });
   localStorage.setItem('auth', authFromHeader(headers));
-  browserHistory.push('/dashboard');
+  // browserHistory.push('/dashboard');
   dispatch(authError(null));
 }
 
