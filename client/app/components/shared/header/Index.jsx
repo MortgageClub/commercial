@@ -9,7 +9,7 @@ class Index extends Component {
     return (
       <div>
         {
-          this.props.authenticated && this.props.routing && this.props.routing.locationBeforeTransitions && this.props.routing.locationBeforeTransitions.pathname == "/dashboard"
+          this.props.authenticated && this.props.location && this.matchBorrowerHeader(this.props.location.pathname)
           ?
             <BorrowerHeader />
           :
@@ -18,12 +18,18 @@ class Index extends Component {
       </div>
     )
   }
+
+  matchBorrowerHeader(path) {
+    if (path == "/dashboard" || path.indexOf("/loans/") > -1)
+      return true;
+    return false;
+  }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
   return {
     authenticated: state.auth.authenticated,
-    routing: state.routing
+    location: ownProps.location
   };
 }
 

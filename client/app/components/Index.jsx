@@ -22,7 +22,7 @@ class Index extends Component {
   render() {
     return (
       <div className="wrapper">
-        <Header/>
+        <Header location={this.props.location}/>
         <MobileMenu/>
         {this.props.children}
         <Footer/>
@@ -32,9 +32,7 @@ class Index extends Component {
 }
 
 function mapStateToProps(state) {
-  return {
-    authenticated: state.auth.authenticated
-  }
+  return {};
 }
 
 export default connect(mapStateToProps, { fetch })(Index)

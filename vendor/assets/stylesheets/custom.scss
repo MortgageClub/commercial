@@ -38,3 +38,22 @@ select {
     margin-bottom: 0px;
   }
 }
+
+.media {
+  margin-top: 0px;
+
+  .media-body {
+    .fa, span {
+      display: inline-block;
+    }
+
+    .fa {
+      margin-right: 5px;
+    }
+  }
+}
+
+.tab-content {
+  margin-top: 20px;
+}
+

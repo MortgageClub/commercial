@@ -1,10 +1,10 @@
-module Users
+module Loans
   module V1
     class Show < Service
       require_authen!
 
       def process
-        byebug
+        Loans::DetailSerializer.new(Loan.find(params[:id]))
       end
     end
   end

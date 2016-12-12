@@ -15,7 +15,7 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div className="pt-115 container" style={{"minHeight": "400px"}}>
+      <div className="pt-90 container" style={{"minHeight": "400px"}}>
         <div className="featured-flat">
           <div className="row">
             {
@@ -79,7 +79,7 @@ class Dashboard extends Component {
 
 function mapStateToProps(state) {
   return {
-    loans: state.loans.all
+    loans: state.dashboard.loans
   }
 }
 
