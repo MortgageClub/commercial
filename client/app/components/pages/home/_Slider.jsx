@@ -41,36 +41,6 @@ class Slider extends Component {
                     <div className="col-sm-6 col-xs-12">
                       <div className="find-home-item">
                         <Field
-                          name="state"
-                          component="select"
-                          className="custom-select-2">
-                          <option>State</option>
-                          {
-                            STATES.map(state => {
-                              return <option key={state.key} value={state.key}>{state.value}</option>
-                            })
-                          }
-                        </Field>
-                      </div>
-                    </div>
-                    <div className="col-sm-6 col-xs-12">
-                      <div className="find-home-item">
-                        <Field
-                          name="property_type"
-                          component="select"
-                          className="custom-select-2">
-                          <option>Property Type</option>
-                          {
-                            PROPERTY_TYPES.map(property_type => {
-                              return <option key={property_type.key} value={property_type.key}>{property_type.value}</option>
-                            })
-                          }
-                        </Field>
-                      </div>
-                    </div>
-                    <div className="col-sm-6 col-xs-12">
-                      <div className="find-home-item">
-                        <Field
                           name="purpose"
                           component="select"
                           className="custom-select-2">
