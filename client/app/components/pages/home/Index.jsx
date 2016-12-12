@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Subscribe from '../../shared/Subscribe';
-import Slider from './Slider';
-import HowItWorks from './HowItWorks';
-import About from './About';
-import Brand from './Brand';
-import BookHomeHouse from './BookHomeHouse';
-import Blog from './Blog';
-import Agents from './Agents';
-import Clients from './Clients';
+import Slider from './_Slider';
+import HowItWorks from './_HowItWorks';
+import About from './_About';
+import Brand from './_Brand';
+import BookHomeHouse from './_BookHomeHouse';
+import Blog from './_Blog';
+import Agents from './_Agents';
+import Clients from './_Clients';
 
 class Index extends Component {
   componentDidMount() {

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { fetch } from '../../../../actions/LoanAction';
+import { fetch } from '../../../../../actions/LoanAction';
 import { connect } from 'react-redux';
 
 class Index extends Component {
   componentDidMount() {
-    console.log(this.props.routing);
+    console.log(this.props);
   }
 
   render() {
