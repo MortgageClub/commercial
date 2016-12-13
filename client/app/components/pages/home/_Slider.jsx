@@ -26,7 +26,7 @@ class Slider extends Component {
                   <div className="row">
                     <div className="col-sm-12 col-xs-12">
                       <div className="find-home-item">
-                        <Geosuggest placeholder="Property Address"/>
+                        <Geosuggest placeholder="Property Address" country="us" onSuggestSelect={this.onSuggestSelect.bind(this)}/>
                       </div>
                     </div>
                     <div className="col-sm-6 col-xs-12">
@@ -35,6 +35,7 @@ class Slider extends Component {
                           name="purpose"
                           component="select"
                           className="custom-select-2">
+                          <option>Select Purpose</option>
                           {
                             PURPOSES.map(purpose => {
                               return <option key={purpose.key} value={purpose.key}>{purpose.value}</option>
@@ -67,7 +68,7 @@ class Slider extends Component {
                         </div>
                         <div className="col-sm-5 col-xs-12">
                           <div className="find-home-item">
-                            <button className="button-1 btn-block btn-hover-1" type="submit" disabled={pristine || submitting}>SUBMIT</button>
+                            <button className="button-1 btn-block btn-hover-1" type="submit" disabled={submitting}>SUBMIT</button>
                           </div>
                         </div>
                       </div>
@@ -83,8 +84,41 @@ class Slider extends Component {
     )
   }
 
+  onSuggestSelect(suggest) {
+    let address = {};
+    let gmaps = suggest.gmaps;
+
+    address.full_text = suggest.gmaps.formatted_address;
+
+    for (var i = 0; i < gmaps.address_components.length; i++){
+      let types = gmaps.address_components[i].types.join(",");
+
+      if (types == "street_number"){
+        address.street_number = gmaps.address_components[i].long_name;
+      }
+      if (types == "route" || types == "point_of_interest,establishment"){
+        address.route = gmaps.address_components[i].long_name;
+      }
+      if (types == "locality,political"){
+        address.city = gmaps.address_components[i].long_name;
+      }
+      if (types == "administrative_area_level_1,political"){
+        address.state = gmaps.address_components[i].short_name;
+      }
+      if (types == "postal_code"){
+        address.zip = gmaps.address_components[i].long_name;
+      }
+      if (types == "country,political"){
+        address.country = gmaps.address_components[i].short_name;
+      }
+    }
+    address.street_address = address.street_number + " " + address.route;
+
+    this.setState({ address: address });
+  }
+
   submit(fillInfo) {
-    this.props.create(fillInfo);
+    this.props.create({ ...fillInfo, address: this.state.address });
   }
 }
 

@@ -59,7 +59,7 @@ class Dashboard extends Component {
                 {
                   loan.property.address
                   ?
-                    loan.property.address.full_address
+                    loan.property.address.full_text
                   :
                     "Unknown Address"
                 }

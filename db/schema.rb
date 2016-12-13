@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161213050039) do
+ActiveRecord::Schema.define(version: 20161213112559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,10 +25,9 @@ ActiveRecord::Schema.define(version: 20161213050039) do
     t.string   "unit_number"
     t.string   "full_text"
     t.string   "addressable_type"
-    t.integer  "addressable_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id", using: :btree
+    t.uuid     "addressable_id"
   end
 
   create_table "agents", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
@@ -104,6 +103,7 @@ ActiveRecord::Schema.define(version: 20161213050039) do
     t.datetime "updated_at",        null: false
     t.string   "purpose"
     t.string   "status"
+    t.string   "note"
     t.index ["borrower_id"], name: "index_loans_on_borrower_id", using: :btree
   end
 

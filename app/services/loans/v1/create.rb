@@ -4,7 +4,23 @@ module Loans
       require_authen!
 
       def process
-        @user.subjectable.loans.create(property: Property.create(property_type: params[:loan][:property_type]), amount: params[:loan][:loan_amount].to_f, purpose: params[:loan][:purpose])
+        address_params = params[:loan][:address]
+
+        @user.subjectable.loans.create!(
+          property: Property.new(
+            address: Address.new(
+              street_address: address_params[:street_address],
+              city: address_params[:city],
+              state: address_params[:state],
+              zip: address_params[:zip],
+              full_text: address_params[:full_text]
+            )
+          ),
+          amount: params[:loan][:loan_amount].to_f,
+          purpose: params[:loan][:purpose],
+          note: params[:loan][:detail],
+          status: :new_loan
+        )
       end
     end
   end
