@@ -16,52 +16,118 @@ class Transactions extends Component {
               </div>
             </div>
             <div className="row">
-              <div className="service-carousel">
+              <div className="transaction-carousel">
                 {/* service-item */}
                 <div className="col-md-12">
                   <div className="service-item">
-                    <div className="service-item-image">
-                      <a href="service-details.html"><img src="/images/service/1.jpg" alt=""/></a>
+                    <div className="service-item-table">
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td>Property Type</td>
+                            <td>Retail</td>
+                          </tr>
+                          <tr>
+                            <td>Location</td>
+                            <td>FL</td>
+                          </tr>
+                          <tr>
+                            <td>Loan Amount</td>
+                            <td>$2,150,000</td>
+                          </tr>
+                          <tr>
+                            <td>LTV</td>
+                            <td>60%</td>
+                          </tr>
+                          <tr>
+                            <td>Rate</td>
+                            <td>4.20%</td>
+                          </tr>
+                          <tr>
+                            <td>Term</td>
+                            <td>7 years</td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                     <div className="service-item-info">
-                      <h5><a href="service-details.html">Shop</a></h5>
-                      <p>Get at least 3 competitive quotes for your scenario.</p>
+                      <h5><a href="service-details.html">RACETRAC</a></h5>
                     </div>
                   </div>
                 </div>
                 {/* service-item */}
                 <div className="col-md-12">
                   <div className="service-item">
-                    <div className="service-item-image">
-                      <a href="service-details.html"><img src="/images/service/2.jpg" alt=""/></a>
+                    <div className="service-item-table">
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td>Property Type</td>
+                            <td>Retail</td>
+                          </tr>
+                          <tr>
+                            <td>Location</td>
+                            <td>FL</td>
+                          </tr>
+                          <tr>
+                            <td>Loan Amount</td>
+                            <td>$2,150,000</td>
+                          </tr>
+                          <tr>
+                            <td>LTV</td>
+                            <td>60%</td>
+                          </tr>
+                          <tr>
+                            <td>Rate</td>
+                            <td>4.20%</td>
+                          </tr>
+                          <tr>
+                            <td>Term</td>
+                            <td>7 years</td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                     <div className="service-item-info">
-                      <h5><a href="service-details.html">Apply</a></h5>
-                      <p>We structure your loan package and present it to the lender.</p>
+                      <h5><a href="service-details.html">RITE AID</a></h5>
                     </div>
                   </div>
                 </div>
                 {/* service-item */}
                 <div className="col-md-12">
                   <div className="service-item">
-                    <div className="service-item-image">
-                      <a href="service-details.html"><img src="/images/service/3.jpg" alt=""/></a>
+                    <div className="service-item-table">
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td>Property Type</td>
+                            <td>Retail</td>
+                          </tr>
+                          <tr>
+                            <td>Location</td>
+                            <td>FL</td>
+                          </tr>
+                          <tr>
+                            <td>Loan Amount</td>
+                            <td>$2,150,000</td>
+                          </tr>
+                          <tr>
+                            <td>LTV</td>
+                            <td>60%</td>
+                          </tr>
+                          <tr>
+                            <td>Rate</td>
+                            <td>4.20%</td>
+                          </tr>
+                          <tr>
+                            <td>Term</td>
+                            <td>7 years</td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                     <div className="service-item-info">
-                      <h5><a href="service-details.html">Underwrite</a></h5>
-                      <p>Final underwriting and lender commitment.</p>
-                    </div>
-                  </div>
-                </div>
-                {/* service-item */}
-                <div className="col-md-12">
-                  <div className="service-item">
-                    <div className="service-item-image">
-                      <a href="service-details.html"><img src="/images/service/4.jpg" alt=""/></a>
-                    </div>
-                    <div className="service-item-info">
-                      <h5><a href="service-details.html">Closing</a></h5>
-                      <p>Loan closes and funding is completed.</p>
+                      <h5><a href="service-details.html">IHOPE</a></h5>
                     </div>
                   </div>
                 </div>

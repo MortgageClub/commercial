@@ -28,6 +28,22 @@ class Index extends Component {
       ]
     });
     /*************************
+      7. Transaction Carousel
+    *************************/
+    $('.transaction-carousel').slick({
+      arrows: false,
+      dots: false,
+      infinite: false,
+      speed: 300,
+      slidesToShow: 3,
+      slidesToScroll: 2,
+      responsive: [
+        { breakpoint: 991, settings: { slidesToShow: 2, slidesToScroll: 1 } }, // Tablet
+        { breakpoint: 767, settings: { slidesToShow: 1, slidesToScroll: 1 } }, // Large Mobile
+        { breakpoint: 479, settings: { slidesToShow: 1, slidesToScroll: 1 } }  // Small Mobile
+      ]
+    });
+    /*************************
         8. Agents Carousel
     *************************/
     $('.agents-carousel').slick({

@@ -64,3 +64,15 @@ select {
 .full-width {
   width: 100%;
 }
+
+.service-item-table {
+  padding: 10px;
+  background: #BCBCBC none repeat scroll 0 0;
+
+  table {
+    width: 100%;
+  }
+  tr td:first-child {
+    width: 50%;
+  }
+}
