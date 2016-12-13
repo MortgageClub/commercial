@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161209051316) do
+ActiveRecord::Schema.define(version: 20161212101623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,27 @@ ActiveRecord::Schema.define(version: 20161209051316) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.index ["user_id"], name: "index_bussinesses_on_user_id", using: :btree
+  end
+
+  create_table "checklists", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid     "loan_id"
+    t.string   "checklist_type"
+    t.datetime "due_date"
+    t.string   "name"
+    t.string   "information"
+    t.string   "status"
+    t.string   "document_description"
+    t.uuid     "document_type_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["loan_id"], name: "index_checklists_on_loan_id", using: :btree
+  end
+
+  create_table "document_types", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.string   "category"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "loans", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
@@ -135,6 +156,7 @@ ActiveRecord::Schema.define(version: 20161209051316) do
 
   add_foreign_key "agents", "loans"
   add_foreign_key "bussinesses", "users"
+  add_foreign_key "checklists", "loans"
   add_foreign_key "loans", "borrowers"
   add_foreign_key "properties", "loans"
 end

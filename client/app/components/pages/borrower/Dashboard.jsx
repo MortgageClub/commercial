@@ -19,9 +19,7 @@ class Dashboard extends Component {
         <div className="featured-flat">
           <div className="row">
             {
-              this.props.loans && this.props.loans.map(loan => {
-                return this.loanDetails(loan);
-              })
+              this.props.loans && this.props.loans.map(loan => this.renderLoan(loan))
             }
           </div>
         </div>
@@ -29,7 +27,7 @@ class Dashboard extends Component {
     )
   }
 
-  loanDetails(loan) {
+  renderLoan(loan) {
     return (
       <div key={loan.id} className="col-md-4 col-sm-6 col-xs-12">
         <div className="flat-item">

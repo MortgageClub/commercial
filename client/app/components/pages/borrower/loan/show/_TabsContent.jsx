@@ -57,11 +57,5 @@ class TabsContent extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    loan: state.dashboard.loan
-  };
-}
-
-export default connect(mapStateToProps)(TabsContent)
+export default TabsContent
 

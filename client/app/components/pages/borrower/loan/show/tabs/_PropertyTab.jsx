@@ -7,10 +7,12 @@ class PropertyTab extends Component {
       <div>
         <table className="table">
           <thead>
-            <th width="30%">Name</th>
-            <th width="15%">Owner</th>
-            <th width="40%">Description</th>
-            <th width="15%">Modified</th>
+            <tr>
+              <th width="30%">Name</th>
+              <th width="15%">Owner</th>
+              <th width="40%">Description</th>
+              <th width="15%">Modified</th>
+            </tr>
           </thead>
           <tbody>
           </tbody>

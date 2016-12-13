@@ -47,7 +47,8 @@
     "sinon-chai": "^2.8.0",
     "webpack": "^1.12.14",
     "react-router-redux": "^4.0.7",
-    "react-intl": "^1.2.2"
+    "react-intl": "^1.2.2",
+    "react-geosuggest": "^2.0.0"
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.7.1",
