@@ -32,6 +32,7 @@ class Dashboard extends Component {
       <div key={loan.id} className="col-md-4 col-sm-6 col-xs-12">
         <div className="flat-item">
           <div className="flat-item-image">
+            <span className="for-sale">{loan.status}</span>
             <Link to={`/loans/${loan.id}`}><img src="/images/flat/1.jpg" alt="" /></Link>
             <div className="flat-link">
               <Link to={`/loans/${loan.id}`}>More Details</Link>

@@ -3,4 +3,21 @@ class Loan < ApplicationRecord
   has_one :property
   has_one :agent
   has_many :checklists
+
+  enum purpose: {
+    purchase: "purchase",
+    refinance: "refinance",
+    cash_out_refinance: "cash_out_refinance"
+  }
+
+  enum status: {
+    new_loan: "new_loan",
+    submitted: "submitted",
+    processing: "processing",
+    approved_with_conditions: "approved_with_conditions",
+    approved: "approved",
+    closed: "closed",
+    underwriting: "underwriting",
+    suspended: "suspended"
+  }
 end
