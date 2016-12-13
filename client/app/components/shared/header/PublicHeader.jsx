@@ -85,10 +85,7 @@ class PublicHeader extends Component {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/">Service</Link>
-        </li>
-        <li>
-          <Link to="/">About</Link>
+          <Link to="/blog">Blog</Link>
         </li>
         <li>
           <a onClick={this.props.logout}>Logout</a>
@@ -104,10 +101,7 @@ class PublicHeader extends Component {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/">Service</Link>
-        </li>
-        <li>
-          <Link to="/">About</Link>
+          <Link to="/blog">Blog</Link>
         </li>
         <li>
           <Link to="/login">Login</Link>
