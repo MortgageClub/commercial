@@ -7,5 +7,5 @@ export function formatCurrency(value, currency) {
 }
 
 export function formatDate(value) {
-  return (<FormattedDate value={value} day="numeric" month="long" year="numeric" />);
+  return (<FormattedDate value={value} />);
 }
