@@ -21,7 +21,7 @@ class Transactions extends Component {
                 <div className="col-md-12">
                   <div className="service-item">
                     <div className="service-item-image">
-                      <a href="single-blog.html" tabindex="0"><img src="/images/blog/1.jpg" alt=""/></a>
+                      <a href="single-blog.html" tabIndex="0"><img src="/images/blog/1.jpg" alt=""/></a>
                     </div>
                     <div className="service-item-info">
                       <h5><a href="service-details.html">RACETRAC</a></h5>
@@ -60,7 +60,7 @@ class Transactions extends Component {
                 <div className="col-md-12">
                   <div className="service-item">
                     <div className="service-item-image">
-                      <a href="single-blog.html" tabindex="0"><img src="/images/blog/1.jpg" alt=""/></a>
+                      <a href="single-blog.html" tabIndex="0"><img src="/images/blog/1.jpg" alt=""/></a>
                     </div>
                     <div className="service-item-info">
                       <h5><a href="service-details.html">RITE AID</a></h5>
@@ -99,7 +99,7 @@ class Transactions extends Component {
                 <div className="col-md-12">
                   <div className="service-item">
                     <div className="service-item-image">
-                      <a href="single-blog.html" tabindex="0"><img src="/images/blog/1.jpg" alt=""/></a>
+                      <a href="single-blog.html" tabIndex="0"><img src="/images/blog/1.jpg" alt=""/></a>
                     </div>
                     <div className="service-item-info">
                       <h5><a href="service-details.html">IHOPE</a></h5>
