@@ -28,6 +28,9 @@ class BorrowerHeader extends Component {
                           <Link to="/dashboard">Loans</Link>
                         </li>
                         <li>
+                          <Link to="/referral">Referral</Link>
+                        </li>
+                        <li>
                           <a>{this.props.userInfo && (this.props.userInfo.first_name + " " + this.props.userInfo.last_name)}</a>
                           <ul className="drop-menu menu-right">
                             <li><a onClick={this.props.logout}>Logout</a></li>
