@@ -20,45 +20,11 @@ class Transactions extends Component {
                 {/* service-item */}
                 <div className="col-md-12">
                   <div className="service-item">
-                    <div className="service-item-table">
-                      <table>
-                        <tbody>
-                          <tr>
-                            <td>Property Type</td>
-                            <td>Retail</td>
-                          </tr>
-                          <tr>
-                            <td>Location</td>
-                            <td>FL</td>
-                          </tr>
-                          <tr>
-                            <td>Loan Amount</td>
-                            <td>$2,150,000</td>
-                          </tr>
-                          <tr>
-                            <td>LTV</td>
-                            <td>60%</td>
-                          </tr>
-                          <tr>
-                            <td>Rate</td>
-                            <td>4.20%</td>
-                          </tr>
-                          <tr>
-                            <td>Term</td>
-                            <td>7 years</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                    <div className="service-item-image">
+                      <a href="single-blog.html" tabindex="0"><img src="/images/blog/1.jpg" alt=""/></a>
                     </div>
                     <div className="service-item-info">
                       <h5><a href="service-details.html">RACETRAC</a></h5>
-                    </div>
-                  </div>
-                </div>
-                {/* service-item */}
-                <div className="col-md-12">
-                  <div className="service-item">
-                    <div className="service-item-table">
                       <table>
                         <tbody>
                           <tr>
@@ -87,16 +53,17 @@ class Transactions extends Component {
                           </tr>
                         </tbody>
                       </table>
+                    </div>
+                  </div>
+                </div>
+                {/* service-item */}
+                <div className="col-md-12">
+                  <div className="service-item">
+                    <div className="service-item-image">
+                      <a href="single-blog.html" tabindex="0"><img src="/images/blog/1.jpg" alt=""/></a>
                     </div>
                     <div className="service-item-info">
                       <h5><a href="service-details.html">RITE AID</a></h5>
-                    </div>
-                  </div>
-                </div>
-                {/* service-item */}
-                <div className="col-md-12">
-                  <div className="service-item">
-                    <div className="service-item-table">
                       <table>
                         <tbody>
                           <tr>
@@ -126,8 +93,44 @@ class Transactions extends Component {
                         </tbody>
                       </table>
                     </div>
+                  </div>
+                </div>
+                {/* service-item */}
+                <div className="col-md-12">
+                  <div className="service-item">
+                    <div className="service-item-image">
+                      <a href="single-blog.html" tabindex="0"><img src="/images/blog/1.jpg" alt=""/></a>
+                    </div>
                     <div className="service-item-info">
                       <h5><a href="service-details.html">IHOPE</a></h5>
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td>Property Type</td>
+                            <td>Retail</td>
+                          </tr>
+                          <tr>
+                            <td>Location</td>
+                            <td>FL</td>
+                          </tr>
+                          <tr>
+                            <td>Loan Amount</td>
+                            <td>$2,150,000</td>
+                          </tr>
+                          <tr>
+                            <td>LTV</td>
+                            <td>60%</td>
+                          </tr>
+                          <tr>
+                            <td>Rate</td>
+                            <td>4.20%</td>
+                          </tr>
+                          <tr>
+                            <td>Term</td>
+                            <td>7 years</td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
