@@ -35,7 +35,6 @@ class Slider extends Component {
                           name="purpose"
                           component="select"
                           className="custom-select-2">
-                          <option>Purpose</option>
                           {
                             PURPOSES.map(purpose => {
                               return <option key={purpose.key} value={purpose.key}>{purpose.value}</option>
