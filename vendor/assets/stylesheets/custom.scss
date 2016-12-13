@@ -57,3 +57,10 @@ select {
   margin-top: 20px;
 }
 
+.table > tbody > tr > td {
+  vertical-align: middle;
+}
+
+.full-width {
+  width: 100%;
+}

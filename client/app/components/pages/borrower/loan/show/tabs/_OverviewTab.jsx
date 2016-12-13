@@ -48,7 +48,7 @@ class OverviewTab extends Component {
           {
             checklist.status == "pending"
             ?
-              <span className="fa fa-trash"></span>
+              <span className="fa fa-close"></span>
             :
               <span className="fa fa-check"></span>
           }
@@ -65,7 +65,15 @@ class OverviewTab extends Component {
           </button>
         </td>
         <td>{formatDate(checklist.due_date)}</td>
-        <td>{checklist.checklist_type}</td>
+        <td>
+          {
+            checklist.checklist_type == "upload"
+            ?
+              <button className="button-1 full-width">Upload</button>
+            :
+              <button className="button-1 full-width">Check Email</button>
+          }
+        </td>
       </tr>
     )
   }
