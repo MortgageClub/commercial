@@ -4,6 +4,7 @@ import { create } from '../../../actions/LoanAction';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { STATES, PROPERTY_TYPES, PURPOSES } from '../../../utils/ValueUtils';
+import Geosuggest from '../../../../node_modules/react-geosuggest';
 
 class Slider extends Component {
   render() {
@@ -23,34 +24,9 @@ class Slider extends Component {
                 <form
                   onSubmit={handleSubmit(this.submit.bind(this))} >
                   <div className="row">
-                    <div className="col-sm-6 col-xs-12">
+                    <div className="col-sm-12 col-xs-12">
                       <div className="find-home-item">
-                        <Field
-                          name="state"
-                          component="select"
-                          className="custom-select-2">
-                          <option>State</option>
-                          {
-                            STATES.map(state => {
-                              return <option key={state.key} value={state.key}>{state.value}</option>
-                            })
-                          }
-                        </Field>
-                      </div>
-                    </div>
-                    <div className="col-sm-6 col-xs-12">
-                      <div className="find-home-item">
-                        <Field
-                          name="property_type"
-                          component="select"
-                          className="custom-select-2">
-                          <option>Property Type</option>
-                          {
-                            PROPERTY_TYPES.map(property_type => {
-                              return <option key={property_type.key} value={property_type.key}>{property_type.value}</option>
-                            })
-                          }
-                        </Field>
+                        <Geosuggest placeholder="Property Address"/>
                       </div>
                     </div>
                     <div className="col-sm-6 col-xs-12">
