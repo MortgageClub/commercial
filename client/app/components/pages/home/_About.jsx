@@ -14,7 +14,7 @@ class About extends Component {
                   <h2>ABOUT BLACKLINE EQUITY</h2>
                 </div>
                 <div className="about-sheltek-info">
-                  <p><span data-placement="top" data-toggle="tooltip" data-original-title="The name you can trust" className="tooltip-content">Blackline Equity</span> is a licensed commercial mortgage broker that uses people and software to manage the complexity of commercial loans.Our team consists of seasoned professionals from the worlds of technology, lending, commercial real estate, banking and investing, all working together to build software to replace manual processes, streamlining your way to a better commercial real estate loan.</p>
+                  <p><span data-placement="top" data-toggle="tooltip" data-original-title="The name you can trust" className="tooltip-content">Blackline Equity</span> is a licensed commercial mortgage broker that uses people and software to manage the complexity of commercial loans. Our team consists of seasoned professionals from the worlds of technology, lending, commercial real estate, and investing, all working together to build software to replace manual processes, streamlining your way to a better commercial real estate loan.</p>
                   <p>We offer fixed-rate loan terms from 5 to 20 years, amortization up to 30 years, up to 75% LTV, loan amounts from $500k to $10M nationwide. We currently have aggressive lending programs available for a vast majority of nationally recognized tenants including Walgreens, CVS and Rite Aid.</p>
                 </div>
               </div>

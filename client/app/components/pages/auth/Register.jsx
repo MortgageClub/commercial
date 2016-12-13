@@ -25,7 +25,7 @@ class Register extends Component {
               <div className="row">
                 <div className="col-md-offset-3 col-md-6 col-xs-12">
                   <div className="new-customers mb-50">
-                    <h2 className="mb-50">REGISTER</h2>
+                    <h2 className="mb-50">SIGN UP</h2>
                     <form
                       onSubmit={handleSubmit(this.submit.bind(this))}>
                       {this.renderErrors()}
@@ -64,7 +64,7 @@ class Register extends Component {
 
                         <div className="row">
                           <div className="col-sm-6">
-                            <button className="submit-btn-1 mt-20" type="submit" disabled={pristine || submitting}>Register</button>
+                            <button className="submit-btn-1 mt-20" type="submit" disabled={pristine || submitting}>Sign up</button>
                           </div>
                           <div className="col-sm-6">
                             <button className="submit-btn-1 mt-20 f-right" type="reset" disabled={pristine || submitting} onClick={reset}>Clear</button>

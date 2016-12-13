@@ -7,7 +7,7 @@ import Brand from './_Brand';
 import BookHomeHouse from './_BookHomeHouse';
 import Blog from './_Blog';
 import Agents from './_Agents';
-import Clients from './_Clients';
+import Transactions from './_Transactions';
 
 class Index extends Component {
   componentDidMount() {
@@ -102,7 +102,7 @@ class Index extends Component {
           <About/>
           <BookHomeHouse/>
           {/* <Agents/> */}
-          <Clients/>
+          <Transactions/>
           <Blog/>
           <Brand/>
           <Subscribe />

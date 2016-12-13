@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 
-class HowItWorks extends Component {
+class Transactions extends Component {
   render() {
     return (
       <div>
-        {/* HOW IT WORKS AREA START */}
+        {/* SERVICES AREA START */}
         <div className="services-area pb-60 pt-115">
           <div className="container">
             <div className="row">
               <div className="col-md-12">
                 <div className="section-title-2 text-center">
-                  <h2>HOW IT WORKS</h2>
-                  <p>Our clients benefit from access to a diverse array of loan products and terms, transparent application and underwriting processes, quick funding timelines, and a first class client experience.</p>
+                  <h2>RECENT TRANSACTIONS</h2>
+                  <p>Each transaction is unique and our clients’ needs dictate how we utilize our market expertise, resulting in an optimal financing structure for your real estate investment.</p>
                 </div>
               </div>
             </div>
@@ -75,4 +75,5 @@ class HowItWorks extends Component {
   }
 }
 
-export default HowItWorks;
+export default Transactions;
+
