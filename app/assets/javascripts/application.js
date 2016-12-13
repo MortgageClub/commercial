@@ -69,7 +69,6 @@ $(document).ready(function(){
       6. tooltip
   *************************/
   $('[data-toggle="tooltip"]').tooltip();
-
   /*************************
       12. Blog Carousel
   *************************/

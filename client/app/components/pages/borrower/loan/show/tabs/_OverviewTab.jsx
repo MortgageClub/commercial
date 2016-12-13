@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { formatDate } from '../../../../../../utils/FormatUtils';
 
 class OverviewTab extends Component {
+  componentDidUpdate() {
+    $('[data-toggle="popover"]').popover();
+  }
+
   render() {
     return (
       <div>
@@ -20,8 +25,8 @@ class OverviewTab extends Component {
                 <tr>
                   <th width="10%">Status</th>
                   <th width="40%">Task</th>
-                  <th width="15%">Info</th>
-                  <th width="15%">Due</th>
+                  <th width="10%">Info</th>
+                  <th width="20%">Due</th>
                   <th width="20%">Action</th>
                 </tr>
               </thead>
@@ -39,10 +44,27 @@ class OverviewTab extends Component {
   renderChecklist(checklist) {
     return(
       <tr key={checklist.id}>
-        <td>{checklist.status}</td>
+        <td>
+          {
+            checklist.status == "pending"
+            ?
+              <span className="fa fa-trash"></span>
+            :
+              <span className="fa fa-check"></span>
+          }
+        </td>
         <td>{checklist.name}</td>
-        <td>{checklist.information}</td>
-        <td>{checklist.due_date}</td>
+        <td>
+          <button
+            className="btnInfo"
+            data-toggle="popover"
+            data-trigger="focus"
+            title="Information"
+            data-content={checklist.information}>
+            <span className="fa fa-info-circle"></span>
+          </button>
+        </td>
+        <td>{formatDate(checklist.due_date)}</td>
         <td>{checklist.checklist_type}</td>
       </tr>
     )
@@ -50,7 +72,6 @@ class OverviewTab extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     loan: state.dashboard.loan
   };
