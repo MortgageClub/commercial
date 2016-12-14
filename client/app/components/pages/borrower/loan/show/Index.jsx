@@ -14,7 +14,7 @@ class Index extends Component {
 
   render() {
     return (
-      <div className="container pt-90 pb-30" style={{"minHeight": "400px"}}>
+      <div className="container pt-90 pb-30 loan-dashboard" style={{"minHeight": "400px"}}>
         <PropertyInfo />
         <div className="row pt-50">
           <div className="col-md-9">

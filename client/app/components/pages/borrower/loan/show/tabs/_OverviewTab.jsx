@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { formatDate } from '../../../../../../utils/FormatUtils';
+import { mark_done } from '../../../../../../actions/ChecklistAction';
 
 class OverviewTab extends Component {
   componentDidUpdate() {
@@ -10,7 +11,7 @@ class OverviewTab extends Component {
   render() {
     return (
       <div>
-        <div className="row">
+        <div className="row overview-status">
           <div className="col-md-10">
             <h4>Everything looks good!</h4>
             <h5>We will let you know when we need your help to move forward.</h5>
@@ -71,19 +72,25 @@ class OverviewTab extends Component {
             ?
               <button className="button-1 full-width">Upload</button>
             :
-              <button className="button-1 full-width">Check Email</button>
+              <button className="button-1 full-width" disabled={checklist.status == "done" ? "disabled" : null} onClick={this.checkEmail.bind(this, checklist)}>Check Email</button>
           }
         </td>
       </tr>
     )
   }
+
+  checkEmail(checklist) {
+    window.open("https://mail.google.com");
+    this.props.mark_done(checklist.id);
+  }
 }
 
 function mapStateToProps(state) {
   return {
-    loan: state.dashboard.loan
+    loan: state.dashboard.loan,
+    userInfo: state.auth.userInfo
   };
 }
 
-export default connect(mapStateToProps)(OverviewTab)
+export default connect(mapStateToProps, { mark_done })(OverviewTab)
 

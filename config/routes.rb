@@ -15,6 +15,12 @@ Rails.application.routes.draw do
         end
       end
 
+      resources :checklists, only: [] do
+        collection do
+          post :mark_done
+        end
+      end
+
       resources :loans do
       end
 

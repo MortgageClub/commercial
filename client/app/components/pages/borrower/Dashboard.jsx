@@ -15,7 +15,7 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div className="pt-90 container" style={{"minHeight": "400px"}}>
+      <div className="pt-90 container loans-dashboard" style={{"minHeight": "400px"}}>
         <div className="featured-flat">
           <div className="row">
             {
