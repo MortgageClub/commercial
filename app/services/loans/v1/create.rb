@@ -16,6 +16,7 @@ module Loans
               full_text: address_params[:full_text]
             )
           ),
+          guarantor: Guarantor.new,
           amount: params[:loan][:loan_amount].to_f,
           purpose: params[:loan][:purpose],
           note: params[:loan][:detail],

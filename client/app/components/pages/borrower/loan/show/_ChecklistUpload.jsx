@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Dropzone from 'react-dropzone';
+import { upload } from '../../../../../actions/DocumentAction';
 
 class ChecklistUpload extends Component {
+  componentDidUpdate() {
+    $("#" + this.props.buttonId).modal("hide");
+  }
+
   render() {
     const checklist = this.props.checklist;
     const labelId = checklist.id + "Label";
@@ -16,11 +22,30 @@ class ChecklistUpload extends Component {
             </div>
             <div className="modal-body">
               <h6>{checklist.document_type.category} - {checklist.document_type.name} - {checklist.document_description}</h6>
+              {
+                checklist.document
+                ?
+                  <div>
+                    <a href={checklist.document.attachment_url} target="_blank">Download</a>
+                  </div>
+                :
+                  null
+              }
+              <div><a></a></div>
+              <Dropzone onDrop={this.onDrop.bind(this)} multiple={false}>
+                <div>Try dropping some files here, or click to select files to upload.</div>
+              </Dropzone>
             </div>
           </div>
         </div>
       </div>
     )
+  }
+
+  onDrop(files) {
+    if(files.length > 0) {
+      this.props.upload({ checklist_id: this.props.checklist.id, file: files[0] });
+    }
   }
 }
 
@@ -28,5 +53,5 @@ function mapStateToProps(state) {
   return {};
 }
 
-export default connect(mapStateToProps)(ChecklistUpload)
+export default connect(mapStateToProps, { upload })(ChecklistUpload)
 

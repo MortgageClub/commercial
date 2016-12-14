@@ -24,6 +24,12 @@ Rails.application.routes.draw do
       resources :loans do
       end
 
+      resources :documents, only: [] do
+        collection do
+          post :upload
+        end
+      end
+
       # resources :recipes, except: [:new, :edit] do
       #   member do
       #     post :add_ingredients

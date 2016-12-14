@@ -2,6 +2,8 @@ class Loan < ApplicationRecord
   belongs_to :borrower
   has_one :property
   has_one :agent
+  has_one :guarantor
+  has_one :closing
   has_many :checklists
 
   enum purpose: {
