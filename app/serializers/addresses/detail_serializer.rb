@@ -1,5 +1,5 @@
 module Addresses
-  class DetailSerializer < ActiveModel::Serializer
+  class DetailSerializer < BaseSerializer
     attributes :full_text
   end
 end

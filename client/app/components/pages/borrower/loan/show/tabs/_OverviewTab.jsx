@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { formatDate } from '../../../../../../utils/FormatUtils';
 import { mark_done } from '../../../../../../actions/ChecklistAction';
+import ChecklistUpload from '../_ChecklistUpload';
 
 class OverviewTab extends Component {
   componentDidUpdate() {
@@ -43,6 +44,8 @@ class OverviewTab extends Component {
   }
 
   renderChecklist(checklist) {
+    const button_id = checklist.checklist_type == "upload" ? ("upload-" + checklist.id) : ("check-email-" + checklist.id);
+
     return(
       <tr key={checklist.id}>
         <td>
@@ -70,7 +73,15 @@ class OverviewTab extends Component {
           {
             checklist.checklist_type == "upload"
             ?
-              <button className="button-1 full-width">Upload</button>
+              <div>
+                <button className="button-1 full-width" data-toggle="modal" data-target={"#" + button_id}>
+                  {checklist.status == "done" ? "Review" : "Upload"}
+                </button>
+                <ChecklistUpload
+                  buttonId={button_id}
+                  title="Upload"
+                  checklist={checklist}/>
+              </div>
             :
               <button className="button-1 full-width" disabled={checklist.status == "done" ? "disabled" : null} onClick={this.checkEmail.bind(this, checklist)}>Check Email</button>
           }

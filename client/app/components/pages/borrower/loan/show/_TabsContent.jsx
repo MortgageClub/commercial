@@ -6,6 +6,7 @@ import ContactTab from './tabs/_ContactTab';
 import LoanTab from './tabs/_LoanTab';
 import OverviewTab from './tabs/_OverviewTab';
 import PropertyTab from './tabs/_PropertyTab';
+import GuarantorTab from './tabs/_GuarantorTab';
 
 class TabsContent extends Component {
   render() {
@@ -21,6 +22,9 @@ class TabsContent extends Component {
           </li>
           <li role="presentation">
             <a href="#borrower" aria-controls="borrower" role="tab" data-toggle="tab">Borrower</a>
+          </li>
+          <li role="presentation">
+            <a href="#guarantor" aria-controls="guarantor" role="tab" data-toggle="tab">Guarantor</a>
           </li>
           <li role="presentation">
             <a href="#loan" aria-controls="loan" role="tab" data-toggle="tab">Loan</a>
@@ -41,6 +45,9 @@ class TabsContent extends Component {
           </div>
           <div className="tab-pane fade" id="borrower">
             <BorrowerTab />
+          </div>
+          <div className="tab-pane fade" id="guarantor">
+            <GuarantorTab />
           </div>
           <div className="tab-pane fade" id="loan">
             <LoanTab />

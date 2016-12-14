@@ -1,5 +1,5 @@
 module Properties
-  class DetailSerializer < ActiveModel::Serializer
+  class DetailSerializer < BaseSerializer
     attributes :id
     has_one :address, serializer: Addresses::DetailSerializer
   end
