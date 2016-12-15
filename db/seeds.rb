@@ -64,6 +64,8 @@ DocumentType.create(category: :closing, name: "Loan Doc")
 DocumentType.create(category: :closing, name: "Prelim Title Report")
 DocumentType.create(category: :closing, name: "Wire Instructions")
 
+# Admin.create(user: User.new(email: "admin@blackline.com", password: "mortgage123"))
+
 # Checklist.create(loan: Loan.first, checklist_type: :upload, due_date: Time.zone.now + 7.days, information: "hello", status: :pending, document_description: "upload test 3", name: "upload test 3", document_type_id: "450c37b0-64e6-43c7-9b1e-c68859d7b4fb")
 # Checklist.create(loan: Loan.first, checklist_type: :upload, due_date: Time.zone.now + 7.days, information: "hello", status: :pending, document_description: "upload test 4", name: "upload test 4", document_type_id: "4af424ec-274f-4499-bfa5-50902ff3e918")
 # Checklist.create(loan: Loan.first, checklist_type: :upload, due_date: Time.zone.now + 7.days, information: "hello", status: :pending, document_description: "upload test 5", name: "upload test 5", document_type_id: "5532ee76-e225-41e1-9ebd-398bd9aab890")

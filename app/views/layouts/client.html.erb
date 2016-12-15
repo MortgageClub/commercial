@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Commercial</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'client', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'client', 'data-turbolinks-track': 'reload' %>
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6hDryfbjFHKt7hDMoMoK9PUgLk5cV-YI&libraries=places"></script>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
