@@ -1,4 +1,4 @@
-class ManagerController < AdminController
+class ManagerController < AdminsController
   def index
 
   end

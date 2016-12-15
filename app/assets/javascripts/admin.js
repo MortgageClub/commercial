@@ -1,23 +1,21 @@
+//= require admin/plugins/loaders/pace.min
+//= require jquery
+//= require jquery_ujs
+//= require admin/core/libraries/bootstrap.min
+//= require admin/plugins/loaders/blockui.min
+//= require admin/plugins/ui/nicescroll.min
+//= require admin/plugins/ui/drilldown
+//= require admin/plugins/ui/fab.min
 
-// <script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
-// <script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
-// <script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
-// <script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
-// <script type="text/javascript" src="assets/js/plugins/ui/nicescroll.min.js"></script>
-// <script type="text/javascript" src="assets/js/plugins/ui/drilldown.js"></script>
-// <script type="text/javascript" src="assets/js/plugins/ui/fab.min.js"></script>
+//= require admin/plugins/visualization/d3/d3.min
+//= require admin/plugins/visualization/d3/d3_tooltip
+//= require admin/plugins/forms/styling/switchery.min
+//= require admin/plugins/forms/styling/uniform.min
+//= require admin/plugins/forms/selects/bootstrap_multiselect
+//= require admin/plugins/ui/moment/moment.min
+//= require admin/plugins/pickers/daterangepicker
 
+//= require admin/core/app
+//= require admin/pages/dashboard
 
-
-// <script type="text/javascript" src="assets/js/plugins/visualization/d3/d3.min.js"></script>
-// <script type="text/javascript" src="assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
-// <script type="text/javascript" src="assets/js/plugins/forms/styling/switchery.min.js"></script>
-// <script type="text/javascript" src="assets/js/plugins/forms/styling/uniform.min.js"></script>
-// <script type="text/javascript" src="assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
-// <script type="text/javascript" src="assets/js/plugins/ui/moment/moment.min.js"></script>
-// <script type="text/javascript" src="assets/js/plugins/pickers/daterangepicker.js"></script>
-
-// <script type="text/javascript" src="assets/js/core/app.js"></script>
-// <script type="text/javascript" src="assets/js/pages/dashboard.js"></script>
-
-// <script type="text/javascript" src="assets/js/plugins/ui/ripple.min.js"></script>
+//= require admin/plugins/ui/ripple.min

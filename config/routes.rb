@@ -11,8 +11,8 @@ Rails.application.routes.draw do
 
   get '/*all', constraints: AppConstraint.new, to: 'home#index'
 
-  namespace :admin do
-
+  namespace :admins do
+    resources :document_types
   end
 
   namespace :api do

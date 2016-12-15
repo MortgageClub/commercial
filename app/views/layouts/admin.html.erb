@@ -15,6 +15,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "shared/admins/header" %>
+    <div class="page-container" style="min-height:34px">
+      <%= flash_messages %>
+      <%= yield %>
+    </div>
   </body>
 </html>
