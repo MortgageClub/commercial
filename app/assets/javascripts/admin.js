@@ -9,5 +9,3 @@
 
 //= require admin/plugins/ui/moment/moment.min
 //= require admin/plugins/pickers/daterangepicker
-
-//= require tinymce
