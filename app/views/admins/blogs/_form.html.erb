@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="col-md-6">
-      <% if @blog.image %>
+      <% if @blog.image.present? %>
         <image src="<%= @blog.image.expiring_url(60) %>" width="200"/>
       <% end %>
     </div>
@@ -42,7 +42,7 @@
     <div class="col-md-12">
       <div class="form-group">
         <%= f.label :content %>
-        <%= f.text_area :content, rows: 20, cols: 180 %>
+        <%= f.text_area :content, rows: 15, cols: 180 %>
         <%= form_error(@blog, :content) %>
       </div>
     </div>
@@ -52,3 +52,8 @@
     <button class="btn btn-primary legitRipple" type="submit"><%= @blog.id ? "Update" : "Create" %> <i class="icon-arrow-right14 position-right"></i></button>
   </div>
 <% end %>
+<script type="text/javascript">
+  tinyMCE.init({
+    selector: "textarea"
+  });
+</script>

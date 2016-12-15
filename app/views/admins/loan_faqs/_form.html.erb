@@ -12,7 +12,7 @@
     <div class="col-md-12">
       <div class="form-group">
         <%= f.label :answer %>
-        <%= f.text_field :answer, class: "form-control" %>
+        <%= f.text_area :answer, rows: 15, cols: 180 %>
         <%= form_error(@loan_faq, :answer) %>
       </div>
     </div>
@@ -23,3 +23,8 @@
     <button class="btn btn-primary legitRipple" type="submit"><%= @loan_faq.id ? "Update" : "Create" %> <i class="icon-arrow-right14 position-right"></i></button>
   </div>
 <% end %>
+<script type="text/javascript">
+  tinyMCE.init({
+    selector: "textarea"
+  });
+</script>
