@@ -7,7 +7,7 @@ import Login from './components/pages/auth/Login';
 import Register from './components/pages/auth/Register';
 import ForgotPassword from './components/pages/auth/ForgotPassword';
 import BorrowerDashboard from './components/pages/borrower/Dashboard';
-import BorrowerReferral from './components/pages/borrower/Referral';
+import BorrowerReferral from './components/pages/borrower/referral/Referral';
 import LoanDashboard from './components/pages/borrower/loan/show/Index';
 
 export default (
