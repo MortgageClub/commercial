@@ -93,3 +93,11 @@ select {
     padding-right: 10px;
   }
 }
+
+.dropzone {
+  margin-top: 10px;
+}
+
+.dropzone > div {
+  width: 100% !important;
+}

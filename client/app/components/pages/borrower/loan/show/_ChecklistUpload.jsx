@@ -31,7 +31,7 @@ class ChecklistUpload extends Component {
                 :
                   null
               }
-              <div style={{"marginTop": "10px"}}>
+              <div className='dropzone'>
                 <Dropzone onDrop={this.onDrop.bind(this)} multiple={false}>
                   <div>Try dropping some files here, or click to select files to upload.</div>
                 </Dropzone>
