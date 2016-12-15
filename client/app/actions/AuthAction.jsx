@@ -8,6 +8,7 @@ export function login(userInfo) {
     axios.post('/auth/sign_in', userInfo)
       .then(response => {
         handleSuccessAuthen(dispatch, response.data.data, response.headers);
+        browserHistory.push('/dashboard');
       })
       .catch(error => {
         var data = error.response.data;
@@ -21,6 +22,7 @@ export function register(userInfo) {
     axios.post('/auth', userInfo)
       .then(response => {
         handleSuccessAuthen(dispatch, response.data.data, response.headers);
+        browserHistory.push('/dashboard');
       })
       .catch(error => {
         var data = error.response.data;

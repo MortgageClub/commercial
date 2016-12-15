@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  layout "client"
   include DeviseTokenAuth::Concerns::SetUserByToken
   protect_from_forgery unless: -> { request.format.json? }
 

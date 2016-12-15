@@ -15,7 +15,7 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div className="pt-90 container" style={{"minHeight": "400px"}}>
+      <div className="pt-90 container loans-dashboard" style={{"minHeight": "400px"}}>
         <div className="featured-flat">
           <div className="row">
             {
@@ -37,20 +37,6 @@ class Dashboard extends Component {
             <div className="flat-link">
               <Link to={`/loans/${loan.id}`}>More Details</Link>
             </div>
-            <ul className="flat-desc">
-              <li>
-                <img src="/images/icons/4.png" alt="" />
-                <span>450 sqft</span>
-              </li>
-              <li>
-                <img src="/images/icons/5.png" alt="" />
-                <span>5</span>
-              </li>
-              <li>
-                <img src="/images/icons/6.png" alt="" />
-                <span>3</span>
-              </li>
-            </ul>
           </div>
           <div className="flat-item-info">
             <div className="flat-title-price">

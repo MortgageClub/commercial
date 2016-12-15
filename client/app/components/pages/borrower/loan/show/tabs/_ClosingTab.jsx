@@ -1,23 +1,44 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { formatDate } from '../../../../../../utils/FormatUtils';
 
 class ClosingTab extends Component {
   render() {
+    const loan = this.props.loan;
+
     return (
       <div>
         <table className="table">
           <thead>
             <tr>
-              <th width="30%">Name</th>
-              <th width="15%">Owner</th>
-              <th width="40%">Description</th>
+              <th width="40%">Name</th>
+              <th width="35%">Description</th>
               <th width="15%">Modified</th>
+              <th width="10%">Download</th>
             </tr>
           </thead>
           <tbody>
+            {
+              loan && loan.closing
+              ?
+                loan.closing.documents.map(document => this.renderDocument(document))
+              :
+                null
+            }
           </tbody>
         </table>
       </div>
+    )
+  }
+
+  renderDocument(document){
+    return (
+      <tr key={document.id}>
+        <td>{document.original_filename}</td>
+        <td>{document.description}</td>
+        <td>{formatDate(document.updated_at)}</td>
+        <td><a href={document.attachment_url} target="_blank"><span className="fa fa-download"></span></a></td>
+      </tr>
     )
   }
 }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161213112559) do
+ActiveRecord::Schema.define(version: 20161215101402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,11 @@ ActiveRecord::Schema.define(version: 20161213112559) do
     t.uuid     "addressable_id"
   end
 
+  create_table "admins", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "agents", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -39,6 +44,19 @@ ActiveRecord::Schema.define(version: 20161213112559) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["loan_id"], name: "index_agents_on_loan_id", using: :btree
+  end
+
+  create_table "blogs", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "category"
+    t.string   "short_description"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "borrowers", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
@@ -85,9 +103,47 @@ ActiveRecord::Schema.define(version: 20161213112559) do
     t.index ["loan_id"], name: "index_checklists_on_loan_id", using: :btree
   end
 
+  create_table "closings", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid     "loan_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["loan_id"], name: "index_closings_on_loan_id", using: :btree
+  end
+
   create_table "document_types", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "category"
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "documents", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+    t.uuid     "document_type_id"
+    t.uuid     "documentable_id"
+    t.string   "documentable_type"
+    t.string   "description"
+    t.string   "original_filename"
+    t.uuid     "checklist_id"
+    t.string   "token"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["document_type_id"], name: "index_documents_on_document_type_id", using: :btree
+  end
+
+  create_table "guarantors", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid     "loan_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["loan_id"], name: "index_guarantors_on_loan_id", using: :btree
+  end
+
+  create_table "loan_faqs", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.string   "question"
+    t.text     "answer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -158,6 +214,9 @@ ActiveRecord::Schema.define(version: 20161213112559) do
   add_foreign_key "agents", "loans"
   add_foreign_key "bussinesses", "users"
   add_foreign_key "checklists", "loans"
+  add_foreign_key "closings", "loans"
+  add_foreign_key "documents", "document_types"
+  add_foreign_key "guarantors", "loans"
   add_foreign_key "loans", "borrowers"
   add_foreign_key "properties", "loans"
 end

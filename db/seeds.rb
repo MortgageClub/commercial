@@ -64,3 +64,12 @@ DocumentType.create(category: :closing, name: "Loan Doc")
 DocumentType.create(category: :closing, name: "Prelim Title Report")
 DocumentType.create(category: :closing, name: "Wire Instructions")
 
+# Admin.create(user: User.new(email: "admin@blackline.com", password: "mortgage123"))
+
+# Checklist.create(loan: Loan.first, checklist_type: :upload, due_date: Time.zone.now + 7.days, information: "hello", status: :pending, document_description: "upload test 3", name: "upload test 3", document_type_id: "450c37b0-64e6-43c7-9b1e-c68859d7b4fb")
+# Checklist.create(loan: Loan.first, checklist_type: :upload, due_date: Time.zone.now + 7.days, information: "hello", status: :pending, document_description: "upload test 4", name: "upload test 4", document_type_id: "4af424ec-274f-4499-bfa5-50902ff3e918")
+# Checklist.create(loan: Loan.first, checklist_type: :upload, due_date: Time.zone.now + 7.days, information: "hello", status: :pending, document_description: "upload test 5", name: "upload test 5", document_type_id: "5532ee76-e225-41e1-9ebd-398bd9aab890")
+# Checklist.create(loan: Loan.first, checklist_type: :upload, due_date: Time.zone.now + 7.days, information: "hello", status: :pending, document_description: "upload test 6", name: "upload test 6", document_type_id: "6f372f02-cf0d-4eb7-81c3-2f9b83648606")
+# Checklist.create(loan: Loan.first, checklist_type: :upload, due_date: Time.zone.now + 7.days, information: "hello", status: :pending, document_description: "upload test 7", name: "upload test 7", document_type_id: "7fb5f21f-3f15-4d19-a3b4-784144df03bd")
+# Checklist.create(loan: Loan.first, checklist_type: :upload, due_date: Time.zone.now + 7.days, information: "hello", status: :pending, document_description: "upload test 8", name: "upload test 8", document_type_id: "5c6364ba-4bf2-4512-97de-d79fa3f8d4cb")
+# Checklist.create(loan: Loan.first, checklist_type: :upload, due_date: Time.zone.now + 7.days, information: "hello", status: :pending, document_description: "upload test 9", name: "upload test 9", document_type_id: "658bd6a0-b066-4ffd-8e57-6c75356ff6d4")

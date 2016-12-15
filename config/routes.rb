@@ -1,7 +1,21 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "home#index"
+
+  resources :manager, only: [:index] do
+    collection do
+      post :login
+      get :logout
+    end
+  end
+
   get '/*all', constraints: AppConstraint.new, to: 'home#index'
+
+  namespace :admins do
+    resources :document_types
+    resources :loan_faqs
+    resources :blogs
+  end
 
   namespace :api do
     scope module: :v1, constraints: ApiConstraint.new(version: :v1) do
@@ -15,7 +29,19 @@ Rails.application.routes.draw do
         end
       end
 
+      resources :checklists, only: [] do
+        collection do
+          post :mark_done
+        end
+      end
+
       resources :loans do
+      end
+
+      resources :documents, only: [] do
+        collection do
+          post :upload
+        end
       end
 
       # resources :recipes, except: [:new, :edit] do

@@ -6,4 +6,7 @@ class DocumentType < ApplicationRecord
     closing: "closing",
     guarantor: "guarantor"
   }
+
+  validates :name, presence: true
+  validates :category, presence: true
 end

@@ -1,0 +1,28 @@
+/*------------------------------------------------------------------------------
+
+    Template:  Sheltek Real Estate HTML5 Template
+    Author: http://devitems.com/
+    Version: 1
+    Design and Developed by: http://devitems.com/
+
+Note: This core style file includes all external plugins css file.
+
+-------------------------------------------------------------------------------*/
+
+/*Font*/
+@import "client/montserrat";
+
+/*Icon*/
+@import "client/font-awesome";
+
+/*Plugins*/
+@import "client/plugins/animate";
+@import "client/plugins/bootstrap-select";
+@import "client/plugins/meanmenu.min";
+@import "client/plugins/slick";
+@import "client/plugins/lightbox.min";
+@import "client/plugins/textanimate";
+
+
+/*Shortcode*/
+@import "client/shortcode/default";
