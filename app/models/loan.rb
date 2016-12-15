@@ -5,6 +5,7 @@ class Loan < ApplicationRecord
   has_one :guarantor
   has_one :closing
   has_many :checklists
+  has_many :documents, as: :documentable
 
   enum purpose: {
     purchase: "purchase",

@@ -26,15 +26,16 @@ class ChecklistUpload extends Component {
                 checklist.document
                 ?
                   <div>
-                    <a href={checklist.document.attachment_url} target="_blank">Download</a>
+                    <a href={checklist.document.attachment_url} target="_blank">{checklist.document.original_filename}</a>
                   </div>
                 :
                   null
               }
-              <div><a></a></div>
-              <Dropzone onDrop={this.onDrop.bind(this)} multiple={false}>
-                <div>Try dropping some files here, or click to select files to upload.</div>
-              </Dropzone>
+              <div style={{"marginTop": "10px"}}>
+                <Dropzone onDrop={this.onDrop.bind(this)} multiple={false}>
+                  <div>Try dropping some files here, or click to select files to upload.</div>
+                </Dropzone>
+              </div>
             </div>
           </div>
         </div>
