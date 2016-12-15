@@ -1,0 +1,25 @@
+<%= form_for [:admins, @loan_faq], authenticity_token: true do |f| %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label :question %>
+        <%= f.text_field :question, class: "form-control" %>
+        <%= form_error(@loan_faq, :question) %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label :answer %>
+        <%= f.text_field :answer, class: "form-control" %>
+        <%= form_error(@loan_faq, :answer) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-wizard-actions">
+    <%= link_to "Back", admins_loan_faqs_path, class: "btn btn-default legitRipple" %>
+    <button class="btn btn-primary legitRipple" type="submit"><%= @loan_faq.id ? "Update" : "Create" %> <i class="icon-arrow-right14 position-right"></i></button>
+  </div>
+<% end %>

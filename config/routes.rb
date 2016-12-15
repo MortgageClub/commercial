@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   namespace :admins do
     resources :document_types
+    resources :loan_faqs
+    resources :blogs
   end
 
   namespace :api do

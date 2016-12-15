@@ -3,7 +3,7 @@ class Admins::DocumentTypesController < Admins::BaseController
 
   def index
     @q = DocumentType.ransack(params[:q])
-    @document_types = @q.result.page params[:page]
+    @document_types = @q.result.page(params[:page])
   end
 
   def new

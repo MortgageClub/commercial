@@ -1,0 +1,23 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th style="text-align: center">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @loan_faqs.each do |loan_faq| %>
+      <tr>
+        <td><%= loan_faq.question %></td>
+        <td style="text-align: center">
+          <%= link_to edit_admins_loan_faq_path(loan_faq) do %>
+            <i class="icon-pencil3"></i>
+          <% end %>
+          <%= link_to admins_loan_faq_path(loan_faq), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="icon-trash-alt color-red"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

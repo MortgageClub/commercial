@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161215025944) do
+ActiveRecord::Schema.define(version: 20161215101402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,19 @@ ActiveRecord::Schema.define(version: 20161215025944) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["loan_id"], name: "index_agents_on_loan_id", using: :btree
+  end
+
+  create_table "blogs", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "category"
+    t.string   "short_description"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "borrowers", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
@@ -126,6 +139,13 @@ ActiveRecord::Schema.define(version: 20161215025944) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["loan_id"], name: "index_guarantors_on_loan_id", using: :btree
+  end
+
+  create_table "loan_faqs", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.string   "question"
+    t.text     "answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "loans", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
