@@ -2,7 +2,7 @@
   <div class="content-wrapper">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h5 class="panel-title">Blogs</h5>
+        <h5 class="panel-title">Blog</h5>
         <div class="heading-elements">
           <ul class="icons-list">
             <li>
@@ -12,15 +12,6 @@
             </li>
           </ul>
         </div>
-      </div>
-      <div class="datatable-header">
-        <%= search_form_for @q, url: admins_blogs_path do |f| %>
-          <div class="dataTables_filter">
-            <label>
-              <%= f.search_field :title_or_content_or_short_description_or_category_cont, placeholder: "Type to search...", type: "search" %>
-            </label>
-          </div>
-        <% end %>
       </div>
       <div class="datatable-scroll">
         <div class="table-responsive">
