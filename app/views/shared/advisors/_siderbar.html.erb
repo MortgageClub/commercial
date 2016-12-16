@@ -1,0 +1,29 @@
+<div class="sidebar sidebar-main sidebar-default">
+  <div class="sidebar-fixed affix-top">
+    <div class="sidebar-content">
+      <div class="category-title h6">
+        <span><%= @loan.property_address %></span>
+      </div>
+      <div class="sidebar-category sidebar-category-visible">
+        <div class="category-title">
+          <span class="label label-info"><%= @loan.status.titleize %></span>
+        </div>
+        <div class="category-content no-padding">
+          <ul class="navigation navigation-main navigation-accordion">
+            <li>
+              <%= link_to advisors_loan_checklists_path(@loan) do %>
+                <i class="icon-file-text2"></i>
+                <span>Documents</span>
+              <% end %>
+              <%= link_to advisors_loan_checklists_path(@loan) do %>
+                <i class="icon-clipboard2"></i>
+                <span>Checklists <span class="label label-success"><%= @loan.number_of_done_checklists %> DONE</span></span>
+              <% end %>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

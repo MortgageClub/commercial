@@ -27,4 +27,8 @@ class Loan < ApplicationRecord
   def property_address
     property && property.address ? property.address.full_text : "Unknown Address"
   end
+
+  def number_of_done_checklists
+    checklists.where(status: :done).size
+  end
 end

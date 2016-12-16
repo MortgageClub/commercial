@@ -17,8 +17,10 @@
 
   <body>
     <%= render "shared/admins/header" %>
-    <div class="page-container">
+    <div class="page-container alert-message">
       <%= flash_messages %>
+    </div>
+    <div class="page-container">
       <%= yield %>
     </div>
   </body>
