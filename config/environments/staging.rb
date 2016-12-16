@@ -85,11 +85,11 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_dispatch.default_headers = {
-    'Access-Control-Allow-Origin' => 'https://stg-blackline.herokuapp.com',
+    'Access-Control-Allow-Origin' => 'https://stg-equity.herokuapp.com',
     'Access-Control-Request-Method' => 'GET, PUT, POST, DELETE, PATCH, HEAD'
   }
 
-  config.action_mailer.default_url_options = { host: 'https://stg-blackline.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'https://stg-equity.herokuapp.com' }
 
   config.paperclip_defaults = {
     storage: :s3,
