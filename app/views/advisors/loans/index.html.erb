@@ -1,0 +1,17 @@
+<div class="page-content">
+  <div class="content-wrapper">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h5 class="panel-title">Loans</h5>
+      </div>
+      <div class="datatable-scroll">
+        <div class="table-responsive">
+          <%= render "grid" %>
+        </div>
+      </div>
+      <div class="datatable-footer text-center">
+        <%= paginate @loans, :views_prefix => 'admins' %>
+      </div>
+    </div>
+  </div>
+</div>

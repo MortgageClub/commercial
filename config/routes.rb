@@ -20,6 +20,13 @@ Rails.application.routes.draw do
     resources :assigned_loan_members
   end
 
+  namespace :advisors do
+    resources :loans, only: :index do
+      resources :documents
+      resources :checklists
+    end
+  end
+
   namespace :api do
     scope module: :v1, constraints: ApiConstraint.new(version: :v1) do
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {

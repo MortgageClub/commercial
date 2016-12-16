@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Commercial</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'admin', 'data-turbolinks-track': 'reload' %>
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <script src="https://cdn.tinymce.com/4/tinymce.min.js"></script>
+  </head>
+
+  <body>
+    <%= render "shared/advisors/header" %>
+    <div class="page-container">
+      <%= flash_messages %>
+      <%= yield %>
+    </div>
+  </body>
+</html>
