@@ -11,7 +11,7 @@
     <div class="col-md-4">
       <div class="form-group">
         <%= f.label :document_type_id, "Document Type" %>
-        <%= f.select :document_type_id, {}, { prompt: 'Select document type' }, class: "form-control" %>
+        <%= f.select :document_type_id, @document_types.collect { |p| [ p.name, p.id ] }, { prompt: 'Select document type' }, class: "form-control" %>
         <%= form_error(@document, :document_type) %>
       </div>
     </div>
