@@ -19,6 +19,10 @@ class Document < ApplicationRecord
 
   before_validation :set_private_token, on: :create
 
+  validates :document_type, presence: true
+  validates :description, presence: true
+  validates :documentable_type, presence: true
+
   def url
     # Amazon::GetUrlService.call(attachment)
   end

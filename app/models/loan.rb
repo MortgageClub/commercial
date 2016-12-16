@@ -1,11 +1,11 @@
 class Loan < ApplicationRecord
   belongs_to :borrower
-  has_one :property
-  has_one :agent
-  has_one :guarantor
-  has_one :closing
-  has_many :checklists
-  has_many :documents, as: :documentable
+  has_one :property, dependent: :destroy
+  has_one :agent, dependent: :destroy
+  has_one :guarantor, dependent: :destroy
+  has_one :closing, dependent: :destroy
+  has_many :checklists, dependent: :destroy
+  has_many :documents, as: :documentable, dependent: :destroy
 
   enum purpose: {
     purchase: "purchase",

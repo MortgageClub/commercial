@@ -1,12 +1,13 @@
 <div class="page-content">
+  <%= render "shared/advisors/siderbar" %>
   <div class="content-wrapper">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h5 class="panel-title">Document Types</h5>
+        <h5 class="panel-title">Documents</h5>
         <div class="heading-elements">
           <ul class="icons-list">
             <li>
-              <%= link_to new_admins_document_type_path do %>
+              <%= link_to new_advisors_loan_document_path do %>
                 <i class="icon-plus3"></i>
               <% end %>
             </li>
@@ -19,7 +20,7 @@
         </div>
       </div>
       <div class="datatable-footer text-center">
-        <%= paginate @document_types, :views_prefix => 'admins' %>
+        <%= paginate @documents, :views_prefix => 'admins' %>
       </div>
     </div>
   </div>

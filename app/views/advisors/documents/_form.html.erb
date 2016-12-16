@@ -1,24 +1,45 @@
-<%= form_for [:admins, @document_type], authenticity_token: true do |f| %>
+<%= form_for [:advisors, @loan, @document], authenticity_token: true do |f| %>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="form-group">
-        <%= f.label :category %>
-        <%= f.select :category, DocumentType.categories.keys.map { |key| [key.humanize, DocumentType.categories[key]] }, { prompt: 'Select category' }, class: "form-control" %>
-        <%= form_error(@document_type, :category) %>
+        <%= f.label :documentable_type, "Subject" %>
+        <%= f.select :documentable_type, DocumentType.categories.keys.map { |key| [key.humanize, key.humanize] }, { prompt: 'Select subject' }, class: "form-control" %>
+        <%= form_error(@document, :documentable_type) %>
       </div>
     </div>
 
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :document_type_id, "Document Type" %>
+        <%= f.select :document_type_id, {}, { prompt: 'Select document type' }, class: "form-control" %>
+        <%= form_error(@document, :document_type) %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_field :description, class: "form-control" %>
+        <%= form_error(@document, :description) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-md-6">
       <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, class: "form-control" %>
-        <%= form_error(@document_type, :name) %>
+        <%= f.label :attachment %>
+        <% if @document.attachment.present? %>
+          <p><a href="<%= @document.attachment.expiring_url(60) %>" target="_blank"><%= @document.original_filename %></a></p>
+        <% end %>
+        <%= f.file_field :attachment %>
+        <%= form_error(@document, :attachment) %>
       </div>
     </div>
   </div>
 
   <div class="form-wizard-actions">
-    <%= link_to "Back", admins_document_types_path, class: "btn btn-default legitRipple" %>
-    <button class="btn btn-primary legitRipple" type="submit"><%= @document_type.id ? "Update" : "Create" %> <i class="icon-arrow-right14 position-right"></i></button>
+    <%= link_to "Back", advisors_loan_documents_path(@loan), class: "btn btn-default legitRipple" %>
+    <button class="btn btn-primary legitRipple" type="submit"><%= @document.id ? "Update" : "Create" %> <i class="icon-arrow-right14 position-right"></i></button>
   </div>
 <% end %>

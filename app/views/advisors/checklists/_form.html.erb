@@ -43,19 +43,18 @@
   </div>
 
   <div class="row">
-
-    <!-- <div class="col-md-4">
+    <div class="col-md-4">
       <div class="form-group">
-        <%#= label_tag :subject %>
-        <%#= select_tag :subject, DocumentType.categories.keys.map { |key| [key.humanize, DocumentType.categories[key]] }, prompt: 'Select subject', class: "form-control" %>
+        <%= label_tag :subject %>
+        <%= select_tag :subject, options_for_select(DocumentType.categories.keys.map { |key| [key.humanize, DocumentType.categories[key]] }), prompt: 'Select subject', class: "form-control" %>
       </div>
-    </div> -->
+    </div>
 
     <div class="col-md-6">
       <div class="form-group">
         <%= f.label :document_type_id, "Document Type" %>
         <%= f.select :document_type_id, @document_types.collect { |p| [ p.name, p.id ] }, { prompt: 'Select document type' }, class: "form-control" %>
-        <%= form_error(@checklist, :document_type_id) %>
+        <%= form_error(@checklist, :document_type) %>
       </div>
     </div>
 
