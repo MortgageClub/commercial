@@ -23,4 +23,8 @@ class Loan < ApplicationRecord
     underwriting: "underwriting",
     suspended: "suspended"
   }
+
+  def property_address
+    property && property.address ? property.address.full_text : "Unknown Address"
+  end
 end
