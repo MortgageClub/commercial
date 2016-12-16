@@ -1,0 +1,16 @@
+<%= form_for [:admins, @loan_member_title], authenticity_token: true do |f| %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form-control" %>
+        <%= form_error(@loan_member_title, :title) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-wizard-actions">
+    <%= link_to "Back", admins_loan_member_titles_path, class: "btn btn-default legitRipple" %>
+    <button class="btn btn-primary legitRipple" type="submit"><%= @loan_member_title.id ? "Update" : "Create" %> <i class="icon-arrow-right14 position-right"></i></button>
+  </div>
+<% end %>

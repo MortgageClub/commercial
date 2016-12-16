@@ -1,0 +1,26 @@
+<div class="page-content">
+  <div class="content-wrapper">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h5 class="panel-title">Loan Member Titles</h5>
+        <div class="heading-elements">
+          <ul class="icons-list">
+            <li>
+              <%= link_to new_admins_loan_member_title_path do %>
+                <i class="icon-plus3"></i>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="datatable-scroll">
+        <div class="table-responsive">
+          <%= render "grid" %>
+        </div>
+      </div>
+      <div class="datatable-footer text-center">
+        <%= paginate @loan_member_titles, :views_prefix => 'admins' %>
+      </div>
+    </div>
+  </div>
+</div>
