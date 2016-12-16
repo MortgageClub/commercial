@@ -10,8 +10,8 @@
 
     <div class="col-md-4">
       <div class="form-group">
-        <%= f.label :document_type_id, "Document Type" %>
-        <%= f.select :document_type_id, @document_types.collect { |p| [ p.name, p.id ] }, { prompt: 'Select document type' }, class: "form-control" %>
+        <%= f.label :document_type_id, "Type" %>
+        <%= f.select :document_type_id, grouped_options_for_select(@document_types), { prompt: 'Select document type' }, class: "form-control" %>
         <%= form_error(@document, :document_type) %>
       </div>
     </div>
@@ -43,3 +43,8 @@
     <button class="btn btn-primary legitRipple" type="submit"><%= @document.id ? "Update" : "Create" %> <i class="icon-arrow-right14 position-right"></i></button>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $('#document_document_type_id').filterGroups({groupSelector: '#document_documentable_type'});
+  $('#document_document_type_id').val("<%= @document.document_type_id %>")
+</script>

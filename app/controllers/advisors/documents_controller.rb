@@ -50,7 +50,10 @@ class Advisors::DocumentsController < Advisors::BaseController
   end
 
   def set_document_types
-    @document_types = DocumentType.all
+    @document_types = DocumentType.all.inject({}) do |options, document_type|
+      (options[document_type.category.titleize] ||= []) << [document_type.name, document_type.id]
+      options
+    end
   end
 
   def document_params

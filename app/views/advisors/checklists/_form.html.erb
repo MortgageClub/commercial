@@ -42,23 +42,16 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" id="only-upload-document">
     <div class="col-md-4">
       <div class="form-group">
-        <%= label_tag :subject %>
-        <%= select_tag :subject, options_for_select(DocumentType.categories.keys.map { |key| [key.humanize, DocumentType.categories[key]] }), prompt: 'Select subject', class: "form-control" %>
-      </div>
-    </div>
-
-    <div class="col-md-6">
-      <div class="form-group">
         <%= f.label :document_type_id, "Document Type" %>
-        <%= f.select :document_type_id, @document_types.collect { |p| [ p.name, p.id ] }, { prompt: 'Select document type' }, class: "form-control" %>
+        <%= f.select :document_type_id, grouped_options_for_select(@document_types), { prompt: 'Select document type' }, class: "form-control" %>
         <%= form_error(@checklist, :document_type) %>
       </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-8">
       <div class="form-group">
         <%= f.label :document_description %>
         <%= f.text_field :document_description, class: "form-control" %>
@@ -72,3 +65,19 @@
     <button class="btn btn-primary legitRipple" type="submit"><%= @checklist.id ? "Update" : "Create" %> <i class="icon-arrow-right14 position-right"></i></button>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $('#checklist_document_type_id').val("<%= @checklist.document_type_id %>");
+
+  if($('#checklist_checklist_type').val() == "check_email") {
+    $('#only-upload-document').hide();
+  }
+
+  $('#checklist_checklist_type').change(function(e){
+    if(e.target.value == "upload") {
+      $('#only-upload-document').show();
+    } else {
+      $('#only-upload-document').hide();
+    }
+  });
+</script>
