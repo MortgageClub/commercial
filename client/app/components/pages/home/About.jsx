@@ -11,8 +11,7 @@ class About extends Component {
           <div className="about-sheltek-area pt-90 pb-50">
             <div className="container">
               <div className="text-center about-header">
-                <p>The commercial mortgage industry is broken. </p>
-                <p>We’re here to fix it. </p>
+                The commercial mortgage industry is broken. We’re here to fix it.
               </div>
               <div className="col-md-8 col-md-offset-2 about-content">
                 <p>
