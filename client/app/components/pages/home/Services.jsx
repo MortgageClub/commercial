@@ -42,7 +42,10 @@ class Services extends Component {
             </div>
           </div>
         </div>
-        <div className="properties-video-area pb-115">
+        <div>
+          <img src="https://www.blackstone.com/images/default-source/default-album/skyline-sketch-dark.png?sfvrsn=2" />
+        </div>
+        <div className="properties-video-area pb-115 pt-60">
           <div className="container">
             <div className="row">
               <div className="col-md-12">

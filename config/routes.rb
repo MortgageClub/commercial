@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :loan_faqs
     resources :blogs
     resources :loan_member_titles
+    resources :loan_members
   end
 
   namespace :api do

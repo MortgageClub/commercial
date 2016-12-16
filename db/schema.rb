@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161216070910) do
+ActiveRecord::Schema.define(version: 20161216075102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -154,6 +154,18 @@ ActiveRecord::Schema.define(version: 20161216070910) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "loan_members", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.string   "phone_number"
+    t.string   "individual_bre"
+    t.string   "company_name"
+    t.string   "company_address"
+    t.string   "company_phone_number"
+    t.string   "company_bre"
+    t.text     "email_signature"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "loans", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.decimal  "down_payment"
     t.decimal  "amount"
@@ -211,6 +223,10 @@ ActiveRecord::Schema.define(version: 20161216070910) do
     t.string   "last_name"
     t.uuid     "subjectable_id"
     t.string   "subjectable_type"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_users_on_email", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["subjectable_type", "subjectable_id"], name: "index_users_on_subjectable_type_and_subjectable_id", using: :btree
