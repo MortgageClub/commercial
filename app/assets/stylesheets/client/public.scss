@@ -101,3 +101,31 @@ select {
 .dropzone > div {
   width: 100% !important;
 }
+
+.about-page {
+  .image-top {
+    margin-top: 57px;
+  }
+  .about-content {
+    p {
+      font-weight: 400;
+    }
+  }
+  .about-header {
+    p {
+      font-size: 50px;
+      color: black;
+    }
+    p:first-child {
+      margin-bottom: 50px;
+    }
+    margin-bottom: 40px;
+  }
+  .our-team {
+    background-color: #ffe644;
+    p {
+      font-weight: 500;
+    }
+  }
+}
+

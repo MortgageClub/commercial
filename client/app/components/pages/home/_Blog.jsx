@@ -11,7 +11,7 @@ class Blog extends Component {
               <div className="col-md-12">
                 <div className="section-title-2 text-center">
                   <h2>FROM BLOG</h2>
-                  <p>Commercial real estate news, financing tips, investing advice, market trends, and more.</p>
+                  <p>Commercial real estate news, financing tips, industry insights, market trends, and more.</p>
                 </div>
               </div>
             </div>
