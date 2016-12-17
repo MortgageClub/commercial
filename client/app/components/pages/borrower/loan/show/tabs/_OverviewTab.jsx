@@ -22,7 +22,7 @@ class OverviewTab extends Component {
         {
           this.props.loan && this.props.loan.checklists
           ?
-            <table className="table">
+            <table className="table table-hover">
               <thead>
                 <tr>
                   <th width="10%">Status</th>

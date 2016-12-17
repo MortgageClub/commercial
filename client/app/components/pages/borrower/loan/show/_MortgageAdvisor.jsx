@@ -3,31 +3,41 @@ import { connect } from 'react-redux';
 
 class MortgageAdvisor extends Component {
   render() {
+    const loan = this.props.loan;
+    const loanMembers = loan ? loan.loan_members : [];
+    const mortgageAdvisor = loanMembers.find(loanMember => loanMember.title = "Mortgage Advisor");
+
     return (
       <div>
         <h4>Your Mortgage Advisor</h4>
-        <div className="media">
-          <a className="media-left" href="#">
-            <img src="/images/avatar/1.jpg" alt="" />
-          </a>
-          <div className="media-body">
-            <h5 className="media-heading">
-              Billy Tran
-            </h5>
-            <p>
-              <span className="fa fa-user"></span>
-              <span>NMLS ID: 1457126</span>
-            </p>
-            <p>
-              <span className="fa fa-phone"></span>
-              <span>(415) 849-6326</span>
-            </p>
-            <p>
-              <span className="fa fa-envelope"></span>
-              <span>billy@mortgageclub.co</span>
-            </p>
-          </div>
-        </div>
+        {
+          mortgageAdvisor
+          ?
+            <div className="media">
+              <a className="media-left">
+                <img src={mortgageAdvisor.avatar_url} width="81"/>
+              </a>
+              <div className="media-body">
+                <h5 className="media-heading">
+                  {mortgageAdvisor.full_name}
+                </h5>
+                <p>
+                  <span className="fa fa-user"></span>
+                  <span>Individual BRE: {mortgageAdvisor.individual_bre}</span>
+                </p>
+                <p>
+                  <span className="fa fa-phone"></span>
+                  <span>{mortgageAdvisor.phone_number}</span>
+                </p>
+                <p>
+                  <span className="fa fa-envelope"></span>
+                  <span>{mortgageAdvisor.email}</span>
+                </p>
+              </div>
+            </div>
+          :
+            null
+        }
       </div>
     )
   }

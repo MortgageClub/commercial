@@ -8,7 +8,7 @@ class LoanTab extends Component {
 
     return (
       <div>
-        <table className="table">
+        <table className="table table-hover">
           <thead>
             <tr>
               <th width="40%">Name</th>
