@@ -1,6 +1,26 @@
 import React, { Component } from 'react';
+import { getAll } from '../../../actions/BlogAction';
+import { connect } from 'react-redux';
+import { formatDate, formatTime } from '../../../utils/FormatUtils';
 
 class Blog extends Component {
+  componentDidMount() {
+    this.props.getAll(3);
+
+    // $('.blog-carousel').slick({
+    //   arrows: false,
+    //   dots: false,
+    //   infinite: false,
+    //   speed: 300,
+    //   slidesToShow: 3,
+    //   slidesToScroll: 2,
+    //   responsive: [
+    //     { breakpoint: 991, settings: { slidesToShow: 2, slidesToScroll: 1 } }, // Tablet
+    //     { breakpoint: 767, settings: { slidesToShow: 1, slidesToScroll: 1 } }, // Large Mobile
+    //     { breakpoint: 479, settings: { slidesToShow: 1, slidesToScroll: 1 } }  // Small Mobile
+    //   ]
+    // });
+  }
   render() {
     return (
       <div>
@@ -17,70 +37,9 @@ class Blog extends Component {
             </div>
             <div className="row">
               <div className="blog-carousel">
-                {/* blog-item */}
-                <div className="col-md-12">
-                  <article className="blog-item bg-gray">
-                    <div className="blog-image">
-                      <a href="single-blog.html"><img src="/images/blog/1.jpg" alt=""/></a>
-                    </div>
-                    <div className="blog-info">
-                      <div className="post-title-time">
-                        <h5><a href="single-blog.html">Maridland de Villa</a></h5>
-                        <p>July 30, 2016 / 10 am</p>
-                      </div>
-                      <p>Lorem must explain to you how all this mistaolt denouncing pleasure and praising pain wasnad I will give you a complete pain was praising</p>
-                      <a className="read-more" href="single-blog.html">Read more</a>
-                    </div>
-                  </article>
-                </div>
-                {/* blog-item */}
-                <div className="col-md-12">
-                  <article className="blog-item bg-gray">
-                    <div className="blog-image">
-                      <a href="single-blog.html"><img src="/images/blog/2.jpg" alt=""/></a>
-                    </div>
-                    <div className="blog-info">
-                      <div className="post-title-time">
-                        <h5><a href="single-blog.html">Latest Design House</a></h5>
-                        <p>July 30, 2016 / 10 am</p>
-                      </div>
-                      <p>Lorem must explain to you how all this mistaolt denouncing pleasure and praising pain wasnad I will give you a complete pain was praising</p>
-                      <a className="read-more" href="single-blog.html">Read more</a>
-                    </div>
-                  </article>
-                </div>
-                {/* blog-item */}
-                <div className="col-md-12">
-                  <article className="blog-item bg-gray">
-                    <div className="blog-image">
-                      <a href="single-blog.html"><img src="/images/blog/3.jpg" alt=""/></a>
-                    </div>
-                    <div className="blog-info">
-                      <div className="post-title-time">
-                        <h5><a href="single-blog.html">Duplex Villa House</a></h5>
-                        <p>July 30, 2016 / 10 am</p>
-                      </div>
-                      <p>Lorem must explain to you how all this mistaolt denouncing pleasure and praising pain wasnad I will give you a complete pain was praising</p>
-                      <a className="read-more" href="single-blog.html">Read more</a>
-                    </div>
-                  </article>
-                </div>
-                {/* blog-item */}
-                <div className="col-md-12">
-                  <article className="blog-item bg-gray">
-                    <div className="blog-image">
-                      <a href="single-blog.html"><img src="/images/blog/2.jpg" alt=""/></a>
-                    </div>
-                    <div className="blog-info">
-                      <div className="post-title-time">
-                        <h5><a href="single-blog.html">Latest Design House</a></h5>
-                        <p>July 30, 2016 / 10 am</p>
-                      </div>
-                      <p>Lorem must explain to you how all this mistaolt denouncing pleasure and praising pain wasnad I will give you a complete pain was praising</p>
-                      <a className="read-more" href="single-blog.html">Read more</a>
-                    </div>
-                  </article>
-                </div>
+                {
+                  this.props.blogs && this.props.blogs.map(blog => this.renderBlog(blog))
+                }
               </div>
             </div>
           </div>
@@ -89,6 +48,32 @@ class Blog extends Component {
       </div>
     )
   }
+
+  renderBlog(blog) {
+    return (
+      <div className="col-md-4" key={"homepage_" + blog.id}>
+        <article className="blog-item bg-gray">
+          <div className="blog-image">
+            <a><img src={blog.image_url} alt=""/></a>
+          </div>
+          <div className="blog-info">
+            <div className="post-title-time">
+              <h5><a>{blog.title}</a></h5>
+              <p>{formatTime(blog.created_at)}</p>
+            </div>
+            <p>{blog.short_description}</p>
+            <a className="read-more">Read more</a>
+          </div>
+        </article>
+      </div>
+    )
+  }
 }
 
-export default Blog;
+function mapStateToProps(state) {
+  return {
+    blogs: state.blog.blogs_page
+  };
+}
+
+export default connect(mapStateToProps, { getAll })(Blog);

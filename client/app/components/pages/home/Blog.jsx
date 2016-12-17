@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
 class Blog extends Component {
+  componentDidMount() {
+    // this.props.getAll();
+  }
   render() {
     return (
       <div className="wrapper">

@@ -45,7 +45,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :loans do
+      resources :loans, only: [:index, :create, :show] do
       end
 
       resources :documents, only: [] do
@@ -55,6 +55,9 @@ Rails.application.routes.draw do
       end
 
       resources :loan_faqs, only: :index
+
+      resources :blogs, only: :index do
+      end
 
       # resources :recipes, except: [:new, :edit] do
       #   member do

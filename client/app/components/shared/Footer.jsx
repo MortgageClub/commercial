@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import { getFooterBlogs } from '../../actions/BlogAction';
+import { connect } from 'react-redux';
 
 class Footer extends Component {
+  componentDidMount() {
+    this.props.getFooterBlogs();
+  }
+
   render() {
     return (
       <div>
@@ -44,38 +50,14 @@ class Footer extends Component {
                     </ul>
                   </div>
                 </div>
-                {/* footer-latest-news */}
+
                 <div className="col-lg-6 col-md-5 hidden-sm col-xs-12">
                   <div className="footer-widget middle">
                     <h6 className="footer-titel">LATEST NEWS</h6>
                     <ul className="footer-latest-news">
-                      <li>
-                        <div className="latest-news-image">
-                          <a href="single-blog.html"><img src="/images/blog/1.jpg" alt=""/></a>
-                        </div>
-                        <div className="latest-news-info">
-                          <h6><a href="single-blog.html">Beautiful Home</a></h6>
-                          <p>Lorem ipsum dolor sit amet, consectetur acinglit sed do eiusmod tempor inciidunt ut labore </p>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="latest-news-image">
-                          <a href="single-blog.html"><img src="/images/blog/2.jpg" alt=""/></a>
-                        </div>
-                        <div className="latest-news-info">
-                          <h6><a href="single-blog.html">Beautiful Home</a></h6>
-                          <p>Lorem ipsum dolor sit amet, consectetur acinglit sed do eiusmod tempor inciidunt ut labore </p>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="latest-news-image">
-                          <a href="single-blog.html"><img src="/images/blog/3.jpg" alt=""/></a>
-                        </div>
-                        <div className="latest-news-info">
-                          <h6><a href="single-blog.html">Beautiful Home</a></h6>
-                          <p>Lorem ipsum dolor sit amet, consectetur acinglit sed do eiusmod tempor inciidunt ut labore </p>
-                        </div>
-                      </li>
+                      {
+                        this.props.blogs && this.props.blogs.map(blog => this.renderBlog(blog))
+                      }
                     </ul>
                   </div>
                 </div>
@@ -113,6 +95,26 @@ class Footer extends Component {
       </div>
     )
   }
+
+  renderBlog(blog) {
+    return (
+      <li key={"footer_" + blog.id}>
+        <div className="latest-news-image">
+          <a><img src={blog.image_url} alt=""/></a>
+        </div>
+        <div className="latest-news-info">
+          <h6><a>{blog.title}</a></h6>
+          <p>{blog.short_description}</p>
+        </div>
+      </li>
+    )
+  }
 }
 
-export default Footer;
+function mapStateToProps(state) {
+  return {
+    blogs: state.blog.footer_blogs
+  };
+}
+
+export default connect(mapStateToProps, { getFooterBlogs })(Footer);
