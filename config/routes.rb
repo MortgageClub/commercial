@@ -44,6 +44,8 @@ Rails.application.routes.draw do
         end
       end
 
+      resources :referral_email_invitations, only: [:create]
+
       # resources :recipes, except: [:new, :edit] do
       #   member do
       #     post :add_ingredients
