@@ -54,6 +54,8 @@ Rails.application.routes.draw do
         end
       end
 
+      resources :loan_faqs, only: :index
+
       # resources :recipes, except: [:new, :edit] do
       #   member do
       #     post :add_ingredients

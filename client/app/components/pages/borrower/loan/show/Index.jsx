@@ -3,6 +3,7 @@ import { fetch } from '../../../../../actions/LoanAction';
 import { connect } from 'react-redux';
 import PropertyInfo from './_PropertyInfo';
 import MortgageAdvisor from './_MortgageAdvisor';
+import LoanFaqs from './_LoanFaqs';
 import TabsContent from './_TabsContent';
 
 class Index extends Component {
@@ -22,6 +23,7 @@ class Index extends Component {
           </div>
           <div className="col-md-3">
             <MortgageAdvisor />
+            <LoanFaqs />
           </div>
         </div>
       </div>
