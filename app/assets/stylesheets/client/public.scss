@@ -96,10 +96,15 @@ select {
 
 .dropzone {
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .dropzone > div {
   width: 100% !important;
+  text-align: center;
+  i {
+    margin-top: 65px;
+  }
 }
 
 .about-page {

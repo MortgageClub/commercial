@@ -21,7 +21,13 @@ class ChecklistUpload extends Component {
               <h4 className="modal-title" id={labelId}>{this.props.title}</h4>
             </div>
             <div className="modal-body">
-              <h6>{checklist.document_type.category} - {checklist.document_type.name} - {checklist.document_description}</h6>
+              <h6>{checklist.document_description}</h6>
+              <div className='dropzone'>
+                <Dropzone onDrop={this.onDrop.bind(this)} multiple={false}>
+                  <i className="fa fa-cloud-upload fa-3x"></i>
+                  <div>You can drag and drop file here to upload. Or, choose file</div>
+                </Dropzone>
+              </div>
               {
                 checklist.document
                 ?
@@ -31,11 +37,6 @@ class ChecklistUpload extends Component {
                 :
                   null
               }
-              <div className='dropzone'>
-                <Dropzone onDrop={this.onDrop.bind(this)} multiple={false}>
-                  <div>Try dropping some files here, or click to select files to upload.</div>
-                </Dropzone>
-              </div>
             </div>
           </div>
         </div>

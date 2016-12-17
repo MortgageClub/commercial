@@ -5,11 +5,11 @@ class MortgageAdvisor extends Component {
   render() {
     const loan = this.props.loan;
     const loanMembers = loan ? loan.loan_members : [];
-    const mortgageAdvisor = loanMembers.find(loanMember => loanMember.title = "Mortgage Advisor");
+    const mortgageAdvisor = loanMembers.find(loanMember => loanMember.title = "Relationship Manager");
 
     return (
       <div>
-        <h4>Your Mortgage Advisor</h4>
+        <h4>Your Relationship Manager</h4>
         {
           mortgageAdvisor
           ?
