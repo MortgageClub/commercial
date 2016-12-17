@@ -4,10 +4,6 @@ import Dropzone from 'react-dropzone';
 import { upload } from '../../../../../actions/DocumentAction';
 
 class ChecklistUpload extends Component {
-  componentDidUpdate() {
-    $("#" + this.props.buttonId).modal("hide");
-  }
-
   render() {
     const checklist = this.props.checklist;
     const labelId = checklist.id + "Label";
@@ -37,11 +33,18 @@ class ChecklistUpload extends Component {
                 :
                   null
               }
+              <div className="text-center pt-10">
+                <button className="button-1 btn-block half-width" onClick={this.closePopup.bind(this)} disabled={checklist.document ? null : "disabled"}>{"I've completed this task"}</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     )
+  }
+
+  closePopup() {
+    $("#" + this.props.buttonId).modal("hide");
   }
 
   onDrop(files) {
