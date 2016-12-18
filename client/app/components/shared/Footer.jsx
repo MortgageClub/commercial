@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getFooterBlogs } from '../../actions/BlogAction';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 class Footer extends Component {
   componentDidMount() {
@@ -100,10 +101,12 @@ class Footer extends Component {
     return (
       <li key={"footer_" + blog.id}>
         <div className="latest-news-image">
-          <a><img src={blog.image_url} alt=""/></a>
+          <Link to={`/blog/${blog.id}`}>
+            <img src={blog.image_url} alt=""/>
+          </Link>
         </div>
         <div className="latest-news-info">
-          <h6><a>{blog.title}</a></h6>
+          <h6><Link to={`/blog/${blog.id}`}>{blog.title}</Link></h6>
           <p>{blog.short_description}</p>
         </div>
       </li>

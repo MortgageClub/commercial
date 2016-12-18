@@ -1,12 +1,14 @@
 module Api
   module V1
     class BlogsController < ApplicationController
+      before_action :execute
+
       def index
-        execute
+        # execute
       end
 
       def show
-        execute
+        # execute
       end
     end
   end

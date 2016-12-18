@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getAll } from '../../../actions/BlogAction';
 import { connect } from 'react-redux';
 import { formatDate, formatTime } from '../../../utils/FormatUtils';
+import { Link } from 'react-router';
 
 class Blog extends Component {
   componentDidMount() {
@@ -21,6 +22,7 @@ class Blog extends Component {
     //   ]
     // });
   }
+
   render() {
     return (
       <div>
@@ -54,15 +56,17 @@ class Blog extends Component {
       <div className="col-md-4" key={"homepage_" + blog.id}>
         <article className="blog-item bg-gray">
           <div className="blog-image">
-            <a><img src={blog.image_url} alt=""/></a>
+            <Link to={`/blog/${blog.id}`}>
+              <img src={blog.image_url}/>
+            </Link>
           </div>
           <div className="blog-info">
             <div className="post-title-time">
-              <h5><a>{blog.title}</a></h5>
+              <h5><Link to={`/blog/${blog.id}`}>{blog.title}</Link></h5>
               <p>{formatTime(blog.created_at)}</p>
             </div>
             <p>{blog.short_description}</p>
-            <a className="read-more">Read more</a>
+            <Link to={`/blog/${blog.id}`} className="read-more">Read more</Link>
           </div>
         </article>
       </div>
