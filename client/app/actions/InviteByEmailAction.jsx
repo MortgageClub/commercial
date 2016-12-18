@@ -8,7 +8,6 @@ export function invite(inviteEmail) {
     return function (dispatch) {
         axios.post('/referral_email_invitations', inviteEmail, { headers: authFromLocal() })
             .then(response => {
-                debugger
                 dispatch(reset('inviteByEmailForm'));
                 dispatch({ type: REFERRAL_INVITE_EMAIL_SUCCESS, payload: response.data });
             })

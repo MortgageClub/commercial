@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+const ClipboardButton = require('react-clipboard.js');
 
 class ReferralLink extends Component {
     render() {
@@ -10,10 +13,10 @@ class ReferralLink extends Component {
                         <div className="referral-link">
                             <h4>Your referral Link:</h4>
                             <form action="#">
-                                <input type="text" id="referral-link" name="referral_link" value="https://stg-mortgageclub.herokuapp.com/?refcode=c8d7a5c5-3e7a-416f-8b64-1adc6f3bcda4" placeholder="Your referral code" />
-                                <button className="submit-btn-1 mt-5">
-                                    <i className="fa fa-link" aria-hidden="true"></i> Copy to Clipboard
-                                </button>
+                                <input type="text" id="referral-link" name="referral_link" value={"https://stg-mortgageclub.herokuapp.com/?refcode=" + (this.props.userInfo && this.props.userInfo.referral_code)} placeholder="Your referral code" />
+                                <ClipboardButton className="submit-btn-1 mt-5" data-clipboard-text={"https://stg-mortgageclub.herokuapp.com/?refcode=" + (this.props.userInfo && this.props.userInfo.referral_code)}>
+                                    Copy to Clipboard
+                                </ClipboardButton>
                             </form>
                         </div>
                     </div>
@@ -24,4 +27,10 @@ class ReferralLink extends Component {
     }
 }
 
-export default ReferralLink;
+function mapStateToProps(state) {
+    return {
+        userInfo: state.auth.userInfo
+    }
+}
+
+export default connect(mapStateToProps)(ReferralLink);
