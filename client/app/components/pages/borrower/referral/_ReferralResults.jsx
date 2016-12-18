@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 import { getAll } from '../../../../actions/InviteByEmailAction';
 
 class ReferralResults extends Component {

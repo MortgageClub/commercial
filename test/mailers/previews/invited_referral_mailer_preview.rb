@@ -2,6 +2,6 @@
 class InvitedReferralMailerPreview < ActionMailer::Preview
   def send_invitation_preview
     user = User.first
-    InvitedReferralMailer.send_invitation(user.id, user.invited_referrals.last.id)
+    InvitedReferralMailer.send_invitation(user, [user.invited_referrals.last])
   end
 end
