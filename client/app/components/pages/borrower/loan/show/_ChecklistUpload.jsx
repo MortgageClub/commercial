@@ -4,10 +4,6 @@ import Dropzone from 'react-dropzone';
 import { upload } from '../../../../../actions/DocumentAction';
 
 class ChecklistUpload extends Component {
-  componentDidUpdate() {
-    $("#" + this.props.buttonId).modal("hide");
-  }
-
   render() {
     const checklist = this.props.checklist;
     const labelId = checklist.id + "Label";
@@ -21,7 +17,13 @@ class ChecklistUpload extends Component {
               <h4 className="modal-title" id={labelId}>{this.props.title}</h4>
             </div>
             <div className="modal-body">
-              <h6>{checklist.document_type.category} - {checklist.document_type.name} - {checklist.document_description}</h6>
+              <h6>{checklist.document_description}</h6>
+              <div className='dropzone'>
+                <Dropzone onDrop={this.onDrop.bind(this)} multiple={false}>
+                  <i className="fa fa-cloud-upload fa-3x"></i>
+                  <div>You can drag and drop file here to upload. Or, choose file</div>
+                </Dropzone>
+              </div>
               {
                 checklist.document
                 ?
@@ -31,16 +33,18 @@ class ChecklistUpload extends Component {
                 :
                   null
               }
-              <div className='dropzone'>
-                <Dropzone onDrop={this.onDrop.bind(this)} multiple={false}>
-                  <div>Try dropping some files here, or click to select files to upload.</div>
-                </Dropzone>
+              <div className="text-center pt-10">
+                <button className="button-1 btn-block half-width" onClick={this.closePopup.bind(this)} disabled={checklist.document ? null : "disabled"}>{"I've completed this task"}</button>
               </div>
             </div>
           </div>
         </div>
       </div>
     )
+  }
+
+  closePopup() {
+    $("#" + this.props.buttonId).modal("hide");
   }
 
   onDrop(files) {

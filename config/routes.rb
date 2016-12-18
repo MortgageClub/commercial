@@ -15,6 +15,16 @@ Rails.application.routes.draw do
     resources :document_types
     resources :loan_faqs
     resources :blogs
+    resources :loan_member_titles
+    resources :loan_members
+    resources :assigned_loan_members
+  end
+
+  namespace :advisors do
+    resources :loans, only: :index do
+      resources :documents
+      resources :checklists
+    end
   end
 
   namespace :api do
@@ -35,7 +45,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :loans do
+      resources :loans, only: [:index, :create, :show] do
       end
 
       resources :invited_referrals, only: [:index] do
@@ -46,9 +56,10 @@ Rails.application.routes.draw do
           post :upload
         end
       end
-
       resources :referral_email_invitations, only: [:create]
-
+      resources :loan_faqs, only: :index
+      resources :blogs, only: [:index, :show] do
+      end
       # resources :recipes, except: [:new, :edit] do
       #   member do
       #     post :add_ingredients

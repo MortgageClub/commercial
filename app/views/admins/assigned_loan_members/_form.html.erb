@@ -1,0 +1,32 @@
+<%= form_for [:admins, @assigned_loan_member], authenticity_token: true do |f| %>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :loan_id, "Loan" %>
+        <%= f.select :loan_id, @loans.collect { |p| [ p.property_address, p.id ] }, { prompt: 'Select loan' }, { class: 'form-control' } %>
+        <%= form_error(@assigned_loan_member, :loan) %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :loan_member_id, "Loan Member" %>
+        <%= f.select :loan_member_id, @loan_members.collect { |p| [ p.full_name, p.id ] }, { prompt: 'Select loan member' }, { class: 'form-control' } %>
+        <%= form_error(@assigned_loan_member, :loan_member) %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :loan_member_title_id, "Title" %>
+        <%= f.select :loan_member_title_id, @loan_member_titles.collect { |p| [ p.title, p.id ] }, { prompt: 'Select title' }, { class: 'form-control' } %>
+        <%= form_error(@assigned_loan_member, :loan_member_title) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-wizard-actions">
+    <%= link_to "Back", admins_assigned_loan_members_path, class: "btn btn-default legitRipple" %>
+    <button class="btn btn-primary legitRipple" type="submit"><%= @assigned_loan_member.id ? "Re-assign" : "Assign" %> <i class="icon-arrow-right14 position-right"></i></button>
+  </div>
+<% end %>

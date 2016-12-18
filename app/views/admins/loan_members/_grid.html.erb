@@ -1,0 +1,25 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th style="text-align: center">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @loan_members.each do |loan_member| %>
+      <tr>
+        <td><%= loan_member.user.first_name %></td>
+        <td><%= loan_member.user.last_name %></td>
+        <td style="text-align: center">
+          <%= link_to edit_admins_loan_member_path(loan_member) do %>
+            <i class="icon-pencil3"></i>
+          <% end %>
+          <%= link_to admins_loan_member_path(loan_member), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="icon-trash-alt color-red"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

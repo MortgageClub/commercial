@@ -4,7 +4,13 @@ module Loans
       require_authen!
 
       def process
-        Loans::DetailSerializer.new(Loan.find(params[:id]))
+        Loans::DetailSerializer.new(loan)
+      end
+
+      private
+      def loan
+        @loan ||= Loan.includes(checklists: :document)
+          .find(params[:id])
       end
     end
   end

@@ -75,19 +75,7 @@ class Index extends Component {
     /*************************
         10. Blog Carousel
     *************************/
-    $('.blog-carousel').slick({
-      arrows: false,
-      dots: false,
-      infinite: false,
-      speed: 300,
-      slidesToShow: 3,
-      slidesToScroll: 2,
-      responsive: [
-        { breakpoint: 991, settings: { slidesToShow: 2, slidesToScroll: 1 } }, // Tablet
-        { breakpoint: 767, settings: { slidesToShow: 1, slidesToScroll: 1 } }, // Large Mobile
-        { breakpoint: 479, settings: { slidesToShow: 1, slidesToScroll: 1 } }  // Small Mobile
-      ]
-    });
+
 
     /*************************
         11. Brand Carousel

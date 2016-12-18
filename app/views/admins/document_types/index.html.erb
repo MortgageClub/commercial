@@ -13,15 +13,6 @@
           </ul>
         </div>
       </div>
-      <div class="datatable-header">
-        <%= search_form_for @q, url: admins_document_types_path do |f| %>
-          <div class="dataTables_filter">
-            <label>
-              <%= f.search_field :name_or_category_cont, placeholder: "Type to search...", type: "search" %>
-            </label>
-          </div>
-        <% end %>
-      </div>
       <div class="datatable-scroll">
         <div class="table-responsive">
           <%= render "grid" %>

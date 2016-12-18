@@ -3,7 +3,9 @@ import axios from 'axios';
 export function rootUrl() {
   switch (process.env.NODE_ENV) {
     case "production":
-      return "https://stg-blackline.herokuapp.com/api";
+      return "https://stg-equity.herokuapp.com/api";
+    case "staging":
+      return "https://stg-equity.herokuapp.com/api";
     default:
       return "http://localhost:3000/api"
   }

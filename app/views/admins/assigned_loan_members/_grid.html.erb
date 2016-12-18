@@ -1,0 +1,27 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Property Address</th>
+      <th>Loan Member</th>
+      <th>Title</th>
+      <th style="text-align: center">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @assigned_loan_members.each do |assigned_loan_member| %>
+      <tr>
+        <td><%= assigned_loan_member.loan.property_address %></td>
+        <td><%= assigned_loan_member.loan_member.full_name %></td>
+        <td><%= assigned_loan_member.loan_member_title.title %></td>
+        <td style="text-align: center">
+          <%= link_to edit_admins_assigned_loan_member_path(assigned_loan_member) do %>
+            <i class="icon-pencil3"></i>
+          <% end %>
+          <%= link_to admins_assigned_loan_member_path(assigned_loan_member), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="icon-trash-alt color-red"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

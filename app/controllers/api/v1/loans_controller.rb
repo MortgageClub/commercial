@@ -1,16 +1,18 @@
 module Api
   module V1
     class LoansController < ApplicationController
+      before_action :execute
+
       def index
-        execute
+        # execute
       end
 
       def create
-        execute
+        # execute
       end
 
       def show
-        execute
+        # execute
       end
     end
   end

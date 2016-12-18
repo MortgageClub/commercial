@@ -1,0 +1,27 @@
+<div class="page-content">
+  <%= render "shared/advisors/siderbar" %>
+  <div class="content-wrapper">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h5 class="panel-title">Documents</h5>
+        <div class="heading-elements">
+          <ul class="icons-list">
+            <li>
+              <%= link_to new_advisors_loan_document_path do %>
+                <i class="icon-plus3"></i>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="datatable-scroll">
+        <div class="table-responsive">
+          <%= render "grid" %>
+        </div>
+      </div>
+      <div class="datatable-footer text-center">
+        <%= paginate @documents, :views_prefix => 'admins' %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -28,10 +28,10 @@ development:
   # adapter: postgresql
   # encoding: unicode
   # pool: 5
-  # host: ec2-79-125-13-42.eu-west-1.compute.amazonaws.com
-  # username: cdookdrquvozcz
-  # password: 3939515ad707cf89b43acef4dc21ae9f208d229b1f428f8de8d0a09385650dc7
-  # database: dardfnf5hnf4h9
+  # host: ec2-54-163-253-94.compute-1.amazonaws.com
+  # username: iljubzkijrfrqc
+  # password: f9aa7349e936edac47628406cab2f8f426ce1c8a7efd48b305e71c2454a2377e
+  # database: d20m17e1be7ru1
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

@@ -4,6 +4,17 @@ import { logout } from '../../../actions/AuthAction';
 import { connect } from 'react-redux';
 
 class PublicHeader extends Component {
+  componentDidMount() {
+    // var hth = $('.header-top-bar').height();
+    // $(window).on('scroll', function() {
+    //   if ($(this).scrollTop() > hth){
+    //     $('#sticky-header').addClass("sticky");
+    //   }
+    //   else{
+    //     $('#sticky-header').removeClass("sticky");
+    //   }
+    // });
+  }
   render() {
     return (
       <div>
@@ -85,7 +96,13 @@ class PublicHeader extends Component {
           <Link to="/">Home</Link>
         </li>
         <li>
+          <Link to="/services">Services</Link>
+        </li>
+        <li>
           <Link to="/blog">Blog</Link>
+        </li>
+        <li>
+          <Link to="/about">About Us</Link>
         </li>
         <li>
           <a onClick={this.props.logout}>Logout</a>
@@ -101,7 +118,13 @@ class PublicHeader extends Component {
           <Link to="/">Home</Link>
         </li>
         <li>
+          <Link to="/services">Services</Link>
+        </li>
+        <li>
           <Link to="/blog">Blog</Link>
+        </li>
+        <li>
+          <Link to="/about">About Us</Link>
         </li>
         <li>
           <Link to="/login">Login</Link>

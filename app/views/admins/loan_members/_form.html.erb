@@ -1,0 +1,126 @@
+<%= form_for [:admins, @loan_member], authenticity_token: true do |f| %>
+  <%= f.fields_for :user do |user_fields| %>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= user_fields.label :email %>
+          <%= user_fields.text_field :email, class: "form-control" %>
+          <%= form_error(@loan_member, :"user.email") %>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= user_fields.label :password %>
+          <%= user_fields.password_field :password, class: "form-control", placeholder: "Minimum is 8 characters" %>
+          <%= form_error(@loan_member, :"user.password") %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= user_fields.label :first_name %>
+          <%= user_fields.text_field :first_name, class: "form-control" %>
+          <%= form_error(@loan_member, :"user.first_name") %>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= user_fields.label :last_name %>
+          <%= user_fields.text_field :last_name, class: "form-control" %>
+          <%= form_error(@loan_member, :"user.lastname") %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= user_fields.label :avatar %>
+          <%= user_fields.file_field :avatar %>
+          <%= form_error(@loan_member, :"user.avatar") %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <% if @loan_member.user.avatar.present? %>
+          <image src="<%= @loan_member.user.avatar.expiring_url(60) %>" width="200"/>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :phone_number %>
+        <%= f.phone_field :phone_number, class: "form-control" %>
+        <%= form_error(@loan_member, :phone_number) %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :individual_bre, "Individual BRE" %>
+        <%= f.text_field :individual_bre, class: "form-control" %>
+        <%= form_error(@loan_member, :individual_bre) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :company_name %>
+        <%= f.text_field :company_name, class: "form-control" %>
+        <%= form_error(@loan_member, :company_name) %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :company_address %>
+        <%= f.text_field :company_address, class: "form-control" %>
+        <%= form_error(@loan_member, :company_address) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :company_phone_number %>
+        <%= f.text_field :company_phone_number, class: "form-control" %>
+        <%= form_error(@loan_member, :company_phone_number) %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :company_bre, "Company BRE" %>
+        <%= f.text_field :company_bre, class: "form-control" %>
+        <%= form_error(@loan_member, :company_bre) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label :email_signature %>
+        <%= f.text_area :email_signature, rows: 15, cols: 180 %>
+        <%= form_error(@loan_member, :email_signature) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-wizard-actions">
+    <%= link_to "Back", admins_loan_members_path, class: "btn btn-default legitRipple" %>
+    <button class="btn btn-primary legitRipple" type="submit"><%= @loan_member.id ? "Update" : "Create" %> <i class="icon-arrow-right14 position-right"></i></button>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  tinyMCE.init({
+    selector: "textarea"
+  });
+</script>

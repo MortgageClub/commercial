@@ -50,6 +50,10 @@ select {
   width: 100%;
 }
 
+.half-width {
+  width: 50%;
+}
+
 .service-item-info {
   table {
     width: 100%;
@@ -96,8 +100,72 @@ select {
 
 .dropzone {
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .dropzone > div {
   width: 100% !important;
+  text-align: center;
+  i {
+    margin-top: 65px;
+  }
+}
+
+.about-page {
+  .image-top {
+    margin-top: 57px;
+  }
+  .about-content {
+    p {
+      font-weight: 400;
+    }
+  }
+  .about-header {
+    font-size: 50px;
+    margin-bottom: 40px;
+    line-height: 1.2;
+  }
+  .our-team {
+    background-color: #ffe644;
+    p {
+      font-weight: 500;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .about-page {
+    .page-wrapper {
+      .about-sheltek-area {
+        padding-top: 30px;
+
+        .container {
+          width: 100%;
+        }
+      }
+    }
+    .image-top {
+      margin-top: 0px;
+    }
+    .about-header {
+      font-size: 26px;
+      margin-bottom: 30px;
+      line-height: 1.0;
+    }
+    .our-team {
+      .container {
+        width: 100%;
+      }
+      p {
+        font-weight: 400;
+      }
+      p:last-child {
+        text-align: left;
+      }
+    }
+  }
+}
+
+.helpful-faq {
+  margin-top: 20px;
 }

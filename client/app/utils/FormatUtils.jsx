@@ -1,4 +1,4 @@
-import { FormattedNumber, FormattedDate } from 'react-intl';
+import { FormattedNumber, FormattedDate, FormattedTime } from 'react-intl';
 import React from 'react';
 
 export function formatCurrency(value, currency) {
@@ -8,4 +8,8 @@ export function formatCurrency(value, currency) {
 
 export function formatDate(value) {
   return (<FormattedDate value={value} />);
+}
+
+export function formatTime(value) {
+  return (<FormattedTime value={value} />);
 }

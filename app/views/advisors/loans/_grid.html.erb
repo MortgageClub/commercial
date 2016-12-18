@@ -1,0 +1,24 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Property Address</th>
+      <th>Borrower</th>
+      <th>Status</th>
+      <th style="text-align: center">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @loans.each do |loan| %>
+      <tr>
+        <td><%= loan.property_address %></td>
+        <td><%= loan.borrower.full_name %></td>
+        <td><%= loan.status.titleize %></td>
+        <td style="text-align: center">
+          <%= link_to advisors_loan_checklists_path(loan) do %>
+            <i class="icon-pencil3"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

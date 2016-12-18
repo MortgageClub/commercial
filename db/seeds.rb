@@ -73,3 +73,13 @@ DocumentType.create(category: :closing, name: "Wire Instructions")
 # Checklist.create(loan: Loan.first, checklist_type: :upload, due_date: Time.zone.now + 7.days, information: "hello", status: :pending, document_description: "upload test 7", name: "upload test 7", document_type_id: "7fb5f21f-3f15-4d19-a3b4-784144df03bd")
 # Checklist.create(loan: Loan.first, checklist_type: :upload, due_date: Time.zone.now + 7.days, information: "hello", status: :pending, document_description: "upload test 8", name: "upload test 8", document_type_id: "5c6364ba-4bf2-4512-97de-d79fa3f8d4cb")
 # Checklist.create(loan: Loan.first, checklist_type: :upload, due_date: Time.zone.now + 7.days, information: "hello", status: :pending, document_description: "upload test 9", name: "upload test 9", document_type_id: "658bd6a0-b066-4ffd-8e57-6c75356ff6d4")
+
+LoanMemberTitle.create(title: "Escrow Officer")
+LoanMemberTitle.create(title: "Notary Agent")
+LoanMemberTitle.create(title: "Insurance Agent")
+LoanMemberTitle.create(title: "Appraiser")
+LoanMemberTitle.create(title: "Relationship Manager")
+LoanMemberTitle.create(title: "Loan Analyst")
+LoanMemberTitle.create(title: "Buyer's Agent")
+LoanMemberTitle.create(title: "Listing Agent")
+

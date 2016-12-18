@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(version: 20161218085547) do
     t.index ["loan_id"], name: "index_agents_on_loan_id", using: :btree
   end
 
+  create_table "assigned_loan_members", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid     "loan_id"
+    t.uuid     "loan_member_id"
+    t.uuid     "loan_member_title_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["loan_id"], name: "index_assigned_loan_members_on_loan_id", using: :btree
+    t.index ["loan_member_id"], name: "index_assigned_loan_members_on_loan_member_id", using: :btree
+    t.index ["loan_member_title_id"], name: "index_assigned_loan_members_on_loan_member_title_id", using: :btree
+  end
+
   create_table "blogs", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "title"
     t.text     "content"
@@ -159,6 +170,24 @@ ActiveRecord::Schema.define(version: 20161218085547) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "loan_member_titles", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "loan_members", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.string   "phone_number"
+    t.string   "individual_bre"
+    t.string   "company_name"
+    t.string   "company_address"
+    t.string   "company_phone_number"
+    t.string   "company_bre"
+    t.text     "email_signature"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "loans", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.decimal  "down_payment"
     t.decimal  "amount"
@@ -217,6 +246,10 @@ ActiveRecord::Schema.define(version: 20161218085547) do
     t.uuid     "subjectable_id"
     t.string   "subjectable_type"
     t.string   "referral_code"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_users_on_email", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["subjectable_type", "subjectable_id"], name: "index_users_on_subjectable_type_and_subjectable_id", using: :btree
@@ -224,6 +257,9 @@ ActiveRecord::Schema.define(version: 20161218085547) do
   end
 
   add_foreign_key "agents", "loans"
+  add_foreign_key "assigned_loan_members", "loan_member_titles"
+  add_foreign_key "assigned_loan_members", "loan_members"
+  add_foreign_key "assigned_loan_members", "loans"
   add_foreign_key "bussinesses", "users"
   add_foreign_key "checklists", "loans"
   add_foreign_key "closings", "loans"
