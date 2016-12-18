@@ -9,6 +9,7 @@ module Api
       def create
         @resource            = resource_class.new(sign_up_params)
         @resource.provider   = "email"
+        @resource.referral_code = Users::V1::ReferralCodeGenerator.generate
         # honor devise configuration for case_insensitive_keys
         if resource_class.case_insensitive_keys.include?(:email)
           @resource.email = sign_up_params[:email].try :downcase

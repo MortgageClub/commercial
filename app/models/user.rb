@@ -7,6 +7,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :trackable, :validatable
 
+  validates :referral_code, uniqueness: true
+
   def confirmation_required?
     false
   end
