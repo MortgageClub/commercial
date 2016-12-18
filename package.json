@@ -8,6 +8,7 @@
   "scripts": {
     "postinstall": "cd client && npm install",
     "rails": "echo 'visit http://localhost:3000' && foreman start -f Procfile.dev",
-    "test": "rspec"
+    "test": "rspec",
+    "heroku-postbuild": "cd client && npm run build"
   }
 }

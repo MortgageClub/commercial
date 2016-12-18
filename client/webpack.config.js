@@ -1,8 +1,8 @@
 const webpack = require('webpack');
 const path = require('path');
 
-const devBuild = process.env.NODE_ENV !== 'production';
-const nodeEnv = devBuild ? 'development' : 'production';
+const devBuild = process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'staging';
+const nodeEnv = process.env.NODE_ENV;
 
 const config = {
   entry: [
@@ -59,6 +59,6 @@ if (devBuild) {
   config.plugins.push(
     new webpack.optimize.DedupePlugin()
   );
-  console.log('Webpack production build for Rails'); // eslint-disable-line no-console
+  console.log('Webpack ' + process.env.NODE_ENV + ' build for Rails'); // eslint-disable-line no-console
 }
 

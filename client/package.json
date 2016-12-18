@@ -7,7 +7,7 @@
   },
   "scripts": {
     "build:test": "webpack --config webpack.config.js",
-    "build:production": "NODE_ENV=production webpack --config webpack.config.js",
+    "build": "NODE_ENV=${NODE_ENV} webpack --config webpack.config.js",
     "build:development": "webpack -w --config webpack.config.js",
     "test": "NODE_PATH=src istanbul cover _mocha -- --compilers js:babel-register --require ./app/test/helper.js './app/test/**/*.spec.js*'"
   },
@@ -53,7 +53,8 @@
     "react-router-redux": "^4.0.7",
     "react-intl": "^1.2.2",
     "react-geosuggest": "^2.0.0",
-    "react-dropzone": "^3.7.3"
+    "react-dropzone": "^3.7.3",
+    "react-router-scroll": "^0.4.1"
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.7.1",
