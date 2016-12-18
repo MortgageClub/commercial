@@ -56,7 +56,7 @@ Rails.application.routes.draw do
 
       resources :loan_faqs, only: :index
 
-      resources :blogs, only: :index do
+      resources :blogs, only: [:index, :show] do
       end
 
       # resources :recipes, except: [:new, :edit] do

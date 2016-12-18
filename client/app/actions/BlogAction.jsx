@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
 import { authFromLocal } from '../utils/AuthUtils'
-import { LASTEST_BLOGS, BLOGS_LIST } from '../actions/Types';
+import { LASTEST_BLOGS, BLOGS_LIST, BLOG_DETAILS } from '../actions/Types';
 
 export function getFooterBlogs() {
   return function (dispatch) {
@@ -13,6 +13,18 @@ export function getFooterBlogs() {
       })
       .then(response => {
         dispatch({ type: LASTEST_BLOGS, payload: response.data });
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+}
+
+export function fetch(id) {
+  return function (dispatch) {
+    axios.get('/blogs/' + id)
+      .then(response => {
+        dispatch({ type: BLOG_DETAILS, payload: response.data });
       })
       .catch(error => {
         console.log(error);

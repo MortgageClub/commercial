@@ -4,6 +4,10 @@ module Api
       def index
         execute
       end
+
+      def show
+        execute
+      end
     end
   end
 end

@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import { getAll } from '../../../actions/BlogAction';
+import { connect } from 'react-redux';
+import { formatDate, formatTime } from '../../../utils/FormatUtils';
 
 class Blog extends Component {
   componentDidMount() {
-    // this.props.getAll();
+    this.props.getAll(8);
   }
   render() {
+    const recent_posts = this.props.blogs ? this.props.blogs.slice(0, 4) : [];
     return (
       <div className="wrapper">
         <div className="blog-area pt-115 pb-60">
@@ -12,136 +16,9 @@ class Blog extends Component {
             <div className="row">
               <div className="col-md-8 col-md-push-4">
                 <div className="row">
-                  <div className="col-sm-6 col-xs-12">
-                    <article className="blog-item bg-gray">
-                      <div className="blog-image">
-                        <a href="single-blog.html"><img src="images/blog/1.jpg" alt=""/></a>
-                      </div>
-                      <div className="blog-info">
-                        <div className="post-title-time">
-                          <h5><a href="single-blog.html">Maridland de Villa</a></h5>
-                          <p>July 30, 2016 / 10 am</p>
-                        </div>
-                        <p>Lorem must explain to you how all this mistaolt denouncing pleasure and praising pain wasnad I will give you a complete pain was praising</p>
-                        <a className="read-more" href="single-blog.html">Read more</a>
-                      </div>
-                    </article>
-                  </div>
-                  <div className="col-sm-6 col-xs-12">
-                    <article className="blog-item bg-gray">
-                      <div className="blog-image">
-                        <a href="single-blog.html"><img src="images/blog/2.jpg" alt=""/></a>
-                      </div>
-                      <div className="blog-info">
-                        <div className="post-title-time">
-                          <h5><a href="single-blog.html">Latest Design House</a></h5>
-                          <p>July 30, 2016 / 10 am</p>
-                        </div>
-                        <p>Lorem must explain to you how all this mistaolt denouncing pleasure and praising pain wasnad I will give you a complete pain was praising</p>
-                        <a className="read-more" href="single-blog.html">Read more</a>
-                      </div>
-                    </article>
-                  </div>
-                  <div className="col-sm-6 col-xs-12">
-                    <article className="blog-item bg-gray">
-                      <div className="blog-image">
-                        <a href="single-blog.html"><img src="images/blog/3.jpg" alt=""/></a>
-                      </div>
-                      <div className="blog-info">
-                        <div className="post-title-time">
-                          <h5><a href="single-blog.html">Duplex Villa House</a></h5>
-                          <p>July 30, 2016 / 10 am</p>
-                        </div>
-                        <p>Lorem must explain to you how all this mistaolt denouncing pleasure and praising pain wasnad I will give you a complete pain was praising</p>
-                        <a className="read-more" href="single-blog.html">Read more</a>
-                      </div>
-                    </article>
-                  </div>
-                  <div className="col-sm-6 col-xs-12">
-                    <article className="blog-item bg-gray">
-                      <div className="blog-image">
-                        <a href="single-blog.html"><img src="images/flat/1.jpg" alt=""/></a>
-                      </div>
-                      <div className="blog-info">
-                        <div className="post-title-time">
-                          <h5><a href="single-blog.html">Latest Design House</a></h5>
-                          <p>July 30, 2016 / 10 am</p>
-                        </div>
-                        <p>Lorem must explain to you how all this mistaolt denouncing pleasure and praising pain wasnad I will give you a complete pain was praising</p>
-                        <a className="read-more" href="single-blog.html">Read more</a>
-                      </div>
-                    </article>
-                  </div>
-                  <div className="col-sm-6 col-xs-12">
-                    <article className="blog-item bg-gray">
-                      <div className="blog-image">
-                        <a href="single-blog.html"><img src="images/flat/2.jpg" alt=""/></a>
-                      </div>
-                      <div className="blog-info">
-                        <div className="post-title-time">
-                          <h5><a href="single-blog.html">Maridland de Villa</a></h5>
-                          <p>July 30, 2016 / 10 am</p>
-                        </div>
-                        <p>Lorem must explain to you how all this mistaolt denouncing pleasure and praising pain wasnad I will give you a complete pain was praising</p>
-                        <a className="read-more" href="single-blog.html">Read more</a>
-                      </div>
-                    </article>
-                  </div>
-                  <div className="col-sm-6 col-xs-12">
-                    <article className="blog-item bg-gray">
-                      <div className="blog-image">
-                        <a href="single-blog.html"><img src="images/flat/3.jpg" alt=""/></a>
-                      </div>
-                      <div className="blog-info">
-                        <div className="post-title-time">
-                          <h5><a href="single-blog.html">Latest Design House</a></h5>
-                          <p>July 30, 2016 / 10 am</p>
-                        </div>
-                        <p>Lorem must explain to you how all this mistaolt denouncing pleasure and praising pain wasnad I will give you a complete pain was praising</p>
-                        <a className="read-more" href="single-blog.html">Read more</a>
-                      </div>
-                    </article>
-                  </div>
-                  <div className="col-sm-6 col-xs-12">
-                    <article className="blog-item bg-gray">
-                      <div className="blog-image">
-                        <a href="single-blog.html"><img src="images/flat/4.jpg" alt=""/></a>
-                      </div>
-                      <div className="blog-info">
-                        <div className="post-title-time">
-                          <h5><a href="single-blog.html">Duplex Villa House</a></h5>
-                          <p>July 30, 2016 / 10 am</p>
-                        </div>
-                        <p>Lorem must explain to you how all this mistaolt denouncing pleasure and praising pain wasnad I will give you a complete pain was praising</p>
-                        <a className="read-more" href="single-blog.html">Read more</a>
-                      </div>
-                    </article>
-                  </div>
-                  <div className="col-sm-6 col-xs-12">
-                    <article className="blog-item bg-gray">
-                      <div className="blog-image">
-                        <a href="single-blog.html"><img src="images/flat/5.jpg" alt=""/></a>
-                      </div>
-                      <div className="blog-info">
-                        <div className="post-title-time">
-                          <h5><a href="single-blog.html">Latest Design House</a></h5>
-                          <p>July 30, 2016 / 10 am</p>
-                        </div>
-                        <p>Lorem must explain to you how all this mistaolt denouncing pleasure and praising pain wasnad I will give you a complete pain was praising</p>
-                        <a className="read-more" href="single-blog.html">Read more</a>
-                      </div>
-                    </article>
-                  </div>
-                  <div className="col-xs-12">
-                    <div className="pagination-area mb-60">
-                      <ul className="pagination-list text-center">
-                        <li><a href="#"><i className="fa fa-angle-left" aria-hidden="true"></i></a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#"><i className="fa fa-angle-right" aria-hidden="true"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
+                  {
+                    this.props.blogs && this.props.blogs.map(blog => this.renderBlog(blog))
+                  }
                 </div>
               </div>
               <div className="col-md-4 col-md-pull-8">
@@ -164,62 +41,9 @@ class Blog extends Component {
                 <aside className="widget widget-recent-post mb-50">
                   <h5>Recent Post</h5>
                   <div className="row">
-                    <div className="col-md-12 col-sm-6 col-xs-12">
-                      <article className="recent-post-item">
-                        <div className="recent-post-image">
-                          <a href="single-blog.html"><img src="images/recent-post/1.jpg" alt=""/></a>
-                        </div>
-                        <div className="recent-post-info">
-                          <div className="recent-post-title-time">
-                            <h5><a href="single-blog.html">Maridland de Villa</a></h5>
-                            <p>July 30, 2016 / 10 am</p>
-                          </div>
-                          <p>Lorem must explain to you how all this mistaolt</p>
-                        </div>
-                      </article>
-                    </div>
-                    <div className="col-md-12 col-sm-6 col-xs-12">
-                      <article className="recent-post-item">
-                        <div className="recent-post-image">
-                          <a href="single-blog.html"><img src="images/recent-post/2.jpg" alt=""/></a>
-                        </div>
-                        <div className="recent-post-info">
-                          <div className="recent-post-title-time">
-                            <h5><a href="single-blog.html">Maridland de Villa</a></h5>
-                            <p>July 30, 2016 / 10 am</p>
-                          </div>
-                          <p>Lorem must explain to you how all this mistaolt</p>
-                        </div>
-                      </article>
-                    </div>
-                    <div className="col-md-12 col-sm-6 col-xs-12">
-                      <article className="recent-post-item">
-                        <div className="recent-post-image">
-                          <a href="single-blog.html"><img src="images/recent-post/3.jpg" alt=""/></a>
-                        </div>
-                        <div className="recent-post-info">
-                          <div className="recent-post-title-time">
-                            <h5><a href="single-blog.html">Maridland de Villa</a></h5>
-                            <p>July 30, 2016 / 10 am</p>
-                          </div>
-                          <p>Lorem must explain to you how all this mistaolt</p>
-                        </div>
-                      </article>
-                    </div>
-                    <div className="col-md-12 col-sm-6 col-xs-12">
-                      <article className="recent-post-item">
-                        <div className="recent-post-image">
-                          <a href="single-blog.html"><img src="images/recent-post/3.jpg" alt=""/></a>
-                        </div>
-                        <div className="recent-post-info">
-                          <div className="recent-post-title-time">
-                            <h5><a href="single-blog.html">Maridland de Villa</a></h5>
-                            <p>July 30, 2016 / 10 am</p>
-                          </div>
-                          <p>Lorem must explain to you how all this mistaolt</p>
-                        </div>
-                      </article>
-                    </div>
+                    {
+                      recent_posts && recent_posts.map(recent_post => this.renderRecentPost(recent_post))
+                    }
                   </div>
                 </aside>
                 <aside className="widget widget-archive mb-50">
@@ -231,21 +55,6 @@ class Blog extends Component {
                     <li><a href="#">April <span>2016</span> </a></li>
                     <li><a href="#">March <span>2016</span> </a></li>
                   </ul>
-                </aside>
-                <aside className="widget widget-latest-tweets mb-50">
-                  <h5>Latest Tweets</h5>
-                  <div className="tweets-item">
-                    <p><a href="#">@Lorem ipsum</a> dolor sit amet, costetur adipiscing elit, sed do eiusmod tempor </p>
-                    <p>Ronchi / 3 hour ago</p>
-                  </div>
-                  <div className="tweets-item">
-                    <p><a href="#">@Lorem ipsum</a> dolor sit amet, costetur adipiscing elit, sed do eiusmod tempor </p>
-                    <p>Ronchi / 3 hour ago</p>
-                  </div>
-                  <div className="tweets-item">
-                    <p><a href="#">@Lorem ipsum</a> dolor sit amet, costetur adipiscing elit, sed do eiusmod tempor </p>
-                    <p>Ronchi / 3 hour ago</p>
-                  </div>
                 </aside>
                 <aside className="widget widget-add mb-0">
                   <div className="widget-add-item">
@@ -264,7 +73,51 @@ class Blog extends Component {
       </div>
     )
   }
+
+  renderBlog(blog) {
+    return (
+      <div className="col-sm-6 col-xs-12" key={"blog_" + blog.id} >
+        <article className="blog-item bg-gray">
+          <div className="blog-image">
+            <a><img src={blog.image_url} /></a>
+          </div>
+          <div className="blog-info">
+            <div className="post-title-time">
+              <h5><a>{blog.title}</a></h5>
+              <p>{formatTime(blog.created_at)}</p>
+            </div>
+            <p>{blog.short_description}</p>
+            <a className="read-more">Read more</a>
+          </div>
+        </article>
+      </div>
+    )
+  }
+
+  renderRecentPost(recentPost) {
+    return (
+      <div className="col-md-12 col-sm-6 col-xs-12" key={"recent_post_" + recentPost.id}>
+        <article className="recent-post-item">
+          <div className="recent-post-image">
+            <a><img src={recentPost.image_url} /></a>
+          </div>
+          <div className="recent-post-info">
+            <div className="recent-post-title-time">
+              <h5><a>{recentPost.title}</a></h5>
+              <p>{formatTime(recentPost.created_at)}</p>
+            </div>
+            <p>{recentPost.short_description}</p>
+          </div>
+        </article>
+      </div>
+    )
+  }
 }
 
-export default Blog
+function mapStateToProps(state) {
+  return {
+    blogs: state.blog.blogs_page
+  };
+}
 
+export default connect(mapStateToProps, { getAll })(Blog);
