@@ -2,6 +2,7 @@ class User < ApplicationRecord
   include DeviseTokenAuth::Concerns::User
 
   has_one :business
+  has_many :invited_referrals
   belongs_to :subjectable, polymorphic: true
 
   devise :database_authenticatable, :registerable, :recoverable,
@@ -14,5 +15,9 @@ class User < ApplicationRecord
 
   def confirmation_required?
     false
+  end
+
+  def name
+    "#{self.first_name} #{self.last_name}"
   end
 end
