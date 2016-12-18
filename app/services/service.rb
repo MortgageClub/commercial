@@ -19,6 +19,15 @@ class Service
     end
   end
 
+  protected
+
+  def current_user_id
+    return if @user.blank?
+    {
+        user_id: @user.id
+    }
+  end
+
   private
   class << self
     attr_accessor :require_authen

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, reset } from 'redux-form';
 import { connect } from 'react-redux';
 import { invite } from '../../../../actions/InviteByEmailAction';
 
@@ -138,7 +138,9 @@ class InviteByEmail extends Component {
 }
 
 function mapStateToProps(state) {
-    return {}
+    return {
+        invitedReferrals: state.inviteByEmail.invitedReferrals
+    }
 }
 
 export default connect(mapStateToProps, {invite})(

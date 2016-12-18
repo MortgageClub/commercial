@@ -38,6 +38,9 @@ Rails.application.routes.draw do
       resources :loans do
       end
 
+      resources :invited_referrals, only: [:index] do
+      end
+
       resources :documents, only: [] do
         collection do
           post :upload

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161215101402) do
+ActiveRecord::Schema.define(version: 20161217040312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -141,6 +141,17 @@ ActiveRecord::Schema.define(version: 20161215101402) do
     t.index ["loan_id"], name: "index_guarantors_on_loan_id", using: :btree
   end
 
+  create_table "invited_referrals", force: :cascade do |t|
+    t.uuid     "user_id"
+    t.string   "email",      default: ""
+    t.string   "name",       default: ""
+    t.datetime "joined_at"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "phone"
+    t.index ["user_id"], name: "index_invited_referrals_on_user_id", using: :btree
+  end
+
   create_table "loan_faqs", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "question"
     t.text     "answer"
@@ -217,6 +228,7 @@ ActiveRecord::Schema.define(version: 20161215101402) do
   add_foreign_key "closings", "loans"
   add_foreign_key "documents", "document_types"
   add_foreign_key "guarantors", "loans"
+  add_foreign_key "invited_referrals", "users"
   add_foreign_key "loans", "borrowers"
   add_foreign_key "properties", "loans"
 end

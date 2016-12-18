@@ -1,31 +1,34 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { AUTH_USER, DE_AUTH_USER } from '../actions/Types';
-import { authFromLocal } from '../utils/AuthUtils'
+import { REFERRAL_INVITE_EMAIL_SUCCESS, REFERRAL_INVITE_LIST_SUCCESS } from '../actions/Types';
+import { authFromLocal } from '../utils/AuthUtils';
+import {reset} from 'redux-form';
 
 export function invite(inviteEmail) {
     return function (dispatch) {
         axios.post('/referral_email_invitations', inviteEmail, { headers: authFromLocal() })
             .then(response => {
-                handleSuccessAuthen(dispatch, response.data.data, response.headers);
-                browserHistory.push('/dashboard');
+                debugger
+                dispatch(reset('inviteByEmailForm'));
+                dispatch({ type: REFERRAL_INVITE_EMAIL_SUCCESS, payload: response.data });
             })
             .catch(error => {
-                var data = error.response.data;
-                dispatch(authError(data.errors));
+                handleError(dispatch);
             })
     }
 }
 
-function handleSuccessAuthen(dispatch, data, headers) {
-    dispatch({ type: AUTH_USER, payload: data });
-    localStorage.setItem('auth', authFromHeader(headers));
-    // browserHistory.push('/dashboard');
-    dispatch(authError(null));
+export function getAll(){
+    return function(dispatch) {
+        axios.get('/invited_referrals', { headers: authFromLocal() })
+            .then(response => {
+                dispatch({ type: REFERRAL_INVITE_LIST_SUCCESS, payload: response.data });
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
 }
 
-function handleErrorAuthen(dispatch) {
-    dispatch({ type: DE_AUTH_USER });
-    localStorage.removeItem('auth');
-    browserHistory.push('');
+function handleError(dispatch) {
 }
