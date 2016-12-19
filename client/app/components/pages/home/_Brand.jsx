@@ -9,46 +9,29 @@ class Branch extends Component {
           <div className="container">
             <div className="row">
               <div className="brand-carousel">
-                {/* brand-item */}
                 <div className="col-md-12">
                   <div className="brand-item">
-                    <img src="/images/brand/1.png" alt=""/>
+                    <img src="/images/brand/walgreens.png"/>
                   </div>
                 </div>
-                {/* brand-item */}
                 <div className="col-md-12">
                   <div className="brand-item">
-                    <img src="/images/brand/2.png" alt=""/>
+                    <img src="/images/brand/cvs.png"/>
                   </div>
                 </div>
-                {/* brand-item */}
                 <div className="col-md-12">
                   <div className="brand-item">
-                    <img src="/images/brand/3.png" alt=""/>
+                    <img src="/images/brand/dollar_general.jpg"/>
                   </div>
                 </div>
-                {/* brand-item */}
                 <div className="col-md-12">
                   <div className="brand-item">
-                    <img src="/images/brand/4.png" alt=""/>
+                    <img src="/images/brand/mc_donalds.png"/>
                   </div>
                 </div>
-                {/* brand-item */}
                 <div className="col-md-12">
                   <div className="brand-item">
-                    <img src="/images/brand/5.png" alt=""/>
-                  </div>
-                </div>
-                {/* brand-item */}
-                <div className="col-md-12">
-                  <div className="brand-item">
-                    <img src="/images/brand/1.png" alt=""/>
-                  </div>
-                </div>
-                {/* brand-item */}
-                <div className="col-md-12">
-                  <div className="brand-item">
-                    <img src="/images/brand/4.png" alt=""/>
+                    <img src="/images/brand/autozone.png"/>
                   </div>
                 </div>
               </div>

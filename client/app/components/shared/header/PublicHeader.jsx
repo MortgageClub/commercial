@@ -25,19 +25,19 @@ class PublicHeader extends Component {
                 <div className="col-md-3 col-sm-6 col-xs-12">
                   <div className="logo">
                     <Link to="/">
-                      <img src="/images/logo/logo.png" alt=""/>
+                      <img src="/logo-blackline.png" alt=""/>
                     </Link>
                   </div>
                 </div>
-                <div className="col-md-6 hidden-sm hidden-xs">
+                <div className="col-md-7 hidden-sm hidden-xs">
                   <div className="company-info clearfix">
                     <div className="company-info-item">
                       <div className="header-icon">
                         <img src="/images/icons/phone.png" alt="" />
                       </div>
                       <div className="header-info">
-                        <h6>+88 (012) 564 979 56</h6>
-                        <p>We are open 9 am - 10pm</p>
+                        <h6>(628) 220-2643</h6>
+                        <p>Call us, we’re here for you.</p>
                       </div>
                     </div>
                     <div className="company-info-item">
@@ -45,20 +45,10 @@ class PublicHeader extends Component {
                         <img src="/images/icons/mail-open.png" alt="" />
                       </div>
                       <div className="header-info">
-                        <h6><a href="mailto:hnasir770@gmail.com">info@sheltek.com</a></h6>
-                        <p>You can mail us</p>
+                        <h6><a href="mailto:info@blacklineequity.com">info@blacklineequity.com</a></h6>
+                        <p>You can email us anytime.</p>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div className="col-md-3 col-sm-6 col-xs-12">
-                  <div className="header-search clearfix">
-                    <form action="#">
-                      <button className="search-icon" type="submit">
-                      <img src="/images/icons/search.png" alt=""/>
-                      </button>
-                      <input type="text" placeholder="Search..." />
-                    </form>
                   </div>
                 </div>
               </div>
@@ -71,7 +61,7 @@ class PublicHeader extends Component {
                   <div className="col-md-12">
                     <div className="sticky-logo">
                       <Link to="/">
-                        <img src="/images/logo/logo.png" alt=""/>
+                        <img src="/logo-blackline.png" alt=""/>
                       </Link>
                     </div>
                     <nav id="primary-menu">

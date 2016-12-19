@@ -27,7 +27,7 @@ class Blog extends Component {
     return (
       <div>
         {/* BLOG AREA START */}
-        <div className="blog-area pb-60">
+        <div className="blog-area pb-60 pt-115">
           <div className="container">
             <div className="row">
               <div className="col-md-12">

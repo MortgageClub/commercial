@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class About extends Component {
+class Terms extends Component {
   render() {
     return (
       <div className="about-page">
@@ -47,5 +47,5 @@ function mapStateToProps(state) {
   return {};
 }
 
-export default About
+export default Terms
 

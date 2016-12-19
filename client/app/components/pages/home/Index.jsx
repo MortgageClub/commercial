@@ -8,6 +8,7 @@ import BookHomeHouse from './_BookHomeHouse';
 import Blog from './_Blog';
 import Agents from './_Agents';
 import Transactions from './_Transactions';
+import PoweredByData from './_PoweredByData';
 
 class Index extends Component {
   componentDidMount() {
@@ -107,6 +108,7 @@ class Index extends Component {
           <BookHomeHouse/>
           {/* <Agents/> */}
           <Transactions/>
+          <PoweredByData />
           <Blog/>
           <Brand/>
           <Subscribe />
