@@ -187,7 +187,7 @@ class BlogDetails extends Component {
 
   renderRecentBlog(recentBlog) {
     return (
-      <div className="col-md-12 col-sm-6 col-xs-12">
+      <div className="col-md-12 col-sm-6 col-xs-12" key={"recent_blog_detaill_" + recentBlog.id}>
         <article className="recent-post-item">
           <div className="recent-post-image">
             <Link to={`/blog/${recentBlog.slug}`}><img src={recentBlog.image_url} /></Link>
