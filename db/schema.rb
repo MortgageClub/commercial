@@ -245,11 +245,11 @@ ActiveRecord::Schema.define(version: 20161218085547) do
     t.string   "last_name"
     t.uuid     "subjectable_id"
     t.string   "subjectable_type"
-    t.string   "referral_code"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "referral_code"
     t.index ["email"], name: "index_users_on_email", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["subjectable_type", "subjectable_id"], name: "index_users_on_subjectable_type_and_subjectable_id", using: :btree
