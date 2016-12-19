@@ -21,7 +21,7 @@ class Branch extends Component {
                 </div>
                 <div className="col-md-12">
                   <div className="brand-item">
-                    <img src="/images/brand/dollar_general.jpg"/>
+                    <img src="/images/brand/dollar_general.png"/>
                   </div>
                 </div>
                 <div className="col-md-12">
