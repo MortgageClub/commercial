@@ -10,16 +10,25 @@
         </div>
         <div class="category-content no-padding">
           <ul class="navigation navigation-main navigation-accordion">
-            <li>
+            <li class="<%= active?("documents") %>">
               <%= link_to advisors_loan_documents_path(@loan) do %>
                 <i class="icon-file-text2"></i>
                 <span>Documents</span>
               <% end %>
             </li>
-            <li>
+            <li class="<%= active?("checklists") %>">
               <%= link_to advisors_loan_checklists_path(@loan) do %>
                 <i class="icon-clipboard2"></i>
-                <span>Checklists <span class="label label-success"><%= @loan.number_of_done_checklists %> DONE</span></span>
+                <span>
+                  Checklists
+
+                  <span class="label label-warning">
+                    <%= @loan.number_of_pending_checklists %> <span class="icon-x"></span>
+                  </span>
+                  <span class="label label-success">
+                    <%= @loan.number_of_done_checklists %> <span class="icon-check"></span>
+                  </span>
+                </span>
               <% end %>
               </a>
             </li>

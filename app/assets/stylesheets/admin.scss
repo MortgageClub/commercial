@@ -17,3 +17,13 @@
   padding-bottom: 0px;
   padding-top: 0px;
 }
+
+.navigation > li.active > a .label.label-success {
+  border-color: #4CAF50;
+  background-color: #4CAF50;
+}
+
+.navigation > li.active > a .label.label-warning {
+  border-color: #FF5722;
+  background-color: #FF5722;
+}
