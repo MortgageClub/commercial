@@ -5,6 +5,7 @@ const ClipboardButton = require('react-clipboard.js');
 
 class ReferralLink extends Component {
     render() {
+        const link = this.props.userInfo ? window.location.origin + "/sign-up?ref=" + this.props.userInfo.referral_code : "";
         return (
             <div className="referral-section">
                 {/* SUBSCRIBE AREA START */}
@@ -13,8 +14,8 @@ class ReferralLink extends Component {
                         <div className="referral-link">
                             <h4>Your referral Link:</h4>
                             <form action="#">
-                                <input type="text" id="referral-link" name="referral_link" value={"https://stg-mortgageclub.herokuapp.com/?refcode=" + (this.props.userInfo && this.props.userInfo.referral_code)} placeholder="Your referral code" />
-                                <ClipboardButton className="submit-btn-1 mt-5" data-clipboard-text={"https://stg-mortgageclub.herokuapp.com/?refcode=" + (this.props.userInfo && this.props.userInfo.referral_code)}>
+                                <input type="text" id="referral-link" name="referral_link" readOnly value={link} placeholder="Your referral code" />
+                                <ClipboardButton className="submit-btn-1 mt-5" data-clipboard-text={link}>
                                     Copy to Clipboard
                                 </ClipboardButton>
                             </form>
@@ -27,7 +28,7 @@ class ReferralLink extends Component {
     }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
     return {
         userInfo: state.auth.userInfo
     }
