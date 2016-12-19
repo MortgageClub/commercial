@@ -25,7 +25,7 @@
     </div>
     <div class="col-md-6">
       <% if @blog.image.present? %>
-        <image src="<%= @blog.image.expiring_url(60) %>" width="200"/>
+        <image src="<%= @blog.image.expiring_url(60, :thumb) %>" width="200"/>
       <% end %>
     </div>
   </div>

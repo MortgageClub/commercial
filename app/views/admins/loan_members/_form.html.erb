@@ -46,7 +46,7 @@
       </div>
       <div class="col-md-6">
         <% if @loan_member.user.avatar.present? %>
-          <image src="<%= @loan_member.user.avatar.expiring_url(60) %>" width="200"/>
+          <image src="<%= @loan_member.user.avatar.expiring_url(60, :thumb) %>" width="200"/>
         <% end %>
       </div>
     </div>
