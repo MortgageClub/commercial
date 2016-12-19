@@ -57,6 +57,21 @@ class Blog extends Component {
                     <li><a href="#">March <span>2016</span> </a></li>
                   </ul>
                 </aside>
+                <aside className="widget widget-latest-tweets mb-50">
+                  <h5>Latest Tweets</h5>
+                  <div className="tweets-item">
+                    <p><a href="#">@Lorem ipsum</a> dolor sit amet, costetur adipiscing elit, sed do eiusmod tempor </p>
+                    <p>Ronchi / 3 hour ago</p>
+                  </div>
+                  <div className="tweets-item">
+                    <p><a href="#">@Lorem ipsum</a> dolor sit amet, costetur adipiscing elit, sed do eiusmod tempor </p>
+                    <p>Ronchi / 3 hour ago</p>
+                  </div>
+                  <div className="tweets-item">
+                    <p><a href="#">@Lorem ipsum</a> dolor sit amet, costetur adipiscing elit, sed do eiusmod tempor </p>
+                    <p>Ronchi / 3 hour ago</p>
+                  </div>
+                </aside>
                 <aside className="widget widget-add mb-0">
                   <div className="widget-add-item">
                     <div className="widget-add-image">
