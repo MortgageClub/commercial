@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { getAll } from '../../../../actions/InviteByEmailAction';
+import { formatDate } from '../../../../utils/FormatUtils';
 
 class ReferralResults extends Component {
     componentDidMount() {
@@ -49,7 +50,7 @@ class ReferralResults extends Component {
             <tr key={referral.id}>
                 <td>{referral.email}</td>
                 <td>{referral.name}</td>
-                <td>{referral.joined_at}</td>
+                <td>{formatDate(referral.joined_at)}</td>
                 <td>1</td>
             </tr>
         )
