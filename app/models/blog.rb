@@ -3,7 +3,7 @@ class Blog < ApplicationRecord
   friendly_id :title, use: :slugged
 
   has_attached_file :image,
-    styles: { thumb: "60", medium: "350x350" },
+    styles: { thumb: "100", medium: "350" },
     s3_permissions: 'authenticated-read',
     s3_server_side_encryption: 'AES256'
 
