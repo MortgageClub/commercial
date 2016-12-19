@@ -1,6 +1,8 @@
-class ManagerController < AdminsController
-  def index
+class SessionsController < ApplicationController
+  layout "admin"
+  protect_from_forgery with: :exception
 
+  def index
   end
 
   def login

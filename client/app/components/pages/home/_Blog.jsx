@@ -53,20 +53,20 @@ class Blog extends Component {
 
   renderBlog(blog) {
     return (
-      <div className="col-md-4" key={"homepage_" + blog.id}>
+      <div className="col-md-4" key={"homepage_" + blog.slug}>
         <article className="blog-item bg-gray">
           <div className="blog-image">
-            <Link to={`/blog/${blog.id}`}>
+            <Link to={`/blog/${blog.slug}`}>
               <img src={blog.image_url}/>
             </Link>
           </div>
           <div className="blog-info">
             <div className="post-title-time">
-              <h5><Link to={`/blog/${blog.id}`}>{blog.title}</Link></h5>
+              <h5><Link to={`/blog/${blog.slug}`}>{blog.title}</Link></h5>
               <p>{formatTime(blog.created_at)}</p>
             </div>
             <p>{blog.short_description}</p>
-            <Link to={`/blog/${blog.id}`} className="read-more">Read more</Link>
+            <Link to={`/blog/${blog.slug}`} className="read-more">Read more</Link>
           </div>
         </article>
       </div>

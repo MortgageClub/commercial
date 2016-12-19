@@ -99,14 +99,14 @@ class Footer extends Component {
 
   renderBlog(blog) {
     return (
-      <li key={"footer_" + blog.id}>
+      <li key={"footer_" + blog.slug}>
         <div className="latest-news-image">
-          <Link to={`/blog/${blog.id}`}>
+          <Link to={`/blog/${blog.slug}`}>
             <img src={blog.image_url} alt=""/>
           </Link>
         </div>
         <div className="latest-news-info">
-          <h6><Link to={`/blog/${blog.id}`}>{blog.title}</Link></h6>
+          <h6><Link to={`/blog/${blog.slug}`}>{blog.title}</Link></h6>
           <p>{blog.short_description}</p>
         </div>
       </li>
