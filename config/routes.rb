@@ -8,6 +8,12 @@ Rails.application.routes.draw do
 
   get '/*all', constraints: AppConstraint.new, to: 'home#index'
 
+  resources :sendgrid_webhooks, only: [] do
+    collection do
+      post "receive"
+    end
+  end
+
   namespace :admins do
     resources :document_types
     resources :loan_faqs
@@ -21,7 +27,7 @@ Rails.application.routes.draw do
     resources :loans, only: :index do
       resources :documents
       resources :checklists
-      resources :email_templates
+      resources :sent_emails, only: [:index, :create]
     end
   end
 
@@ -58,20 +64,6 @@ Rails.application.routes.draw do
       resources :loan_faqs, only: :index
       resources :blogs, only: [:index, :show] do
       end
-      # resources :recipes, except: [:new, :edit] do
-      #   member do
-      #     post :add_ingredients
-      #     post :add_directions
-      #   end
-
-      #   collection do
-      #     get :completed
-      #     get :feeds
-      #   end
-      # end
-
-      # resource :completes, only: [:create, :destroy]
-      # resources :reviews, only: [:create, :destroy]
     end
   end
 end
