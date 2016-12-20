@@ -10,7 +10,6 @@ class Advisors::SentEmailsController < Advisors::BaseController
   end
 
   def create
-    byebug
     uuid = SecureRandom.uuid
     LoanMemberDashboardMailer.send_email(params, uuid).deliver_now
 
