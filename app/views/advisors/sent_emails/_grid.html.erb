@@ -13,8 +13,8 @@
       <tr>
         <td><%= sent_email.receiver  %></td>
         <td><%= sent_email.subject %></td>
-        <td><%= sent_email.opened_at ? sent_email.opened_at.strftime("%Y/%m/%d") : "" %></td>
-        <td><%= sent_email.clicked_at ? sent_email.clicked_at.strftime("%Y/%m/%d") : "" %></td>
+        <td><%= sent_email.opened_at ? sent_email.opened_at.strftime("%Y/%m/%d %T") : "" %></td>
+        <td><%= sent_email.clicked_at ? sent_email.clicked_at.strftime("%Y/%m/%d %T") : "" %></td>
         <td><%= sent_email.created_at.strftime("%Y/%m/%d") %></td>
       </tr>
     <% end %>
