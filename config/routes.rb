@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :loans, only: :index do
       resources :documents
       resources :checklists
+      resources :email_templates
     end
   end
 
