@@ -54,12 +54,16 @@ gem 'ransack'
 # Pagination
 gem 'kaminari'
 
+gem 'sendgrid'
+
+gem 'virtus'
+
+gem 'friendly_id', '~> 5.1.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
-
-gem 'virtus'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
@@ -77,5 +81,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem 'friendly_id', '~> 5.1.0'
