@@ -18,7 +18,7 @@ class BookHomeHouse extends Component {
                 <div className="booking-conternt clearfix">
                   <div className="book-house text-white">
                     <h2>GET AT LEAST 3 COMPETITIVE QUOTES </h2>
-                    <h2 className="h5">CALL US ON : (628) 220-2643</h2>
+                    <h2 className="h5">CALL US ON : (000) 000-0000</h2>
                   </div>
                   <div className="booking-imgae">
                     <img src="/images/others/booking.png" alt=""/>

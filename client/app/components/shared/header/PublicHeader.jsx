@@ -36,7 +36,7 @@ class PublicHeader extends Component {
                         <img src="/images/icons/phone.png" alt="" />
                       </div>
                       <div className="header-info">
-                        <h6>(628) 220-2643</h6>
+                        <h6>(000) 000-0000</h6>
                         <p>Call us, we’re here for you.</p>
                       </div>
                     </div>
