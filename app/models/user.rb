@@ -10,7 +10,11 @@ class User < ApplicationRecord
 
   validates :referral_code, uniqueness: true
 
-  has_attached_file :avatar, styles: { thumb: "100", medium: "350" }, default_url: "/default_avatar.png"
+  has_attached_file :avatar,
+    styles: { thumb: "100", medium: "350" },
+    default_url: "/default_avatar.png",
+    s3_permissions: 'authenticated-read',
+    s3_server_side_encryption: 'AES256'
 
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
