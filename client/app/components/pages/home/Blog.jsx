@@ -57,6 +57,21 @@ class Blog extends Component {
                     <li><a href="#">March <span>2016</span> </a></li>
                   </ul>
                 </aside>
+                <aside className="widget widget-latest-tweets mb-50">
+                  <h5>Latest Tweets</h5>
+                  <div className="tweets-item">
+                    <p><a href="#">@Lorem ipsum</a> dolor sit amet, costetur adipiscing elit, sed do eiusmod tempor </p>
+                    <p>Ronchi / 3 hour ago</p>
+                  </div>
+                  <div className="tweets-item">
+                    <p><a href="#">@Lorem ipsum</a> dolor sit amet, costetur adipiscing elit, sed do eiusmod tempor </p>
+                    <p>Ronchi / 3 hour ago</p>
+                  </div>
+                  <div className="tweets-item">
+                    <p><a href="#">@Lorem ipsum</a> dolor sit amet, costetur adipiscing elit, sed do eiusmod tempor </p>
+                    <p>Ronchi / 3 hour ago</p>
+                  </div>
+                </aside>
                 <aside className="widget widget-add mb-0">
                   <div className="widget-add-item">
                     <div className="widget-add-image">
@@ -77,18 +92,18 @@ class Blog extends Component {
 
   renderBlog(blog) {
     return (
-      <div className="col-sm-6 col-xs-12" key={"blog_" + blog.id} >
+      <div className="col-sm-6 col-xs-12" key={"blog_" + blog.slug} >
         <article className="blog-item bg-gray">
           <div className="blog-image">
-            <Link to={`/blog/${blog.id}`}><img src={blog.image_url} /></Link>
+            <Link to={`/blog/${blog.slug}`}><img src={blog.image_url} /></Link>
           </div>
           <div className="blog-info">
             <div className="post-title-time">
-              <h5><Link to={`/blog/${blog.id}`}>{blog.title}</Link></h5>
+              <h5><Link to={`/blog/${blog.slug}`}>{blog.title}</Link></h5>
               <p>{formatTime(blog.created_at)}</p>
             </div>
             <p>{blog.short_description}</p>
-            <Link to={`/blog/${blog.id}`} className="read-more">Read more</Link>
+            <Link to={`/blog/${blog.slug}`} className="read-more">Read more</Link>
           </div>
         </article>
       </div>
@@ -97,14 +112,14 @@ class Blog extends Component {
 
   renderRecentPost(recentPost) {
     return (
-      <div className="col-md-12 col-sm-6 col-xs-12" key={"recent_post_" + recentPost.id}>
+      <div className="col-md-12 col-sm-6 col-xs-12" key={"recent_post_" + recentPost.slug}>
         <article className="recent-post-item">
           <div className="recent-post-image">
-            <Link to={`/blog/${recentPost.id}`}><img src={recentPost.image_url} /></Link>
+            <Link to={`/blog/${recentPost.slug}`}><img src={recentPost.image_url} /></Link>
           </div>
           <div className="recent-post-info">
             <div className="recent-post-title-time">
-              <h5><Link to={`/blog/${recentPost.id}`}>{recentPost.title}</Link></h5>
+              <h5><Link to={`/blog/${recentPost.slug}`}>{recentPost.title}</Link></h5>
               <p>{formatTime(recentPost.created_at)}</p>
             </div>
             <p>{recentPost.short_description}</p>

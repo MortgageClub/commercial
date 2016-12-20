@@ -2,12 +2,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "home#index"
 
-  resources :manager, only: [:index] do
-    collection do
-      post :login
-      get :logout
-    end
-  end
+  get "/manage/login", to: "sessions#new", as: "sessions_new"
+  post "/manage/login", to: "sessions#create", as: "sessions_create"
+  get "/manage/logout", to: "sessions#destroy", as: "sessions_logout"
 
   get '/*all', constraints: AppConstraint.new, to: 'home#index'
 

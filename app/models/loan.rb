@@ -32,4 +32,8 @@ class Loan < ApplicationRecord
   def number_of_done_checklists
     checklists.where(status: :done).size
   end
+
+  def number_of_pending_checklists
+    checklists.where(status: :pending).size
+  end
 end

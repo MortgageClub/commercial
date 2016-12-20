@@ -17,7 +17,7 @@ class Subscribe extends Component {
               <div className="col-md-9 col-sm-8 col-xs-12">
                 <div className="subscribe">
                   <form action="#">
-                    <input type="text" name="subscribe" placeholder="Enter yur email here..."/>
+                    <input type="text" name="subscribe" placeholder="Enter your email here..."/>
                     <button type="submit" value="send">Send</button>
                   </form>
                 </div>

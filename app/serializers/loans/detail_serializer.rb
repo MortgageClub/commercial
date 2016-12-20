@@ -29,7 +29,7 @@ module Loans
           individual_bre: assigned_loan_member.loan_member.individual_bre,
           phone_number: ActiveSupport::NumberHelper.number_to_phone(assigned_loan_member.loan_member.phone_number),
           email: assigned_loan_member.loan_member.user.email,
-          avatar_url: assigned_loan_member.loan_member.user.avatar.expiring_url(60)
+          avatar_url: assigned_loan_member.loan_member.user.avatar.expiring_url(60, :thumb)
         }
       end
 

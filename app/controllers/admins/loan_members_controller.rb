@@ -3,7 +3,7 @@ class Admins::LoanMembersController < Admins::BaseController
 
   def index
     @q = LoanMember.ransack(params[:q])
-    @loan_members = @q.result.page(params[:page])
+    @loan_members = @q.result.includes(:user).page(params[:page])
   end
 
   def new

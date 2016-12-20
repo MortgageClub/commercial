@@ -23,5 +23,9 @@ module ApplicationHelper
       end
     end
   end
+
+  def active?(link_path)
+    request.original_url.include?(link_path) ? "active" : ""
+  end
 end
 
