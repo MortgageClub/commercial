@@ -20,7 +20,7 @@ class Index extends Component {
   }
 
   matchBorrowerHeader(path) {
-    if (path == "/dashboard" || path.indexOf("/loans/") > -1)
+    if (path == "/dashboard" || path.indexOf("/loans/") > -1 || path.indexOf("/referral") > -1)
       return true;
     return false;
   }

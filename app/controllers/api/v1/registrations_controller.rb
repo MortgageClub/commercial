@@ -9,6 +9,7 @@ module Api
       def create
         @resource            = resource_class.new(sign_up_params)
         @resource.provider   = "email"
+        @resource.referral_code = Users::V1::ReferralCodeGenerator.generate
         # honor devise configuration for case_insensitive_keys
         if resource_class.case_insensitive_keys.include?(:email)
           @resource.email = sign_up_params[:email].try :downcase
@@ -62,6 +63,9 @@ module Api
               }
 
               @resource.save!
+              if (referral_code = cookies["ref_code"]).present?
+                handle_referral_user(referral_code)
+              end
 
               update_auth_header
             end
@@ -211,6 +215,15 @@ module Api
            status: 'error',
            errors: [message]
         }, status: :unprocessable_entity if which.empty?
+      end
+
+      def handle_referral_user(referral_code)
+        referral_user = User.where(referral_code: referral_code.upcase).first
+
+        return unless referral_user.present?
+
+        invited_referral = InvitedReferral.where(email: @resource.email, user_id: referral_user.id)
+        invited_referral.update(joined_at: Time.zone.now)
       end
     end
   end

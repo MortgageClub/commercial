@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { register } from '../../../actions/AuthAction';
 import { browserHistory } from 'react-router';
+import cookie from 'react-cookie';
 
 class Register extends Component {
   componentWillMount() {
@@ -11,10 +12,21 @@ class Register extends Component {
     }
   }
 
+  componentDidMount() {
+    const refCode = this.props.params && this.props.params.ref;
+    if (refCode){
+      var expires = new Date();
+      expires = expires.setDate(expires.getDate() + 7);
+
+      cookie.save("ref_code", refCode, {expires: new Date(expires)});
+    }
+  }
+
   render() {
     if (this.props.authenticated) {
       return <div></div>
     }
+
     const { handleSubmit, pristine, submitting, reset } = this.props;
 
     return (
@@ -100,10 +112,11 @@ class Register extends Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
   return {
     errorMessages: state.auth.errors,
-    authenticated: state.auth.authenticated
+    authenticated: state.auth.authenticated,
+    params: ownProps.location.query
   }
 }
 

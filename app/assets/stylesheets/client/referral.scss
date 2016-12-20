@@ -1,0 +1,20 @@
+.referral-section {
+  .referral-link {
+    input {
+      width: 78%;
+    }
+
+    button {
+      background: #95c41f none repeat scroll 0 0;
+      height: 40px;
+      margin: 0 0 0 -4px;
+      padding: 0 35px;
+      color: #fff;
+      text-transform: uppercase;
+
+      &:hover {
+        background: #1f223e none repeat scroll 0 0;
+      }
+    }
+  }
+}
