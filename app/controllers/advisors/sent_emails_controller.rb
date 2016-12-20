@@ -40,7 +40,6 @@ class Advisors::SentEmailsController < Advisors::BaseController
   def prepare_templates
     @email_templates = []
 
-    host_name = ENV.fetch("HOST_NAME", "localhost:3000")
     @first_name = @loan.borrower.user.first_name
 
     default_template = render_to_string "email_templates/default", layout: false
