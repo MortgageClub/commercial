@@ -3,7 +3,7 @@ import axios from 'axios';
 export function rootUrl() {
   switch (process.env.NODE_ENV) {
     case "production":
-      return "https://stg-equity.herokuapp.com/api";
+      return "http://www.blacklinelending.com/api";
     case "staging":
       return "https://stg-equity.herokuapp.com/api";
     default:
