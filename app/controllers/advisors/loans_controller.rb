@@ -1,16 +1,9 @@
 class Advisors::LoansController < Advisors::BaseController
-  # before_action :set_loan
-
   def index
     @q = Loan.ransack(params[:q])
-    loan_member_title = LoanMemberTitle.find_by_title("Relationship Manager");
+    relationship_manager = LoanMemberTitle.find_by_title("Relationship Manager")
+    loan_anlyst = LoanMemberTitle.find_by_title("Loan Analyst")
 
-    @loans = @q.result.joins(:assigned_loan_members).where('assigned_loan_members.loan_member_id = ? and assigned_loan_members.loan_member_title_id = ?', current_user.subjectable_id, loan_member_title.try(:id)).page(params[:page])
+    @loans = @q.result.joins(:assigned_loan_members).where('assigned_loan_members.loan_member_id = ? and (assigned_loan_members.loan_member_title_id = ? or assigned_loan_members.loan_member_title_id = ?)', current_user.subjectable_id, relationship_manager.try(:id), loan_anlyst.try(:id)).page(params[:page])
   end
-
-  private
-
-  # def set_loan
-  #   @loan = Loan.find(params[:id])
-  # end
 end
