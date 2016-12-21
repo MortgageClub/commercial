@@ -4,7 +4,6 @@ module Api
       before_action :execute
 
       def fetch
-        # execute
       end
     end
   end

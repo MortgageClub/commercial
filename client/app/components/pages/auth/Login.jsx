@@ -68,7 +68,7 @@ class Login extends Component {
     if (this.props.errorMessages) {
       const errors = this.props.errorMessages.map(error => {
         return (
-          <li key={error}>{error}</li>
+          <li key={error.message}>{error.message}</li>
         )
       })
       return (

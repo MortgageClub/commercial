@@ -5,7 +5,7 @@ import { authError, authFromResponse, headersFromLocal } from '../utils/AuthUtil
 
 export function login(userInfo) {
   return function (dispatch) {
-    axios.post('/auth/sign_in',
+    axios.post('/sessions',
         userInfo
       )
       .then(response => {
@@ -37,7 +37,7 @@ export function register(userInfo) {
 
 export function logout() {
   return function (dispatch) {
-    axios.delete('/auth/sign_out', {
+    axios.delete('/sessions', {
         headers: headersFromLocal()
       })
       .then(response => {});
@@ -49,11 +49,12 @@ export function logout() {
 function handleLogOut(dispatch) {
   dispatch({ type: DE_AUTH_USER });
   localStorage.removeItem('auth');
+  browserHistory.push('');
 }
 
 function handleSuccessAuthen(dispatch, response) {
-  dispatch({ type: AUTH_USER, payload: response.data });
-  localStorage.setItem('auth', authFromResponse(response));
+  dispatch({ type: AUTH_USER, payload: response.data.user });
+  localStorage.setItem('auth', authFromResponse(response.data));
   dispatch(authError(null));
 }
 

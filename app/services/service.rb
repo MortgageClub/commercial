@@ -3,10 +3,11 @@ class Service
   include Support::Policy
   include Support::Validate
 
-  attr_accessor :user, :params
+  attr_accessor :user, :params, :headers
 
-  def initialize(params, user = nil)
+  def initialize(params, headers, user = nil)
     @params = params
+    @headers = headers
     @user = user
   end
 

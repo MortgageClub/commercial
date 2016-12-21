@@ -4,7 +4,6 @@ module Api
       before_action :execute
 
       def mark_done
-        # execute
       end
     end
   end
