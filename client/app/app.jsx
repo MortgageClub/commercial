@@ -23,6 +23,13 @@ const App = (_props, _railsContext) => {
 
 ReactOnRails.register({ App });
 
+// Startup config
+import { userFromLocal, isAuthenticated } from './utils/AuthUtils';
 import { configApi } from './settings/ApiConfig';
+import { AUTH_USER } from './actions/Types';
 
 configApi();
+
+if(isAuthenticated()){
+  store.dispatch({ type: AUTH_USER, payload: userFromLocal() })
+}

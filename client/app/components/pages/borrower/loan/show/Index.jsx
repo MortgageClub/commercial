@@ -5,6 +5,7 @@ import PropertyInfo from './_PropertyInfo';
 import MortgageAdvisor from './_MortgageAdvisor';
 import LoanFaqs from './_LoanFaqs';
 import TabsContent from './_TabsContent';
+// import Joyride from 'react-joyride';
 
 class Index extends Component {
   componentDidMount() {
