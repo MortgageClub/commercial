@@ -19,7 +19,7 @@ class About extends Component {
                 </p>
                 <br/>
                 <p>
-                  We think people deserve more from their lender. <b>We started Blackline Equity to help thousands of real estate investors obtain financing for their commercial properties in a more efficient, transparent and empowered way</b>. By bringing technology to everything we do, we will not only save borrowers time and money, but also better address their individual needs and questions. Combine that with great design and customer service, and the mortgage process begins to feel very different. It frees our investors from the loan craziness to focus on what they do best - find the next killer deal!
+                  We think people deserve more from their lender. <b>We started Blackline Lending to help thousands of real estate investors obtain financing for their commercial properties in a more efficient, transparent and empowered way</b>. By bringing technology to everything we do, we will not only save borrowers time and money, but also better address their individual needs and questions. Combine that with great design and customer service, and the mortgage process begins to feel very different. It frees our investors from the loan craziness to focus on what they do best - find the next killer deal!
                 </p>
               </div>
             </div>
@@ -33,7 +33,7 @@ class About extends Component {
             <div className="container text-center">
               <div className="col-md-8 col-md-offset-2">
                 <h1>Our Team</h1>
-                <p>We have assembled a team from top finance and technology companies such as Franklin Templeton, Nomura, Barrington Capital, LendingHome, Misfit, Tech in Asia. If you are interested in opportunities to work with Blackline Equity please send your information to <b><a href="mailto:work@blacklineequity.com">work@blacklineequity.com</a></b></p>
+                <p>We have assembled a team from top finance and technology companies such as Franklin Templeton, Nomura, Barrington Capital, LendingHome, Misfit, Tech in Asia. If you are interested in opportunities to work with Blackline Lending please send your information to <b><a href="mailto:work@blacklinelending.com">work@blacklinelending.com</a></b></p>
               </div>
             </div>
           </div>

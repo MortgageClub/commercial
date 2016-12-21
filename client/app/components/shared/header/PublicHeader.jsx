@@ -45,7 +45,7 @@ class PublicHeader extends Component {
                         <img src="/images/icons/mail-open.png" alt="" />
                       </div>
                       <div className="header-info">
-                        <h6><a href="mailto:info@blacklineequity.com">info@blacklineequity.com</a></h6>
+                        <h6><a href="mailto:info@blacklinelending.com">info@blacklinelending.com</a></h6>
                         <p>You can email us anytime.</p>
                       </div>
                     </div>

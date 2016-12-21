@@ -11,19 +11,6 @@ select {
   cursor: pointer;
 }
 
-.find-home-item {
-  .custom-select-2 {
-    margin-bottom: 0px;
-  }
-
-  textarea {
-    border: 1px solid #e1e1e1;
-    background: transparent;
-    color: #fff;
-    margin-bottom: 0px;
-  }
-}
-
 .media {
   margin-top: 0px;
 
@@ -63,7 +50,7 @@ select {
   }
 }
 
-.find-home-item {
+.find-home-item, #contact-form-2 {
   textarea::-webkit-input-placeholder {
     color: white;
     opacity: 1;
@@ -108,15 +95,46 @@ select {
 
   select option {
     color: #999;
-    font-size: 14px;
   }
+
   select {
     color: white;
     padding-left: 10px;
   }
+
+  select:focus {
+    outline: 0px;
+    border: 1px solid #95c41f;
+  }
+
   textarea {
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  input {
+    font-size: 13px;
+    outline-color: white;
+    border: 1px solid #e1e1e1;
+  }
+
+  input:focus {
+    border: 1px solid #95c41f;
+  }
+
+  .custom-select-2 {
+    margin-bottom: 0px;
+  }
+
+  textarea {
+    border: 1px solid #e1e1e1;
+    background: transparent;
+    color: #fff;
+    margin-bottom: 0px;
+  }
+
+  textarea:focus {
+    border: 1px solid #95c41f;
   }
 }
 
