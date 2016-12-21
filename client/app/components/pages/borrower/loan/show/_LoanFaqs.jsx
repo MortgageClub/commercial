@@ -1,15 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getAll } from '../../../../../actions/LoanFaqAction';
+import { addStep } from '../../../../../actions/GuidedTourAction';
 
 class LoanFaqs extends Component {
   componentDidMount() {
     this.props.getAll();
+
+    this.props.addStep({
+      title: 'Helpful Q&A',
+      text: 'Helpful Q&A',
+      selector: '.tenth-step',
+      position: 'left',
+      type: 'hover',
+      style: {
+        beacon: {
+          inner: '#95c41f',
+          outer: '#95c41f'
+        }
+      }
+    });
   }
 
   render() {
     return (
-      <div className="helpful-faq">
+      <div className="helpful-faq tenth-step">
         <h4>Helpful Q&A</h4>
         <div className="panel-group" role="tablist" aria-multiselectable="true">
           {
@@ -45,5 +60,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { getAll })(LoanFaqs)
+export default connect(mapStateToProps, { getAll, addStep })(LoanFaqs)
 

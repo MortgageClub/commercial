@@ -10,69 +10,40 @@ import Joyride from 'react-joyride';
 class Index extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      steps: []
-    }
   }
 
   componentDidMount() {
     if(this.props.params.id){
       this.props.fetch(this.props.params.id);
     }
-
-    this.addSteps({
-      title: 'First Step',
-      text: 'Start using the <strong>joyride</strong>', // supports html tags
-      selector: '.first-step',
-      position: 'bottom-left',
-      type: 'hover',
-      style: {
-        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-        borderRadius: '0',
-        color: '#fff',
-        mainColor: '#ff4456',
-        textAlign: 'center',
-        width: '29rem',
-        beacon: {
-            inner: '#000',
-            outer: '#000'
-        },
-        button: {
-            display: 'none'
-        },
-        skip: {
-            color: '#f04'
-        },
-      },
-      name: 'my-first-step'
-    });
-    this.joyride.start();
   }
 
-  addSteps(steps) {
-    let joyride = this.joyride;
-
-    if (!Array.isArray(steps)) {
-        steps = [steps];
+  componentDidUpdate(prevProps, prevState) {
+    if(this.joyride){
+      this.joyride.start();
     }
-
-    if (!steps.length) {
-        return false;
-    }
-
-    this.setState(function(currentState) {
-      currentState.steps = currentState.steps.concat(joyride.parseSteps(steps));
-      return currentState;
-    });
   }
 
   render() {
     return (
       <div className="container pt-90 pb-30 loan-dashboard" style={{"minHeight": "400px"}}>
-        <Joyride ref={c => (this.joyride = c)} steps={this.state.steps} debug={false} />
-        <PropertyInfo />
+        {
+          this.props.loan && this.props.loan.status == "New Loan"
+          ?
+            <Joyride
+              ref={c => (this.joyride = c)}
+                debug={false}
+                steps={this.props.steps}
+                type={"continuous"}
+                showSkipButton={true}
+                showStepsProgress={true}
+                scrollToSteps={false} />
+          :
+            null
+        }
+        <PropertyInfo loan={this.props.loan}/>
         <div className="row pt-50">
-          <div className="col-md-9 first-step">
+          <div className="col-md-9">
             <TabsContent />
           </div>
           <div className="col-md-3">
@@ -90,7 +61,7 @@ function mapStateToProps(state, ownProps) {
     authenticated: state.auth.authenticated,
     loan: state.dashboard.loan,
     params: ownProps.params,
-    steps: []
+    steps: state.steps.all
   }
 }
 
