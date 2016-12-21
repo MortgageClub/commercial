@@ -4,19 +4,21 @@ import { addStep } from '../../../../../actions/GuidedTourAction';
 
 class MortgageAdvisor extends Component {
   componentDidMount() {
-    this.props.addStep({
-      title: 'Relationship Manager',
-      text: 'Relationship Manager',
-      selector: '.ninth-step',
-      position: 'left',
-      type: 'hover',
-      style: {
-        beacon: {
-          inner: '#95c41f',
-          outer: '#95c41f'
+    if (!this.props.steps){
+      this.props.addStep({
+        title: 'Relationship Manager',
+        text: 'Relationship Manager',
+        selector: '.ninth-step',
+        position: 'left',
+        type: 'hover',
+        style: {
+          beacon: {
+            inner: '#95c41f',
+            outer: '#95c41f'
+          }
         }
-      }
-    });
+      });
+    }
   }
 
   render() {
@@ -62,7 +64,8 @@ class MortgageAdvisor extends Component {
 
 function mapStateToProps(state) {
   return {
-    loan: state.dashboard.loan
+    loan: state.dashboard.loan,
+    steps: state.steps.all
   };
 }
 

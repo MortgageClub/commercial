@@ -11,99 +11,101 @@ import { addStep } from '../../../../../actions/GuidedTourAction';
 
 class TabsContent extends Component {
   componentDidMount() {
-    this.props.addStep([
-      {
-        title: 'Overview',
-        text: 'Overview',
-        selector: '.second-step',
-        position: 'top',
-        type: 'hover',
-        style: {
-          beacon: {
-            inner: '#95c41f',
-            outer: '#95c41f'
+    if (!this.props.steps){
+      this.props.addStep([
+        {
+          title: 'Overview',
+          text: 'Overview',
+          selector: '.second-step',
+          position: 'top',
+          type: 'hover',
+          style: {
+            beacon: {
+              inner: '#95c41f',
+              outer: '#95c41f'
+            }
+          }
+        },
+        {
+          title: 'Property',
+          text: 'Property',
+          selector: '.third-step',
+          position: 'top',
+          type: 'hover',
+          style: {
+            beacon: {
+              inner: '#95c41f',
+              outer: '#95c41f'
+            }
+          }
+        },
+        {
+          title: 'Borrower',
+          text: 'Borrower',
+          selector: '.four-step',
+          position: 'top',
+          type: 'hover',
+          style: {
+            beacon: {
+              inner: '#95c41f',
+              outer: '#95c41f'
+            }
+          }
+        },
+        {
+          title: 'Guarantor',
+          text: 'Guarantor',
+          selector: '.fifth-step',
+          position: 'top',
+          type: 'hover',
+          style: {
+            beacon: {
+              inner: '#95c41f',
+              outer: '#95c41f'
+            }
+          }
+        },
+        {
+          title: 'Loan',
+          text: 'Loan',
+          selector: '.sixth-step',
+          position: 'top',
+          type: 'hover',
+          style: {
+            beacon: {
+              inner: '#95c41f',
+              outer: '#95c41f'
+            }
+          }
+        },
+        {
+          title: 'Closing',
+          text: 'Closing',
+          selector: '.seventh-step',
+          position: 'top',
+          type: 'hover',
+          style: {
+            beacon: {
+              inner: '#95c41f',
+              outer: '#95c41f'
+            }
+          }
+        },
+        {
+          title: 'Contacts',
+          text: 'Contacts',
+          selector: '.eighth-step',
+          position: 'top',
+          type: 'hover',
+          style: {
+            beacon: {
+              inner: '#95c41f',
+              outer: '#95c41f'
+            }
           }
         }
-      },
-      {
-        title: 'Property',
-        text: 'Property',
-        selector: '.third-step',
-        position: 'top',
-        type: 'hover',
-        style: {
-          beacon: {
-            inner: '#95c41f',
-            outer: '#95c41f'
-          }
-        }
-      },
-      {
-        title: 'Borrower',
-        text: 'Borrower',
-        selector: '.four-step',
-        position: 'top',
-        type: 'hover',
-        style: {
-          beacon: {
-            inner: '#95c41f',
-            outer: '#95c41f'
-          }
-        }
-      },
-      {
-        title: 'Guarantor',
-        text: 'Guarantor',
-        selector: '.fifth-step',
-        position: 'top',
-        type: 'hover',
-        style: {
-          beacon: {
-            inner: '#95c41f',
-            outer: '#95c41f'
-          }
-        }
-      },
-      {
-        title: 'Loan',
-        text: 'Loan',
-        selector: '.sixth-step',
-        position: 'top',
-        type: 'hover',
-        style: {
-          beacon: {
-            inner: '#95c41f',
-            outer: '#95c41f'
-          }
-        }
-      },
-      {
-        title: 'Closing',
-        text: 'Closing',
-        selector: '.seventh-step',
-        position: 'top',
-        type: 'hover',
-        style: {
-          beacon: {
-            inner: '#95c41f',
-            outer: '#95c41f'
-          }
-        }
-      },
-      {
-        title: 'Contacts',
-        text: 'Contacts',
-        selector: '.eighth-step',
-        position: 'top',
-        type: 'hover',
-        style: {
-          beacon: {
-            inner: '#95c41f',
-            outer: '#95c41f'
-          }
-        }
-      }
-    ]);
+      ]);
+    }
   }
 
   render() {
@@ -162,7 +164,9 @@ class TabsContent extends Component {
 }
 
 function mapStateToProps(state) {
-  return {}
+  return {
+    steps: state.steps.all
+  }
 }
 
 export default connect(mapStateToProps, { addStep })(TabsContent)

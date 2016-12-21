@@ -7,19 +7,21 @@ class LoanFaqs extends Component {
   componentDidMount() {
     this.props.getAll();
 
-    this.props.addStep({
-      title: 'Helpful Q&A',
-      text: 'Helpful Q&A',
-      selector: '.tenth-step',
-      position: 'left',
-      type: 'hover',
-      style: {
-        beacon: {
-          inner: '#95c41f',
-          outer: '#95c41f'
+    if (!this.props.steps){
+      this.props.addStep({
+        title: 'Helpful Q&A',
+        text: 'Helpful Q&A',
+        selector: '.tenth-step',
+        position: 'left',
+        type: 'hover',
+        style: {
+          beacon: {
+            inner: '#95c41f',
+            outer: '#95c41f'
+          }
         }
-      }
-    });
+      });
+    }
   }
 
   render() {
@@ -56,7 +58,8 @@ class LoanFaqs extends Component {
 
 function mapStateToProps(state) {
   return {
-    loan_faqs: state.dashboard.loan_faqs
+    loan_faqs: state.dashboard.loan_faqs,
+    steps: state.steps.all
   };
 }
 
