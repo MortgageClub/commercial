@@ -1,8 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { addStep } from '../../../../../actions/GuidedTourAction';
 import { formatCurrency } from '../../../../../utils/FormatUtils';
 
 class PropertyInfo extends Component {
+  componentDidMount() {
+    if (!this.props.steps){
+      this.props.addStep({
+        title: 'Loan Information',
+        text: 'Loan Information',
+        selector: '.first-step',
+        position: 'bottom',
+        type: 'hover',
+        style: {
+          beacon: {
+            inner: '#95c41f',
+            outer: '#95c41f'
+          }
+        }
+      });
+    }
+  }
+
   render() {
     const loan = this.props.loan;
 
@@ -11,7 +30,7 @@ class PropertyInfo extends Component {
         <div className="col-md-3">
           <img src="/images/blog/blog-details.jpg"/>
         </div>
-        <div className="col-md-9">
+        <div className="col-md-9 first-step">
           {
             loan
             ?
@@ -31,9 +50,10 @@ class PropertyInfo extends Component {
 
 function mapStateToProps(state) {
   return {
-    loan: state.dashboard.loan
+    loan: state.dashboard.loan,
+    steps: state.steps.all
   };
 }
 
-export default connect(mapStateToProps)(PropertyInfo)
+export default connect(mapStateToProps, { addStep })(PropertyInfo)
 

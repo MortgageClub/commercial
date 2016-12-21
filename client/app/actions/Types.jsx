@@ -11,3 +11,4 @@ export const LOAN_FAQS_LIST = 'LOAN_FAQS_LIST';
 export const LASTEST_BLOGS = 'LASTEST_BLOGS';
 export const BLOGS_LIST = 'BLOGS_LIST';
 export const BLOG_DETAILS = 'BLOG_DETAILS';
+export const ADD_GUIDED_TOUR_STEP = 'ADD_GUIDED_TOUR_STEP';
