@@ -24,6 +24,30 @@ class Index extends Component {
     }
   }
 
+  callback(data) {
+    if(data.index == 1){
+      $(".second-step a").click();
+    }
+    else if(data.index == 2){
+      $(".third-step a").click();
+    }
+    else if(data.index == 3){
+      $(".four-step a").click();
+    }
+    else if(data.index == 4){
+      $(".fifth-step a").click();
+    }
+    else if(data.index == 5){
+      $(".sixth-step a").click();
+    }
+    else if(data.index == 6){
+      $(".seventh-step a").click();
+    }
+    else if(data.index == 7){
+      $(".eighth-step a").click();
+    }
+  }
+
   render() {
     return (
       <div className="container pt-90 pb-30 loan-dashboard" style={{"minHeight": "400px"}}>
@@ -35,9 +59,9 @@ class Index extends Component {
                 debug={false}
                 steps={this.props.steps}
                 type={"continuous"}
-                showSkipButton={true}
                 showStepsProgress={true}
-                scrollToSteps={false} />
+                scrollToSteps={false}
+                callback={this.callback} />
           :
             null
         }
