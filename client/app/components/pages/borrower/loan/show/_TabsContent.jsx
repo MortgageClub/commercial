@@ -113,7 +113,7 @@ class TabsContent extends Component {
       <div>
         <h4>Loan Information</h4>
         <ul className="nav nav-tabs" role="tablist">
-          <li role="presentation" className="active">
+          <li role="presentation" className="active second-step">
             <a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Overview</a>
           </li>
           <li role="presentation" className="third-step">

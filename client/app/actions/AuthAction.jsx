@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { AUTH_USER, DE_AUTH_USER } from '../actions/Types';
+import { AUTH_USER, DE_AUTH_USER, REMOVE_AUTH_ERRORS } from '../actions/Types';
 import { authError, authFromResponse, headersFromLocal } from '../utils/AuthUtils'
 
 export function login(userInfo) {
@@ -21,7 +21,7 @@ export function login(userInfo) {
 
 export function register(userInfo) {
   return function (dispatch) {
-    axios.post('/auth',
+    axios.post('/registrations',
         userInfo
       )
       .then(response => {
@@ -29,6 +29,7 @@ export function register(userInfo) {
         browserHistory.push('/dashboard');
       })
       .catch(error => {
+        console.log(error.response);
         var data = error.response.data;
         dispatch(authError(data.errors));
       })
@@ -46,6 +47,12 @@ export function logout() {
   }
 }
 
+export function removeErrors(){
+  return function (dispatch) {
+    dispatch({ type: REMOVE_AUTH_ERRORS });
+  }
+}
+
 function handleLogOut(dispatch) {
   dispatch({ type: DE_AUTH_USER });
   localStorage.removeItem('auth');
@@ -53,8 +60,8 @@ function handleLogOut(dispatch) {
 }
 
 function handleSuccessAuthen(dispatch, response) {
-  dispatch({ type: AUTH_USER, payload: response.data.user });
-  localStorage.setItem('auth', authFromResponse(response.data));
+  dispatch({ type: AUTH_USER, payload: response.data });
+  localStorage.setItem('auth', authFromResponse(response));
   dispatch(authError(null));
 }
 

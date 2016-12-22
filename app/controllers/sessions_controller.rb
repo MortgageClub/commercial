@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by_email(params[:email])
+
     if user && user.valid_password?(params[:password])
       if user.subjectable_type == "Admin"
         session[:user_id] = user.id

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { register } from '../../../actions/AuthAction';
+import { register, removeErrors } from '../../../actions/AuthAction';
 import { browserHistory } from 'react-router';
 import cookie from 'react-cookie';
 
@@ -10,6 +10,10 @@ class Register extends Component {
     if (this.props.authenticated) {
       browserHistory.goBack();
     }
+  }
+
+  componentWillUnmount() {
+    this.props.removeErrors();
   }
 
   componentDidMount() {
@@ -102,7 +106,7 @@ class Register extends Component {
     if (this.props.errorMessages) {
       const errors = this.props.errorMessages.map(error => {
         return (
-          <li key={error}>{error}</li>
+        <li key={error.message}>{error.message}</li>
         )
       })
       return (
@@ -120,7 +124,7 @@ function mapStateToProps(state, ownProps) {
   }
 }
 
-export default connect(mapStateToProps, { register })(
+export default connect(mapStateToProps, { register, removeErrors })(
   reduxForm({
     form: 'registerForm'
   })(Register)

@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   layout "client"
   include DeviseTokenAuth::Concerns::SetUserByToken
+
+  before_action :set_user_by_token
   protect_from_forgery unless: -> { request.format.json? }
 
   def execute
@@ -21,7 +23,11 @@ class ApplicationController < ActionController::Base
   end
 
   def create_service
-    find_service.new(params, request.headers, current_api_user)
+    find_service.new(params, request.headers, cookies, @resource)
+  end
+
+  def resource_class(mapping = nil)
+    User
   end
 
   def find_service
@@ -46,7 +52,12 @@ class ApplicationController < ActionController::Base
     if data.kind_of?(BaseError)
       render json: data.to_json, status: data.status
     else
-      render json: data.to_json
+      if (headers = data.try(:headers))
+        response.headers.merge!(headers)
+        render json: data.user.to_json
+      else
+        render json: data.to_json
+      end
     end
   end
 end

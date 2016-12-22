@@ -37,9 +37,8 @@ Rails.application.routes.draw do
         delete :destroy, on: :collection
       end
 
-      mount_devise_token_auth_for 'User', at: 'auth', controllers: {
-        registrations: 'api/v1/registrations'
-      }
+      resources :registrations, only: [:create] do
+      end
 
       resources :users, only: [] do
         collection do

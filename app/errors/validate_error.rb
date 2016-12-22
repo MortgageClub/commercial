@@ -1,5 +1,5 @@
 class ValidateError < BaseError
-  def initialize(error = [])
+  def initialize(error = "")
     @error = error
   end
 

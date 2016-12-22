@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { Field, reduxForm } from 'redux-form';
-import { login } from '../../../actions/AuthAction';
+import { login, removeErrors } from '../../../actions/AuthAction';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 
@@ -10,6 +10,10 @@ class Login extends Component {
     if (this.props.authenticated) {
       browserHistory.goBack();
     }
+  }
+
+  componentWillUnmount() {
+    this.props.removeErrors();
   }
 
   render() {
@@ -85,7 +89,7 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { login })(
+export default connect(mapStateToProps, { login, removeErrors })(
   reduxForm({
     form: 'loginForm'
   })(Login)

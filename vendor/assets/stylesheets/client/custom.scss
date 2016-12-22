@@ -13,7 +13,130 @@ Note: This is the file where you can add your custom styles to change the look o
 	You can put your custom css code here:
 -------------------------------------------------------*/
 
-button.button-1:disabled {
+button.button-1:disabled, button.submit-btn-1:disabled{
   background: #999;
   border-color: #999;
+}
+
+select {
+  border-radius: 0;
+  border-color: #e1e1e1;
+}
+
+.submit-btn-1:hover {
+  cursor: pointer;
+}
+
+.main-menu > li > a, .drop-menu li a {
+  cursor: pointer;
+}
+
+.media {
+  margin-top: 0px;
+
+  .media-body {
+    .fa, span {
+      display: inline-block;
+    }
+
+    .fa {
+      margin-right: 5px;
+    }
+  }
+}
+
+.find-home-item, #contact-form-2 {
+  textarea::-webkit-input-placeholder {
+    color: white;
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  }
+  textarea::-moz-placeholder {
+    color: white;
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  }
+  textarea:-ms-input-placeholder {
+    color: white;
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  }
+  textarea:-moz-placeholder {
+    color: white;
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  }
+
+  input::-webkit-input-placeholder {
+    color: white;
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  }
+  input::-moz-placeholder {
+    color: white;
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  }
+  input:-ms-input-placeholder {
+    color: white;
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  }
+  input:-moz-placeholder {
+    color: white;
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  }
+
+  select option {
+    color: #999;
+  }
+
+  select {
+    color: white;
+    padding-left: 10px;
+  }
+
+  select:focus {
+    outline: 0px;
+    border: 1px solid #95c41f;
+  }
+
+  textarea {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  input {
+    font-size: 13px;
+    outline-color: white;
+    border: 1px solid #e1e1e1;
+  }
+
+  input:focus {
+    border: 1px solid #95c41f;
+  }
+
+  .custom-select-2 {
+    margin-bottom: 0px;
+  }
+
+  textarea {
+    border: 1px solid #e1e1e1;
+    background: transparent;
+    color: #fff;
+    margin-bottom: 0px;
+  }
+
+  textarea:focus {
+    border: 1px solid #95c41f;
+  }
+}
+
+.tab-content {
+  margin-top: 20px;
+}
+
+.table > tbody > tr > td {
+  vertical-align: middle;
 }
