@@ -43,9 +43,5 @@ class About extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {};
-}
-
 export default About
 

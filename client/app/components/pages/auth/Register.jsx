@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { register, removeErrors } from '../../../actions/AuthAction';
 import { browserHistory } from 'react-router';
+import { isAuthenticated } from '../../../utils/AuthUtils';
 import cookie from 'react-cookie';
 
 class Register extends Component {
   componentWillMount() {
-    if (this.props.authenticated) {
+    if (isAuthenticated()) {
       browserHistory.goBack();
     }
   }

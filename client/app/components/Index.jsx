@@ -26,9 +26,5 @@ class Index extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {};
-}
-
-export default connect(mapStateToProps, { fetch })(Index)
+export default connect(null, { fetch })(Index)
 

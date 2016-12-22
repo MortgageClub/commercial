@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { getAll } from '../../../../actions/InviteByEmailAction';
+import { isAuthenticated } from '../../../../utils/AuthUtils';
 import { formatDate } from '../../../../utils/FormatUtils';
 
 class ReferralResults extends Component {
     componentDidMount() {
-        if(window.localStorage.getItem('auth') !== null){
+        if(isAuthenticated()){
             this.props.getAll();
         }else{
             browserHistory.push('');

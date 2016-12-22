@@ -23,11 +23,10 @@ export function isAuthenticated() {
   return localStorage.getItem('auth');
 }
 
-export function authFromResponse(data) {
-  const headers = data.headers;
-
+export function authFromResponse(response) {
+  const headers = response.headers;
   return JSON.stringify({
-    user: data.user,
+    user: response.data,
     headers: {
       'access-token': headers['access-token'],
       'uid': headers['uid'],

@@ -127,9 +127,5 @@ class Services extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {};
-}
-
 export default Services
 

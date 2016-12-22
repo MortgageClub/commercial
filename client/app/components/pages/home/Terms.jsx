@@ -317,9 +317,5 @@ class Terms extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {};
-}
-
 export default Terms
 

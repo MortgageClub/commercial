@@ -230,9 +230,5 @@ class Privacy extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {};
-}
-
 export default Privacy
 

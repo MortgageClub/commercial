@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { getAll } from '../../../actions/LoanAction';
 import { formatCurrency } from '../../../utils/FormatUtils';
 import { Link, browserHistory } from 'react-router';
+import { isAuthenticated } from '../../../utils/AuthUtils';
 
 class Dashboard extends Component {
   componentDidMount() {
-    if(window.localStorage.getItem('auth') !== null){
+    if(isAuthenticated()){
       this.props.getAll();
     }else{
       browserHistory.push('');
