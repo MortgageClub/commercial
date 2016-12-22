@@ -2,7 +2,7 @@ module Loans
   class DetailSerializer < BaseSerializer
     default_include "property, property.address, checklists, documents, property.documents, borrower, borrower.documents, closing, closing.documents, guarantor, guarantor.documents"
 
-    attributes :id, :amount, :status, :purpose, :loan_members
+    attributes :id, :amount, :status, :purpose, :loan_members, :property_address
     has_one :property, serializer: Properties::DetailSerializer
     has_many :checklists, serializer: Checklists::DetailSerializer
     has_many :documents, serializer: Documents::DetailSerializer
@@ -20,6 +20,10 @@ module Loans
 
     def purpose
       object.purpose.titleize
+    end
+
+    def property_address
+      object.property && object.property.address ? object.property.address.full_text : "Unknown Address"
     end
 
     def loan_members

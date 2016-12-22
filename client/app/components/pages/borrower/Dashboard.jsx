@@ -42,13 +42,7 @@ class Dashboard extends Component {
             <div className="flat-title-price">
               <h5>
                 <a>
-                {
-                  loan.property.address
-                  ?
-                    loan.property.address.full_text
-                  :
-                    "Unknown Address"
-                }
+                  {loan.property_address}
                 </a>
               </h5>
             </div>

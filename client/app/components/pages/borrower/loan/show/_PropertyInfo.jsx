@@ -35,7 +35,7 @@ class PropertyInfo extends Component {
             loan
             ?
               <div>
-                <h4>{loan.property && loan.property.address ? loan.property.address.full_text : "Unknown Address"}</h4>
+                <h4>{loan.property_address}</h4>
                 <div>{loan.amount} - {loan.purpose}</div>
                 <div>Status: {loan.status}</div>
               </div>
