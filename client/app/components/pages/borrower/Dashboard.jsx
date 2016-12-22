@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getAll } from '../../../actions/LoanAction';
-import { formatCurrency } from '../../../utils/FormatUtils';
 import { Link, browserHistory } from 'react-router';
 import { isAuthenticated } from '../../../utils/AuthUtils';
 
@@ -54,7 +53,7 @@ class Dashboard extends Component {
               </h5>
             </div>
             <div className="flat-title-price">
-              <span className="price">{formatCurrency(loan.amount)}</span>
+              <span className="price">{loan.amount}</span>
             </div>
           </div>
         </div>

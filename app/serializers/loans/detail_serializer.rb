@@ -14,6 +14,10 @@ module Loans
       object.status.titleize
     end
 
+    def amount
+      ActiveSupport::NumberHelper.number_to_currency(object.amount.to_f, precision: 0)
+    end
+
     def purpose
       object.purpose.titleize
     end
