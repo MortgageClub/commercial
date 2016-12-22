@@ -3,7 +3,7 @@ module Registrations
     class Create < Service
       def process
         new_user = User.new(user_params)
-        new_user.provider = "email"
+        new_user.provider = 'email'
         new_user.referral_code = Users::V1::ReferralCodeGenerator.generate
 
         if User.case_insensitive_keys.include?(:email)
@@ -12,7 +12,7 @@ module Registrations
           new_user.email = user_params[:email]
         end
 
-        if referral_code = cookies["ref_code"]
+        if (referral_code = cookies['ref_code'])
           new_user.referred_code = referral_code.upcase
           handle_referral_user(new_user, referral_code)
         end
@@ -22,8 +22,8 @@ module Registrations
 
           begin
             if borrower.save
-              if loan_data = cookies["loan_data"]
-                handle_new_loan(borrower)
+              if (loan_data = cookies['loan_data'])
+                handle_new_loan(borrower, loan_data)
               end
 
               result.new(
@@ -46,34 +46,33 @@ module Registrations
       private
 
       def handle_referral_user(new_user, referral_code)
-        referral_user = User.where(referral_code: referral_code.upcase).first
-
-        return unless referral_user.present?
+        return unless (referral_user = User.where(referral_code: referral_code.upcase).first).present?
 
         invited_referral = InvitedReferral.where(email: new_user.email, user_id: referral_user.id)
         invited_referral.update(joined_at: Time.zone.now)
       end
 
-      def handle_new_loan(borrower)
-        loan_params = JSON.load cookies["loan_data"]
-        address_params = loan_params["address"]
+      def handle_new_loan(borrower, loan_data)
+        loan_cookie = LoanCookie.new(JSON.load(loan_data))
 
         borrower.loans.create!(
-          property: Property.new(
-            address: Address.new(
-              street_address: address_params["street_address"],
-              city: address_params["city"],
-              state: address_params["state"],
-              zip: address_params["zip"],
-              full_text: address_params["full_text"]
-            )
-          ),
+          property: Property.new(address: new_address(loan_cookie.address)),
           closing: Closing.new,
           guarantor: Guarantor.new,
-          amount: loan_params["loan_amount"].to_f,
-          purpose: loan_params["purpose"],
-          note: loan_params["detail"],
+          amount: loan_cookie.loan_amount,
+          purpose: loan_cookie.purpose,
+          note: loan_cookie.detail,
           status: :new_loan
+        )
+      end
+
+      def new_address(address)
+        Address.new(
+          street_address: address.street_address,
+          city: address.city,
+          state: address.state,
+          zip: address.zip,
+          full_text: address.full_text
         )
       end
 
