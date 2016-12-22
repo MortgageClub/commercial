@@ -8,10 +8,6 @@ import TabsContent from './_TabsContent';
 import Joyride from 'react-joyride';
 
 class Index extends Component {
-  constructor(props){
-    super(props);
-  }
-
   componentDidMount() {
     if(this.props.params.id){
       this.props.fetch(this.props.params.id);
@@ -82,7 +78,6 @@ class Index extends Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    authenticated: state.auth.authenticated,
     loan: state.dashboard.loan,
     params: ownProps.params,
     steps: state.steps.all

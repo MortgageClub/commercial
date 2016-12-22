@@ -95,7 +95,11 @@ class PublicHeader extends Component {
           <Link to="/about">About Us</Link>
         </li>
         <li>
-          <a onClick={this.props.logout}>Logout</a>
+          <a>{this.props.userInfo && (this.props.userInfo.first_name + " " + this.props.userInfo.last_name)}</a>
+          <ul className="drop-menu menu-right">
+            <li><Link to="/dashboard">Dashboard</Link></li>
+            <li><a onClick={this.props.logout}>Logout</a></li>
+          </ul>
         </li>
       </ul>
     )
@@ -129,7 +133,8 @@ class PublicHeader extends Component {
 
 function mapStateToProps(state) {
   return {
-    authenticated: state.auth.authenticated
+    authenticated: state.auth.authenticated,
+    userInfo: state.auth.userInfo
   };
 }
 

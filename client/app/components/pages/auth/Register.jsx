@@ -120,7 +120,6 @@ class Register extends Component {
 function mapStateToProps(state, ownProps) {
   return {
     errorMessages: state.auth.errors,
-    authenticated: state.auth.authenticated,
     params: ownProps.location.query
   }
 }

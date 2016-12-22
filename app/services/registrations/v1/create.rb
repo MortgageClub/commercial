@@ -22,6 +22,10 @@ module Registrations
 
           begin
             if borrower.save
+              if loan_data = cookies["loan_data"]
+                handle_new_loan(borrower)
+              end
+
               result.new(
                 new_user.token_validation_response,
                 new_user.create_new_auth_token
@@ -48,6 +52,29 @@ module Registrations
 
         invited_referral = InvitedReferral.where(email: new_user.email, user_id: referral_user.id)
         invited_referral.update(joined_at: Time.zone.now)
+      end
+
+      def handle_new_loan(borrower)
+        loan_params = JSON.load cookies["loan_data"]
+        address_params = loan_params["address"]
+
+        borrower.loans.create!(
+          property: Property.new(
+            address: Address.new(
+              street_address: address_params["street_address"],
+              city: address_params["city"],
+              state: address_params["state"],
+              zip: address_params["zip"],
+              full_text: address_params["full_text"]
+            )
+          ),
+          closing: Closing.new,
+          guarantor: Guarantor.new,
+          amount: loan_params["loan_amount"].to_f,
+          purpose: loan_params["purpose"],
+          note: loan_params["detail"],
+          status: :new_loan
+        )
       end
 
       def result
