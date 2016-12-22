@@ -15,7 +15,7 @@ class Privacy extends Component {
               </div>
               <div className="col-md-12 privacy-content pt-30">
                 <p>
-                  Blackline Lending understands the importance of your personal privacy.  Therefore, we have created this Privacy Policy so that you know how we use and disclose your information when you make it available to us.  The Privacy Policy below discloses our practices regarding information collection and usage website located at <a href="www.blacklinelending.com">www.blacklinelending.com</a>, the related mobile website, and the mobile application (collectively, the “Websites”) and the service provided thereon (the “Service”).
+                  Blackline Lending understands the importance of your personal privacy.  Therefore, we have created this Privacy Policy so that you know how we use and disclose your information when you make it available to us.  The Privacy Policy below discloses our practices regarding information collection and usage website located at <a href="https://www.blacklinelending.com">www.blacklinelending.com</a>, the related mobile website, and the mobile application (collectively, the “Websites”) and the service provided thereon (the “Service”).
                 </p>
                 <p>
                   By using or accessing the Websites and the Service, you signify your agreement to be bound by this Privacy Policy. IF YOU DO NOT AGREE TO THIS PRIVACY POLICY YOU MAY NOT ACCESS OR OTHERWISE USE OUR SERVICE OR PARTICIPATE IN OUR SERVICES.
@@ -191,7 +191,7 @@ class Privacy extends Component {
                   Site Terms of Service:
                 </h3>
                 <p>
-                  Use of this Service is governed by, and subject to, the Terms of Service located at www.blacklinelending.com/terms-of-service (the “Terms”). This Privacy Policy is incorporated into the Terms.  Your use, or access, of the Service constitutes your agreement to be bound by these provisions.  IF YOU DO NOT AGREE TO THE TERMS AND THIS PRIVACY POLICY YOU MAY NOT ACCESS OR OTHERWISE USE THE SERVICE.
+                  Use of this Service is governed by, and subject to, the Terms of Service located at <a href="https://www.blacklinelending.com/terms-of-service">www.blacklinelending.com/terms-of-service</a> (the “Terms”). This Privacy Policy is incorporated into the Terms.  Your use, or access, of the Service constitutes your agreement to be bound by these provisions.  IF YOU DO NOT AGREE TO THE TERMS AND THIS PRIVACY POLICY YOU MAY NOT ACCESS OR OTHERWISE USE THE SERVICE.
                 </p>
 
                 <h3>

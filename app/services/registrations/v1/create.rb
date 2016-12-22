@@ -41,7 +41,7 @@ module Registrations
 
       private
 
-      def handle_referral_user(referral_code)
+      def handle_referral_user(new_user, referral_code)
         referral_user = User.where(referral_code: referral_code.upcase).first
 
         return unless referral_user.present?

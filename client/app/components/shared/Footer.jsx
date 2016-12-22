@@ -51,7 +51,7 @@ class Footer extends Component {
                         </div>
                         <div className="address-info">
                           <span>Email: info@blacklinelending.com</span>
-                          <span>Web :<a href="http://blacklinelending.com/" target="_blank"> wwww.blacklinelending.com</a></span>
+                          <span>Web :<a href="https://www.blacklinelending.com/" target="_blank"> wwww.blacklinelending.com</a></span>
                         </div>
                       </li>
                     </ul>
@@ -94,7 +94,7 @@ class Footer extends Component {
               <div className="row">
                 <div className="col-xs-12">
                   <div className="copyright text-center">
-                    <p>Copyright &copy; 2017 <a href="http://www.blacklinelending.com"><b>Blackline Lending</b></a>. All rights reserved.</p>
+                    <p>Copyright &copy; 2017 <a href="https://www.blacklinelending.com"><b>Blackline Lending</b></a>. All rights reserved.</p>
                   </div>
                 </div>
               </div>

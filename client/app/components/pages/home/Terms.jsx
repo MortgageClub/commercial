@@ -15,7 +15,7 @@ class Terms extends Component {
               </div>
               <div className="col-md-12 privacy-content pt-30">
                 <p>
-                  Welcome to Blackline Lending, operated by Blackline Lending Inc., located at 75 E Santa Clara St, 6th Floor, San Jose, CA 95113. By using the website located at <a href="www.blacklinelending.com">www.blacklinelending.com</a>, the related mobile website, and the mobile application (collectively, the “Websites”), you agree to be bound by these Terms of Service (this “Terms of Service” or “Agreement”), whether or not you register as a member of Blackline Lending ("Member"). If you wish to become a Member and/or make use of the service (the “Service”), please read this Agreement. If you object to anything in this Agreement or the Blackline Lending Privacy Policy, do not use the Service.
+                  Welcome to Blackline Lending, operated by Blackline Lending Inc., located at 75 E Santa Clara St, 6th Floor, San Jose, CA 95113. By using the website located at <a href="https://www.blacklinelending.com">www.blacklinelending.com</a>, the related mobile website, and the mobile application (collectively, the “Websites”), you agree to be bound by these Terms of Service (this “Terms of Service” or “Agreement”), whether or not you register as a member of Blackline Lending ("Member"). If you wish to become a Member and/or make use of the service (the “Service”), please read this Agreement. If you object to anything in this Agreement or the Blackline Lending Privacy Policy, do not use the Service.
                 </p>
                 <p>
                   This Agreement is subject to change by Blackline Lending at any time, effective upon posting on the relevant website. Your continued use of the Websites and the Service following Blackline Lending posting of revised terms of any section of the Agreement will constitute your express and binding acceptance of and consent to the revised Agreement.
@@ -273,7 +273,7 @@ class Terms extends Component {
                 </p>
 
                 <p>
-                  18. <b>Privacy.</b> Use of the Websites and/or the Service is also governed by our Privacy Policy, located at <a href="www.blacklinelending.com/privacy-policy">www.blacklinelending.com/privacy-policy</a>
+                  18. <b>Privacy.</b> Use of the Websites and/or the Service is also governed by our Privacy Policy, located at <a href="https://www.blacklinelending.com/privacy-policy">www.blacklinelending.com/privacy-policy</a>
                 </p>
 
                 <p>
