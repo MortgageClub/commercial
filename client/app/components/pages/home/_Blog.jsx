@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { getAll } from '../../../actions/BlogAction';
 import { connect } from 'react-redux';
-import { formatDate, formatTime } from '../../../utils/FormatUtils';
 import { Link } from 'react-router';
 
 class Blog extends Component {
@@ -32,7 +31,7 @@ class Blog extends Component {
             <div className="row">
               <div className="col-md-12">
                 <div className="section-title-2 text-center">
-                  <h2>FROM BLOG</h2>
+                  <h2>FROM OUR BLOG</h2>
                   <p>Commercial real estate news, financing tips, industry insights, market trends, and more.</p>
                 </div>
               </div>
@@ -63,7 +62,7 @@ class Blog extends Component {
           <div className="blog-info">
             <div className="post-title-time">
               <h5><Link to={`/blog/${blog.slug}`}>{blog.title}</Link></h5>
-              <p>{formatTime(blog.created_at)}</p>
+              <p>{blog.created_at}</p>
             </div>
             <p>{blog.short_description}</p>
             <Link to={`/blog/${blog.slug}`} className="read-more">Read more</Link>

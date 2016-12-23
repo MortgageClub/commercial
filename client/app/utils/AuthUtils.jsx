@@ -7,18 +7,30 @@ export function authError(errors) {
   }
 }
 
+export function userFromLocal() {
+  return isAuthenticated() ? authFromLocal().user : {}
+}
+
+export function headersFromLocal() {
+  return isAuthenticated() ? authFromLocal().headers : {}
+}
+
 export function authFromLocal() {
-  return JSON.parse(window.localStorage.getItem('auth'));
+  return JSON.parse(localStorage.getItem('auth'));
 }
 
 export function isAuthenticated() {
-  return window.localStorage.getItem('auth');
+  return localStorage.getItem('auth');
 }
 
-export function authFromHeader(headers) {
+export function authFromResponse(response) {
+  const headers = response.headers;
   return JSON.stringify({
-    'access-token': headers['access-token'],
-    'uid': headers['uid'],
-    'client': headers['client']
+    user: response.data,
+    headers: {
+      'access-token': headers['access-token'],
+      'uid': headers['uid'],
+      'client': headers['client']
+    }
   });
 }

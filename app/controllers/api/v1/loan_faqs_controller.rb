@@ -4,7 +4,6 @@ module Api
       before_action :execute
 
       def index
-        # execute
       end
     end
   end

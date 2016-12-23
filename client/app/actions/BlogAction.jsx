@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { authFromLocal } from '../utils/AuthUtils'
 import { LASTEST_BLOGS, BLOGS_LIST, BLOG_DETAILS } from '../actions/Types';
 
 export function getFooterBlogs() {

@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by_email(params[:email])
+
     if user && user.valid_password?(params[:password])
       if user.subjectable_type == "Admin"
         session[:user_id] = user.id
@@ -36,7 +37,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    flash.now[:notice] = "Logout successfully"
+    flash[:notice] = "Logout successfully"
 
     redirect_to sessions_new_path
   end

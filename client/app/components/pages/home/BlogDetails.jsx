@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { fetch, getAll } from '../../../actions/BlogAction';
 import { connect } from 'react-redux';
-import { formatDate, formatTime } from '../../../utils/FormatUtils';
 import { Link } from 'react-router';
 
 class BlogDetails extends Component {
@@ -22,11 +21,11 @@ class BlogDetails extends Component {
                 ?
                   <div className="blog-details-area">
                     <div className="blog-details-image">
-                      <img src={this.props.blog_details.image_url} />
+                      <img src={this.props.blog_details.image_full_url} />
                     </div>
                     <div className="blog-details-title-time">
                       <h5>{this.props.blog_details.title}</h5>
-                      <p>{formatTime(this.props.blog_details.created_at)}</p>
+                      <p>{this.props.blog_details.created_at}</p>
                     </div>
                     <div className="blog-details-desctiption mb-60" dangerouslySetInnerHTML={{__html: this.props.blog_details.content}}>
                     </div>
@@ -195,7 +194,7 @@ class BlogDetails extends Component {
           <div className="recent-post-info">
             <div className="recent-post-title-time">
               <h5><Link to={`/blog/${recentBlog.slug}`}>{recentBlog.title}</Link></h5>
-              <p>{formatTime(recentBlog.created_at)}</p>
+              <p>{recentBlog.created_at}</p>
             </div>
             <p>{recentBlog.short_description}</p>
           </div>

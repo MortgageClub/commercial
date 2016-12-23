@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { create } from '../../../actions/LoanAction';
+import { isAuthenticated } from '../../../utils/AuthUtils';
+import { formatCurrency } from '../../../utils/FormatUtils';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
-import { STATES, PROPERTY_TYPES, PURPOSES } from '../../../utils/ValueUtils';
+import { PURPOSES } from '../../../utils/ValueUtils';
 import Geosuggest from '../../../../node_modules/react-geosuggest';
+import cookie from 'react-cookie';
 
 class Slider extends Component {
   render() {
@@ -50,7 +53,8 @@ class Slider extends Component {
                           name="loan_amount"
                           type="text"
                           component="input"
-                          placeholder="Loan amount"/>
+                          placeholder="Loan amount"
+                          normalize={formatCurrency}/>
                       </div>
                     </div>
                     <div className="col-sm-12 col-xs-12">
@@ -118,14 +122,18 @@ class Slider extends Component {
   }
 
   submit(fillInfo) {
-    this.props.create({ ...fillInfo, address: this.state.address });
+    if(isAuthenticated()){
+      this.props.create({ ...fillInfo, address: this.state.address });
+    } else {
+      cookie.save("loan_data", JSON.stringify({ ...fillInfo, address: this.state.address }));
+      browserHistory.push("/sign-up");
+    }
   }
 }
 
 function mapStateToProps(state) {
   return {
-    errorMessages: state.auth.errors,
-    authenticated: state.auth.authenticated
+    errorMessages: state.auth.errors
   }
 }
 

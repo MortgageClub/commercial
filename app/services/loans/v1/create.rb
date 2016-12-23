@@ -5,6 +5,8 @@ module Loans
 
       def process
         address_params = params[:loan][:address]
+        # relationship_manager_title = RelationshipManagerTitle.find_by_title("Relationship Manager")
+        # loan_member = User.find_by_email("").try(:subjectable)
 
         @user.subjectable.loans.create!(
           property: Property.new(

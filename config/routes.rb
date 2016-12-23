@@ -8,6 +8,12 @@ Rails.application.routes.draw do
 
   get '/*all', constraints: AppConstraint.new, to: 'home#index'
 
+  resources :sendgrid_webhooks, only: [] do
+    collection do
+      post "receive"
+    end
+  end
+
   namespace :admins do
     resources :document_types
     resources :loan_faqs
@@ -21,14 +27,18 @@ Rails.application.routes.draw do
     resources :loans, only: :index do
       resources :documents
       resources :checklists
+      resources :sent_emails, only: [:index, :create]
     end
   end
 
   namespace :api do
     scope module: :v1, constraints: ApiConstraint.new(version: :v1) do
-      mount_devise_token_auth_for 'User', at: 'auth', controllers: {
-        registrations: 'api/v1/registrations'
-      }
+      resources :sessions, only: [:create] do
+        delete :destroy, on: :collection
+      end
+
+      resources :registrations, only: [:create] do
+      end
 
       resources :users, only: [] do
         collection do
@@ -57,20 +67,6 @@ Rails.application.routes.draw do
       resources :loan_faqs, only: :index
       resources :blogs, only: [:index, :show] do
       end
-      # resources :recipes, except: [:new, :edit] do
-      #   member do
-      #     post :add_ingredients
-      #     post :add_directions
-      #   end
-
-      #   collection do
-      #     get :completed
-      #     get :feeds
-      #   end
-      # end
-
-      # resource :completes, only: [:create, :destroy]
-      # resources :reviews, only: [:create, :destroy]
     end
   end
 end

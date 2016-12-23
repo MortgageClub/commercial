@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { formatDate } from '../../../../../../utils/FormatUtils';
 
 class BorrowerTab extends Component {
   render() {

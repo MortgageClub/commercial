@@ -1,14 +1,33 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { addStep } from '../../../../../actions/GuidedTourAction';
 
 class MortgageAdvisor extends Component {
+  componentDidMount() {
+    if (!this.props.steps){
+      this.props.addStep({
+        title: 'Relationship Manager',
+        text: 'Relationship Manager',
+        selector: '.ninth-step',
+        position: 'left',
+        type: 'hover',
+        style: {
+          beacon: {
+            inner: '#95c41f',
+            outer: '#95c41f'
+          }
+        }
+      });
+    }
+  }
+
   render() {
     const loan = this.props.loan;
     const loanMembers = loan ? loan.loan_members : [];
     const mortgageAdvisor = loanMembers.find(loanMember => loanMember.title = "Relationship Manager");
 
     return (
-      <div>
+      <div className="ninth-step">
         <h4>Your Relationship Manager</h4>
         {
           mortgageAdvisor
@@ -45,9 +64,10 @@ class MortgageAdvisor extends Component {
 
 function mapStateToProps(state) {
   return {
-    loan: state.dashboard.loan
+    loan: state.dashboard.loan,
+    steps: state.steps.all
   };
 }
 
-export default connect(mapStateToProps)(MortgageAdvisor)
+export default connect(mapStateToProps, { addStep })(MortgageAdvisor)
 

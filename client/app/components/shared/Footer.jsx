@@ -42,7 +42,7 @@ class Footer extends Component {
                           <img src="/images/icons/phone-3.png" alt=""/>
                         </div>
                         <div className="address-info">
-                          <span>Phone: (628) 220-2643</span>
+                          <span>Phone: (000) 000-0000</span>
                         </div>
                       </li>
                       <li>
@@ -50,8 +50,8 @@ class Footer extends Component {
                           <img src="/images/icons/world.png" alt=""/>
                         </div>
                         <div className="address-info">
-                          <span>Email: info@blacklineequity.com</span>
-                          <span>Web :<a href="http://blacklineequity.com/" target="_blank"> wwww.blacklineequity.com</a></span>
+                          <span>Email: info@blacklinelending.com</span>
+                          <span>Web :<a href="https://www.blacklinelending.com/" target="_blank"> wwww.blacklinelending.com</a></span>
                         </div>
                       </li>
                     </ul>
@@ -62,7 +62,7 @@ class Footer extends Component {
                   <div className="footer-widget middle">
                     <h6 className="footer-titel">LEGAL</h6>
                     <div className="footer-contact">
-                      <p>Equity Center Real Estate dba Blackline Equity only provide commercial loan brokerage services. Blackline Equity operates in California under BRE license #00637579.</p>
+                      <p>Equity Center Real Estate dba Blackline Lending only provide commercial loan brokerage services. Blackline Lending operates in California under BRE license #00637579.</p>
                     </div>
                     <div className="footer-legal">
                       <p><a href="http://www2.dre.ca.gov/PublicASP/pplinfo.asp?start=1" target="_blank">Bureau of Real Estate</a></p>
@@ -76,7 +76,7 @@ class Footer extends Component {
                   <div className="footer-widget">
                     <h6 className="footer-titel">QUICK CONTACT</h6>
                     <div className="footer-contact">
-                      <p>Contact Blackline Equity with media enquiries, for information on how to become a client, or with questions related to our lending platform.</p>
+                      <p>Contact Blackline Lending with media enquiries, for information on how to become a client, or with questions related to our lending platform.</p>
                       <form  id="contact-form-2" action="mail_footer.php" method="post">
                         <input type="email" name="email2" placeholder="Email Address"/>
                         <textarea name="message2" placeholder="Message"></textarea>
@@ -94,7 +94,7 @@ class Footer extends Component {
               <div className="row">
                 <div className="col-xs-12">
                   <div className="copyright text-center">
-                    <p>Copyright &copy; 2017 <a href="http://www.blacklineequity.com"><b>Blackline Equity</b></a>. All rights reserved.</p>
+                    <p>Copyright &copy; 2017 <a href="https://www.blacklinelending.com"><b>Blackline Lending</b></a>. All rights reserved.</p>
                   </div>
                 </div>
               </div>

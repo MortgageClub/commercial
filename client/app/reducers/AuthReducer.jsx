@@ -1,4 +1,4 @@
-import { AUTH_USER, DE_AUTH_USER, AUTH_ERROR } from '../actions/Types';
+import { AUTH_USER, DE_AUTH_USER, AUTH_ERROR, REMOVE_AUTH_ERRORS } from '../actions/Types';
 
 export default function (state = {}, action) {
   switch (action.type) {
@@ -8,6 +8,8 @@ export default function (state = {}, action) {
       return { ...state, authenticated: false };
     case AUTH_ERROR:
       return { ...state, errors: action.payload };
+    case REMOVE_AUTH_ERRORS:
+      return { ...state, errors: null };
   }
   return state;
 }

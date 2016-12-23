@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getAll } from '../../../actions/LoanAction';
-import { formatCurrency } from '../../../utils/FormatUtils';
 import { Link, browserHistory } from 'react-router';
+import { isAuthenticated } from '../../../utils/AuthUtils';
 
 class Dashboard extends Component {
   componentDidMount() {
-    if(window.localStorage.getItem('auth') !== null){
+    if(isAuthenticated()){
       this.props.getAll();
     }else{
       browserHistory.push('');
@@ -42,18 +42,12 @@ class Dashboard extends Component {
             <div className="flat-title-price">
               <h5>
                 <a>
-                {
-                  loan.property.address
-                  ?
-                    loan.property.address.full_text
-                  :
-                    "Unknown Address"
-                }
+                  {loan.property_address}
                 </a>
               </h5>
             </div>
             <div className="flat-title-price">
-              <span className="price">{formatCurrency(loan.amount)}</span>
+              <span className="price">{loan.amount}</span>
             </div>
           </div>
         </div>

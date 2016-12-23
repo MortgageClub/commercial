@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { Field, reduxForm } from 'redux-form';
-import { login } from '../../../actions/AuthAction';
+import { login, removeErrors } from '../../../actions/AuthAction';
+import { isAuthenticated } from '../../../utils/AuthUtils';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 
 class Login extends Component {
   componentWillMount() {
-    if (this.props.authenticated) {
+    if (isAuthenticated()) {
       browserHistory.goBack();
     }
+  }
+
+  componentWillUnmount() {
+    this.props.removeErrors();
   }
 
   render() {
@@ -68,7 +73,7 @@ class Login extends Component {
     if (this.props.errorMessages) {
       const errors = this.props.errorMessages.map(error => {
         return (
-          <li key={error}>{error}</li>
+          <li key={error.message}>{error.message}</li>
         )
       })
       return (
@@ -80,12 +85,11 @@ class Login extends Component {
 
 function mapStateToProps(state) {
   return {
-    errorMessages: state.auth.errors,
-    authenticated: state.auth.authenticated
+    errorMessages: state.auth.errors
   }
 }
 
-export default connect(mapStateToProps, { login })(
+export default connect(mapStateToProps, { login, removeErrors })(
   reduxForm({
     form: 'loginForm'
   })(Login)

@@ -10,7 +10,7 @@ class Services extends Component {
               <div className="col-md-12">
                 <div className="section-title-2 text-center">
                   <h2>THE BLACKLINE ADVANTAGE</h2>
-                  <p>Blackline Equity has a simple purpose: to help you find the best loan for your commercial property.</p>
+                  <p>Blackline Lending has a simple purpose: to help you find the best loan for your commercial property.</p>
                 </div>
               </div>
             </div>
@@ -125,10 +125,6 @@ class Services extends Component {
       </div>
     )
   }
-}
-
-function mapStateToProps(state) {
-  return {};
 }
 
 export default Services

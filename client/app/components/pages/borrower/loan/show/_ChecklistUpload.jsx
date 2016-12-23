@@ -54,9 +54,5 @@ class ChecklistUpload extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {};
-}
-
-export default connect(mapStateToProps, { upload })(ChecklistUpload)
+export default connect(null, { upload })(ChecklistUpload)
 

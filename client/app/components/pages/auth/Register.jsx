@@ -1,15 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { register } from '../../../actions/AuthAction';
+import { register, removeErrors, addError } from '../../../actions/AuthAction';
 import { browserHistory } from 'react-router';
+import { isAuthenticated } from '../../../utils/AuthUtils';
+import Recaptcha from 'react-recaptcha';
 import cookie from 'react-cookie';
 
 class Register extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isVerifyCaptcha: false
+    }
+  }
+
   componentWillMount() {
-    if (this.props.authenticated) {
+    if (isAuthenticated()) {
       browserHistory.goBack();
     }
+  }
+
+  componentWillUnmount() {
+    this.props.removeErrors();
   }
 
   componentDidMount() {
@@ -20,7 +33,27 @@ class Register extends Component {
 
       cookie.save("ref_code", refCode, {expires: new Date(expires)});
     }
+
+    $(".recaptcha").attr("align", "center");
   }
+
+  // Recaptcha
+  verifyCallback(response){
+    this.setState({
+      isVerifyCaptcha: true
+    })
+  }
+
+  expiredCallback(){
+    this.setState({
+      isVerifyCaptcha: false
+    })
+  }
+
+  onloadCallback(){
+    console.log(this.state);
+  }
+  // end Recaptcha
 
   render() {
     if (this.props.authenticated) {
@@ -73,13 +106,23 @@ class Register extends Component {
                           type="password"
                           component="input"
                           placeholder="Confirm Password" />
-
+                        <div className="row">
+                          <div className="col-sm-12 recaptcha">
+                            <Recaptcha
+                              sitekey="6Ldtiw8UAAAAAOoQGezu_74p2ZVNqZC0eQSOREkT"
+                              render="explicit"
+                              verifyCallback={this.verifyCallback.bind(this)}
+                              expiredCallback={this.expiredCallback.bind(this)}
+                              onloadCallback={this.onloadCallback.bind(this)}
+                              />
+                          </div>
+                        </div>
                         <div className="row">
                           <div className="col-sm-6">
                             <button className="submit-btn-1 mt-20" type="submit" disabled={pristine || submitting}>Sign up</button>
                           </div>
                           <div className="col-sm-6">
-                            <button className="submit-btn-1 mt-20 f-right" type="reset" disabled={pristine || submitting} onClick={reset}>Clear</button>
+                            <button className="submit-btn-1 mt-20 f-right" type="reset" disabled={pristine} onClick={reset}>Clear</button>
                           </div>
                         </div>
                       </div>
@@ -95,14 +138,20 @@ class Register extends Component {
   }
 
   submit(userInfo) {
-    this.props.register(userInfo);
+    if(this.state.isVerifyCaptcha){
+      this.props.register(userInfo);
+    } else {
+      this.props.addError([{
+        message: "Please verify captcha before sign up."
+      }])
+    }
   }
 
   renderErrors() {
     if (this.props.errorMessages) {
       const errors = this.props.errorMessages.map(error => {
         return (
-          <li key={error}>{error}</li>
+        <li key={error.message}>{error.message}</li>
         )
       })
       return (
@@ -115,12 +164,11 @@ class Register extends Component {
 function mapStateToProps(state, ownProps) {
   return {
     errorMessages: state.auth.errors,
-    authenticated: state.auth.authenticated,
     params: ownProps.location.query
   }
 }
 
-export default connect(mapStateToProps, { register })(
+export default connect(mapStateToProps, { register, removeErrors, addError })(
   reduxForm({
     form: 'registerForm'
   })(Register)

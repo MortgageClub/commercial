@@ -1,0 +1,81 @@
+<%= form_tag "/advisors/loans/#{@loan.id}/sent_emails", enctype: "multipart/form-data", authenticity_token: true do %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= label_tag :from %>
+        <%= text_field_tag :from, nil, value: "#{current_user.full_name} <#{current_user.email}>", class: "form-control", readonly: true %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= label_tag :receiver, "To" %>
+        <%= select_tag :receiver, options_for_select(@receivers.collect{ |u| [u[:name], u[:email]] }), class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= label_tag :bcc %>
+        <%= text_field_tag :bcc, nil, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= label_tag :cc %>
+        <%= text_field_tag :cc, nil, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= label_tag :template %>
+        <%= select_tag :template, options_for_select(@email_templates.collect{ |u| [u[:name], u[:content]] }), class: "form-control", prompt: 'Select template' %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group" id="attachments">
+        <label style="width: 100%">
+          Attachments
+          <a id="add-more" style="float: right">Add more</a>
+        </label>
+        <input type="file" name="attachments[]" class="form-control">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= label_tag :subject %>
+        <%= text_field_tag :subject, nil, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= label_tag :content %>
+        <%= text_area_tag :content, nil,rows: 15, cols: 180 %>
+      </div>
+    </div>
+  </div>
+  <div class="form-wizard-actions" style="padding: 0px">
+    <button class="btn btn-primary legitRipple" type="submit">Send<i class="icon-arrow-right14 position-right"></i></button>
+  </div>
+<% end %>
+<script type="text/javascript">
+  tinyMCE.init({
+    selector: "textarea"
+  });
+
+  $("#template").on("change", function(e){
+    tinyMCE.activeEditor.setContent(e.target.value);
+  });
+
+  $("#add-more").on("click", function(e){
+    $("#attachments").append('<input type="file" name="attachments[]" class="form-control">');
+  })
+</script>
+

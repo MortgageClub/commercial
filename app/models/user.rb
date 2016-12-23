@@ -1,13 +1,19 @@
 class User < ApplicationRecord
+  devise :database_authenticatable,
+         :recoverable, :rememberable,
+         :trackable
+
   include DeviseTokenAuth::Concerns::User
 
   has_one :business
   has_many :invited_referrals
   belongs_to :subjectable, polymorphic: true
 
-  devise :database_authenticatable, :registerable, :recoverable,
-         :rememberable, :trackable, :validatable
-
+  validates_uniqueness_of :email, case_sensitive: false, allow_blank: true, if: :email_changed?
+  validates_format_of :email, with: Devise.email_regexp, allow_blank: true, if: :email_changed?
+  validates_presence_of :password, on: :create
+  validates_confirmation_of :password, on: :create
+  validates_length_of :password, within: Devise.password_length, allow_blank: true
   validates :referral_code, uniqueness: true
 
   has_attached_file :avatar,

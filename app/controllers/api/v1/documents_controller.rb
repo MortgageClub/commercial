@@ -4,7 +4,6 @@ module Api
       before_action :execute
 
       def upload
-        # execute
       end
     end
   end

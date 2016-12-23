@@ -1,13 +1,15 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { AUTH_USER, DE_AUTH_USER } from '../actions/Types';
-import { authError, authFromHeader, authFromLocal } from '../utils/AuthUtils'
+import { AUTH_ERROR, AUTH_USER, DE_AUTH_USER, REMOVE_AUTH_ERRORS, ADD_AUTH_ERROR } from '../actions/Types';
+import { authError, authFromResponse, headersFromLocal } from '../utils/AuthUtils'
 
 export function login(userInfo) {
   return function (dispatch) {
-    axios.post('/auth/sign_in', userInfo)
+    axios.post('/sessions',
+        userInfo
+      )
       .then(response => {
-        handleSuccessAuthen(dispatch, response.data.data, response.headers);
+        handleSuccessAuthen(dispatch, response);
         browserHistory.push('/dashboard');
       })
       .catch(error => {
@@ -19,12 +21,15 @@ export function login(userInfo) {
 
 export function register(userInfo) {
   return function (dispatch) {
-    axios.post('/auth', userInfo)
+    axios.post('/registrations',
+        userInfo
+      )
       .then(response => {
-        handleSuccessAuthen(dispatch, response.data.data, response.headers);
+        handleSuccessAuthen(dispatch, response);
         browserHistory.push('/dashboard');
       })
       .catch(error => {
+        console.log(error.response);
         var data = error.response.data;
         dispatch(authError(data.errors));
       })
@@ -33,32 +38,36 @@ export function register(userInfo) {
 
 export function logout() {
   return function (dispatch) {
-    axios.delete('/auth/sign_out', { headers: authFromLocal() })
-      .then(response => {
-        handleErrorAuthen(dispatch);
+    axios.delete('/sessions', {
+        headers: headersFromLocal()
       })
-      .catch(error => {
-        handleErrorAuthen(dispatch);
-      })
+      .then(response => {});
+
+    handleLogOut(dispatch);
   }
 }
 
-export function fetch() {
+export function removeErrors(){
   return function (dispatch) {
-    axios.get('/users/fetch', { headers: authFromLocal() })
-      .then(response => {
-        handleSuccessAuthen(dispatch, response.data, response.headers);
-      })
-      .catch(error => {
-        handleErrorAuthen(dispatch);
-      })
+    dispatch({ type: REMOVE_AUTH_ERRORS });
   }
 }
 
-function handleSuccessAuthen(dispatch, data, headers) {
-  dispatch({ type: AUTH_USER, payload: data });
-  localStorage.setItem('auth', authFromHeader(headers));
-  // browserHistory.push('/dashboard');
+export function addError(error){
+  return function (dispatch) {
+    dispatch({ type: AUTH_ERROR, payload: error });
+  }
+}
+
+function handleLogOut(dispatch) {
+  dispatch({ type: DE_AUTH_USER });
+  localStorage.removeItem('auth');
+  browserHistory.push('');
+}
+
+function handleSuccessAuthen(dispatch, response) {
+  dispatch({ type: AUTH_USER, payload: response.data });
+  localStorage.setItem('auth', authFromResponse(response));
   dispatch(authError(null));
 }
 

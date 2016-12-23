@@ -4,7 +4,7 @@ module Loans
       require_authen!
 
       def process
-        Loan.where(borrower: @user.subjectable).map { |loan| Loans::DetailSerializer.new(loan) }
+        Loan.includes(property: :address).where(borrower: @user.subjectable).map { |loan| Loans::SimpleSerializer.new(loan) }
       end
     end
   end

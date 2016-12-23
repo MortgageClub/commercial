@@ -3,11 +3,13 @@ class Service
   include Support::Policy
   include Support::Validate
 
-  attr_accessor :user, :params
+  attr_accessor :user, :params, :headers, :cookies
 
-  def initialize(params, user = nil)
+  def initialize(params, headers, cookies, user = nil)
     @params = params
+    @headers = headers
     @user = user
+    @cookies = cookies
   end
 
   def execute
@@ -24,7 +26,7 @@ class Service
   def current_user_id
     return if @user.blank?
     {
-        user_id: @user.id
+      user_id: @user.id
     }
   end
 

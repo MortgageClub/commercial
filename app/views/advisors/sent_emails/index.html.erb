@@ -1,0 +1,32 @@
+<div class="page-content">
+  <%= render "shared/advisors/siderbar" %>
+  <div class="content-wrapper">
+    <div class="tabbable">
+      <ul class="nav nav-tabs nav-tabs-highlight" style="margin-bottom: 0px">
+        <li class="active">
+          <a href="#compose-email" data-toggle="tab">Compose</a>
+        </li>
+        <li>
+          <a href="#sent-email" data-toggle="tab">Sent Email</a>
+        </li>
+      </ul>
+
+      <div class="tab-content" style="border: 1px solid #ddd; background-color: #fff; border-top: 0px">
+        <div class="tab-pane has-padding active" id="compose-email">
+          <%= render "form" %>
+        </div>
+
+        <div class="tab-pane" id="sent-email">
+          <div class="datatable-scroll">
+            <div class="table-responsive">
+              <%= render "grid" %>
+            </div>
+          </div>
+          <div class="datatable-footer text-center">
+            <%= paginate @sent_emails, :views_prefix => 'admins' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
