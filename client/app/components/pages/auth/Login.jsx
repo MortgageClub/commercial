@@ -44,7 +44,7 @@ class Login extends Component {
                           placeholder="Email" />
                         <Field
                           name="password"
-                          type="password"
+                          type="text"
                           component="input"
                           placeholder="Password" />
                         <p>

@@ -1,4 +1,4 @@
-import { FormattedDate } from 'react-intl';
+import { FormattedNumber, FormattedDate } from 'react-intl';
 import React from 'react';
 
 export function formatDate(value) {
@@ -9,5 +9,6 @@ export function formatDate(value) {
 }
 
 export function formatCurrency(value) {
+  console.log(new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value));
   return value;
 }

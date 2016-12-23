@@ -58,6 +58,9 @@ Rails.application.routes.draw do
       resources :invited_referrals, only: [:index] do
       end
 
+      resources :quick_contacts, only: [:create] do
+      end
+
       resources :documents, only: [] do
         collection do
           post :upload

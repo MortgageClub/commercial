@@ -49,42 +49,50 @@ select {
   textarea::-webkit-input-placeholder {
     color: #919191;
     opacity: 1;
+    font-size: 13px;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   }
   textarea::-moz-placeholder {
     color: #919191;
     opacity: 1;
+    font-size: 13px;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   }
   textarea:-ms-input-placeholder {
     color: #919191;
     opacity: 1;
+    font-size: 13px;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   }
   textarea:-moz-placeholder {
     color: #919191;
     opacity: 1;
+    font-size: 13px;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   }
 
   input::-webkit-input-placeholder {
     color: #919191;
     opacity: 1;
+    font-size: 13px;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   }
   input::-moz-placeholder {
     color: #919191;
     opacity: 1;
+    font-size: 13px;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   }
   input:-ms-input-placeholder {
     color: #919191;
     opacity: 1;
+    font-size: 13px;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   }
   input:-moz-placeholder {
     color: #919191;
     opacity: 1;
+    font-size: 13px;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   }
 
@@ -93,8 +101,16 @@ select {
   }
 
   select {
-    color: white;
+    color: #919191;
     padding-left: 10px;
+  }
+
+  select.white {
+    color: white;
+  }
+
+  select.placeholder {
+    color: #919191;
   }
 
   select:focus {
