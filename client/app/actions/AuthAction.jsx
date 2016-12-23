@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { AUTH_USER, DE_AUTH_USER, REMOVE_AUTH_ERRORS } from '../actions/Types';
+import { AUTH_ERROR, AUTH_USER, DE_AUTH_USER, REMOVE_AUTH_ERRORS, ADD_AUTH_ERROR } from '../actions/Types';
 import { authError, authFromResponse, headersFromLocal } from '../utils/AuthUtils'
 
 export function login(userInfo) {
@@ -50,6 +50,12 @@ export function logout() {
 export function removeErrors(){
   return function (dispatch) {
     dispatch({ type: REMOVE_AUTH_ERRORS });
+  }
+}
+
+export function addError(error){
+  return function (dispatch) {
+    dispatch({ type: AUTH_ERROR, payload: error });
   }
 }
 
