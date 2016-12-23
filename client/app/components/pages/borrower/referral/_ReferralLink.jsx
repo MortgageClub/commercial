@@ -13,9 +13,9 @@ class ReferralLink extends Component {
           <div className="col-md-12 col-xs-12">
             <div className="referral-link">
               <h4>Your Unique Referral Link:</h4>
-              <form action="#">
-                <input type="text" id="referral-link" name="referral_link" readOnly value={link} placeholder="Your referral code" />
-                <ClipboardButton className="submit-btn-1 mt-5" data-clipboard-text={link}>
+              <form>
+                <a href={link} target="_blank" style={{"color": "#95c41f", "fontSize": "18px"}}> Blackline Lending </a>
+                <ClipboardButton className="submit-btn-1 mt-5 pull-right" data-clipboard-text={link}>
                   Copy to Clipboard
                 </ClipboardButton>
               </form>
