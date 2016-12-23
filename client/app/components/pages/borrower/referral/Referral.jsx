@@ -8,24 +8,22 @@ import ReferralResults from './_ReferralResults';
 
 
 class Referral extends Component {
-    render() {
-        return (
-            <div>
-                {/* Start page content */}
-                <section id="page-content" className="page-wrapper">
-                    <div className="pt-115 pb-70">
-                        <div className="container">
-                            <ReferralProgramHeader/>
-                            <ReferralLink/>
-                            <InviteByEmail/>
-                            <ReferralResults/>
-                        </div>
-                    </div>
-                </section>
-                {/* End page content */}
+  render() {
+    return (
+      <div>
+        <section id="page-content" className="page-wrapper">
+          <div className="pt-115 pb-70">
+            <div className="container">
+              <ReferralProgramHeader/>
+              <ReferralLink/>
+              <InviteByEmail/>
+              <ReferralResults/>
             </div>
-        )
-    }
+          </div>
+        </section>
+      </div>
+    )
+  }
 }
 
 export default Referral;
