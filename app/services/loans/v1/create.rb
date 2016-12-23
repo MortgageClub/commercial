@@ -14,7 +14,7 @@ module Loans
           ),
           closing: Closing.new,
           guarantor: Guarantor.new,
-          amount: params[:loan][:loan_amount].to_f,
+          amount: params[:loan][:loan_amount].gsub(/[$,]/,'').to_f,
           purpose: params[:loan][:purpose],
           note: params[:loan][:detail],
           status: :new_loan

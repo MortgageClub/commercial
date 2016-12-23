@@ -64,7 +64,7 @@ module Registrations
           ),
           closing: Closing.new,
           guarantor: Guarantor.new,
-          amount: loan_params["loan_amount"].to_f,
+          amount: loan_params["loan_amount"].gsub(/[$,]/,'').to_f,
           purpose: loan_params["purpose"],
           note: loan_params["detail"],
           status: :new_loan
