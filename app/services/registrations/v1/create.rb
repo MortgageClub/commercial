@@ -60,13 +60,7 @@ module Registrations
 
         borrower.loans.create!(
           property: Property.new(
-            address: Address.new(
-              street_address: address_params["street_address"],
-              city: address_params["city"],
-              state: address_params["state"],
-              zip: address_params["zip"],
-              full_text: address_params["full_text"]
-            )
+            full_address: loan_params["address"]
           ),
           closing: Closing.new,
           guarantor: Guarantor.new,

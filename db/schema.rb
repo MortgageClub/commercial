@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161222040020) do
+ActiveRecord::Schema.define(version: 20161223015438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -217,6 +217,7 @@ ActiveRecord::Schema.define(version: 20161222040020) do
     t.uuid     "loan_id"
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
+    t.string   "full_address"
     t.index ["loan_id"], name: "index_properties_on_loan_id", using: :btree
   end
 

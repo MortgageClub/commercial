@@ -90,35 +90,35 @@ class Slider extends Component {
 
   onSuggestSelect(suggest) {
     let address = {};
-    let gmaps = suggest.gmaps;
+    // let gmaps = suggest.gmaps;
 
-    address.full_text = suggest.gmaps.formatted_address;
+    // address.full_text = suggest.gmaps.formatted_address;
 
-    for (var i = 0; i < gmaps.address_components.length; i++){
-      let types = gmaps.address_components[i].types.join(",");
+    // for (var i = 0; i < gmaps.address_components.length; i++){
+    //   let types = gmaps.address_components[i].types.join(",");
 
-      if (types == "street_number"){
-        address.street_number = gmaps.address_components[i].long_name;
-      }
-      if (types == "route" || types == "point_of_interest,establishment"){
-        address.route = gmaps.address_components[i].long_name;
-      }
-      if (types == "locality,political"){
-        address.city = gmaps.address_components[i].long_name;
-      }
-      if (types == "administrative_area_level_1,political"){
-        address.state = gmaps.address_components[i].short_name;
-      }
-      if (types == "postal_code"){
-        address.zip = gmaps.address_components[i].long_name;
-      }
-      if (types == "country,political"){
-        address.country = gmaps.address_components[i].short_name;
-      }
-    }
-    address.street_address = address.street_number + " " + address.route;
+    //   if (types == "street_number"){
+    //     address.street_number = gmaps.address_components[i].long_name;
+    //   }
+    //   if (types == "route" || types == "point_of_interest,establishment"){
+    //     address.route = gmaps.address_components[i].long_name;
+    //   }
+    //   if (types == "locality,political"){
+    //     address.city = gmaps.address_components[i].long_name;
+    //   }
+    //   if (types == "administrative_area_level_1,political"){
+    //     address.state = gmaps.address_components[i].short_name;
+    //   }
+    //   if (types == "postal_code"){
+    //     address.zip = gmaps.address_components[i].long_name;
+    //   }
+    //   if (types == "country,political"){
+    //     address.country = gmaps.address_components[i].short_name;
+    //   }
+    // }
+    // address.street_address = address.street_number + " " + address.route;
 
-    this.setState({ address: address });
+    this.setState({ address: suggest.label });
   }
 
   submit(fillInfo) {

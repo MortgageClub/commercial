@@ -4,19 +4,13 @@ module Loans
       require_authen!
 
       def process
-        address_params = params[:loan][:address]
+        # address_params = params[:loan][:address]
         # relationship_manager_title = RelationshipManagerTitle.find_by_title("Relationship Manager")
         # loan_member = User.find_by_email("").try(:subjectable)
 
         @user.subjectable.loans.create!(
           property: Property.new(
-            address: Address.new(
-              street_address: address_params[:street_address],
-              city: address_params[:city],
-              state: address_params[:state],
-              zip: address_params[:zip],
-              full_text: address_params[:full_text]
-            )
+            full_address: params[:loan][:address]
           ),
           closing: Closing.new,
           guarantor: Guarantor.new,

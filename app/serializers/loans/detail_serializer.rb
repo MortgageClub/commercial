@@ -23,7 +23,7 @@ module Loans
     end
 
     def property_address
-      object.property && object.property.address ? object.property.address.full_text : "Unknown Address"
+      object.property ? object.property.full_address : "Unknown Address"
     end
 
     def loan_members
