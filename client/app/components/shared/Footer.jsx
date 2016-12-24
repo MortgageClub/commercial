@@ -92,7 +92,6 @@ class Footer extends Component {
                           placeholder="Email" />
                         <Field
                           name="message"
-                          type="password"
                           component="textarea"
                           placeholder="Message" />
                         <button type="submit" value="send">Send</button>
