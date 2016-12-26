@@ -36,39 +36,39 @@ module Loans
     end
 
     def ltv
-      ActiveSupport::NumberHelper.number_to_percentage(object.ltv.to_f, precision: 0)
+      object.site_visit_expense ? ActiveSupport::NumberHelper.number_to_percentage(object.ltv.to_f, precision: 0) : nil
     end
 
     def prepayment_premium
-      ActiveSupport::NumberHelper.number_to_currency(object.prepayment_premium.to_f, precision: 0)
+      object.prepayment_premium ? ActiveSupport::NumberHelper.number_to_currency(object.prepayment_premium.to_f, precision: 0) : nil
     end
 
     def origination_fees
-      ActiveSupport::NumberHelper.number_to_currency(object.origination_fees.to_f, precision: 0)
+      object.origination_fees ? ActiveSupport::NumberHelper.number_to_currency(object.origination_fees.to_f, precision: 0) : nil
     end
 
     def processing_fees
-      ActiveSupport::NumberHelper.number_to_currency(object.processing_fees.to_f, precision: 0)
+      object.processing_fees ? ActiveSupport::NumberHelper.number_to_currency(object.processing_fees.to_f, precision: 0) : nil
     end
 
     def underwritting_fees
-      ActiveSupport::NumberHelper.number_to_currency(object.underwritting_fees.to_f, precision: 0)
+      object.underwritting_fees ? ActiveSupport::NumberHelper.number_to_currency(object.underwritting_fees.to_f, precision: 0) : nil
     end
 
     def appraisal_fees
-      ActiveSupport::NumberHelper.number_to_currency(object.appraisal_fees.to_f, precision: 0)
+      object.appraisal_fees ? ActiveSupport::NumberHelper.number_to_currency(object.appraisal_fees.to_f, precision: 0) : nil
     end
 
     def phase_1_fees
-      ActiveSupport::NumberHelper.number_to_currency(object.phase_1_fees.to_f, precision: 0)
+      object.phase_1_fees ? ActiveSupport::NumberHelper.number_to_currency(object.phase_1_fees.to_f, precision: 0) : nil
     end
 
     def site_visit_expense
-      ActiveSupport::NumberHelper.number_to_currency(object.site_visit_expense.to_f, precision: 0)
+      object.site_visit_expense ? ActiveSupport::NumberHelper.number_to_currency(object.site_visit_expense.to_f, precision: 0) : nil
     end
 
     def legal_expense
-      ActiveSupport::NumberHelper.number_to_currency(object.legal_expense.to_f, precision: 0)
+      object.legal_expense ? ActiveSupport::NumberHelper.number_to_currency(object.legal_expense.to_f, precision: 0) : nil
     end
 
     def amount
