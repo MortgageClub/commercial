@@ -9,7 +9,7 @@ module Loans
 
       private
       def loan
-        @loan ||= Loan.includes(checklists: :document)
+        @loan ||= Loan.includes(:quotes, checklists: :document)
           .find(params[:id])
       end
     end

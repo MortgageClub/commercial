@@ -1,6 +1,6 @@
 module Loans
   class DetailSerializer < BaseSerializer
-    default_include "property, property.address, checklists, documents, property.documents, borrower, borrower.documents, closing, closing.documents, guarantor, guarantor.documents"
+    default_include "property, property.address, checklists, documents, property.documents, borrower, borrower.documents, closing, closing.documents, guarantor, guarantor.documents, quotes"
 
     attributes :id, :amount, :status, :purpose, :loan_members, :property_address
     has_one :property, serializer: Properties::DetailSerializer
@@ -9,6 +9,7 @@ module Loans
     belongs_to :borrower, serializer: Borrowers::DetailSerializer
     has_one :closing, serializer: Closings::DetailSerializer
     has_one :guarantor, serializer: Guarantors::DetailSerializer
+    has_many :quotes, serializer: Quotes::DetailSerializer
 
     def status
       object.status.titleize

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161226074318) do
+ActiveRecord::Schema.define(version: 20161226074319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -221,10 +221,11 @@ ActiveRecord::Schema.define(version: 20161226074318) do
     t.index ["loan_id"], name: "index_properties_on_loan_id", using: :btree
   end
 
-  create_table "quotes", force: :cascade do |t|
+  create_table "quotes", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.uuid     "loan_id"
     t.string   "status"
     t.string   "name"
+    t.string   "lender"
     t.decimal  "interest_rate",     precision: 13, scale: 5
     t.decimal  "ltv",               precision: 13, scale: 5
     t.integer  "year_term"
@@ -233,7 +234,6 @@ ActiveRecord::Schema.define(version: 20161226074318) do
     t.decimal  "loan_amount",       precision: 13, scale: 2
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
-    t.string   "lender"
     t.index ["loan_id"], name: "index_quotes_on_loan_id", using: :btree
   end
 
