@@ -28,21 +28,24 @@ class Index extends Component {
       $(".quotesTab a").click();
     }
     else if(data.index == 3){
-      $(".propertyTab a").click();
+      $(".termsTab a").click();
     }
     else if(data.index == 4){
-      $(".borrowerTab a").click();
+      $(".propertyTab a").click();
     }
     else if(data.index == 5){
-      $(".guarantorTab a").click();
+      $(".borrowerTab a").click();
     }
     else if(data.index == 6){
-      $(".loanTab a").click();
+      $(".guarantorTab a").click();
     }
     else if(data.index == 7){
-      $(".closingTab a").click();
+      $(".loanTab a").click();
     }
     else if(data.index == 8){
+      $(".closingTab a").click();
+    }
+    else if(data.index == 9){
       $(".contactsTab a").click();
     }
   }

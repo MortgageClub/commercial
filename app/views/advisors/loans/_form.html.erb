@@ -1,0 +1,189 @@
+<%= form_for [:advisors, @loan], authenticity_token: true do |f| %>
+  <fieldset class="content-group">
+    <legend class="text-bold">Summary</legend>
+    <%= f.fields_for :property do |property_fields| %>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= property_fields.label :full_address, "Property Address" %>
+            <%= property_fields.text_field :full_address, class: "form-control" %>
+            <%= form_error(@loan, :"property.full_address") %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= property_fields.label :property_type %>
+            <%= property_fields.text_field :property_type, class: "form-control" %>
+            <%= form_error(@loan, :"property.property_type") %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group has-feedback has-feedback-left">
+            <%= property_fields.label :estimated_value %>
+            <%= property_fields.text_field :estimated_value, class: "form-control" %>
+            <div class="form-control-feedback"><i class="icon-coin-dollar"></i></div>
+            <%= form_error(@loan, :"property.estimated_value") %>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group has-feedback has-feedback-left">
+            <%= property_fields.label :appraised_value %>
+            <%= property_fields.text_field :appraised_value, class: "form-control" %>
+            <div class="form-control-feedback"><i class="icon-coin-dollar"></i></div>
+            <%= form_error(@loan, :"property.appraised_value") %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <div class="col-md-6 has-feedback has-feedback-left">
+        <div class="form-group">
+          <%= f.label :amount, "Loan Amount" %>
+          <%= f.text_field :amount, class: "form-control" %>
+          <div class="form-control-feedback"><i class="icon-coin-dollar"></i></div>
+          <%= form_error(@loan, :amount) %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group has-feedback has-feedback-left">
+          <%= f.label :ltv, "LTV" %>
+          <%= f.text_field :ltv, class: "form-control" %>
+          <div class="form-control-feedback"><i class="icon-percent"></i></div>
+          <%= form_error(@loan, :ltv) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= f.label :interest_rate_spread %>
+          <%= f.text_field :interest_rate_spread, class: "form-control" %>
+          <%= form_error(@loan, :interest_rate_spread) %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= f.label :interest_rate_index %>
+          <%= f.text_field :interest_rate_index, class: "form-control" %>
+          <%= form_error(@loan, :interest_rate_index) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= f.label :fixed_rate_period %>
+          <%= f.text_field :fixed_rate_period, class: "form-control" %>
+          <%= form_error(@loan, :fixed_rate_period) %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= f.label :term, "Term (in year)" %>
+          <%= f.text_field :term, class: "form-control", placehoder: "7" %>
+          <%= form_error(@loan, :term) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= f.label :amortization, "Amortization (in year)" %>
+          <%= f.text_field :amortization, class: "form-control", placehoder: "20" %>
+          <%= form_error(@loan, :amortization) %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group has-feedback has-feedback-left">
+          <%= f.label :prepayment_premium %>
+          <%= f.text_field :prepayment_premium, class: "form-control" %>
+          <div class="form-control-feedback"><i class="icon-coin-dollar"></i></div>
+          <%= form_error(@loan, :prepayment_premium) %>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="content-group">
+    <legend class="text-bold">Closing Costs</legend>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group has-feedback has-feedback-left">
+          <%= f.label :origination_fees %>
+          <%= f.text_field :origination_fees, class: "form-control" %>
+          <div class="form-control-feedback"><i class="icon-coin-dollar"></i></div>
+          <%= form_error(@loan, :origination_fees) %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group has-feedback has-feedback-left">
+          <%= f.label :processing_fees %>
+          <%= f.text_field :processing_fees, class: "form-control" %>
+          <div class="form-control-feedback"><i class="icon-coin-dollar"></i></div>
+          <%= form_error(@loan, :processing_fees) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group has-feedback has-feedback-left">
+          <%= f.label :underwritting_fees, "Underwriting fees" %>
+          <%= f.text_field :underwritting_fees, class: "form-control" %>
+          <div class="form-control-feedback"><i class="icon-coin-dollar"></i></div>
+          <%= form_error(@loan, :underwritting_fees) %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group has-feedback has-feedback-left">
+          <%= f.label :appraisal_fees %>
+          <%= f.text_field :appraisal_fees, class: "form-control" %>
+          <div class="form-control-feedback"><i class="icon-coin-dollar"></i></div>
+          <%= form_error(@loan, :appraisal_fees) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group has-feedback has-feedback-left">
+          <%= f.label :phase_1_fees %>
+          <%= f.text_field :phase_1_fees, class: "form-control" %>
+          <div class="form-control-feedback"><i class="icon-coin-dollar"></i></div>
+          <%= form_error(@loan, :phase_1_fees) %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group has-feedback has-feedback-left">
+          <%= f.label :site_visit_expense %>
+          <%= f.text_field :site_visit_expense, class: "form-control" %>
+          <div class="form-control-feedback"><i class="icon-coin-dollar"></i></div>
+          <%= form_error(@loan, :site_visit_expense) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group has-feedback has-feedback-left">
+          <%= f.label :legal_expense %>
+          <%= f.text_field :legal_expense, class: "form-control" %>
+          <div class="form-control-feedback"><i class="icon-coin-dollar"></i></div>
+          <%= form_error(@loan, :legal_expense) %>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="form-wizard-actions">
+    <button class="btn btn-primary legitRipple" type="submit">Update <i class="icon-arrow-right14 position-right"></i></button>
+  </div>
+<% end %>

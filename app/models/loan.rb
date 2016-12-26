@@ -9,6 +9,8 @@ class Loan < ApplicationRecord
   has_many :assigned_loan_members
   has_many :quotes
 
+  accepts_nested_attributes_for :property
+
   enum purpose: {
     purchase: "purchase",
     refinance: "refinance",

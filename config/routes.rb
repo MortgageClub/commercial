@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   end
 
   namespace :advisors do
-    resources :loans, only: :index do
+    resources :loans, only: [:index, :edit, :update] do
       resources :documents
       resources :checklists
       resources :sent_emails, only: [:index, :create]
