@@ -18,7 +18,7 @@
       //   border-left: 2px solid transparent;
       // }
 
-      td:hover {
+      td:hover, td.active {
         cursor: pointer;
         border: 2px solid #95c41f;
 

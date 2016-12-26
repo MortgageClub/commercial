@@ -56,6 +56,9 @@ Rails.application.routes.draw do
       resources :loans, only: [:index, :create, :show] do
       end
 
+      resources :quotes, only: :update do
+      end
+
       resources :invited_referrals, only: [:index] do
       end
 

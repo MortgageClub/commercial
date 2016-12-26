@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
 import { LOANS_LIST, LOAN_DETAILS } from '../actions/Types';
-import { headersFromLocal } from '../utils/AuthUtils'
+import { headersFromLocal } from '../utils/AuthUtils';
 
 export function getAll() {
   return function (dispatch) {

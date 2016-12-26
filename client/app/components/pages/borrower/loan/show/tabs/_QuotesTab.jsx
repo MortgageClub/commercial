@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { select } from '../../../../../../actions/QuoteAction';
 
 class QuotesTab extends Component {
   render() {
@@ -19,8 +20,9 @@ class QuotesTab extends Component {
   }
 
   renderQuote(quote) {
+    const activeClass = quote.status == "open" ? "" : "active";
     return (
-      <td className="quote" key={quote.id}>
+      <td className={"quote " + activeClass} key={quote.id}>
         <header className="quote-header">
           <h6>{quote.name}</h6>
           <div className="quote-price">
@@ -39,10 +41,14 @@ class QuotesTab extends Component {
         </div>
 
         <footer className="quote-footer">
-          <button>Select</button>
+          <button onClick={this.select.bind(this, quote.id)}>Select</button>
         </footer>
       </td>
     )
+  }
+
+  select(quoteId) {
+    this.props.select(quoteId);
   }
 }
 
@@ -52,5 +58,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(QuotesTab)
+export default connect(mapStateToProps, { select })(QuotesTab)
 

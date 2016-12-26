@@ -1,6 +1,6 @@
 module Quotes
   class DetailSerializer < BaseSerializer
-    attributes :id, :name, :amount, :interest_rate, :ltv, :year_term, :year_amortization, :monthly_payment
+    attributes :id, :name, :amount, :interest_rate, :ltv, :year_term, :year_amortization, :monthly_payment, :status
 
     def name
       object.name.titleize.upcase
