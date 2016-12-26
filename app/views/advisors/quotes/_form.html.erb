@@ -1,0 +1,86 @@
+<%= form_for [:advisors, @loan, @quote], authenticity_token: true do |f| %>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :name, "Type" %>
+        <%= f.select :name, Quote.names.keys.map { |key| [key.titleize, Quote.names[key]] }, { prompt: 'Select type' }, class: "form-control" %>
+        <%= form_error(@quote, :status) %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :status %>
+        <%= f.select :status, Quote.statuses.keys.map { |key| [key.titleize, Quote.statuses[key]] }, { prompt: 'Select status' }, class: "form-control" %>
+        <%= form_error(@quote, :status) %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :lender %>
+        <%= f.text_field :lender, class: "form-control" %>
+        <%= form_error(@quote, :lender) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group has-feedback has-feedback-left">
+        <%= f.label :loan_amount %>
+        <%= f.text_field :loan_amount, class: "form-control" %>
+        <div class="form-control-feedback"><i class="icon-coin-dollar"></i></div>
+        <%= form_error(@quote, :loan_amount) %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group has-feedback has-feedback-left">
+        <%= f.label :interest_rate %>
+        <%= f.text_field :interest_rate, class: "form-control", placeholder: "4.10" %>
+        <div class="form-control-feedback"><i class="icon-percent"></i></div>
+        <%= form_error(@quote, :interest_rate) %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group has-feedback has-feedback-left">
+        <%= f.label :payment, "Monthly Payment" %>
+        <%= f.text_field :payment, class: "form-control" %>
+        <div class="form-control-feedback"><i class="icon-coin-dollar"></i></div>
+        <%= form_error(@quote, :payment) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group has-feedback has-feedback-left">
+        <%= f.label :ltv, "LTV" %>
+        <%= f.text_field :ltv, class: "form-control", placeholder: "70" %>
+        <div class="form-control-feedback"><i class="icon-percent"></i></div>
+        <%= form_error(@quote, :ltv) %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :year_term, "Term (in year)" %>
+        <%= f.text_field :year_term, class: "form-control", placeholder: "5" %>
+        <%= form_error(@quote, :year_term) %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :year_amortization, "Amortization (in year)" %>
+        <%= f.text_field :year_amortization, class: "form-control", placeholder: "20" %>
+        <%= form_error(@quote, :year_amortization) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-wizard-actions">
+    <%= link_to "Back", advisors_loan_quotes_path(@loan), class: "btn btn-default legitRipple" %>
+    <button class="btn btn-primary legitRipple" type="submit"><%= @quote.id ? "Update" : "Create" %> <i class="icon-arrow-right14 position-right"></i></button>
+  </div>
+<% end %>
