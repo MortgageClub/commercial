@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161223015438) do
+ActiveRecord::Schema.define(version: 20161226074318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -221,6 +221,22 @@ ActiveRecord::Schema.define(version: 20161223015438) do
     t.index ["loan_id"], name: "index_properties_on_loan_id", using: :btree
   end
 
+  create_table "quotes", force: :cascade do |t|
+    t.uuid     "loan_id"
+    t.string   "status"
+    t.string   "name"
+    t.decimal  "interest_rate",     precision: 13, scale: 5
+    t.decimal  "ltv",               precision: 13, scale: 5
+    t.integer  "year_term"
+    t.integer  "year_amortization"
+    t.decimal  "payment",           precision: 13, scale: 2
+    t.decimal  "loan_amount",       precision: 13, scale: 2
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "lender"
+    t.index ["loan_id"], name: "index_quotes_on_loan_id", using: :btree
+  end
+
   create_table "sent_emails", force: :cascade do |t|
     t.string   "token"
     t.string   "receiver"
@@ -285,4 +301,5 @@ ActiveRecord::Schema.define(version: 20161223015438) do
   add_foreign_key "invited_referrals", "users"
   add_foreign_key "loans", "borrowers"
   add_foreign_key "properties", "loans"
+  add_foreign_key "quotes", "loans"
 end

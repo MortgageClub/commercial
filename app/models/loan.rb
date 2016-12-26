@@ -7,6 +7,7 @@ class Loan < ApplicationRecord
   has_many :checklists, dependent: :destroy
   has_many :documents, as: :documentable, dependent: :destroy
   has_many :assigned_loan_members
+  has_many :quotes
 
   enum purpose: {
     purchase: "purchase",
