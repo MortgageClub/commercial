@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 class TermsTab extends Component {
   render() {
     const loan = this.props.loan;
-    console.log(loan);
+
     return (
       <div>
         <div>

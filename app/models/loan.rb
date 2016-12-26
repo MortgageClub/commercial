@@ -29,7 +29,7 @@ class Loan < ApplicationRecord
   }
 
   def property_address
-    property && property.address ? property.address.full_text : "Unknown Address"
+    property ? property.full_address : "Unknown Address"
   end
 
   def number_of_done_checklists
