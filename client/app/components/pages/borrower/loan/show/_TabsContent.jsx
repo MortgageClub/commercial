@@ -8,6 +8,7 @@ import OverviewTab from './tabs/_OverviewTab';
 import PropertyTab from './tabs/_PropertyTab';
 import GuarantorTab from './tabs/_GuarantorTab';
 import QuotesTab from './tabs/_QuotesTab';
+import TermsTab from './tabs/_TermsTab';
 import { addStep } from '../../../../../actions/GuidedTourAction';
 
 class TabsContent extends Component {
@@ -31,6 +32,19 @@ class TabsContent extends Component {
           title: 'Quotes',
           text: 'Quotes',
           selector: '.quotesTab',
+          position: 'top',
+          type: 'hover',
+          style: {
+            beacon: {
+              inner: '#95c41f',
+              outer: '#95c41f'
+            }
+          }
+        },
+        {
+          title: 'Terms',
+          text: 'Terms',
+          selector: '.termsTab',
           position: 'top',
           type: 'hover',
           style: {
@@ -131,7 +145,10 @@ class TabsContent extends Component {
             <a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Overview</a>
           </li>
           <li role="presentation" className="quotesTab">
-            <a href="#quotes" aria-controls="overview" role="tab" data-toggle="tab">Quotes</a>
+            <a href="#quotes" aria-controls="quotes" role="tab" data-toggle="tab">Quotes</a>
+          </li>
+          <li role="presentation" className="termsTab">
+            <a href="#terms" aria-controls="terms" role="tab" data-toggle="tab">Terms</a>
           </li>
           <li role="presentation" className="propertyTab">
             <a href="#property" aria-controls="property" role="tab" data-toggle="tab">Property</a>
@@ -158,6 +175,9 @@ class TabsContent extends Component {
           </div>
           <div className="tab-pane fade" id="quotes">
             <QuotesTab />
+          </div>
+          <div className="tab-pane fade" id="terms">
+            <TermsTab />
           </div>
           <div className="tab-pane fade" id="property">
             <PropertyTab />

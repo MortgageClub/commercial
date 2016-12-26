@@ -93,4 +93,18 @@
       }
     }
   }
+
+  .term-board {
+    tr > td {
+      border: none;
+      border-bottom: 1px solid #ddd;
+    }
+
+    tr > td:first-child {
+      width: 40%;
+      padding-left: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
 }

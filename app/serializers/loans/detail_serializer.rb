@@ -1,8 +1,28 @@
 module Loans
   class DetailSerializer < BaseSerializer
-    default_include "property, property.address, checklists, documents, property.documents, borrower, borrower.documents, closing, closing.documents, guarantor, guarantor.documents, quotes"
+    default_include "property, checklists, documents, property.documents, borrower, borrower.documents, closing, closing.documents, guarantor, guarantor.documents, quotes"
 
-    attributes :id, :amount, :status, :purpose, :loan_members, :property_address
+    attributes :id,
+      :amount,
+      :status,
+      :purpose,
+      :loan_members,
+      :property_address,
+      :ltv,
+      :interest_rate_spread,
+      :interest_rate_index,
+      :fixed_rate_period,
+      :term,
+      :amortization,
+      :prepayment_premium,
+      :origination_fees,
+      :processing_fees,
+      :underwritting_fees,
+      :appraisal_fees,
+      :phase_1_fees,
+      :site_visit_expense,
+      :legal_expense
+
     has_one :property, serializer: Properties::DetailSerializer
     has_many :checklists, serializer: Checklists::DetailSerializer
     has_many :documents, serializer: Documents::DetailSerializer
@@ -13,6 +33,42 @@ module Loans
 
     def status
       object.status.titleize
+    end
+
+    def ltv
+      ActiveSupport::NumberHelper.number_to_percentage(object.ltv.to_f, precision: 0)
+    end
+
+    def prepayment_premium
+      ActiveSupport::NumberHelper.number_to_currency(object.prepayment_premium.to_f, precision: 0)
+    end
+
+    def origination_fees
+      ActiveSupport::NumberHelper.number_to_currency(object.origination_fees.to_f, precision: 0)
+    end
+
+    def processing_fees
+      ActiveSupport::NumberHelper.number_to_currency(object.processing_fees.to_f, precision: 0)
+    end
+
+    def underwritting_fees
+      ActiveSupport::NumberHelper.number_to_currency(object.underwritting_fees.to_f, precision: 0)
+    end
+
+    def appraisal_fees
+      ActiveSupport::NumberHelper.number_to_currency(object.appraisal_fees.to_f, precision: 0)
+    end
+
+    def phase_1_fees
+      ActiveSupport::NumberHelper.number_to_currency(object.phase_1_fees.to_f, precision: 0)
+    end
+
+    def site_visit_expense
+      ActiveSupport::NumberHelper.number_to_currency(object.site_visit_expense.to_f, precision: 0)
+    end
+
+    def legal_expense
+      ActiveSupport::NumberHelper.number_to_currency(object.legal_expense.to_f, precision: 0)
     end
 
     def amount
