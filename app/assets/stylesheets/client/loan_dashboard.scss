@@ -6,4 +6,84 @@
     margin-left: 0px;
     margin-right: 0px;
   }
+
+  .quotes-list {
+    table {
+      text-align: center;
+      border-collapse: collapse;
+
+      td.active {
+        border: 2px solid #95c41f;
+
+        .quote-price {
+          color: #95c41f;
+        }
+
+        .quote-footer {
+          button {
+            background-color: #95c41f;
+            color: white;
+          }
+        }
+      }
+    }
+
+    .quote-header {
+      height: auto;
+      padding: 1.9em 0.9em 1.6em;
+      pointer-events: auto;
+      color: #173d50;
+
+      h6 {
+        letter-spacing: 1.5px;
+        margin-bottom: 5px;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      .quote-price {
+        font-size: 2.2rem;
+        font-weight: 300;
+        margin-top: 10px;
+      }
+    }
+
+    .quote-body {
+      .quote-features {
+        em {
+          display: inline-block;
+          font-weight: 600;
+          font-style: normal;
+        }
+      }
+
+      li:nth-of-type(2n+1) {
+        background-color: rgba(23, 61, 80, 0.06);
+      }
+
+      li {
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+    }
+
+    .quote-footer {
+      padding: 1.8em 0;
+
+      button {
+        background: #c5c5c5;
+        color: black;
+        padding: 5px 30px;
+        text-transform: uppercase;
+        -webkit-transition: all 0.3s ease-out 0s;
+        transition: all 0.3s ease-out 0s;
+
+      }
+
+      button:hover {
+        color: white;
+        background: #95c41f;
+      }
+    }
+  }
 }

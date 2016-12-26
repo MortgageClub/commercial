@@ -22,25 +22,28 @@ class Index extends Component {
 
   callback(data) {
     if(data.index == 1){
-      $(".second-step a").click();
+      $(".overviewTab a").click();
     }
     else if(data.index == 2){
-      $(".third-step a").click();
+      $(".quotesTab a").click();
     }
     else if(data.index == 3){
-      $(".four-step a").click();
+      $(".propertyTab a").click();
     }
     else if(data.index == 4){
-      $(".fifth-step a").click();
+      $(".borrowerTab a").click();
     }
     else if(data.index == 5){
-      $(".sixth-step a").click();
+      $(".guarantorTab a").click();
     }
     else if(data.index == 6){
-      $(".seventh-step a").click();
+      $(".loanTab a").click();
     }
     else if(data.index == 7){
-      $(".eighth-step a").click();
+      $(".closingTab a").click();
+    }
+    else if(data.index == 8){
+      $(".contactsTab a").click();
     }
   }
 
