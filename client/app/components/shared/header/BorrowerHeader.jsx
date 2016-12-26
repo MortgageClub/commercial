@@ -28,7 +28,7 @@ class BorrowerHeader extends Component {
                           <Link to="/dashboard">Loans</Link>
                         </li>
                         <li>
-                          <Link to="/referral">Broker Connect</Link>
+                          <Link to="/referral">Referral</Link>
                         </li>
                         <li>
                           <a>{this.props.userInfo && (this.props.userInfo.first_name + " " + this.props.userInfo.last_name)} <i className="fa fa-angle-down"></i></a>
