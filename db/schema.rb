@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161226074319) do
+ActiveRecord::Schema.define(version: 20161226090614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -197,11 +197,25 @@ ActiveRecord::Schema.define(version: 20161226074319) do
     t.datetime "closing_date"
     t.text     "notes"
     t.uuid     "borrower_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
     t.string   "purpose"
     t.string   "status"
     t.string   "note"
+    t.decimal  "ltv",                  precision: 13, scale: 5
+    t.integer  "interest_rate_spread"
+    t.string   "interest_rate_index"
+    t.integer  "fixed_rate_period"
+    t.integer  "term"
+    t.integer  "amortization"
+    t.string   "prepayment_premium"
+    t.decimal  "origination_fees",     precision: 13, scale: 2
+    t.decimal  "processing_fees",      precision: 13, scale: 2
+    t.decimal  "underwritting_fees",   precision: 13, scale: 2
+    t.decimal  "appraisal_fees",       precision: 13, scale: 2
+    t.decimal  "phase_1_fees",         precision: 13, scale: 2
+    t.decimal  "site_visit_expense",   precision: 13, scale: 2
+    t.decimal  "legal_expense",        precision: 13, scale: 2
     t.index ["borrower_id"], name: "index_loans_on_borrower_id", using: :btree
   end
 
@@ -218,6 +232,8 @@ ActiveRecord::Schema.define(version: 20161226074319) do
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
     t.string   "full_address"
+    t.decimal  "estimated_value", precision: 13, scale: 2
+    t.decimal  "appraised_value", precision: 13, scale: 2
     t.index ["loan_id"], name: "index_properties_on_loan_id", using: :btree
   end
 
