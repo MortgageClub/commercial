@@ -39,10 +39,6 @@ module Loans
       object.site_visit_expense ? ActiveSupport::NumberHelper.number_to_percentage(object.ltv.to_f, precision: 0) : nil
     end
 
-    def prepayment_premium
-      object.prepayment_premium ? ActiveSupport::NumberHelper.number_to_currency(object.prepayment_premium.to_f, precision: 0) : nil
-    end
-
     def origination_fees
       object.origination_fees ? ActiveSupport::NumberHelper.number_to_currency(object.origination_fees.to_f, precision: 0) : nil
     end
