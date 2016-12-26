@@ -10,6 +10,13 @@
   .quotes-list {
     table {
       text-align: center;
+      border-collapse: collapse;
+      // border: 2px solid transparent;
+
+      // td:nth-child(2) {
+      //   border-right: 2px solid transparent;
+      //   border-left: 2px solid transparent;
+      // }
 
       td:hover {
         cursor: pointer;

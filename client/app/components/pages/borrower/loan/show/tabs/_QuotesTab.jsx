@@ -32,8 +32,8 @@ class QuotesTab extends Component {
           <ul className="quote-features">
             <li><em>{quote.interest_rate}</em> Interest Rate</li>
             <li><em>{quote.ltv}</em> LTV</li>
-            <li><em>{quote.year_term}</em> Year Term</li>
-            <li><em>{quote.year_amortization}</em> Year Amortization</li>
+            <li><em>{quote.year_term}</em> Years Term</li>
+            <li><em>{quote.year_amortization}</em> Years Amortization</li>
             <li><em>{quote.monthly_payment}/month</em> Payment</li>
           </ul>
         </div>
