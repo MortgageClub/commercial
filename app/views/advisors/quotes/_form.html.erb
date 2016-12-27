@@ -14,7 +14,7 @@
       <div class="form-group">
         <%= f.label :name, "Type" %>
         <%= f.select :name, Quote.names.keys.map { |key| [key.titleize, Quote.names[key]] }, { prompt: 'Select type' }, class: "form-control" %>
-        <%= form_error(@quote, :status) %>
+        <%= form_error(@quote, :name) %>
       </div>
     </div>
 
