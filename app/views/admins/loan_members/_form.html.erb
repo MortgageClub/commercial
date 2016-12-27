@@ -62,7 +62,7 @@
     </div>
     <div class="col-md-6">
       <div class="form-group">
-        <%= f.label :individual_bre, "Individual BRE" %>
+        <%= f.label :individual_bre, "License number" %>
         <%= f.text_field :individual_bre, class: "form-control" %>
         <%= form_error(@loan_member, :individual_bre) %>
       </div>
@@ -96,7 +96,7 @@
     </div>
     <div class="col-md-6">
       <div class="form-group">
-        <%= f.label :company_bre, "Company BRE" %>
+        <%= f.label :company_bre, "Company license number" %>
         <%= f.text_field :company_bre, class: "form-control" %>
         <%= form_error(@loan_member, :company_bre) %>
       </div>

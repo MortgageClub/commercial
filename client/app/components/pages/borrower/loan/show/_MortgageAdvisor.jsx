@@ -33,16 +33,13 @@ class MortgageAdvisor extends Component {
           mortgageAdvisor
           ?
             <div className="media">
-              <a className="media-left">
-                <img src={mortgageAdvisor.avatar_url} width="81"/>
-              </a>
               <div className="media-body">
                 <h5 className="media-heading">
                   {mortgageAdvisor.full_name}
                 </h5>
                 <p>
                   <span className="fa fa-user"></span>
-                  <span>Individual BRE: {mortgageAdvisor.individual_bre}</span>
+                  <span>License Number: {mortgageAdvisor.individual_bre}</span>
                 </p>
                 <p>
                   <span className="fa fa-phone"></span>
