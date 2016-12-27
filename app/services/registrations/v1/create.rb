@@ -58,17 +58,28 @@ module Registrations
         loan_params = JSON.load cookies["loan_data"]
         address_params = loan_params["address"]
 
-        borrower.loans.create!(
-          property: Property.new(
-            full_address: loan_params["address"]
-          ),
-          closing: Closing.new,
-          guarantor: Guarantor.new,
-          amount: loan_params["loan_amount"].gsub(/[$,]/,'').to_f,
-          purpose: loan_params["purpose"],
-          note: loan_params["detail"],
-          status: :new_loan
-        )
+        relationship_manager_title = LoanMemberTitle.find_by_title("Relationship Manager")
+        loan_member = User.find_by_email("dane.chodos@blacklinelending.com").try(:subjectable)
+        assigned_loan_member = nil
+
+        if loan_member && relationship_manager_title
+          assigned_loan_member = AssignedLoanMember.new(loan_member: loan_member, loan_member_title: relationship_manager_title)
+        end
+
+        loan = Loan.new
+        loan.property = Property.new(
+          full_address: loan_params["address"]
+        ),
+        loan.closing = Closing.new
+        loan.guarantor = Guarantor.new
+        loan.amount = params["loan_amount"].gsub(/[$,]/,'').to_f
+        loan.purpose = params["purpose"]
+        loan.note = params["detail"]
+        loan.status = :new_loan
+        loan.assigned_loan_members = [assigned_loan_member] if assigned_loan_member.present?
+        loan.borrower = borrower
+
+        loan.save!
       end
 
       def result
