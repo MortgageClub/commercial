@@ -24,7 +24,8 @@ module Loans
       :legal_expense,
       :survey_fees,
       :net_operating_income,
-      :dcsr
+      :dcsr,
+      :quotes
 
     has_one :property, serializer: Properties::DetailSerializer
     has_many :checklists, serializer: Checklists::DetailSerializer
@@ -32,10 +33,13 @@ module Loans
     belongs_to :borrower, serializer: Borrowers::DetailSerializer
     has_one :closing, serializer: Closings::DetailSerializer
     has_one :guarantor, serializer: Guarantors::DetailSerializer
-    has_many :quotes, serializer: Quotes::DetailSerializer
 
     def status
       object.status.titleize
+    end
+
+    def quotes
+      object.quotes.order(name: :asc).map { |quote| Quotes::DetailSerializer.new(quote) }
     end
 
     def ltv
