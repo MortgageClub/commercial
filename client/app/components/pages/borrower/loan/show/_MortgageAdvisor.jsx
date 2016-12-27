@@ -37,18 +37,18 @@ class MortgageAdvisor extends Component {
                 <h5 className="media-heading">
                   {mortgageAdvisor.full_name}
                 </h5>
-                <p>
+                <div>
                   <span className="fa fa-user"></span>
                   <span>License Number: {mortgageAdvisor.individual_bre}</span>
-                </p>
-                <p>
+                </div>
+                <div>
                   <span className="fa fa-phone"></span>
                   <span>{mortgageAdvisor.phone_number}</span>
-                </p>
-                <p>
+                </div>
+                <div>
                   <span className="fa fa-envelope"></span>
                   <span>{mortgageAdvisor.email}</span>
-                </p>
+                </div>
               </div>
             </div>
           :

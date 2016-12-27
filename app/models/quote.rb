@@ -1,7 +1,7 @@
 class Quote < ApplicationRecord
   belongs_to :loan
 
-  validates :name, uniqueness: true, scope: :loan_id
+  validates_uniqueness_of :name, scope: :loan_id
 
   enum name: {
     option_1: "option_1",
