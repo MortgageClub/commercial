@@ -1,5 +1,15 @@
 <%= form_for [:advisors, @loan, @quote], authenticity_token: true do |f| %>
   <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label :headline %>
+        <%= f.text_field :headline, class: "form-control" %>
+        <%= form_error(@quote, :headline) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-md-4">
       <div class="form-group">
         <%= f.label :name, "Type" %>

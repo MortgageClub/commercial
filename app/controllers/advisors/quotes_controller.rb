@@ -53,6 +53,7 @@ class Advisors::QuotesController < Advisors::BaseController
       :name,
       :status,
       :loan_amount,
+      :headline,
       :interest_rate,
       :payment,
       :ltv,

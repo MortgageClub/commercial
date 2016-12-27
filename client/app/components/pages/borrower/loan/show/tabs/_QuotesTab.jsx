@@ -22,7 +22,7 @@ class QuotesTab extends Component {
   renderQuote(quote) {
     const activeClass = quote.status == "open" ? "" : "active";
     return (
-      <td className={"quote " + activeClass} key={quote.id}>
+      <td className={"quote " + activeClass} key={quote.id} onClick={this.select.bind(this, quote.id)}>
         <header className="quote-header">
           <h6>{quote.name}</h6>
           <div className="quote-price">
@@ -41,7 +41,7 @@ class QuotesTab extends Component {
         </div>
 
         <footer className="quote-footer">
-          <button onClick={this.select.bind(this, quote.id)}>Select</button>
+          <button>Select</button>
         </footer>
       </td>
     )

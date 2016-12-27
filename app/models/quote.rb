@@ -4,9 +4,9 @@ class Quote < ApplicationRecord
   validates :name, uniqueness: true
 
   enum name: {
-    highest_ltv: "highest_ltv",
-    lowest_payment: "lowest_payment",
-    lowest_rate: "lowest_rate"
+    option_1: "option_1",
+    option_2: "option_2",
+    option_3: "option_3"
   }
 
   enum status: {

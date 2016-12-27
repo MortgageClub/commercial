@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161226090614) do
+ActiveRecord::Schema.define(version: 20161227040619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -250,6 +250,7 @@ ActiveRecord::Schema.define(version: 20161226090614) do
     t.decimal  "loan_amount",       precision: 13, scale: 2
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
+    t.string   "headline"
     t.index ["loan_id"], name: "index_quotes_on_loan_id", using: :btree
   end
 

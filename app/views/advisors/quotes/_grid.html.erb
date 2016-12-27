@@ -2,6 +2,7 @@
   <thead>
     <tr>
       <th>Type</th>
+      <th>Headline</th>
       <th>Status</th>
       <th style="text-align: center">Action</th>
     </tr>
@@ -9,7 +10,8 @@
   <tbody>
     <% @quotes.each do |quote| %>
       <tr>
-        <td><%= quote.name.titleize %></td>
+        <td><%= quote.try(:name).try(:titleize) %></td>
+        <td><%= quote.headline %></td>
         <td>
           <span class="label <%= quote.open? ? "label-info" : "label-success" %>"><%= quote.status.titleize %></span>
         </td>

@@ -3,7 +3,7 @@ module Quotes
     attributes :id, :name, :amount, :interest_rate, :ltv, :year_term, :year_amortization, :monthly_payment, :status
 
     def name
-      object.name.titleize.upcase
+      object.headline.upcase
     end
 
     def ltv
