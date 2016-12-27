@@ -30,6 +30,10 @@ class TermsTab extends Component {
                 <td>{loan && loan.property && loan.property.appraised_value}</td>
               </tr>
               <tr>
+                <td>Purpose</td>
+                <td>{loan && loan.purpose}</td>
+              </tr>
+              <tr>
                 <td>Loan Amount</td>
                 <td>{loan && loan.amount}</td>
               </tr>
@@ -38,8 +42,16 @@ class TermsTab extends Component {
                 <td>{loan && loan.ltv}</td>
               </tr>
               <tr>
+                <td>Net Operating Income</td>
+                <td>{loan && loan.net_operating_income}</td>
+              </tr>
+              <tr>
+                <td>DCSR</td>
+                <td>{loan && loan.dcsr}</td>
+              </tr>
+              <tr>
                 <td>Interest Rate Spread</td>
-                <td>{loan && loan.interest_rate_spread}</td>
+                <td>{loan && loan.interest_rate_spread ? loan.amortization + " basis points" : null}</td>
               </tr>
               <tr>
                 <td>Interest Rate Index</td>
@@ -47,15 +59,15 @@ class TermsTab extends Component {
               </tr>
               <tr>
                 <td>Fixed Rate Period</td>
-                <td>{loan && loan.fixed_rate_period}</td>
+                <td>{loan && loan.fixed_rate_period ? loan.fixed_rate_period + " years" : null}</td>
               </tr>
               <tr>
                 <td>Term</td>
-                <td>{loan && loan.term}</td>
+                <td>{loan && loan.term ? loan.term + " years" : null}</td>
               </tr>
               <tr>
                 <td>Amortization</td>
-                <td>{loan && loan.amortization}</td>
+                <td>{loan && loan.amortization ? loan.amortization + " years" : null}</td>
               </tr>
               <tr>
                 <td>Prepayment Premium</td>
@@ -85,6 +97,10 @@ class TermsTab extends Component {
               <tr>
                 <td>Appraisal Fees</td>
                 <td>{loan && loan.appraisal_fees}</td>
+              </tr>
+              <tr>
+                <td>Survey Fees</td>
+                <td>{loan && loan.survey_fees}</td>
               </tr>
               <tr>
                 <td>Phase 1 Fees</td>

@@ -21,7 +21,10 @@ module Loans
       :appraisal_fees,
       :phase_1_fees,
       :site_visit_expense,
-      :legal_expense
+      :legal_expense,
+      :survey_fees,
+      :net_operating_income,
+      :dcsr
 
     has_one :property, serializer: Properties::DetailSerializer
     has_many :checklists, serializer: Checklists::DetailSerializer
@@ -65,6 +68,14 @@ module Loans
 
     def legal_expense
       object.legal_expense ? ActiveSupport::NumberHelper.number_to_currency(object.legal_expense.to_f, precision: 0) : nil
+    end
+
+    def survey_fees
+      object.survey_fees ? ActiveSupport::NumberHelper.number_to_currency(object.survey_fees.to_f, precision: 0) : nil
+    end
+
+    def net_operating_income
+      object.net_operating_income ? ActiveSupport::NumberHelper.number_to_currency(object.net_operating_income.to_f, precision: 0) : nil
     end
 
     def amount

@@ -4,9 +4,12 @@ module Loans
       require_authen!
 
       def process
-        # address_params = params[:loan][:address]
-        # relationship_manager_title = RelationshipManagerTitle.find_by_title("Relationship Manager")
-        # loan_member = User.find_by_email("").try(:subjectable)
+        # relationship_manager_title = LoanMemberTitle.find_by_title("Relationship Manager")
+        # loan_member = User.find_by_email("dane.chodos@blacklinelending.com").try(:subjectable)
+
+        # if loan_member && relationship_manager_title
+        #   assigned_loan_member = AssignedLoanMember.new(loan_member: loan_member, loan_member_title: relationship_manager_title)
+        # end
 
         @user.subjectable.loans.create!(
           property: Property.new(

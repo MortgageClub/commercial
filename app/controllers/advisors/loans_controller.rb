@@ -39,6 +39,9 @@ class Advisors::LoansController < Advisors::BaseController
       :phase_1_fees,
       :site_visit_expense,
       :legal_expense,
+      :survey_fees,
+      :net_operating_income,
+      :dcsr,
       property_attributes: [
         :full_address,
         :property_type,

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161227040619) do
+ActiveRecord::Schema.define(version: 20161227043942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -216,6 +216,9 @@ ActiveRecord::Schema.define(version: 20161227040619) do
     t.decimal  "phase_1_fees",         precision: 13, scale: 2
     t.decimal  "site_visit_expense",   precision: 13, scale: 2
     t.decimal  "legal_expense",        precision: 13, scale: 2
+    t.decimal  "survey_fees",          precision: 13, scale: 2
+    t.decimal  "net_operating_income", precision: 13, scale: 2
+    t.decimal  "dcsr",                 precision: 13, scale: 2
     t.index ["borrower_id"], name: "index_loans_on_borrower_id", using: :btree
   end
 

@@ -110,6 +110,24 @@
         </div>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group has-feedback has-feedback-left">
+          <%= f.label :net_operating_income, "Net Operating Income" %>
+          <%= f.text_field :net_operating_income, class: "form-control" %>
+          <div class="form-control-feedback"><i class="icon-coin-dollar"></i></div>
+          <%= form_error(@loan, :net_operating_income) %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= f.label :dcsr, "DCSR" %>
+          <%= f.text_field :dcsr, class: "form-control" %>
+          <%= form_error(@loan, :dcsr) %>
+        </div>
+      </div>
+    </div>
   </fieldset>
 
   <fieldset class="content-group">
@@ -178,6 +196,14 @@
           <%= f.text_field :legal_expense, class: "form-control" %>
           <div class="form-control-feedback"><i class="icon-coin-dollar"></i></div>
           <%= form_error(@loan, :legal_expense) %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group has-feedback has-feedback-left">
+          <%= f.label :survey_fees %>
+          <%= f.text_field :survey_fees, class: "form-control" %>
+          <div class="form-control-feedback"><i class="icon-coin-dollar"></i></div>
+          <%= form_error(@loan, :survey_fees) %>
         </div>
       </div>
     </div>

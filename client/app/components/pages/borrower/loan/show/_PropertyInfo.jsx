@@ -36,7 +36,8 @@ class PropertyInfo extends Component {
             ?
               <div>
                 <h4>{loan.property_address}</h4>
-                <div>{loan.amount} - {loan.purpose}</div>
+                <div>Loan Amount: {loan.amount}</div>
+                <div>Purpose: {loan.purpose}</div>
                 <div>Status: {loan.status}</div>
               </div>
             :
