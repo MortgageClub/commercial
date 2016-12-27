@@ -5,6 +5,8 @@
     border: 1px solid black;
     margin-left: 0px;
     margin-right: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   .quotes-list {
@@ -106,5 +108,9 @@
       padding-top: 10px;
       padding-bottom: 10px;
     }
+  }
+
+  .dashboard-title {
+    margin-bottom: 40px;
   }
 }

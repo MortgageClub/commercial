@@ -8,7 +8,7 @@ class MortgageAdvisor extends Component {
       this.props.addStep({
         title: 'Relationship Manager',
         text: 'Relationship Manager',
-        selector: '.ninth-step',
+        selector: '.relationship-manager',
         position: 'left',
         type: 'hover',
         style: {
@@ -27,7 +27,7 @@ class MortgageAdvisor extends Component {
     const mortgageAdvisor = loanMembers.find(loanMember => loanMember.title = "Relationship Manager");
 
     return (
-      <div className="ninth-step">
+      <div className="relationship-manager">
         <h4>Your Relationship Manager</h4>
         {
           mortgageAdvisor

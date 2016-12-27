@@ -14,7 +14,7 @@ class User < ApplicationRecord
   validates_presence_of :password, on: :create
   validates_confirmation_of :password, on: :create
   validates_length_of :password, within: Devise.password_length, allow_blank: true
-  validates :referral_code, uniqueness: true
+  validates :referral_code, uniqueness: true, allow_blank: true
 
   has_attached_file :avatar,
     styles: { thumb: "100", medium: "350" },
