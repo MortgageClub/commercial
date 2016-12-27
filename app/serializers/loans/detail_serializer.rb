@@ -25,6 +25,9 @@ module Loans
       :survey_fees,
       :net_operating_income,
       :dcsr,
+      :headline_1,
+      :headline_2,
+      :property_image,
       :quotes
 
     has_one :property, serializer: Properties::DetailSerializer
@@ -88,6 +91,10 @@ module Loans
 
     def purpose
       object.purpose.titleize
+    end
+
+    def property_image
+      object.property && object.property.image ? object.property.image.expiring_url(10, :medium) : nil
     end
 
     def property_address

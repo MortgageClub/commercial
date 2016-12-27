@@ -10,6 +10,12 @@
         </div>
         <div class="category-content no-padding">
           <ul class="navigation navigation-main navigation-accordion">
+            <li class="<%= active?(advisors_loan_overview_path(@loan)) %>">
+              <%= link_to advisors_loan_overview_path(@loan) do %>
+                <i class="icon-home2"></i>
+                <span>Overview</span>
+              <% end %>
+            </li>
             <li class="<%= active?("documents") %>">
               <%= link_to advisors_loan_documents_path(@loan) do %>
                 <i class="icon-file-text2"></i>

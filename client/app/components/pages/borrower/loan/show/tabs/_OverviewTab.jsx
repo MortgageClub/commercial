@@ -12,13 +12,19 @@ class OverviewTab extends Component {
   render() {
     return (
       <div>
-        <div className="row overview-status">
-          <div className="col-md-10">
-            <h4>Everything looks good!</h4>
-            <h5>We will let you know when we need your help to move forward.</h5>
-          </div>
-          <div className="col-md-2"></div>
-        </div>
+        {
+          this.props.loan && this.props.loan.headline_1
+          ?
+            <div className="row overview-status">
+              <div className="col-md-10">
+                <h4>{this.props.loan.headline_1}</h4>
+                <h5>{this.props.loan.headline_2}</h5>
+              </div>
+              <div className="col-md-2"></div>
+            </div>
+          :
+            null
+        }
         {
           this.props.loan && this.props.loan.checklists
           ?

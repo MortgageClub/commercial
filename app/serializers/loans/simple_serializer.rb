@@ -1,6 +1,6 @@
 module Loans
   class SimpleSerializer < BaseSerializer
-    default_include "property, property.address"
+    default_include "property"
 
     attributes :id, :amount, :status, :property_address
 

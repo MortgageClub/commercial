@@ -25,6 +25,9 @@ Rails.application.routes.draw do
 
   namespace :advisors do
     resources :loans, only: [:index, :edit, :update] do
+      get :overview
+      patch :overview_update
+
       resources :documents
       resources :checklists
       resources :sent_emails, only: [:index, :create]

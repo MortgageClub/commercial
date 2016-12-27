@@ -10,25 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161227043942) do
+ActiveRecord::Schema.define(version: 20161227073825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
-
-  create_table "addresses", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.string   "street_address"
-    t.string   "street_address2"
-    t.string   "city"
-    t.string   "zip"
-    t.string   "state"
-    t.string   "unit_number"
-    t.string   "full_text"
-    t.string   "addressable_type"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.uuid     "addressable_id"
-  end
 
   create_table "admins", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -191,11 +177,7 @@ ActiveRecord::Schema.define(version: 20161227043942) do
   end
 
   create_table "loans", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.decimal  "down_payment"
     t.decimal  "amount"
-    t.boolean  "is_under_contract"
-    t.datetime "closing_date"
-    t.text     "notes"
     t.uuid     "borrower_id"
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
@@ -219,24 +201,31 @@ ActiveRecord::Schema.define(version: 20161227043942) do
     t.decimal  "survey_fees",          precision: 13, scale: 2
     t.decimal  "net_operating_income", precision: 13, scale: 2
     t.decimal  "dcsr",                 precision: 13, scale: 2
+    t.string   "blackline_note"
+    t.string   "headline_1"
+    t.string   "headline_2"
     t.index ["borrower_id"], name: "index_loans_on_borrower_id", using: :btree
   end
 
   create_table "properties", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.decimal  "purchase_price",  precision: 13, scale: 2
+    t.decimal  "purchase_price",     precision: 13, scale: 2
     t.string   "property_type"
     t.string   "title"
-    t.decimal  "land_size",       precision: 10, scale: 2
+    t.decimal  "land_size",          precision: 10, scale: 2
     t.integer  "building_size"
     t.integer  "number_of_units"
     t.integer  "year_build"
     t.integer  "occup"
     t.uuid     "loan_id"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.string   "full_address"
-    t.decimal  "estimated_value", precision: 13, scale: 2
-    t.decimal  "appraised_value", precision: 13, scale: 2
+    t.decimal  "estimated_value",    precision: 13, scale: 2
+    t.decimal  "appraised_value",    precision: 13, scale: 2
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["loan_id"], name: "index_properties_on_loan_id", using: :btree
   end
 

@@ -28,7 +28,7 @@ class PropertyInfo extends Component {
     return (
       <div className="row">
         <div className="col-md-3">
-          <img src="/images/blog/blog-details.jpg"/>
+          <img src={loan && loan.property_image ? loan.property_image : "/images/blog/blog-details.jpg"}/>
         </div>
         <div className="col-md-9 first-step">
           {
