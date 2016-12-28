@@ -47,6 +47,37 @@ export function logout() {
   }
 }
 
+export function resetPassword(info) {
+  return function (dispatch) {
+    axios.post('/passwords',
+      info
+    )
+    .then(response => {
+      browserHistory.push('/login');
+    })
+    .catch(error => {
+      var data = error.response.data;
+      dispatch(authError(data.errors));
+    })
+  }
+}
+
+export function changePassword(passwordInfo) {
+  return function (dispatch) {
+    axios.patch('/passwords',
+      passwordInfo
+    )
+    .then(response => {
+      handleSuccessAuthen(dispatch, response);
+      browserHistory.push('/dashboard');
+    })
+    .catch(error => {
+      var data = error.response.data;
+      dispatch(authError(data.errors));
+    })
+  }
+}
+
 export function removeErrors(){
   return function (dispatch) {
     dispatch({ type: REMOVE_AUTH_ERRORS });

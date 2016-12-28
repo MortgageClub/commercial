@@ -11,6 +11,7 @@ import BlogDetails from './components/pages/home/BlogDetails';
 import Login from './components/pages/auth/Login';
 import Register from './components/pages/auth/Register';
 import ForgotPassword from './components/pages/auth/ForgotPassword';
+import ChangePassword from './components/pages/auth/ChangePassword';
 import BorrowerDashboard from './components/pages/borrower/Dashboard';
 import BorrowerReferral from './components/pages/borrower/referral/Referral';
 import LoanDashboard from './components/pages/borrower/loan/show/Index';
@@ -26,6 +27,7 @@ export default (
     <Route path="/privacy-policy" component={Privacy} />
     <Route path="/sign-up" component={Register} />
     <Route path="/forgot-password" component={ForgotPassword} />
+    <Route path="/change-password" component={ChangePassword} />
     <Route path="/dashboard" component={BorrowerDashboard} />
     <Route path="/referral" component={BorrowerReferral} />
     <Route path="/loans/:id" component={LoanDashboard} />

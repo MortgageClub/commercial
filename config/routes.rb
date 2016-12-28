@@ -44,6 +44,10 @@ Rails.application.routes.draw do
       resources :registrations, only: [:create] do
       end
 
+      resources :passwords, only: [:create] do
+        patch :update, on: :collection
+      end
+
       resources :users, only: [] do
         collection do
           get :fetch
