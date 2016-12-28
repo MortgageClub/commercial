@@ -25,6 +25,7 @@ module Registrations
               if loan_data = cookies["loan_data"]
                 handle_new_loan(borrower)
               end
+              UserMailer.welcome(new_user).deliver_later
 
               result.new(
                 new_user.token_validation_response,
