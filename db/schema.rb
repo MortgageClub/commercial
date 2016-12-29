@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161227073825) do
+ActiveRecord::Schema.define(version: 20161229031358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -204,6 +204,7 @@ ActiveRecord::Schema.define(version: 20161227073825) do
     t.string   "blackline_note"
     t.string   "headline_1"
     t.string   "headline_2"
+    t.boolean  "is_showed_guide"
     t.index ["borrower_id"], name: "index_loans_on_borrower_id", using: :btree
   end
 

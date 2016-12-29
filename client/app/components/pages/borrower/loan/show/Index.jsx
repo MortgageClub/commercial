@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetch } from '../../../../../actions/LoanAction';
+import { fetch, updateShowedGuide } from '../../../../../actions/LoanAction';
 import { connect } from 'react-redux';
 import PropertyInfo from './_PropertyInfo';
 import MortgageAdvisor from './_MortgageAdvisor';
@@ -48,13 +48,17 @@ class Index extends Component {
     else if(data.index == 9){
       $(".contactsTab a").click();
     }
+    console.log(data);
+    if(data.type == "finished" && this.props.params.id){
+      this.props.updateShowedGuide(this.props.params.id);
+    }
   }
 
   render() {
     return (
       <div className="container pt-90 pb-30 loan-dashboard" style={{"minHeight": "400px"}}>
         {
-          this.props.loan && this.props.loan.status == "New Loan"
+          this.props.loan && this.props.loan.is_showed_guide !== true
           ?
             <Joyride
               ref={c => (this.joyride = c)}
@@ -62,8 +66,9 @@ class Index extends Component {
                 steps={this.props.steps}
                 type={"continuous"}
                 showStepsProgress={true}
+                showSkipButton={true}
                 scrollToSteps={false}
-                callback={this.callback} />
+                callback={this.callback.bind(this)} />
           :
             null
         }
@@ -90,5 +95,5 @@ function mapStateToProps(state, ownProps) {
   }
 }
 
-export default connect(mapStateToProps, { fetch })(Index)
+export default connect(mapStateToProps, { fetch, updateShowedGuide })(Index)
 

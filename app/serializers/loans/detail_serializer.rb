@@ -1,6 +1,6 @@
 module Loans
   class DetailSerializer < BaseSerializer
-    default_include "property, checklists, documents, property.documents, borrower, borrower.documents, closing, closing.documents, guarantor, guarantor.documents, quotes"
+    default_include "property, checklists, documents, property.documents, borrower, borrower.documents, closing, closing.documents, guarantor, guarantor.documents"
 
     attributes :id,
       :amount,
@@ -27,6 +27,7 @@ module Loans
       :dcsr,
       :headline_1,
       :headline_2,
+      :is_showed_guide,
       :property_image,
       :quotes
 
