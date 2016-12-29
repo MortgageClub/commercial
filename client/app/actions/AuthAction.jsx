@@ -10,7 +10,7 @@ export function login(userInfo) {
       )
       .then(response => {
         handleSuccessAuthen(dispatch, response);
-        browserHistory.push('/dashboard');
+        browserHistory.push('/referral');
       })
       .catch(error => {
         var data = error.response.data;
@@ -26,7 +26,7 @@ export function register(userInfo) {
       )
       .then(response => {
         handleSuccessAuthen(dispatch, response);
-        browserHistory.push('/dashboard');
+        browserHistory.push('/referral');
       })
       .catch(error => {
         console.log(error.response);
@@ -69,7 +69,7 @@ export function changePassword(passwordInfo) {
     )
     .then(response => {
       handleSuccessAuthen(dispatch, response);
-      browserHistory.push('/dashboard');
+      browserHistory.push('/referral');
     })
     .catch(error => {
       var data = error.response.data;
