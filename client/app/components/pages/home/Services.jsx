@@ -78,8 +78,8 @@ class Services extends Component {
             <div className="row">
               <div className="col-md-3 col-sm-4 col-xs-12">
                 <div className="section-title text-white">
-                  <h3>SOME</h3>
-                  <h2 className="h1">FUN FACTOR</h2>
+                  <h3>POWERED BY</h3>
+                  <h2 className="h1">DATA</h2>
                 </div>
               </div>
               <div className="col-md-9 col-sm-8 col-xs-12">
@@ -88,30 +88,23 @@ class Services extends Component {
                     <div className="counter-item">
                       <h2>
                       <i className="fa fa-home" aria-hidden="true"></i>
-                      <span className="counter">999</span>
+                      <span className="counter">8M</span>
                       </h2>
-                      <p>Complete Project</p>
+                      <p>Property Profiles</p>
                     </div>
                     <div className="counter-item">
                       <h2>
                       <i className="fa fa-key" aria-hidden="true"></i>
-                      <span className="counter">555</span>
+                      <span className="counter">500+</span>
                       </h2>
-                      <p>Property Sold</p>
+                      <p>Funding Sources</p>
                     </div>
                     <div className="counter-item">
                       <h2>
                       <i className="fa fa-smile-o" aria-hidden="true"></i>
-                      <span className="counter">350</span>
+                      <span className="counter">25K</span>
                       </h2>
-                      <p>Happy Clients</p>
-                    </div>
-                    <div className="counter-item">
-                      <h2>
-                      <i className="fa fa-trophy" aria-hidden="true"></i>
-                      <span className="counter">100</span>
-                      </h2>
-                      <p>Awards Win</p>
+                      <p>Lines of Code</p>
                     </div>
                   </div>
                   <div className="booking-imgae">

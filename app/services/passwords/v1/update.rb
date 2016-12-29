@@ -10,9 +10,11 @@ module Passwords
             raise ValidateError.new("Password confirmation doesn't match Password")
           else
             user.reset_password(params[:password], params[:password_confirmation])
+            data_user = user.token_validation_response
+            data_user["size_of_loans"] = user.subjectable.loans.count
 
             result.new(
-              user.token_validation_response,
+              data_user,
               user.create_new_auth_token
             )
           end

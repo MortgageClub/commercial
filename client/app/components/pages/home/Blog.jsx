@@ -71,16 +71,6 @@ class Blog extends Component {
                     <p>Ronchi / 3 hour ago</p>
                   </div>
                 </aside>
-                <aside className="widget widget-add mb-0">
-                  <div className="widget-add-item">
-                    <div className="widget-add-image">
-                      <a href="#"><img src="images/others/add.jpg" alt=""/></a>
-                      <div className="widget-add-info">
-                        <h5><a href="#"><span>25% off</span> <br/> Build Your <br/> Dream with Us</a></h5>
-                      </div>
-                    </div>
-                  </div>
-                </aside>
               </div>
             </div>
           </div>

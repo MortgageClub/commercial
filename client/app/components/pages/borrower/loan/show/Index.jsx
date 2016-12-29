@@ -48,7 +48,7 @@ class Index extends Component {
     else if(data.index == 9){
       $(".contactsTab a").click();
     }
-    console.log(data);
+
     if(data.type == "finished" && this.props.params.id){
       this.props.updateShowedGuide(this.props.params.id);
     }

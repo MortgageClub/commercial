@@ -26,9 +26,11 @@ module Registrations
                 handle_new_loan(borrower)
               end
               UserMailer.welcome(new_user).deliver_later
+              data_user = new_user.token_validation_response
+              data_user["size_of_loans"] = new_user.subjectable.loans.count
 
               result.new(
-                new_user.token_validation_response,
+                data_user,
                 new_user.create_new_auth_token
               )
             else
