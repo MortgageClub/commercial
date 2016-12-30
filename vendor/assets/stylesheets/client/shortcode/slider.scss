@@ -167,21 +167,6 @@
   width: calc(100% - 20%);
   margin: auto;
 }
-/*Dotted-overlay*/
-.dotted-overlay {
-  position: relative;
-}
-.dotted-overlay::after {
-  background: rgba(0, 0, 0, 0) url("../../images/icons/grid.png") repeat scroll 0 0;
-  content: "";
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: -1;
-}
-
 
 
 
