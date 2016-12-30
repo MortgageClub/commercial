@@ -66,7 +66,7 @@ class BlogDetails extends Component {
                       </div>
                       <div className="media">
                         <a className="media-left">
-                          <img src="/images/avatar/2.jpg" />
+                          <img src="/images/avatar/1.jpg" />
                         </a>
                         <div className="media-body">
                           <h6 className="media-heading"><a>Saniya Mirza</a></h6>
@@ -76,7 +76,7 @@ class BlogDetails extends Component {
                       </div>
                       <div className="media">
                         <a className="media-left">
-                          <img src="/images/avatar/3.jpg" />
+                          <img src="/images/avatar/1.jpg" />
                         </a>
                         <div className="media-body">
                           <h6 className="media-heading"><a>Lionel Messi</a></h6>

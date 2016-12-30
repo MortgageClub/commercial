@@ -6,7 +6,6 @@ import About from './_About';
 import Brand from './_Brand';
 import BookHomeHouse from './_BookHomeHouse';
 import Blog from './_Blog';
-import Agents from './_Agents';
 import Transactions from './_Transactions';
 import PoweredByData from './_PoweredByData';
 
@@ -40,22 +39,6 @@ class Index extends Component {
       slidesToScroll: 2,
       responsive: [
         { breakpoint: 991, settings: { slidesToShow: 2, slidesToScroll: 1 } }, // Tablet
-        { breakpoint: 767, settings: { slidesToShow: 1, slidesToScroll: 1 } }, // Large Mobile
-        { breakpoint: 479, settings: { slidesToShow: 1, slidesToScroll: 1 } }  // Small Mobile
-      ]
-    });
-    /*************************
-        8. Agents Carousel
-    *************************/
-    $('.agents-carousel').slick({
-      arrows: false,
-      dots: false,
-      infinite: false,
-      speed: 300,
-      slidesToShow: 4,
-      slidesToScroll: 3,
-      responsive: [
-        { breakpoint: 991, settings: { slidesToShow: 3, slidesToScroll: 2 } }, // Tablet
         { breakpoint: 767, settings: { slidesToShow: 1, slidesToScroll: 1 } }, // Large Mobile
         { breakpoint: 479, settings: { slidesToShow: 1, slidesToScroll: 1 } }  // Small Mobile
       ]
@@ -106,7 +89,6 @@ class Index extends Component {
           <HowItWorks/>
           <About/>
           <BookHomeHouse/>
-          {/* <Agents/> */}
           <Transactions/>
           <PoweredByData />
           <Blog/>
