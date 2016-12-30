@@ -39,8 +39,8 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <%= user_fields.label :avatar %>
-          <%= user_fields.file_field :avatar %>
+          <%= user_fields.label :avatar %><br/>
+          <%= user_fields.file_field :avatar, class: "file-styled" %>
           <%= form_error(@loan_member, :"user.avatar") %>
         </div>
       </div>
@@ -122,5 +122,9 @@
 <script type="text/javascript">
   tinyMCE.init({
     selector: "textarea"
+  });
+  $('.file-styled').uniform({
+    fileClass: 'uploader',
+    fileButtonClass: 'action btn btn-default legitRipple'
   });
 </script>

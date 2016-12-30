@@ -28,11 +28,11 @@
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
-        <%= f.label :attachment %>
+        <%= f.label :attachment %><br/>
         <% if @document.attachment.present? %>
-          <p><a href="<%= @document.attachment.expiring_url(60) %>" target="_blank"><%= @document.original_filename %></a></p>
+          <a href="<%= @document.attachment.expiring_url(60) %>" target="_blank"><%= @document.original_filename %></a>
         <% end %>
-        <%= f.file_field :attachment %>
+        <%= f.file_field :attachment, class: "file-styled" %>
         <%= form_error(@document, :attachment) %>
       </div>
     </div>
@@ -46,5 +46,10 @@
 
 <script type="text/javascript">
   $('#document_document_type_id').filterGroups({groupSelector: '#document_documentable_type'});
-  $('#document_document_type_id').val("<%= @document.document_type_id %>")
+  $('#document_document_type_id').val("<%= @document.document_type_id %>");
+  
+  $('.file-styled').uniform({
+    fileClass: 'uploader',
+    fileButtonClass: 'action btn btn-default legitRipple'
+  });
 </script>
