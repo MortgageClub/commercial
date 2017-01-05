@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170105041754) do
+ActiveRecord::Schema.define(version: 20170105075317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,7 +55,10 @@ ActiveRecord::Schema.define(version: 20170105041754) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "slug"
+    t.datetime "published_date"
+    t.uuid     "user_id"
     t.index ["slug"], name: "index_blogs_on_slug", unique: true, using: :btree
+    t.index ["user_id"], name: "index_blogs_on_user_id", using: :btree
   end
 
   create_table "borrowers", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
@@ -295,6 +298,7 @@ ActiveRecord::Schema.define(version: 20170105041754) do
     t.datetime "avatar_updated_at"
     t.string   "referral_code"
     t.string   "referred_code"
+    t.string   "author_bio"
     t.index ["email"], name: "index_users_on_email", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["subjectable_type", "subjectable_id"], name: "index_users_on_subjectable_type_and_subjectable_id", using: :btree
@@ -305,6 +309,7 @@ ActiveRecord::Schema.define(version: 20170105041754) do
   add_foreign_key "assigned_loan_members", "loan_member_titles"
   add_foreign_key "assigned_loan_members", "loan_members"
   add_foreign_key "assigned_loan_members", "loans"
+  add_foreign_key "blogs", "users"
   add_foreign_key "bussinesses", "users"
   add_foreign_key "checklists", "loans"
   add_foreign_key "closings", "loans"

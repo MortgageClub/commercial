@@ -1,6 +1,7 @@
 class Admins::BlogsController < Admins::BaseController
   before_action :set_blog, only: [:edit, :update, :destroy]
-
+  before_action :set_authors, only: [:new, :create, :edit, :update]
+  
   def index
     @q = Blog.ransack(params[:q])
     @blogs = @q.result.page(params[:page])
@@ -43,13 +44,19 @@ class Admins::BlogsController < Admins::BaseController
     @blog = Blog.friendly.find(params[:id])
   end
 
+  def set_authors
+    @authors = User.where(subjectable_type: "LoanMember")
+  end
+
   def blog_params
     params.require(:blog).permit(
       :title,
       :category,
       :content,
       :short_description,
-      :image
+      :image,
+      :published_date,
+      :user_id
     )
   end
 end

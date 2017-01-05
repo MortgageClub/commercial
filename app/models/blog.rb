@@ -18,13 +18,16 @@ class Blog < ApplicationRecord
     }
 
   enum category: {
-    apartment: "apartment",
-    apartment_building: "apartment_building",
-    bungalow: "bungalow",
-    corporate_house: "corporate_house",
-    duplex_villa: "duplex_villa"
+    commercial_real_estate: "commercial_real_estate",
+    financing: "financing",
+    data: "data",
+    technology: "technology",
+    events: "events"
   }
 
+  belongs_to :user
+
+  validates :user, presence: true
   validates :title, presence: true, uniqueness: true
   validates :category, presence: true
   validates :short_description, presence: true
