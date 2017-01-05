@@ -9,7 +9,7 @@ class InviteByEmail extends Component {
 
     return (
       <div className="invite-by-email-section">
-        <h4 className="mt-20 mb-20">Invite By Email</h4>
+        <h4 className="mt-20 mb-20">Automated Invite by Blackline</h4>
         <form onSubmit={handleSubmit(this.submit.bind(this))}>
           <div className="row">
             <div className="col-md-4 col-xs-12">
