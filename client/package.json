@@ -35,7 +35,6 @@
     "lodash": "^4.17.2",
     "react": "^0.14.8 || ^15.0.0",
     "react-addons-shallow-compare": "^15.4.1",
-    "react-clipboard.js": "^1.0.1",
     "react-cookie": "^1.0.4",
     "react-dom": "^0.14.8 || ^15.0.0",
     "react-dropzone": "^3.7.3",
