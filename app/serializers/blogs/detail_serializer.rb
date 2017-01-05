@@ -1,5 +1,8 @@
+include ActionView::Helpers::DateHelper
+
 module Blogs
   class DetailSerializer < BaseSerializer
+
     default_include "user, comments"
     attributes :title, 
       :short_description, 
@@ -41,6 +44,21 @@ module Blogs
 
     def author_avatar
       object.user ? object.user.avatar.expiring_url(10, :thumb) : "https://ca.slack-edge.com/T041L28A7-U041L2M1H-f402f0e0f79b-1024"
+    end
+
+    def comments
+      comments_array = []
+
+      object.comments.order(created_at: :desc).each do |comment|
+        comments_array << {
+          name: comment.name,
+          content: comment.content,
+          created_at: time_ago_in_words(comment.created_at),
+          id: comment.id
+        }
+      end
+
+      comments_array
     end
   end
 end

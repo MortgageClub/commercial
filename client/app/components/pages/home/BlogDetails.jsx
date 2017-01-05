@@ -95,7 +95,7 @@ class BlogDetails extends Component {
         <div className="media-body">
           <h6 className="media-heading"><a>{comment.name}</a></h6>
           <p>{comment.content}</p>
-          <a>{comment.time}</a>
+          <p><i>{comment.created_at}</i></p>
         </div>
       </div>
     )
