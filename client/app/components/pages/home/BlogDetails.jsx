@@ -11,6 +11,13 @@ class BlogDetails extends Component {
       this.props.fetch(this.props.params.id);
     }
   }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.params.id && newProps.params.id != this.props.params.id) {
+      this.props.fetch(newProps.params.id);
+    }
+  }
+
   render() {
     const blog = this.props.blog_details;
     return (
