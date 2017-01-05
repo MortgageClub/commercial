@@ -1,10 +1,17 @@
 <%= form_for [:admins, @loan_faq], authenticity_token: true do |f| %>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
       <div class="form-group">
         <%= f.label :question %>
         <%= f.text_field :question, class: "form-control" %>
         <%= form_error(@loan_faq, :question) %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :order_number %>
+        <%= f.text_field :order_number, class: "form-control" %>
+        <%= form_error(@loan_faq, :order_number) %>
       </div>
     </div>
   </div>

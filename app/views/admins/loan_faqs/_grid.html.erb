@@ -2,6 +2,7 @@
   <thead>
     <tr>
       <th>Question</th>
+      <th>Order</th>
       <th style="text-align: center">Action</th>
     </tr>
   </thead>
@@ -9,6 +10,7 @@
     <% @loan_faqs.each do |loan_faq| %>
       <tr>
         <td><%= loan_faq.question %></td>
+        <td><%= loan_faq.order_number %></td>
         <td style="text-align: center">
           <%= link_to edit_admins_loan_faq_path(loan_faq) do %>
             <i class="icon-pencil3"></i>
