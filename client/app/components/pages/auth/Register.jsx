@@ -4,6 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 import { register, removeErrors, addError } from '../../../actions/AuthAction';
 import { browserHistory } from 'react-router';
 import { isAuthenticated } from '../../../utils/AuthUtils';
+import { Link } from 'react-router';
 import Recaptcha from 'react-recaptcha';
 import cookie from 'react-cookie';
 
@@ -51,7 +52,7 @@ class Register extends Component {
   }
 
   onloadCallback(){
-    console.log(this.state);
+    // console.log(this.state);
   }
   // end Recaptcha
 
@@ -91,11 +92,22 @@ class Register extends Component {
                               placeholder="Last Name" />
                           </div>
                         </div>
-                        <Field
-                          name="email"
-                          type="email"
-                          component="input"
-                          placeholder="Email" />
+                        <div className="row">
+                          <div className="col-sm-6">
+                            <Field
+                              name="email"
+                              type="email"
+                              component="input"
+                              placeholder="Email" />
+                          </div>
+                          <div className="col-md-6">
+                            <Field
+                              name="phone"
+                              type="text"
+                              component="input"
+                              placeholder="Phone Number (optional)" />
+                          </div>
+                        </div>
                         <Field
                           name="password"
                           type="password"
@@ -106,6 +118,15 @@ class Register extends Component {
                           type="password"
                           component="input"
                           placeholder="Confirm Password" />
+                        <div className="row">
+                          <div className="col-sm-12">
+                          <Field 
+                            name="isAgree" 
+                            component="input" 
+                            type="checkbox"/>
+                          <label style={{marginLeft: 5}}>I reviewed and agreed to <Link to="/terms-of-service">Terms of Service</Link> and <Link to="privacy-policy">Privacy Policy</Link>.</label>
+                          </div>
+                        </div>
                         <div className="row">
                           <div className="col-sm-12 recaptcha">
                             <Recaptcha
@@ -138,11 +159,20 @@ class Register extends Component {
   }
 
   submit(userInfo) {
-    if(this.state.isVerifyCaptcha){
+    if(this.state.isVerifyCaptcha && userInfo.isAgree){
       this.props.register(userInfo);
     } else {
+      let message = "";
+
+      if(!userInfo.isAgree){
+        message = "You must agree before signing up.";
+      }else{
+        if(!this.state.isVerifyCaptcha)
+        message = "Please verify captcha before sign up.";
+      }
+
       this.props.addError([{
-        message: "Please verify captcha before sign up."
+        message: message
       }])
     }
   }

@@ -47,7 +47,7 @@ class MortgageAdvisor extends Component {
                 </div>
                 <div>
                   <span className="fa fa-envelope"></span>
-                  <span>{mortgageAdvisor.email}</span>
+                  <span><a href={"mailto:" + mortgageAdvisor.email}>{mortgageAdvisor.email}</a></span>
                 </div>
               </div>
             </div>

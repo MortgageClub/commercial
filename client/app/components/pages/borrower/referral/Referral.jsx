@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import { isAuthenticated } from '../../../../utils/AuthUtils';
 import ReferralLink from './_ReferralLink';
 import InviteByEmail from './_InviteByEmail';
 import ReferralProgramHeader from './_ReferralProgramHeader';
@@ -8,6 +9,12 @@ import ReferralResults from './_ReferralResults';
 
 
 class Referral extends Component {
+  componentWillMount() {
+    if (!isAuthenticated()) {
+      browserHistory.push("/sign-up");
+    }
+  }
+
   render() {
     return (
       <div>

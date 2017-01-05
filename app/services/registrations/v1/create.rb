@@ -5,12 +5,7 @@ module Registrations
         new_user = User.new(user_params)
         new_user.provider = "email"
         new_user.referral_code = Users::V1::ReferralCodeGenerator.generate
-
-        if User.case_insensitive_keys.include?(:email)
-          new_user.email = user_params[:email].try :downcase
-        else
-          new_user.email = user_params[:email]
-        end
+        new_user.email = user_params[:email].try :downcase
 
         if referral_code = cookies["ref_code"]
           new_user.referred_code = referral_code.upcase
@@ -18,8 +13,8 @@ module Registrations
         end
 
         ActiveRecord::Base.transaction do
-          borrower = Borrower.new(user: new_user)
-
+          borrower = Borrower.new(user: new_user, phone: params[:phone])
+          
           begin
             if borrower.save
               if loan_data = cookies["loan_data"]
