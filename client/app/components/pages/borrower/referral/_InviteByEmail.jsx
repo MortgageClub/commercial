@@ -125,6 +125,7 @@ class InviteByEmail extends Component {
               <button className="submit-btn-1 mt-5" type="submit" disabled={pristine || submitting}>
                 <i className="fa fa-paper-plane" aria-hidden="true"></i> SEND INVITES
               </button>
+              <span style={{color: 'green', display: 'none', marginLeft: 20}} className="messageSuccess">Invites sent successfully!</span>
             </div>
           </div>
         </form>
@@ -134,6 +135,7 @@ class InviteByEmail extends Component {
 
   submit(inviteByEmail) {
     this.props.invite(inviteByEmail);
+    $(".messageSuccess").show().delay(5000).fadeOut();
   }
 }
 

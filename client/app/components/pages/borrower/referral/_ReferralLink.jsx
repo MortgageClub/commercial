@@ -13,7 +13,7 @@ class ReferralLink extends Component {
               <h4>Your Unique Referral Link:</h4>
               <form>
                 <a href={link} target="_blank" style={{"color": "#0000EE", "fontSize": "14px"}}> Blackline Lending </a>
-                <a className="submit-btn-1 mt-5 pull-right" href={"mailto:?bcc=referral@blacklinelending.com&cc=dane.chodos@blacklinelending.com&subject=Check out Blackline Lending&body=" + escape(emailBody)}>Add Link in Your Email</a>
+                <a className="submit-btn-1 mt-5 pull-right" href={"mailto:?to=Referral Email&bcc=referral@blacklinelending.com&cc=dane.chodos@blacklinelending.com&subject=Check out Blackline Lending&body=" + escape(emailBody)}>Add Link in Your Email</a>
               </form>
             </div>
           </div>

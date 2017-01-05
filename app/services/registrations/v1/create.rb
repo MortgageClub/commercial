@@ -48,8 +48,9 @@ module Registrations
 
         return unless referral_user.present?
 
-        invited_referral = InvitedReferral.where(email: new_user.email, user_id: referral_user.id)
-        invited_referral.update(joined_at: Time.zone.now)
+        invited_referral = InvitedReferral.find_or_initialize_by(email: new_user.email, user_id: referral_user.id)
+        invited_referral.joined_at = Time.zone.now
+        invited_referral.save
       end
 
       def handle_new_loan(borrower)
