@@ -52,6 +52,10 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.action_mailer.default_url_options = { host: 'localhost' }
+  config.action_dispatch.default_headers = {
+    'Access-Control-Allow-Origin' => 'https://5fb4b606.ngrok.io',
+    'Access-Control-Request-Method' => 'GET, PUT, POST, DELETE, PATCH, HEAD'
+  }
 
   config.paperclip_defaults = {
     storage: :s3,

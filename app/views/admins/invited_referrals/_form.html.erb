@@ -1,0 +1,38 @@
+<%= form_for [:admins, @referral], authenticity_token: true do |f| %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control", readonly: true %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.text_field :email, class: "form-control", readonly: true %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :origination_fees %>
+        <%= f.text_field :origination_fees, class: "form-control" %>
+        <%= form_error(@referral, :origination_fees) %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :bonus %>
+        <%= f.text_field :bonus, class: "form-control" %>
+        <%= form_error(@referral, :bonus) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-wizard-actions">
+    <%= link_to "Back", admins_invited_referrals_path, class: "btn btn-default legitRipple" %>
+    <button class="btn btn-primary legitRipple" type="submit"><%= @referral.id ? "Update" : "Create" %> <i class="icon-arrow-right14 position-right"></i></button>
+  </div>
+<% end %>

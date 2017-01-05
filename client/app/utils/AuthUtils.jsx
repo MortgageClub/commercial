@@ -20,7 +20,7 @@ export function authFromLocal() {
 }
 
 export function isAuthenticated() {
-  return localStorage.getItem('auth');
+  return localStorage.getItem('auth') != null;
 }
 
 export function authFromResponse(response) {

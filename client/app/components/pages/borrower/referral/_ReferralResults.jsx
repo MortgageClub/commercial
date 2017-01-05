@@ -27,8 +27,8 @@ class ReferralResults extends Component {
                     <th>Email</th>
                     <th>Name</th>
                     <th>Joined</th>
-                    <th>Our orignation fees</th>
-                    <th>Your referral bonus</th>
+                    <th>Our Origination Fees</th>
+                    <th>Your Referral Bonus</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -53,8 +53,8 @@ class ReferralResults extends Component {
         <td>{referral.email}</td>
         <td>{referral.name}</td>
         <td>{formatDate(referral.joined_at)}</td>
-        <td></td>
-        <td></td>
+        <td>{referral.origination_fees}</td>
+        <td>{referral.bonus}</td>
       </tr>
     )
   }

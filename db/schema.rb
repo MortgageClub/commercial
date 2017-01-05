@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161229031358) do
+ActiveRecord::Schema.define(version: 20170105041754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -142,12 +142,14 @@ ActiveRecord::Schema.define(version: 20161229031358) do
 
   create_table "invited_referrals", force: :cascade do |t|
     t.uuid     "user_id"
-    t.string   "email",      default: ""
-    t.string   "name",       default: ""
+    t.string   "email",                                     default: ""
+    t.string   "name",                                      default: ""
     t.datetime "joined_at"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
     t.string   "phone"
+    t.decimal  "bonus",            precision: 13, scale: 2
+    t.decimal  "origination_fees", precision: 13, scale: 2
     t.index ["user_id"], name: "index_invited_referrals_on_user_id", using: :btree
   end
 
