@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170105075317) do
+ActiveRecord::Schema.define(version: 20170105092507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,16 @@ ActiveRecord::Schema.define(version: 20170105075317) do
     t.index ["loan_id"], name: "index_closings_on_loan_id", using: :btree
   end
 
+  create_table "comments", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid     "blog_id"
+    t.string   "name"
+    t.string   "email"
+    t.string   "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_id"], name: "index_comments_on_blog_id", using: :btree
+  end
+
   create_table "document_types", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "category"
     t.string   "name"
@@ -159,8 +169,9 @@ ActiveRecord::Schema.define(version: 20170105075317) do
   create_table "loan_faqs", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "question"
     t.text     "answer"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "order_number"
   end
 
   create_table "loan_member_titles", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
@@ -313,6 +324,7 @@ ActiveRecord::Schema.define(version: 20170105075317) do
   add_foreign_key "bussinesses", "users"
   add_foreign_key "checklists", "loans"
   add_foreign_key "closings", "loans"
+  add_foreign_key "comments", "blogs"
   add_foreign_key "documents", "document_types"
   add_foreign_key "guarantors", "loans"
   add_foreign_key "invited_referrals", "users"

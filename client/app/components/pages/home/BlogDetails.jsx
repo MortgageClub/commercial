@@ -3,13 +3,13 @@ import { fetch, getAll } from '../../../actions/BlogAction';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import BlogSidebar from './_BlogSiderbar';
+import CommentForm from './_CommentForm';
 
 class BlogDetails extends Component {
   componentDidMount() {
     if (this.props.params.id) {
       this.props.fetch(this.props.params.id);
     }
-    this.props.getAll(4);
   }
   render() {
     const blog = this.props.blog_details;
@@ -54,54 +54,19 @@ class BlogDetails extends Component {
                         <p>{blog.author_bio}</p>
                       </div>
                     </div>
-                    <div className="pro-details-feedback mb-100">
-                      <h5>Comments</h5>
-                      <div className="media">
-                        <a className="media-left">
-                          <img />
-                        </a>
-                        <div className="media-body">
-                          <h6 className="media-heading"><a>David Backhum</a></h6>
-                          <p><span>6 hour ago</span>There are some business lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu tempor inc ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudt </p>
-                          <a>Reply</a>
+                    {
+                      blog && blog.comments && blog.comments.length > 0 
+                      ?
+                        <div className="pro-details-feedback mb-100">
+                          <h5>Comments</h5>
+                          {
+                            blog.comments.map(comment => this.renderComment(comment))
+                          }
                         </div>
-                      </div>
-                      <div className="media">
-                        <a className="media-left">
-                          <img />
-                        </a>
-                        <div className="media-body">
-                          <h6 className="media-heading"><a>Saniya Mirza</a></h6>
-                          <p><span>8 hour ago</span>There are some business lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu tempor inc ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudt </p>
-                          <a>Reply</a>
-                        </div>
-                      </div>
-                      <div className="media">
-                        <a className="media-left">
-                          <img />
-                        </a>
-                        <div className="media-body">
-                          <h6 className="media-heading"><a>Lionel Messi</a></h6>
-                          <p><span>10 hour ago</span>There are some business lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu tempor inc ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudt </p>
-                          <a>Reply</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="blog-details-reply leave-review">
-                      <h5>Leave a Comment</h5>
-                      <form>
-                        <div className="row">
-                          <div className="col-md-6">
-                            <input type="text" name="name" placeholder="Your name" />
-                          </div>
-                          <div className="col-md-6">
-                            <input type="email" name="email" placeholder="Email" />
-                          </div>
-                        </div>
-                        <textarea placeholder="Write here"></textarea>
-                        <button type="button" className="submit-btn-1">SUBMIT COMMENT</button>
-                      </form>
-                    </div>
+                      :
+                        null
+                    }
+                    <CommentForm params={this.props.params}/>
                   </div>
                 :
                   null
@@ -109,6 +74,21 @@ class BlogDetails extends Component {
             </div>
             <BlogSidebar/>
           </div>
+        </div>
+      </div>
+    )
+  }
+
+  renderComment(comment) {
+    return (
+      <div className="media" key={comment.id} style={{marginTop: 10}}>
+        <a className="media-left">
+          <img src="/images/avatar.png"/>
+        </a>
+        <div className="media-body">
+          <h6 className="media-heading"><a>{comment.name}</a></h6>
+          <p>{comment.content}</p>
+          <a>{comment.time}</a>
         </div>
       </div>
     )

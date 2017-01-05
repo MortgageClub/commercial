@@ -1,7 +1,19 @@
 module Blogs
   class DetailSerializer < BaseSerializer
-    default_include "user"
-    attributes :title, :short_description, :image_url, :content, :category, :id, :created_at, :slug, :image_full_url, :author_name, :author_bio, :author_avatar
+    default_include "user, comments"
+    attributes :title, 
+      :short_description, 
+      :image_url, 
+      :content, 
+      :category, 
+      :id, 
+      :created_at, 
+      :slug, 
+      :image_full_url, 
+      :author_name, 
+      :author_bio, 
+      :author_avatar,
+      :comments
     
     def image_url
       object.image.present? ? object.image.expiring_url(60, :medium) : ""

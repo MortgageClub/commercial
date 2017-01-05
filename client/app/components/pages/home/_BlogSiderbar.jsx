@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 
 class BlogSidebar extends Component {
   componentDidMount() {
-    this.props.getAll(8);
+    this.props.getAll(4);
   }
   render() {
     const recent_posts = this.props.blogs ? this.props.blogs.slice(0, 4) : [];
@@ -71,8 +71,8 @@ class BlogSidebar extends Component {
 
 function mapStateToProps(state) {
   return {
-    blogs: state.blog.blogs_page
+    blogs: state.blog.recent
   };
 }
 
-export default connect(mapStateToProps, { getAll })(BlogSidebar);
+export default connect(mapStateToProps, {getAll})(BlogSidebar);

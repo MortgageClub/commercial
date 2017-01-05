@@ -61,6 +61,8 @@ Rails.application.routes.draw do
         end
       end
 
+      resources :comments, only: :create
+
       resources :loans, only: [:index, :create, :show] do
         patch :update_showed_guide, on: :member
       end
