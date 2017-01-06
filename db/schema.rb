@@ -10,25 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161222040020) do
+ActiveRecord::Schema.define(version: 20170105092507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
-
-  create_table "addresses", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.string   "street_address"
-    t.string   "street_address2"
-    t.string   "city"
-    t.string   "zip"
-    t.string   "state"
-    t.string   "unit_number"
-    t.string   "full_text"
-    t.string   "addressable_type"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.uuid     "addressable_id"
-  end
 
   create_table "admins", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -69,7 +55,10 @@ ActiveRecord::Schema.define(version: 20161222040020) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "slug"
+    t.datetime "published_date"
+    t.uuid     "user_id"
     t.index ["slug"], name: "index_blogs_on_slug", unique: true, using: :btree
+    t.index ["user_id"], name: "index_blogs_on_user_id", using: :btree
   end
 
   create_table "borrowers", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
@@ -123,6 +112,16 @@ ActiveRecord::Schema.define(version: 20161222040020) do
     t.index ["loan_id"], name: "index_closings_on_loan_id", using: :btree
   end
 
+  create_table "comments", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid     "blog_id"
+    t.string   "name"
+    t.string   "email"
+    t.string   "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_id"], name: "index_comments_on_blog_id", using: :btree
+  end
+
   create_table "document_types", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "category"
     t.string   "name"
@@ -156,20 +155,23 @@ ActiveRecord::Schema.define(version: 20161222040020) do
 
   create_table "invited_referrals", force: :cascade do |t|
     t.uuid     "user_id"
-    t.string   "email",      default: ""
-    t.string   "name",       default: ""
+    t.string   "email",                                     default: ""
+    t.string   "name",                                      default: ""
     t.datetime "joined_at"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
     t.string   "phone"
+    t.decimal  "bonus",            precision: 13, scale: 2
+    t.decimal  "origination_fees", precision: 13, scale: 2
     t.index ["user_id"], name: "index_invited_referrals_on_user_id", using: :btree
   end
 
   create_table "loan_faqs", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "question"
     t.text     "answer"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "order_number"
   end
 
   create_table "loan_member_titles", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
@@ -191,33 +193,74 @@ ActiveRecord::Schema.define(version: 20161222040020) do
   end
 
   create_table "loans", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.decimal  "down_payment"
     t.decimal  "amount"
-    t.boolean  "is_under_contract"
-    t.datetime "closing_date"
-    t.text     "notes"
     t.uuid     "borrower_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
     t.string   "purpose"
     t.string   "status"
     t.string   "note"
+    t.decimal  "ltv",                  precision: 13, scale: 5
+    t.integer  "interest_rate_spread"
+    t.string   "interest_rate_index"
+    t.integer  "fixed_rate_period"
+    t.integer  "term"
+    t.integer  "amortization"
+    t.string   "prepayment_premium"
+    t.decimal  "origination_fees",     precision: 13, scale: 2
+    t.decimal  "processing_fees",      precision: 13, scale: 2
+    t.decimal  "underwritting_fees",   precision: 13, scale: 2
+    t.decimal  "appraisal_fees",       precision: 13, scale: 2
+    t.decimal  "phase_1_fees",         precision: 13, scale: 2
+    t.decimal  "site_visit_expense",   precision: 13, scale: 2
+    t.decimal  "legal_expense",        precision: 13, scale: 2
+    t.decimal  "survey_fees",          precision: 13, scale: 2
+    t.decimal  "net_operating_income", precision: 13, scale: 2
+    t.decimal  "dcsr",                 precision: 13, scale: 2
+    t.string   "blackline_note"
+    t.string   "headline_1"
+    t.string   "headline_2"
+    t.boolean  "is_showed_guide"
     t.index ["borrower_id"], name: "index_loans_on_borrower_id", using: :btree
   end
 
   create_table "properties", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.decimal  "purchase_price",  precision: 13, scale: 2
+    t.decimal  "purchase_price",     precision: 13, scale: 2
     t.string   "property_type"
     t.string   "title"
-    t.decimal  "land_size",       precision: 10, scale: 2
+    t.decimal  "land_size",          precision: 10, scale: 2
     t.integer  "building_size"
     t.integer  "number_of_units"
     t.integer  "year_build"
     t.integer  "occup"
     t.uuid     "loan_id"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.string   "full_address"
+    t.decimal  "estimated_value",    precision: 13, scale: 2
+    t.decimal  "appraised_value",    precision: 13, scale: 2
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["loan_id"], name: "index_properties_on_loan_id", using: :btree
+  end
+
+  create_table "quotes", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid     "loan_id"
+    t.string   "status"
+    t.string   "name"
+    t.string   "lender"
+    t.decimal  "interest_rate",     precision: 13, scale: 5
+    t.decimal  "ltv",               precision: 13, scale: 5
+    t.integer  "year_term"
+    t.integer  "year_amortization"
+    t.decimal  "payment",           precision: 13, scale: 2
+    t.decimal  "loan_amount",       precision: 13, scale: 2
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "headline"
+    t.index ["loan_id"], name: "index_quotes_on_loan_id", using: :btree
   end
 
   create_table "sent_emails", force: :cascade do |t|
@@ -266,6 +309,7 @@ ActiveRecord::Schema.define(version: 20161222040020) do
     t.datetime "avatar_updated_at"
     t.string   "referral_code"
     t.string   "referred_code"
+    t.string   "author_bio"
     t.index ["email"], name: "index_users_on_email", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["subjectable_type", "subjectable_id"], name: "index_users_on_subjectable_type_and_subjectable_id", using: :btree
@@ -276,12 +320,15 @@ ActiveRecord::Schema.define(version: 20161222040020) do
   add_foreign_key "assigned_loan_members", "loan_member_titles"
   add_foreign_key "assigned_loan_members", "loan_members"
   add_foreign_key "assigned_loan_members", "loans"
+  add_foreign_key "blogs", "users"
   add_foreign_key "bussinesses", "users"
   add_foreign_key "checklists", "loans"
   add_foreign_key "closings", "loans"
+  add_foreign_key "comments", "blogs"
   add_foreign_key "documents", "document_types"
   add_foreign_key "guarantors", "loans"
   add_foreign_key "invited_referrals", "users"
   add_foreign_key "loans", "borrowers"
   add_foreign_key "properties", "loans"
+  add_foreign_key "quotes", "loans"
 end

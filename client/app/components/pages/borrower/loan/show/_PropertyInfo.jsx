@@ -28,7 +28,7 @@ class PropertyInfo extends Component {
     return (
       <div className="row">
         <div className="col-md-3">
-          <img src="/images/blog/blog-details.jpg"/>
+          <img src={loan && loan.property_image ? loan.property_image : "/images/flat/1.jpg"}/>
         </div>
         <div className="col-md-9 first-step">
           {
@@ -36,7 +36,8 @@ class PropertyInfo extends Component {
             ?
               <div>
                 <h4>{loan.property_address}</h4>
-                <div>{loan.amount} - {loan.purpose}</div>
+                <div>Loan Amount: {loan.amount}</div>
+                <div>Purpose: {loan.purpose}</div>
                 <div>Status: {loan.status}</div>
               </div>
             :

@@ -6,7 +6,10 @@ class Loan < ApplicationRecord
   has_one :closing, dependent: :destroy
   has_many :checklists, dependent: :destroy
   has_many :documents, as: :documentable, dependent: :destroy
-  has_many :assigned_loan_members
+  has_many :assigned_loan_members, dependent: :destroy
+  has_many :quotes, dependent: :destroy
+
+  accepts_nested_attributes_for :property
 
   enum purpose: {
     purchase: "purchase",
@@ -26,7 +29,7 @@ class Loan < ApplicationRecord
   }
 
   def property_address
-    property && property.address ? property.address.full_text : "Unknown Address"
+    property ? property.full_address : "Unknown Address"
   end
 
   def number_of_done_checklists

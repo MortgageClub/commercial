@@ -1,8 +1,25 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { Field, reduxForm } from 'redux-form';
+import { resetPassword, removeErrors } from '../../../actions/AuthAction';
+import { isAuthenticated } from '../../../utils/AuthUtils';
+import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 
 class ForgotPassword extends Component {
+  componentWillMount() {
+    if (isAuthenticated()) {
+      browserHistory.goBack();
+    }
+  }
+
+  componentWillUnmount() {
+    this.props.removeErrors();
+  }
+
   render() {
+    const { handleSubmit, pristine, submitting, reset } = this.props;
+
     return (
       <div>
         <section id="page-content" className="page-wrapper">
@@ -12,12 +29,18 @@ class ForgotPassword extends Component {
                 <div className="col-md-offset-3 col-md-6 col-xs-12">
                   <div className="registered-customers mb-50">
                     <h2 className="mb-50">FORGOT PASSWORD</h2>
-                    <form action="#">
+                    <form
+                      onSubmit={handleSubmit(this.submit.bind(this))}>
+                      {this.renderErrors()}
                       <div className="login-account p-30 box-shadow">
                         <p>We'll email you instructions on how to reset your password.</p>
-                        <input type="text" name="name" placeholder="Email Address" />
+                        <Field
+                          name="email"
+                          type="email"
+                          component="input"
+                          placeholder="Email" />
                         <p><small><Link to="/login">Login?</Link></small></p>
-                        <button className="submit-btn-1" type="submit">RESET</button>
+                        <button className="submit-btn-1" type="submit" disabled={pristine || submitting}>RESET</button>
                       </div>
                     </form>
                   </div>
@@ -29,6 +52,33 @@ class ForgotPassword extends Component {
       </div>
     )
   }
+
+  submit(info) {
+    this.props.resetPassword(info);
+  }
+
+  renderErrors() {
+    if (this.props.errorMessages) {
+      const errors = this.props.errorMessages.map(error => {
+        return (
+          <li key={error.message}>{error.message}</li>
+        )
+      })
+      return (
+        <ul className="alert alert-danger list-unstyled">{errors}</ul>
+      )
+    }
+  }
 }
 
-export default ForgotPassword;
+function mapStateToProps(state) {
+  return {
+    errorMessages: state.auth.errors
+  }
+}
+
+export default connect(mapStateToProps, { resetPassword, removeErrors })(
+  reduxForm({
+    form: 'forgotPasswordForm'
+  })(ForgotPassword)
+)

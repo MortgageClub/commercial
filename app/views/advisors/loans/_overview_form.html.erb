@@ -1,0 +1,80 @@
+<%= form_for [:advisors, @loan], url: advisors_loan_overview_update_path(@loan), authenticity_token: true do |f| %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label :note, "Borrower Notes" %>
+        <%= f.text_field :note, class: "form-control", disabled: true %>
+        <%= form_error(@loan, :note) %>
+      </div>
+    </div>
+  </div>
+
+  <%= f.fields_for :property do |property_fields| %>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= property_fields.label :image, "Property picture" %><br/>
+          <%= property_fields.file_field :image, class: "file-styled" %>
+          <%= form_error(@loan, :"property.image") %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <% if @loan.property.image.present? %>
+            <image src="<%= @loan.property.image.expiring_url(10, :thumb) %>" width="60"/>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :status %>
+        <%= f.select :status, Loan.statuses.keys.map { |key| [key.titleize, Loan.statuses[key]] }, { prompt: 'Select status' }, class: "form-control" %>
+        <%= form_error(@loan, :status) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label :blackline_note, "Blackline Notes" %>
+        <%= f.text_field :blackline_note, class: "form-control" %>
+        <%= form_error(@loan, :blackline_note) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label :headline_1 %>
+        <%= f.text_field :headline_1, class: "form-control" %>
+        <%= form_error(@loan, :headline_1) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label :headline_2 %>
+        <%= f.text_field :headline_2, class: "form-control" %>
+        <%= form_error(@loan, :headline_2) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-wizard-actions">
+    <button class="btn btn-primary legitRipple" type="submit">Update <i class="icon-arrow-right14 position-right"></i></button>
+  </div>
+<% end %>
+<script type="text/javascript">
+  $('.file-styled').uniform({
+    fileClass: 'uploader',
+    fileButtonClass: 'action btn btn-default legitRipple'
+  });
+</script>

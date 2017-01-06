@@ -6,44 +6,87 @@ import { authError, authFromResponse, headersFromLocal } from '../utils/AuthUtil
 export function login(userInfo) {
   return function (dispatch) {
     axios.post('/sessions',
-        userInfo
-      )
-      .then(response => {
-        handleSuccessAuthen(dispatch, response);
+      userInfo
+    )
+    .then(response => {
+      handleSuccessAuthen(dispatch, response);
+      if(response.data.size_of_loans && response.data.size_of_loans > 0){
         browserHistory.push('/dashboard');
-      })
-      .catch(error => {
-        var data = error.response.data;
-        dispatch(authError(data.errors));
-      })
+      }else{
+        browserHistory.push('/referral');
+      }
+    })
+    .catch(error => {
+      var data = error.response.data;
+      dispatch(authError(data.errors));
+    })
   }
 }
 
 export function register(userInfo) {
   return function (dispatch) {
     axios.post('/registrations',
-        userInfo
-      )
-      .then(response => {
-        handleSuccessAuthen(dispatch, response);
+      userInfo
+    )
+    .then(response => {
+      handleSuccessAuthen(dispatch, response);
+      if(response.data.size_of_loans && response.data.size_of_loans > 0){
         browserHistory.push('/dashboard');
-      })
-      .catch(error => {
-        console.log(error.response);
-        var data = error.response.data;
-        dispatch(authError(data.errors));
-      })
+      }else{
+        browserHistory.push('/referral');
+      }
+    })
+    .catch(error => {
+      console.log(error.response);
+      var data = error.response.data;
+      dispatch(authError(data.errors));
+    })
   }
 }
 
 export function logout() {
   return function (dispatch) {
     axios.delete('/sessions', {
-        headers: headersFromLocal()
-      })
-      .then(response => {});
+      headers: headersFromLocal()
+    })
+    .then(response => {});
 
     handleLogOut(dispatch);
+  }
+}
+
+export function resetPassword(info) {
+  return function (dispatch) {
+    axios.post('/passwords',
+      info
+    )
+    .then(response => {
+      browserHistory.push('/login');
+    })
+    .catch(error => {
+      var data = error.response.data;
+      dispatch(authError(data.errors));
+    })
+  }
+}
+
+export function changePassword(passwordInfo) {
+  return function (dispatch) {
+    axios.patch('/passwords',
+      passwordInfo
+    )
+    .then(response => {
+      handleSuccessAuthen(dispatch, response);
+      if(response.data.size_of_loans && response.data.size_of_loans > 0){
+        browserHistory.push('/dashboard');
+      }else{
+        browserHistory.push('/referral');
+      }
+    })
+    .catch(error => {
+      var data = error.response.data;
+      dispatch(authError(data.errors));
+    })
   }
 }
 

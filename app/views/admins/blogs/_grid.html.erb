@@ -9,7 +9,7 @@
   <tbody>
     <% @blogs.each do |blog| %>
       <tr>
-        <td><%= blog.category.titleize %></td>
+        <td><%= blog.try(:category).try(:titleize) %></td>
         <td><%= blog.title %></td>
         <td style="text-align: center">
           <%= link_to edit_admins_blog_path(blog) do %>

@@ -59,6 +59,7 @@ class Admins::LoanMembersController < Admins::BaseController
         :email,
         :password,
         :avatar,
+        :author_bio,
         :id
       ]
     )

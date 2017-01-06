@@ -49,7 +49,7 @@ class Login extends Component {
                           placeholder="Password" />
                         <p>
                           <small>
-                            <Link to="/forgot-password">Forgot our password?</Link>
+                            <Link to="/forgot-password">Forgot your password?</Link>
                           </small>
                         </p>
                         <button className="submit-btn-1" type="submit" disabled={pristine || submitting}>Login</button>

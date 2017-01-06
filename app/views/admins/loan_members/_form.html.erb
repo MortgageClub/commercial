@@ -39,8 +39,8 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <%= user_fields.label :avatar %>
-          <%= user_fields.file_field :avatar %>
+          <%= user_fields.label :avatar %><br/>
+          <%= user_fields.file_field :avatar, class: "file-styled" %>
           <%= form_error(@loan_member, :"user.avatar") %>
         </div>
       </div>
@@ -48,6 +48,16 @@
         <% if @loan_member.user.avatar.present? %>
           <image src="<%= @loan_member.user.avatar.expiring_url(60, :thumb) %>" width="60"/>
         <% end %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= user_fields.label :author_bio, "Author Bio (Blog)" %><br/>
+          <%= user_fields.text_field :author_bio, class: "form-control" %>
+          <%= form_error(@loan_member, :"user.author_bio") %>
+        </div>
       </div>
     </div>
   <% end %>
@@ -62,7 +72,7 @@
     </div>
     <div class="col-md-6">
       <div class="form-group">
-        <%= f.label :individual_bre, "Individual BRE" %>
+        <%= f.label :individual_bre, "License number" %>
         <%= f.text_field :individual_bre, class: "form-control" %>
         <%= form_error(@loan_member, :individual_bre) %>
       </div>
@@ -96,7 +106,7 @@
     </div>
     <div class="col-md-6">
       <div class="form-group">
-        <%= f.label :company_bre, "Company BRE" %>
+        <%= f.label :company_bre, "Company license number" %>
         <%= f.text_field :company_bre, class: "form-control" %>
         <%= form_error(@loan_member, :company_bre) %>
       </div>
@@ -122,5 +132,9 @@
 <script type="text/javascript">
   tinyMCE.init({
     selector: "textarea"
+  });
+  $('.file-styled').uniform({
+    fileClass: 'uploader',
+    fileButtonClass: 'action btn btn-default legitRipple'
   });
 </script>

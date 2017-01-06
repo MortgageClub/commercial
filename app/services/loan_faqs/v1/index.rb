@@ -4,7 +4,7 @@ module LoanFaqs
       require_authen!
 
       def process
-        LoanFaq.all
+        LoanFaq.order(:order_number)
       end
     end
   end

@@ -21,13 +21,18 @@ Rails.application.routes.draw do
     resources :loan_member_titles
     resources :loan_members
     resources :assigned_loan_members
+    resources :invited_referrals, only: [:index, :edit, :update]
   end
 
   namespace :advisors do
-    resources :loans, only: :index do
+    resources :loans, only: [:index, :edit, :update] do
+      get :overview
+      patch :overview_update
+
       resources :documents
       resources :checklists
       resources :sent_emails, only: [:index, :create]
+      resources :quotes
     end
   end
 
@@ -38,6 +43,10 @@ Rails.application.routes.draw do
       end
 
       resources :registrations, only: [:create] do
+      end
+
+      resources :passwords, only: [:create] do
+        patch :update, on: :collection
       end
 
       resources :users, only: [] do
@@ -52,10 +61,19 @@ Rails.application.routes.draw do
         end
       end
 
+      resources :comments, only: :create
+
       resources :loans, only: [:index, :create, :show] do
+        patch :update_showed_guide, on: :member
+      end
+
+      resources :quotes, only: :update do
       end
 
       resources :invited_referrals, only: [:index] do
+      end
+
+      resources :quick_contacts, only: [:create] do
       end
 
       resources :documents, only: [] do

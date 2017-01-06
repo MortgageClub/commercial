@@ -10,7 +10,7 @@
     <div class="col-md-6">
       <div class="form-group">
         <%= f.label :category %>
-        <%= f.select :category, Blog.categories.keys.map { |key| [key.humanize, Blog.categories[key]] }, { prompt: 'Select category' }, class: "form-control" %>
+        <%= f.select :category, Blog.categories.keys.map { |key| [key.titleize, Blog.categories[key]] }, { prompt: 'Select category' }, class: "form-control" %>
         <%= form_error(@blog, :category) %>
       </div>
     </div>
@@ -18,8 +18,8 @@
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
-        <%= f.label :image %>
-        <%= f.file_field :image %>
+        <%= f.label :image %><br/>
+        <%= f.file_field :image, class: "file-styled" %>
         <%= form_error(@blog, :image) %>
       </div>
     </div>
@@ -27,6 +27,22 @@
       <% if @blog.image.present? %>
         <image src="<%= @blog.image.expiring_url(60, :thumb) %>" width="60"/>
       <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :user_id %>
+        <%= f.select :user_id, @authors.collect { |p| [ p.full_name, p.id ] }, { prompt: 'Select author' }, { class: 'form-control' } %>
+        <%= form_error(@blog, :user) %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :published_date %>
+        <%= f.text_field :published_date, class: "form-control", placeholder: "yyyy-mm-dd" %>
+        <%= form_error(@blog, :published_date) %>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -55,5 +71,9 @@
 <script type="text/javascript">
   tinyMCE.init({
     selector: "textarea"
+  });
+  $('.file-styled').uniform({
+    fileClass: 'uploader',
+    fileButtonClass: 'action btn btn-default legitRipple'
   });
 </script>

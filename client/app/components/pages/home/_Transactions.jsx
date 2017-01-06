@@ -24,7 +24,7 @@ class Transactions extends Component {
                       <a href="single-blog.html" tabIndex="0"><img src="/images/blog/1.jpg" alt=""/></a>
                     </div>
                     <div className="service-item-info">
-                      <h5><a href="service-details.html">RACETRAC</a></h5>
+                      <h5><a href="service-details.html">IHOP</a></h5>
                       <table>
                         <tbody>
                           <tr>
@@ -33,23 +33,19 @@ class Transactions extends Component {
                           </tr>
                           <tr>
                             <td>Location</td>
-                            <td>FL</td>
+                            <td>NM</td>
                           </tr>
                           <tr>
                             <td>Loan Amount</td>
-                            <td>$2,150,000</td>
+                            <td>$2,100,000</td>
                           </tr>
                           <tr>
                             <td>LTV</td>
                             <td>60%</td>
                           </tr>
                           <tr>
-                            <td>Rate</td>
-                            <td>4.20%</td>
-                          </tr>
-                          <tr>
-                            <td>Term</td>
-                            <td>7 years</td>
+                            <td>Spread</td>
+                            <td>275 bps</td>
                           </tr>
                         </tbody>
                       </table>
@@ -63,32 +59,28 @@ class Transactions extends Component {
                       <a href="single-blog.html" tabIndex="0"><img src="/images/blog/1.jpg" alt=""/></a>
                     </div>
                     <div className="service-item-info">
-                      <h5><a href="service-details.html">RITE AID</a></h5>
+                      <h5><a href="service-details.html">FLOWER FOODS</a></h5>
                       <table>
                         <tbody>
                           <tr>
                             <td>Property Type</td>
-                            <td>Retail</td>
+                            <td>Industrial</td>
                           </tr>
                           <tr>
                             <td>Location</td>
-                            <td>FL</td>
+                            <td>AL</td>
                           </tr>
                           <tr>
                             <td>Loan Amount</td>
-                            <td>$2,150,000</td>
+                            <td>$820,000</td>
                           </tr>
                           <tr>
                             <td>LTV</td>
-                            <td>60%</td>
+                            <td>80%</td>
                           </tr>
                           <tr>
-                            <td>Rate</td>
-                            <td>4.20%</td>
-                          </tr>
-                          <tr>
-                            <td>Term</td>
-                            <td>7 years</td>
+                            <td>Spread</td>
+                            <td>250 bps</td>
                           </tr>
                         </tbody>
                       </table>
@@ -102,7 +94,7 @@ class Transactions extends Component {
                       <a href="single-blog.html" tabIndex="0"><img src="/images/blog/1.jpg" alt=""/></a>
                     </div>
                     <div className="service-item-info">
-                      <h5><a href="service-details.html">IHOPE</a></h5>
+                      <h5><a href="service-details.html">CVS</a></h5>
                       <table>
                         <tbody>
                           <tr>
@@ -111,23 +103,19 @@ class Transactions extends Component {
                           </tr>
                           <tr>
                             <td>Location</td>
-                            <td>FL</td>
+                            <td>AZ</td>
                           </tr>
                           <tr>
                             <td>Loan Amount</td>
-                            <td>$2,150,000</td>
+                            <td>$4,468,000</td>
                           </tr>
                           <tr>
                             <td>LTV</td>
-                            <td>60%</td>
+                            <td>75%</td>
                           </tr>
                           <tr>
-                            <td>Rate</td>
-                            <td>4.20%</td>
-                          </tr>
-                          <tr>
-                            <td>Term</td>
-                            <td>7 years</td>
+                            <td>Spread</td>
+                            <td>175 bps</td>
                           </tr>
                         </tbody>
                       </table>

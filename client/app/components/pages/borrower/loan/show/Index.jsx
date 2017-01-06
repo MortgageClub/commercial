@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetch } from '../../../../../actions/LoanAction';
+import { fetch, updateShowedGuide } from '../../../../../actions/LoanAction';
 import { connect } from 'react-redux';
 import PropertyInfo from './_PropertyInfo';
 import MortgageAdvisor from './_MortgageAdvisor';
@@ -22,25 +22,35 @@ class Index extends Component {
 
   callback(data) {
     if(data.index == 1){
-      $(".second-step a").click();
+      $(".overviewTab a").click();
     }
     else if(data.index == 2){
-      $(".third-step a").click();
+      $(".quotesTab a").click();
     }
     else if(data.index == 3){
-      $(".four-step a").click();
+      $(".termsTab a").click();
     }
     else if(data.index == 4){
-      $(".fifth-step a").click();
+      $(".propertyTab a").click();
     }
     else if(data.index == 5){
-      $(".sixth-step a").click();
+      $(".borrowerTab a").click();
     }
     else if(data.index == 6){
-      $(".seventh-step a").click();
+      $(".guarantorTab a").click();
     }
     else if(data.index == 7){
-      $(".eighth-step a").click();
+      $(".loanTab a").click();
+    }
+    else if(data.index == 8){
+      $(".closingTab a").click();
+    }
+    else if(data.index == 9){
+      $(".contactsTab a").click();
+    }
+
+    if(data.type == "finished" && this.props.params.id){
+      this.props.updateShowedGuide(this.props.params.id);
     }
   }
 
@@ -48,7 +58,7 @@ class Index extends Component {
     return (
       <div className="container pt-90 pb-30 loan-dashboard" style={{"minHeight": "400px"}}>
         {
-          this.props.loan && this.props.loan.status == "New Loan"
+          this.props.loan && this.props.loan.is_showed_guide !== true
           ?
             <Joyride
               ref={c => (this.joyride = c)}
@@ -56,8 +66,9 @@ class Index extends Component {
                 steps={this.props.steps}
                 type={"continuous"}
                 showStepsProgress={true}
+                showSkipButton={true}
                 scrollToSteps={false}
-                callback={this.callback} />
+                callback={this.callback.bind(this)} />
           :
             null
         }
@@ -84,5 +95,5 @@ function mapStateToProps(state, ownProps) {
   }
 }
 
-export default connect(mapStateToProps, { fetch })(Index)
+export default connect(mapStateToProps, { fetch, updateShowedGuide })(Index)
 

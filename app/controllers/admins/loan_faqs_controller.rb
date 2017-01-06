@@ -46,7 +46,8 @@ class Admins::LoanFaqsController < Admins::BaseController
   def loan_faq_params
     params.require(:loan_faq).permit(
       :question,
-      :answer
+      :answer,
+      :order_number
     )
   end
 end

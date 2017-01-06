@@ -8,7 +8,7 @@ class MortgageAdvisor extends Component {
       this.props.addStep({
         title: 'Relationship Manager',
         text: 'Relationship Manager',
-        selector: '.ninth-step',
+        selector: '.relationship-manager',
         position: 'left',
         type: 'hover',
         style: {
@@ -27,31 +27,28 @@ class MortgageAdvisor extends Component {
     const mortgageAdvisor = loanMembers.find(loanMember => loanMember.title = "Relationship Manager");
 
     return (
-      <div className="ninth-step">
+      <div className="relationship-manager">
         <h4>Your Relationship Manager</h4>
         {
           mortgageAdvisor
           ?
             <div className="media">
-              <a className="media-left">
-                <img src={mortgageAdvisor.avatar_url} width="81"/>
-              </a>
               <div className="media-body">
                 <h5 className="media-heading">
                   {mortgageAdvisor.full_name}
                 </h5>
-                <p>
+                <div>
                   <span className="fa fa-user"></span>
-                  <span>Individual BRE: {mortgageAdvisor.individual_bre}</span>
-                </p>
-                <p>
+                  <span>License Number: {mortgageAdvisor.individual_bre}</span>
+                </div>
+                <div>
                   <span className="fa fa-phone"></span>
                   <span>{mortgageAdvisor.phone_number}</span>
-                </p>
-                <p>
+                </div>
+                <div>
                   <span className="fa fa-envelope"></span>
-                  <span>{mortgageAdvisor.email}</span>
-                </p>
+                  <span><a href={"mailto:" + mortgageAdvisor.email}>{mortgageAdvisor.email}</a></span>
+                </div>
               </div>
             </div>
           :

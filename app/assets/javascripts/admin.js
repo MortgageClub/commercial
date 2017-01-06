@@ -9,6 +9,7 @@
 
 //= require admin/plugins/ui/moment/moment.min
 //= require admin/plugins/pickers/daterangepicker
+//= require admin/plugins/forms/uniform.min
 
 $.fn.filterGroups = function(options) {
   var settings = $.extend({}, options);

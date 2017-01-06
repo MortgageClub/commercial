@@ -5,8 +5,11 @@ module Sessions
         user = User.find_by_email(params[:email])
 
         if user && user.valid_password?(params[:password]) && user.subjectable_type == "Borrower"
+          data_user = user.token_validation_response
+          data_user["size_of_loans"] = user.subjectable.loans.count
+
           result.new(
-            user.token_validation_response,
+            data_user,
             user.create_new_auth_token
           )
         else

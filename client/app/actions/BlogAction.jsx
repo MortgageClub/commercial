@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { LASTEST_BLOGS, BLOGS_LIST, BLOG_DETAILS } from '../actions/Types';
+import { LASTEST_BLOGS, BLOGS_LIST, BLOG_DETAILS, RECENT_BLOGS } from '../actions/Types';
 
 export function getFooterBlogs() {
   return function (dispatch) {
@@ -40,7 +40,11 @@ export function getAll(size) {
         }
       })
       .then(response => {
-        dispatch({ type: BLOGS_LIST, payload: response.data });
+        if(size == 4){
+          dispatch({ type: RECENT_BLOGS, payload: response.data });
+        }else{
+          dispatch({ type: BLOGS_LIST, payload: response.data });
+        }
       })
       .catch(error => {
         console.log(error);

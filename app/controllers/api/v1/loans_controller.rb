@@ -11,6 +11,9 @@ module Api
 
       def show
       end
+
+      def update_showed_guide
+      end
     end
   end
 end

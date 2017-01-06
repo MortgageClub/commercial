@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import { send } from '../../actions/QuickContactAction';
 
 class Footer extends Component {
   render() {
+    const { handleSubmit, pristine, submitting, reset } = this.props;
+
     return (
       <div>
         {/* Start footer area */}
@@ -77,12 +82,20 @@ class Footer extends Component {
                     <h6 className="footer-titel">QUICK CONTACT</h6>
                     <div className="footer-contact">
                       <p>Contact Blackline Lending with media enquiries, for information on how to become a client, or with questions related to our lending platform.</p>
-                      <form  id="contact-form-2" action="mail_footer.php" method="post">
-                        <input type="email" name="email2" placeholder="Email Address"/>
-                        <textarea name="message2" placeholder="Message"></textarea>
+                      <form
+                        id="contact-form-2"
+                        onSubmit={handleSubmit(this.submit.bind(this))}>
+                        <Field
+                          name="email"
+                          type="email"
+                          component="input"
+                          placeholder="Email" />
+                        <Field
+                          name="message"
+                          component="textarea"
+                          placeholder="Message" />
                         <button type="submit" value="send">Send</button>
                       </form>
-                      <p className="form-messege"></p>
                     </div>
                   </div>
                 </div>
@@ -105,6 +118,14 @@ class Footer extends Component {
       </div>
     )
   }
+
+  submit(quickContact) {
+    this.props.send(quickContact);
+  }
 }
 
-export default Footer;
+export default connect(null, { send })(
+  reduxForm({
+    form: 'quickContactForm'
+  })(Footer)
+)
