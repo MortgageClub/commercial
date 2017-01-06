@@ -121,7 +121,7 @@ class Register extends Component {
                         <div className="row">
                           <div className="col-sm-12">
                           <Field 
-                            name="isAgree" 
+                            name="is_agree" 
                             component="input" 
                             type="checkbox"/>
                           <label style={{marginLeft: 5}}>I reviewed and agreed to <Link to="/terms-of-service">Terms of Service</Link> and <Link to="privacy-policy">Privacy Policy</Link>.</label>
@@ -159,12 +159,12 @@ class Register extends Component {
   }
 
   submit(userInfo) {
-    if(this.state.isVerifyCaptcha && userInfo.isAgree){
+    if(this.state.isVerifyCaptcha && userInfo.is_agree){
       this.props.register(userInfo);
     } else {
       let message = "";
 
-      if(!userInfo.isAgree){
+      if(!userInfo.is_agree){
         message = "You must agree before signing up.";
       }else{
         if(!this.state.isVerifyCaptcha)

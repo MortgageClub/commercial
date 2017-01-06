@@ -68,7 +68,7 @@ module Registrations
         loan = Loan.new
         loan.property = Property.new(
           full_address: loan_params["address"]
-        ),
+        )
         loan.closing = Closing.new
         loan.guarantor = Guarantor.new
         loan.amount = params["loan_amount"].gsub(/[$,]/,'').to_f
