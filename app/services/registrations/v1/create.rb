@@ -71,9 +71,9 @@ module Registrations
         )
         loan.closing = Closing.new
         loan.guarantor = Guarantor.new
-        loan.amount = params["loan_amount"].gsub(/[$,]/,'').to_f
-        loan.purpose = params["purpose"]
-        loan.note = params["detail"]
+        loan.amount = loan_params["loan_amount"].gsub(/[$,]/,'').to_f
+        loan.purpose = loan_params["purpose"]
+        loan.note = loan_params["detail"]
         loan.status = :new_loan
         loan.assigned_loan_members = [assigned_loan_member] if assigned_loan_member.present?
         loan.borrower = borrower
