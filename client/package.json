@@ -39,6 +39,7 @@
     "react-dom": "^0.14.8 || ^15.0.0",
     "react-dropzone": "^3.7.3",
     "react-geosuggest": "^2.0.0",
+    "react-helmet": "^3.3.0",
     "react-intl": "^1.2.2",
     "react-joyride": "^1.6.0",
     "react-on-rails": "6.1.2",
