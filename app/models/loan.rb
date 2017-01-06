@@ -6,8 +6,8 @@ class Loan < ApplicationRecord
   has_one :closing, dependent: :destroy
   has_many :checklists, dependent: :destroy
   has_many :documents, as: :documentable, dependent: :destroy
-  has_many :assigned_loan_members
-  has_many :quotes
+  has_many :assigned_loan_members, dependent: :destroy
+  has_many :quotes, dependent: :destroy
 
   accepts_nested_attributes_for :property
 

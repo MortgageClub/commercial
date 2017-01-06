@@ -23,6 +23,11 @@ export function isAuthenticated() {
   return localStorage.getItem('auth') != null;
 }
 
+export function updateAuth(newAuth) {
+  localStorage.setItem('auth', JSON.stringify(newAuth));
+  return true;
+}
+
 export function authFromResponse(response) {
   const headers = response.headers;
   return JSON.stringify({

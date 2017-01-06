@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getAll } from '../../../actions/LoanAction';
 import { Link, browserHistory } from 'react-router';
-import { isAuthenticated } from '../../../utils/AuthUtils';
+import { isAuthenticated, authFromLocal, updateAuth } from '../../../utils/AuthUtils';
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -10,6 +10,14 @@ class Dashboard extends Component {
       this.props.getAll();
     }else{
       browserHistory.push('');
+    }
+  }
+
+  componentWillReceiveProps(newProps) {
+    if(!this.props.loans || newProps.loans.length != this.props.loans.length){
+      let currentAuth = authFromLocal();
+      currentAuth.user.size_of_loans = newProps.loans.length;
+      updateAuth(currentAuth);
     }
   }
 

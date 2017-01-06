@@ -98,6 +98,7 @@ class PublicHeader extends Component {
           <a>{this.props.userInfo && (this.props.userInfo.first_name + " " + this.props.userInfo.last_name)} <i className="fa fa-angle-down"></i></a>
           <ul className="drop-menu menu-right">
             <li><Link to="/dashboard">Dashboard</Link></li>
+            <li><Link to="/referral">Referral</Link></li>
             <li><a onClick={this.props.logout}>Logout</a></li>
           </ul>
         </li>

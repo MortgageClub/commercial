@@ -24,9 +24,15 @@ class BorrowerHeader extends Component {
                         <li>
                           <Link to="/">Home</Link>
                         </li>
-                        <li>
-                          <Link to="/dashboard">Loans</Link>
-                        </li>
+                        {
+                          this.props.userInfo && this.props.userInfo.size_of_loans && this.props.userInfo.size_of_loans > 0 
+                          ? 
+                            <li>
+                              <Link to="/dashboard">Dashboard</Link>
+                            </li>
+                          :
+                            null
+                        }
                         <li>
                           <Link to="/referral">Referral</Link>
                         </li>
