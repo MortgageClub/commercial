@@ -1,0 +1,5 @@
+<p>Hi <%= @user.full_name %>,</p>
+
+<p><%= @borrower.full_name %> just upload document file: <b><%= @checklist.try(:document).try(:original_filename) %></b> for checklist: <b><%= @checklist.name %></b></p>
+
+Please review it. 

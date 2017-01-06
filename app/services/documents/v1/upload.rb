@@ -37,6 +37,7 @@ module Documents
         checklist.status = :done
 
         checklist.save!
+        ChecklistNotifyMailer.notify_when_upload_document(checklist, loan).deliver_later
         Loans::DetailSerializer.new(checklist.loan)
       end
     end
