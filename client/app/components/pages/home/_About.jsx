@@ -20,7 +20,7 @@ class About extends Component {
               </div>
               <div className="col-sm-6 col-xs-12">
                 <div className="about-image">
-                  <a href="about.html"><img src="/images/about/1.jpg" alt=""/></a>
+                  <a><img src="/images/some_words_about_blackline.png"/></a>
                 </div>
               </div>
             </div>

@@ -21,7 +21,7 @@ class BookHomeHouse extends Component {
                     <h2 className="h5">CALL US ON : (800) 929-0168</h2>
                   </div>
                   <div className="booking-imgae">
-                    <img src="/images/others/booking.png" alt=""/>
+                    <img src="/images/call_us.png" alt=""/>
                   </div>
                 </div>
               </div>

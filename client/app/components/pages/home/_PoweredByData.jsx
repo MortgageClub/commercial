@@ -38,7 +38,7 @@ class PoweredByData extends Component {
                   </div>
                 </div>
                 <div className="booking-imgae">
-                  <img src="images/others/booking.png" alt="" />
+                  <img src="/images/powered_by_data.png" />
                 </div>
               </div>
             </div>

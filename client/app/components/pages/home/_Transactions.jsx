@@ -21,10 +21,10 @@ class Transactions extends Component {
                 <div className="col-md-12">
                   <div className="service-item">
                     <div className="service-item-image">
-                      <a href="single-blog.html" tabIndex="0"><img src="/images/blog/1.jpg" alt=""/></a>
+                      <a><img src="/images/recent_transaction_1.jpg" /></a>
                     </div>
                     <div className="service-item-info">
-                      <h5><a href="service-details.html">IHOP</a></h5>
+                      <h5><a>IHOP</a></h5>
                       <table>
                         <tbody>
                           <tr>
@@ -56,10 +56,10 @@ class Transactions extends Component {
                 <div className="col-md-12">
                   <div className="service-item">
                     <div className="service-item-image">
-                      <a href="single-blog.html" tabIndex="0"><img src="/images/blog/1.jpg" alt=""/></a>
+                      <a><img src="/images/recent_transaction_2.jpg" /></a>
                     </div>
                     <div className="service-item-info">
-                      <h5><a href="service-details.html">FLOWER FOODS</a></h5>
+                      <h5><a>FLOWER FOODS</a></h5>
                       <table>
                         <tbody>
                           <tr>
@@ -91,10 +91,10 @@ class Transactions extends Component {
                 <div className="col-md-12">
                   <div className="service-item">
                     <div className="service-item-image">
-                      <a href="single-blog.html" tabIndex="0"><img src="/images/blog/1.jpg" alt=""/></a>
+                      <a><img src="/images/recent_transaction_3.jpg" /></a>
                     </div>
                     <div className="service-item-info">
-                      <h5><a href="service-details.html">CVS</a></h5>
+                      <h5><a>CVS</a></h5>
                       <table>
                         <tbody>
                           <tr>
