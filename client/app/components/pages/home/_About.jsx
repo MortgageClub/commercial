@@ -10,7 +10,7 @@ class About extends Component {
             <div className="row">
               <div className="col-sm-6 col-xs-12">
                 <div className="section-title mb-30">
-                  <h3>SOME WORD </h3>
+                  <h3>SOME WORDS </h3>
                   <h2>ABOUT BLACKLINE LENDING</h2>
                 </div>
                 <div className="about-sheltek-info">

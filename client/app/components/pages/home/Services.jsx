@@ -33,7 +33,7 @@ class Services extends Component {
                     <div className="col-lg-4 col-md-6 col-sm-4">
                       <div className="features-include-list">
                         <h6><img src="images/icons/7.png" alt="" />TECHNOLOGY & PEOPLE</h6>
-                        <p>Our technology and licensed loan officers work around the clock to make sure your loan goes smoothly.</p>
+                        <p>Our technology and licensed Loan Advisors work around the clock to make sure your loan goes smoothly.</p>
                       </div>
                     </div>
                   </div>
@@ -43,7 +43,7 @@ class Services extends Component {
           </div>
         </div>
         <div>
-          <img src="https://www.blackstone.com/images/default-source/default-album/skyline-sketch-dark.png?sfvrsn=2" />
+          <img src="/images/services.png" width="100%"/>
         </div>
         <div className="properties-video-area pb-115 pt-60">
           <div className="container">
@@ -73,7 +73,7 @@ class Services extends Component {
             </div>
           </div>
         </div>
-        <div className="booking-area bg-1 call-to-bg plr-140 pt-75">
+        <div className="licensed loan officers bg-1 call-to-bg plr-140 pt-75">
           <div className="container-fluid">
             <div className="row">
               <div className="col-md-3 col-sm-4 col-xs-12">
