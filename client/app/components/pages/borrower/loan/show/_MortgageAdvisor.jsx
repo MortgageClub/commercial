@@ -6,8 +6,8 @@ class MortgageAdvisor extends Component {
   componentDidMount() {
     if (!this.props.steps){
       this.props.addStep({
-        title: 'Relationship Manager',
-        text: 'Relationship Manager',
+        title: 'Loan Advisor',
+        text: 'Loan Advisor',
         selector: '.relationship-manager',
         position: 'left',
         type: 'hover',
@@ -24,11 +24,11 @@ class MortgageAdvisor extends Component {
   render() {
     const loan = this.props.loan;
     const loanMembers = loan ? loan.loan_members : [];
-    const mortgageAdvisor = loanMembers.find(loanMember => loanMember.title = "Relationship Manager");
+    const mortgageAdvisor = loanMembers.find(loanMember => loanMember.title = "Loan Advisor");
 
     return (
       <div className="relationship-manager">
-        <h4>Your Relationship Manager</h4>
+        <h4>Your Loan Advisor</h4>
         {
           mortgageAdvisor
           ?

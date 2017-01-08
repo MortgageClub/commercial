@@ -57,6 +57,7 @@ class Index extends Component {
   render() {
     return (
       <div className="container pt-90 pb-30 loan-dashboard" style={{"minHeight": "400px"}}>
+        <h3 className="dashboard-title">BORROWER DASHBOARD</h3>
         {
           this.props.loan && this.props.loan.is_showed_guide !== true
           ?
@@ -73,7 +74,7 @@ class Index extends Component {
             null
         }
         <PropertyInfo loan={this.props.loan}/>
-        <div className="row pt-50">
+        <div className="row pt-30">
           <div className="col-md-9">
             <TabsContent />
           </div>

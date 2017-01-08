@@ -57,7 +57,7 @@ module Registrations
         loan_params = JSON.load cookies["loan_data"]
         address_params = loan_params["address"]
 
-        relationship_manager_title = LoanMemberTitle.find_by_title("Relationship Manager")
+        relationship_manager_title = LoanMemberTitle.find_by_title("Loan Advisor")
         loan_member = User.find_by_email("dane.chodos@blacklinelending.com").try(:subjectable)
         assigned_loan_member = nil
 

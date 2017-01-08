@@ -139,7 +139,6 @@ class TabsContent extends Component {
   render() {
     return (
       <div>
-        <h4 className="dashboard-title">BORROWER DASHBOARD</h4>
         <ul className="nav nav-tabs" role="tablist">
           <li role="presentation" className="active overviewTab">
             <a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Overview</a>

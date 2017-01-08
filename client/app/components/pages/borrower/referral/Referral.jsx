@@ -19,7 +19,7 @@ class Referral extends Component {
     return (
       <div>
         <section id="page-content" className="page-wrapper">
-          <div className="pt-115 pb-70">
+          <div className="pt-90 pb-70">
             <div className="container">
               <ReferralProgramHeader/>
               <div className="text-center">
