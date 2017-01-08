@@ -2,14 +2,41 @@
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
+        <%= f.label :user_id, "Referrer" %>
+        <%= f.select :user_id, @users.collect { |p| [ p.full_name, p.id ] }, { prompt: 'Select referrer' }, { class: 'form-control' } %>
+        <%= form_error(@referral, :user) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
         <%= f.label :name %>
-        <%= f.text_field :name, class: "form-control", readonly: true %>
+        <%= f.text_field :name, class: "form-control" %>
+        <%= form_error(@referral, :name) %>
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group">
         <%= f.label :email %>
-        <%= f.text_field :email, class: "form-control", readonly: true %>
+        <%= f.text_field :email, class: "form-control" %>
+        <%= form_error(@referral, :email) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :phone %>
+        <%= f.text_field :phone, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :joined_at %>
+        <%= f.text_field :joined_at, class: "form-control", placeholder: "yyyy-mm-dd" %>
       </div>
     </div>
   </div>
