@@ -53,7 +53,7 @@ module Blogs
         comments_array << {
           name: comment.name,
           content: comment.content,
-          created_at: time_ago_in_words(comment.created_at),
+          created_at: time_ago_in_words(comment.created_at) + " ago",
           id: comment.id
         }
       end
