@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 class HowItWorks extends Component {
+  componentDidMount() {
+    sr.reveal('.how-it-works-title');
+  }
+
   render() {
     return (
       <div>
@@ -9,7 +13,7 @@ class HowItWorks extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-12">
-                <div className="section-title-2 text-center">
+                <div className="section-title-2 text-center how-it-works-title">
                   <h2>HOW IT WORKS</h2>
                   <p>Our clients benefit from access to a diverse array of loan products and terms, transparent application and underwriting processes, quick funding timelines, and a first class client experience.</p>
                 </div>

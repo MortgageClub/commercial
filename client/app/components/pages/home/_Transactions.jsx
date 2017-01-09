@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 class Transactions extends Component {
+  componentDidMount() {
+    sr.reveal('.transaction-section-title');
+  }
+
   render() {
     return (
       <div>
@@ -9,7 +13,7 @@ class Transactions extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-12">
-                <div className="section-title-2 text-center">
+                <div className="section-title-2 text-center transaction-section-title">
                   <h2>RECENT TRANSACTIONS</h2>
                   <p>Each transaction is unique and our clients’ needs dictate how we utilize our market expertise, resulting in an optimal financing structure for your real estate investment.</p>
                 </div>

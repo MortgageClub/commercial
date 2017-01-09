@@ -6,20 +6,7 @@ import { Link } from 'react-router';
 class Blog extends Component {
   componentDidMount() {
     this.props.getAll(3);
-
-    // $('.blog-carousel').slick({
-    //   arrows: false,
-    //   dots: false,
-    //   infinite: false,
-    //   speed: 300,
-    //   slidesToShow: 3,
-    //   slidesToScroll: 2,
-    //   responsive: [
-    //     { breakpoint: 991, settings: { slidesToShow: 2, slidesToScroll: 1 } }, // Tablet
-    //     { breakpoint: 767, settings: { slidesToShow: 1, slidesToScroll: 1 } }, // Large Mobile
-    //     { breakpoint: 479, settings: { slidesToShow: 1, slidesToScroll: 1 } }  // Small Mobile
-    //   ]
-    // });
+    sr.reveal('.blog-section-title');
   }
 
   render() {
@@ -30,7 +17,7 @@ class Blog extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-12">
-                <div className="section-title-2 text-center">
+                <div className="section-title-2 text-center blog-section-title">
                   <h2>FROM OUR BLOG</h2>
                   <p>Commercial real estate news, financing tips, industry insights, market trends, and more.</p>
                 </div>

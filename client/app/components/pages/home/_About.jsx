@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 class About extends Component {
+  componentDidMount() {
+    sr.reveal('.about-sheltek-area');
+  }
+
   render() {
     return (
       <div>

@@ -13,6 +13,10 @@ class Index extends Component {
     });
   }
 
+  componentWillMount() {
+    window.sr = ScrollReveal();
+  }
+
   render() {
     return (
       <div className="wrapper">

@@ -85,12 +85,4 @@ $(document).ready(function(){
   //         { breakpoint: 479, settings: { slidesToShow: 2, slidesToScroll: 2 } }  // Small Mobile
   //     ]
   // });
-
-  /*************************
-      13. counter
-  *************************/
-  // $('.counter').counterUp({
-  //   delay: 10,
-  //   time: 1000
-  // });
 })
