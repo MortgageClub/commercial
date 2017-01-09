@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from './shared/header/Index';
 import Footer from './shared/Footer';
 import MobileMenu from './shared/MobileMenu';
-import { connect } from 'react-redux';
 
 class Index extends Component {
   componentDidMount() {
