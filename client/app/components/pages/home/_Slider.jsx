@@ -39,7 +39,10 @@ class Slider extends Component {
                   <div className="row">
                     <div className="col-sm-12 col-xs-12">
                       <div className="find-home-item">
-                        <Geosuggest placeholder="Property Address" country="us" onSuggestSelect={this.onSuggestSelect.bind(this)}/>
+                        <Geosuggest 
+                          placeholder="Property Address" 
+                          country="us" 
+                          onSuggestSelect={this.onSuggestSelect.bind(this)}/>
                       </div>
                     </div>
                     <div className="col-sm-6 col-xs-12">
@@ -99,8 +102,15 @@ class Slider extends Component {
   }
 
   onSuggestSelect(suggest) {
-    let address = {};
-    this.setState({ address: suggest.label });
+    let address = "";
+
+    if(suggest.gmaps && suggest.gmaps.formatted_address){
+      address = suggest.gmaps.formatted_address;
+    }else{
+      address = suggest.label;
+    }
+    $(".geosuggest__input").val(address);
+    this.setState({ address: address });
   }
 
   submit(fillInfo) {
