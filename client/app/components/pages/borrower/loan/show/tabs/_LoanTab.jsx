@@ -20,7 +20,16 @@ class LoanTab extends Component {
             {
               loan
               ?
-                loan.documents.map(document => this.renderDocument(document))
+                loan.is_showed_guide != true
+                ?
+                  <tr>
+                    <td>Commercial term note.pdf</td>
+                    <td>Commercial Term Note - Loan Note</td>
+                    <td>01/09/2017</td>
+                    <td><a href="" target="_blank"><span className="fa fa-download"></span></a></td>
+                  </tr>
+                :
+                  loan.documents.map(document => this.renderDocument(document))
               :
                 null
             }

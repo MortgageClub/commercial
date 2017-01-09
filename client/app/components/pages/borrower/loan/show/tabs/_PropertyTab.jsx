@@ -20,7 +20,16 @@ class PropertyTab extends Component {
             {
               loan && loan.property
               ?
-                loan.property.documents.map(document => this.renderDocument(document))
+                loan.is_showed_guide != true
+                ?
+                  <tr>
+                    <td>Appraisal report.pdf</td>
+                    <td>Appraisal - Appraisal report</td>
+                    <td>01/09/2017</td>
+                    <td><a href="" target="_blank"><span className="fa fa-download"></span></a></td>
+                  </tr>
+                :
+                  loan.property.documents.map(document => this.renderDocument(document))
               :
                 null
             }

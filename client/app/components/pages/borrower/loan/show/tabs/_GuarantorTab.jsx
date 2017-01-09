@@ -20,7 +20,16 @@ class GuarantorTab extends Component {
             {
               loan && loan.guarantor
               ?
-                loan.guarantor.documents.map(document => this.renderDocument(document))
+                loan.is_showed_guide != true
+                ?
+                  <tr>
+                    <td>Personal tax return.pdf</td>
+                    <td>Tax Return - Personal tax return for 2015</td>
+                    <td>01/09/2017</td>
+                    <td><a href="" target="_blank"><span className="fa fa-download"></span></a></td>
+                  </tr>
+                :
+                  loan.guarantor.documents.map(document => this.renderDocument(document))
               :
                 null
             }

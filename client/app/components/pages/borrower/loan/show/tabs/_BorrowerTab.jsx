@@ -20,7 +20,16 @@ class BorrowerTab extends Component {
             {
               loan && loan.borrower
               ?
-                loan.borrower.documents.map(document => this.renderDocument(document))
+                loan.is_showed_guide != true
+                ?
+                  <tr>
+                    <td>Article of incorporation.pdf</td>
+                    <td>Formation Doc - Article of incorporation</td>
+                    <td>01/09/2017</td>
+                    <td><a href="" target="_blank"><span className="fa fa-download"></span></a></td>
+                  </tr>
+                :
+                  loan.borrower.documents.map(document => this.renderDocument(document))
               :
                 null
             }

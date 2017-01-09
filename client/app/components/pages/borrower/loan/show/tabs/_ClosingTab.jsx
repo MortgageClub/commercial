@@ -20,7 +20,16 @@ class ClosingTab extends Component {
             {
               loan && loan.closing
               ?
-                loan.closing.documents.map(document => this.renderDocument(document))
+                loan.is_showed_guide != true
+                ?
+                  <tr>
+                    <td>Closing items.pdf</td>
+                    <td>Escrow Instruction Letter - Closing items</td>
+                    <td>01/09/2017</td>
+                    <td><a href="" target="_blank"><span className="fa fa-download"></span></a></td>
+                  </tr>
+                :
+                  loan.closing.documents.map(document => this.renderDocument(document))
               :
                 null
             }
