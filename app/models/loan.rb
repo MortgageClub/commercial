@@ -18,14 +18,13 @@ class Loan < ApplicationRecord
   }
 
   enum status: {
-    new_loan: "new_loan",
-    submitted: "submitted",
+    due_diligence: "due_diligence",
+    getting_quotes: "getting_quotes",
     processing: "processing",
-    approved_with_conditions: "approved_with_conditions",
-    approved: "approved",
-    closed: "closed",
     underwriting: "underwriting",
-    suspended: "suspended"
+    closing: "closing",
+    funding: "funding",
+    closed: "closed"
   }
 
   def property_address
