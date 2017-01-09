@@ -21,7 +21,7 @@ module Loans
         loan.amount = params[:loan][:loan_amount].gsub(/[$,]/,'').to_f
         loan.purpose = params[:loan][:purpose]
         loan.note = params[:loan][:detail]
-        loan.status = :new_loan
+        loan.status = :due_diligence
         loan.assigned_loan_members = [assigned_loan_member] if assigned_loan_member.present?
         loan.borrower = @user.subjectable
 

@@ -74,7 +74,7 @@ module Registrations
         loan.amount = loan_params["loan_amount"].gsub(/[$,]/,'').to_f
         loan.purpose = loan_params["purpose"]
         loan.note = loan_params["detail"]
-        loan.status = :new_loan
+        loan.status = :due_diligence
         loan.assigned_loan_members = [assigned_loan_member] if assigned_loan_member.present?
         loan.borrower = borrower
 
