@@ -57,7 +57,7 @@ class Index extends Component {
   render() {
     return (
       <div className="container pt-90 pb-30 loan-dashboard" style={{"minHeight": "400px"}}>
-        <h3 className="dashboard-title">BORROWER DASHBOARD</h3>
+        <h4 className="dashboard-title">BORROWER DASHBOARD</h4>
         {
           this.props.loan && this.props.loan.is_showed_guide !== true
           ?
@@ -74,7 +74,37 @@ class Index extends Component {
             null
         }
         <PropertyInfo loan={this.props.loan}/>
-        <div className="row pt-30">
+        {
+          this.props.loan
+          ?
+            <div className="pt-20">
+              <ol className="cd-breadcrumb triangle">
+                <li className={this.props.loan.status == "Due Diligence" ? "current" : null}>
+                  <span>Due Diligence</span>
+                </li>
+                <li className={this.props.loan.status == "Getting Quotes" ? "current" : null}>
+                  <span>Getting Quotes</span>
+                </li>
+                <li className={this.props.loan.status == "Processing" ? "current" : null}>
+                  <span>Processing</span>
+                </li>
+                <li className={this.props.loan.status == "Underwriting" ? "current" : null}>
+                  <span>Underwriting</span>
+                </li>
+                <li className={this.props.loan.status == "Closing" ? "current" : null}>
+                  <span>Closing</span>
+                </li>
+                <li className={this.props.loan.status == "Funding" ? "current" : null}>
+                  <span>Funding</span>
+                </li>
+                <li className={this.props.loan.status == "Closed" ? "current" : null}>
+                  <span>Closed</span>
+                </li>
+              </ol>
+            </div>
+          : null
+        }
+        <div className="row pt-10">
           <div className="col-md-9">
             <TabsContent />
           </div>
