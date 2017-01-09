@@ -26,5 +26,5 @@ class Index extends Component {
   }
 }
 
-export default connect(null, { fetch })(Index)
+export default Index
 
