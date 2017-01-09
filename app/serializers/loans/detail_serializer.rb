@@ -119,5 +119,9 @@ module Loans
 
       loan_members_array
     end
+
+    def checklists
+      object.checklists.order(status: :desc, due_date: :asc)
+    end
   end
 end

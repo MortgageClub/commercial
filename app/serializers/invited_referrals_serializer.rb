@@ -8,4 +8,8 @@ class InvitedReferralsSerializer < BaseSerializer
   def origination_fees
     object.origination_fees ? ActiveSupport::NumberHelper.number_to_currency(object.origination_fees.to_f, precision: 0) : nil
   end
+
+  def joined_at
+    object.joined_at ? object.joined_at.strftime("%m/%d/%Y") : ""
+  end
 end

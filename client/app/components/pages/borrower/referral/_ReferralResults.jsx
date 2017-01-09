@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { getAll } from '../../../../actions/InviteByEmailAction';
 import { isAuthenticated } from '../../../../utils/AuthUtils';
-import { formatDate } from '../../../../utils/FormatUtils';
 
 class ReferralResults extends Component {
   componentDidMount() {
@@ -52,7 +51,7 @@ class ReferralResults extends Component {
       <tr key={referral.id}>
         <td>{referral.email}</td>
         <td>{referral.name}</td>
-        <td>{formatDate(referral.joined_at)}</td>
+        <td>{referral.joined_at}</td>
         <td>{referral.origination_fees}</td>
         <td>{referral.bonus}</td>
       </tr>

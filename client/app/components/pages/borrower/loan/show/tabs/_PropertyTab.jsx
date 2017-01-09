@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { formatDate } from '../../../../../../utils/FormatUtils';
 
 class PropertyTab extends Component {
   render() {
@@ -36,7 +35,7 @@ class PropertyTab extends Component {
       <tr key={document.id}>
         <td>{document.original_filename}</td>
         <td>{document.description}</td>
-        <td>{formatDate(document.updated_at)}</td>
+        <td>{document.updated_at}</td>
         <td><a href={document.attachment_url} target="_blank"><span className="fa fa-download"></span></a></td>
       </tr>
     )

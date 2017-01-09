@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { formatDate } from '../../../../../../utils/FormatUtils';
 import { mark_done } from '../../../../../../actions/ChecklistAction';
 import ChecklistUpload from '../_ChecklistUpload';
 
@@ -74,7 +73,7 @@ class OverviewTab extends Component {
             <span className="fa fa-info-circle"></span>
           </button>
         </td>
-        <td>{formatDate(checklist.due_date)}</td>
+        <td>{checklist.due_date}</td>
         <td>
           {
             checklist.checklist_type == "upload"
