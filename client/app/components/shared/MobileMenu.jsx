@@ -4,21 +4,36 @@ import { logout } from '../../actions/AuthAction';
 import { connect } from 'react-redux';
 
 class MobileMenu extends Component {
+  componentDidMount() {
+    $('nav#dropdown').meanmenu();
+
+    if($("#logout-btn").length > 0){
+      document.getElementById('logout-btn').addEventListener('click', function(){
+        this.props.logout();
+      }.bind(this));
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if(prevProps.authenticated !== this.props.authenticated){
+      $('.mean-bar').remove();
+      $('nav#dropdown').meanmenu();
+    }
+  }
+
   render() {
     return (
       <div>
         {/* MOBILE MENU AREA START */}
         <div className="mobile-menu-area hidden-sm hidden-md hidden-lg">
-          <div className="container">
-            <div className="row">
-              <div className="col-xs-12">
-                <div className="mobile-menu">
-                  <nav id="dropdown">
-                    {
-                      this.props.authenticated ? this.loggedInLinks() : this.loggedOutLinks()
-                    }
-                  </nav>
-                </div>
+          <div className="row">
+            <div className="col-xs-12">
+              <div className="mobile-menu">
+                <nav id="dropdown">
+                  {
+                    this.props.authenticated ? this.loggedInLinks() : this.loggedOutLinks()
+                  }
+                </nav>
               </div>
             </div>
           </div>
@@ -27,6 +42,7 @@ class MobileMenu extends Component {
       </div>
     )
   }
+
   loggedInLinks() {
     return (
       <ul>
@@ -53,7 +69,7 @@ class MobileMenu extends Component {
                 null
             }
             <li><Link to="/referral">Referral</Link></li>
-            <li><a onClick={this.props.logout}>Logout</a></li>
+            <li id="logout-btn"><a>Logout</a></li>
           </ul>
         </li>
       </ul>
