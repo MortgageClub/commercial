@@ -6,6 +6,7 @@ import { formatCurrency } from '../../../utils/FormatUtils';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { PURPOSES } from '../../../utils/ValueUtils';
+import { track } from '../../../utils/MixPanelUtils';
 import Geosuggest from '../../../../node_modules/react-geosuggest';
 import cookie from 'react-cookie';
 
@@ -114,6 +115,8 @@ class Slider extends Component {
   }
 
   submit(fillInfo) {
+    track("Submit Loan");
+
     if(isAuthenticated()){
       this.props.create({ ...fillInfo, address: this.state.address });
     } else {

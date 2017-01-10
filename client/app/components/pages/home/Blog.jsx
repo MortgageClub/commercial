@@ -4,10 +4,12 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import BlogSidebar from './_BlogSiderbar';
 import Helmet from 'react-helmet';
+import { track } from '../../../utils/MixPanelUtils';
 
 class Blog extends Component {
   componentDidMount() {
     this.props.getAll(8);
+    track("View Blog Page");
   }
   render() {
     return (

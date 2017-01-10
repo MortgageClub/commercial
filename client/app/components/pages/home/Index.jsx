@@ -8,12 +8,11 @@ import BookHomeHouse from './_BookHomeHouse';
 import Blog from './_Blog';
 import Transactions from './_Transactions';
 import PoweredByData from './_PoweredByData';
+import { track } from '../../../utils/MixPanelUtils';
 
 class Index extends Component {
   componentDidMount() {
-    /*************************
-      7. Service Carousel
-    *************************/
+    track("View Landing Page");
     $('.service-carousel').slick({
       arrows: false,
       dots: false,
@@ -27,9 +26,6 @@ class Index extends Component {
         { breakpoint: 479, settings: { slidesToShow: 1, slidesToScroll: 1 } }  // Small Mobile
       ]
     });
-    /*************************
-      7. Transaction Carousel
-    *************************/
     $('.transaction-carousel').slick({
       arrows: false,
       dots: false,
@@ -44,9 +40,6 @@ class Index extends Component {
       ]
     });
 
-    /*************************
-        9. Testimonial Carousel
-    *************************/
     $('.testimonial-carousel').slick({
       arrows: false,
       dots: true,
@@ -56,14 +49,6 @@ class Index extends Component {
       slidesToScroll: 1
     });
 
-    /*************************
-        10. Blog Carousel
-    *************************/
-
-
-    /*************************
-        11. Brand Carousel
-    *************************/
     $('.brand-carousel').slick({
       arrows: false,
       dots: false,

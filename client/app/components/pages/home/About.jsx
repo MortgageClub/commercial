@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import { track } from '../../../utils/MixPanelUtils';
 
 class About extends Component {
+  componentDidMount() {
+    track("View About Page");
+  }
+
   render() {
     return (
       <div className="about-page">

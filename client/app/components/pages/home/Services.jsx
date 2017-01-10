@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import { track } from '../../../utils/MixPanelUtils';
 
 class Services extends Component {
+  componentDidMount() {
+    track("View Services Page");
+  }
+
   render() {
     return (
       <div>
@@ -108,7 +113,7 @@ class Services extends Component {
                     </div>
                   </div>
                   <div className="booking-imgae">
-                    <img src="images/others/booking.png" alt="" />
+                    <img src="images/powered_by_data.png" />
                   </div>
                 </div>
               </div>
