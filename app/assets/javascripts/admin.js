@@ -8,7 +8,6 @@
 //= require admin/plugins/ui/fab.min
 
 //= require admin/plugins/ui/moment/moment.min
-//= require admin/plugins/pickers/daterangepicker
 //= require admin/plugins/forms/uniform.min
 
 $.fn.filterGroups = function(options) {
