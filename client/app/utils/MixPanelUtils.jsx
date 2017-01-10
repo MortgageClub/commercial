@@ -1,5 +1,5 @@
 export function track(content) {
-  if(typeof mixpanel !== undefined) {
+  if(typeof mixpanel !== "undefined") {
     mixpanel.track(content);
   }
 }
