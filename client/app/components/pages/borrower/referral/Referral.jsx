@@ -23,7 +23,7 @@ class Referral extends Component {
             <div className="container">
               <ReferralProgramHeader/>
               <div className="text-center">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/Llw9Q6akRo4" frameBorder="0" allowFullScreen></iframe>
+                <iframe className="iframe-youtube" src="https://www.youtube.com/embed/Llw9Q6akRo4" frameBorder="0" allowFullScreen></iframe>
               </div>
               <ReferralLink/>
               <InviteByEmail/>

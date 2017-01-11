@@ -18,28 +18,26 @@ class ReferralResults extends Component {
       <div className="referral-results-section mt-70">
         <div className="row">
           <div className="col-md-12 col-xs-12">
-            <div className="">
-              <h3>Your Referrals</h3>
-              <table className="table">
-                <thead>
-                  <tr>
-                    <th>Email</th>
-                    <th>Name</th>
-                    <th>Joined</th>
-                    <th>Our Origination Fees</th>
-                    <th>Your Referral Bonus</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {
-                    this.props.newInvitedReferrals && this.props.newInvitedReferrals.map(referral => this.renderInvitedReferral(referral))
-                  }
-                  {
-                    this.props.invitedReferrals && this.props.invitedReferrals.map(referral => this.renderInvitedReferral(referral))
-                  }
-                </tbody>
-              </table>
-            </div>
+            <h3>Your Referrals</h3>
+            <table className="table table-responsive">
+              <thead>
+                <tr>
+                  <th>Email</th>
+                  <th>Name</th>
+                  <th>Joined</th>
+                  <th>Our Origination Fees</th>
+                  <th>Your Referral Bonus</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  this.props.newInvitedReferrals && this.props.newInvitedReferrals.map(referral => this.renderInvitedReferral(referral))
+                }
+                {
+                  this.props.invitedReferrals && this.props.invitedReferrals.map(referral => this.renderInvitedReferral(referral))
+                }
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
