@@ -35,7 +35,7 @@ class About extends Component {
             “Ninety percent of all millionaires become so through owning real estate. More money has been made in real estate than in all industrial investments combined. The wise young man or wage earner of today invests his money in real estate.” -- Andrew Carnegie
           </h3>
         </div>
-        <div className="our-team mt-30">
+        <div className="our-team mt-60">
           <div className="about-sheltek-area ptb-90">
             <div className="container text-center">
               <div className="col-md-8 col-md-offset-2">
