@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class PoweredByData extends Component {
   render() {
     return (
-      <div className="booking-area bg-1 call-to-bg plr-140 pt-75">
+      <div className="booking-area bg-blue call-to-bg plr-140 pt-75">
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-3 col-sm-4 col-xs-12">

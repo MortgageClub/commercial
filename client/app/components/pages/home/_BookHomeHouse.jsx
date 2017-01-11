@@ -5,7 +5,7 @@ class BookHomeHouse extends Component {
     return (
       <div>
         {/* BOOKING AREA START */}
-        <div className="booking-area bg-1 call-to-bg plr-140 pt-75 pbt-115">
+        <div className="booking-area bg-blue call-to-bg plr-140 pt-75 pbt-115">
           <div className="container-fluid">
             <div className="row">
               <div className="col-md-3 col-sm-4 col-xs-12">

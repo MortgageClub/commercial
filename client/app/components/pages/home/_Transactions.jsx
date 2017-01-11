@@ -60,7 +60,7 @@ class Transactions extends Component {
                 <div className="col-md-12">
                   <div className="service-item">
                     <div className="service-item-image">
-                      <a><img src="/images/recent_transaction_2.jpg" /></a>
+                      <a><img src="/images/recent_transaction_2.png" /></a>
                     </div>
                     <div className="service-item-info">
                       <h5><a>FLOWER FOODS</a></h5>
