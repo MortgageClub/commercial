@@ -16,7 +16,7 @@ class Index extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if(this.joyride){
-      this.joyride.start();
+      this.joyride.start(true);
     }
   }
 
@@ -69,7 +69,6 @@ class Index extends Component {
                 showStepsProgress={true}
                 showSkipButton={true}
                 scrollToSteps={false}
-                autoStart={true}
                 callback={this.callback.bind(this)} />
           :
             null

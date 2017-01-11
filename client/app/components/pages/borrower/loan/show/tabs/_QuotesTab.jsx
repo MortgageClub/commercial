@@ -5,7 +5,7 @@ import { select } from '../../../../../../actions/QuoteAction';
 class QuotesTab extends Component {
   render() {
     return (
-      <div className="quotes-list">
+      <div className="quotes-list table-responsive">
         <table width="100%">
           <tbody>
             <tr>

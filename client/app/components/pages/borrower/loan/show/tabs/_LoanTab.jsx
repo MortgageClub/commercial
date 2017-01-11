@@ -6,7 +6,7 @@ class LoanTab extends Component {
     const loan = this.props.loan;
 
     return (
-      <div>
+      <div className="table-responsive">
         <table className="table table-hover">
           <thead>
             <tr>

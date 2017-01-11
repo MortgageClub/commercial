@@ -10,7 +10,7 @@ class OverviewTab extends Component {
 
   render() {
     return (
-      <div>
+      <div className="table-responsive">
         {
           this.props.loan && this.props.loan.headline_1
           ?
