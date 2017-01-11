@@ -69,6 +69,7 @@ class Index extends Component {
                 showStepsProgress={true}
                 showSkipButton={true}
                 scrollToSteps={false}
+                autoStart={true}
                 callback={this.callback.bind(this)} />
           :
             null
