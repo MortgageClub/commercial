@@ -1,6 +1,3 @@
-import { FormattedNumber } from 'react-intl';
-import React from 'react';
-
 export function formatCurrency(value) {
   if (!value) {
     return value
