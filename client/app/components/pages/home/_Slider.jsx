@@ -27,7 +27,7 @@ class Slider extends Component {
     return (
       <div>
         {/* SLIDER SECTION START */}
-        <div className="slider-2 bg-3 bg-opacity-black-70">
+        <div className="slider-2 bg-3 bg-opacity-black-20">
           <div className="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
             <div className="find-home-box">
               <div className="section-title text-white">
