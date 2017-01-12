@@ -16,11 +16,13 @@ module Registrations
           borrower = Borrower.new(user: new_user, phone: params[:phone])
           
           begin
-            if borrower.save
+            if new_user.valid? && borrower.save
               if loan_data = cookies["loan_data"]
                 handle_new_loan(borrower)
               end
               UserMailer.welcome(new_user).deliver_later
+              UserMailer.notify(new_user).deliver_later
+
               data_user = new_user.token_validation_response
               data_user["size_of_loans"] = new_user.subjectable.loans.count
 
