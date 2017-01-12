@@ -180,6 +180,10 @@ class Register extends Component {
     }
   }
 
+  removeAlert() {
+    this.props.removeErrors();
+  }
+  
   renderErrors() {
     if (this.props.errorMessages) {
       const errors = this.props.errorMessages.map(error => {
@@ -188,7 +192,14 @@ class Register extends Component {
         )
       })
       return (
-        <ul className="alert alert-danger list-unstyled">{errors}</ul>
+        <div className="alert alert-danger list-unstyled">
+          <button type="button" className="close" onClick={this.removeAlert.bind(this)}>
+            <span aria-hidden="true">×</span>
+          </button>
+          <ul>
+            {errors}
+          </ul>
+        </div>
       )
     }
   }

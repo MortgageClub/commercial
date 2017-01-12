@@ -57,6 +57,10 @@ class ForgotPassword extends Component {
     this.props.resetPassword(info);
   }
 
+  removeAlert() {
+    this.props.removeErrors();
+  }
+  
   renderErrors() {
     if (this.props.errorMessages) {
       const errors = this.props.errorMessages.map(error => {
@@ -65,7 +69,14 @@ class ForgotPassword extends Component {
         )
       })
       return (
-        <ul className="alert alert-danger list-unstyled">{errors}</ul>
+        <div className="alert alert-danger list-unstyled">
+          <button type="button" className="close" onClick={this.removeAlert.bind(this)}>
+            <span aria-hidden="true">×</span>
+          </button>
+          <ul>
+            {errors}
+          </ul>
+        </div>
       )
     }
   }
