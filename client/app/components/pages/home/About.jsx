@@ -20,11 +20,11 @@ class About extends Component {
               </div>
               <div className="col-md-8 col-md-offset-2 about-content">
                 <p>
-                  Every year, millions of people waste billions of dollars and countless hours trying to get a basic home loan. Even worse, many are often left to make decisions without a clear understanding of their options. That’s not right.
+                  We believe that intelligent financing enables commercial real estate investors to build wealth and improve the strength of their investments. Understanding the nuances of financing terms and the trends of capital markets nationwide are key to securing advantageous terms. Evaluating loan options is not limited to comparing rates. Working with Blackline provides you access to a nationwide platform and a dedicated team of commercial real estate financing experts.
                 </p>
                 <br/>
                 <p>
-                  We think people deserve more from their lender. <b>We started Blackline Lending to help thousands of real estate investors obtain financing for their commercial properties in a more efficient, transparent and empowered way</b>. By bringing technology to everything we do, we will not only save borrowers time and money, but also better address their individual needs and questions. Combine that with great design and customer service, and the mortgage process begins to feel very different. It frees our investors from the loan craziness to focus on what they do best - find the next killer deal!
+                  People deserve more from their lender. <b>We started Blackline Lending to help thousands of real estate investors obtain financing for commercial properties in a more efficient, transparent, and empowered way</b>. By bringing technology to everything we do we not only save client's time, but also better address specific needs and risks. Combine that with great design and an unparalleled commitment to client success and the financing process begins to feel very different. The service we provide frees our clients to focus their time on what they do best.
                 </p>
               </div>
             </div>
