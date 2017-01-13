@@ -33,7 +33,7 @@ class Index extends Component {
     else if(data.index == 4){
       $(".borrowerTab a").click();
     }
-    
+
     if(data.type == "finished" && this.props.params.id){
       this.props.updateShowedGuide(this.props.params.id);
     }
@@ -54,7 +54,7 @@ class Index extends Component {
               showStepsProgress={true}
               showSkipButton={true}
               scrollToSteps={false}
-              locale={{back: 'Back', close: 'Close', last: 'Last', next: 'Next', skip: 'Skip Tour'}}
+              locale={{back: 'Back', close: 'Close', last: 'Finish Tour', next: 'Next', skip: 'Skip Tour'}}
               callback={this.callback.bind(this)} />
           :
             null
