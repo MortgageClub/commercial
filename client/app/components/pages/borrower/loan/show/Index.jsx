@@ -33,9 +33,9 @@ class Index extends Component {
     else if(data.index == 4){
       $(".borrowerTab a").click();
     }
-    console.log(data.type, this.props.params.id);
+    console.log(data, this.joyride.getProgress());
     if(data.type == "finished" && this.props.params.id){
-      this.props.updateShowedGuide(this.props.params.id);
+      // this.props.updateShowedGuide(this.props.params.id);
     }
   }
 
