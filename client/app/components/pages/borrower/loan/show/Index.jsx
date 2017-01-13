@@ -15,8 +15,9 @@ class Index extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    console.log(this.props.steps);
     if(this.joyride){
-      this.joyride.start(true);
+      this.joyride.start();
     }
   }
 
@@ -33,7 +34,7 @@ class Index extends Component {
     else if(data.index == 4){
       $(".propertyTab a").click();
     }
-    
+
     if(data.type == "finished" && this.props.params.id){
       this.props.updateShowedGuide(this.props.params.id);
       $(".overviewTab a").click();
