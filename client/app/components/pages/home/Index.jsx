@@ -71,8 +71,8 @@ class Index extends Component {
         <Slider/>
         {/* Start page content */}
         <section id="page-content" className="page-wrapper">
-          <HowItWorks/>
           <About/>
+          <HowItWorks/>
           <BookHomeHouse/>
           <Transactions/>
           <PoweredByData />

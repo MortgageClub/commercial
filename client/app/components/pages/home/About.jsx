@@ -16,15 +16,23 @@ class About extends Component {
           <div className="about-sheltek-area pt-90 pb-50">
             <div className="container">
               <div className="text-center about-header">
-                The commercial mortgage industry is broken. We’re here to fix it.
+                Streamlining commercial mortgages with data and technology
               </div>
               <div className="col-md-8 col-md-offset-2 about-content">
                 <p>
-                  We believe that intelligent financing enables commercial real estate investors to build wealth and improve the strength of their investments. Understanding the nuances of financing terms and the trends of capital markets nationwide are key to securing advantageous terms. Evaluating loan options is not limited to comparing rates. Working with Blackline provides you access to a nationwide platform and a dedicated team of commercial real estate financing experts.
+                  Intelligent financing enables commercial real estate investors to build wealth and strengthen their investments. To secure advantageous loan terms, you need a team that understands the nuances of financial language and trends of capital markets.
                 </p>
-                <br/>
                 <p>
-                  People deserve more from their lender. <b>We started Blackline Lending to help thousands of real estate investors obtain financing for commercial properties in a more efficient, transparent, and empowered way</b>. By bringing technology to everything we do we not only save client's time, but also better address specific needs and risks. Combine that with great design and an unparalleled commitment to client success and the financing process begins to feel very different. The service we provide frees our clients to focus their time on what they do best.
+                  Investors deserve the best speed, rates, and service from their lender. And if you’re “in the black,” you’re profitable. That’s why Blackline Lending aims to be the financing partner of choice for profitable commercial real estate investments.
+                </p>
+                <p>
+                  Working with Blackline, you can access a nationwide platform and dedicated team of commercial real estate financing experts.
+                </p>
+                <p>
+                  The commercial mortgage industry is slow, obscure, and low-tech. Blackline Lending was started to help real estate investors get financing for commercial properties in a more efficient, transparent, and empowered way. 
+                </p>
+                <p>
+                  Bringing technology to automate these processes, Blackline both saves time and addresses your specific needs. With the time traditionally spent on waiting for a loan, you can focus on finding the next big deal.
                 </p>
               </div>
             </div>
@@ -40,7 +48,7 @@ class About extends Component {
             <div className="container text-center">
               <div className="col-md-8 col-md-offset-2">
                 <h1>Our Team</h1>
-                <p>We have assembled a team from top finance and technology companies such as Franklin Templeton, Nomura, Barrington Capital, LendingHome, Misfit, Tech in Asia. If you are interested in opportunities to work with Blackline Lending please send your information to <b><a href="mailto:work@blacklinelending.com">work@blacklinelending.com</a></b></p>
+                <p>We have assembled a team from top finance and technology companies such as Franklin Templeton, Nomura, Barrington Capital, Flexport, Misfit, Tech in Asia. If you are interested in opportunities to work with Blackline please send your information to <b><a href="mailto:work@blacklinelending.com">work@blacklinelending.com</a></b></p>
               </div>
             </div>
           </div>

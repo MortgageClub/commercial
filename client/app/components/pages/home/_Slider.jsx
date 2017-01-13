@@ -31,8 +31,8 @@ class Slider extends Component {
           <div className="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
             <div className="find-home-box">
               <div className="section-title text-white">
-                <h3>FIND YOUR</h3>
-                <h2 className="h1">LOAN HERE</h2>
+                <h3>YOUR COMMERCIAL LOAN</h3>
+                <h2 className="h1">IS HERE</h2>
               </div>
               <div className="find-homes">
                 <form
@@ -77,7 +77,7 @@ class Slider extends Component {
                           name="detail"
                           type="text"
                           component="textarea"
-                          placeholder="Please give us some details about what you’re looking for."/>
+                          placeholder="Details about what you’re looking for."/>
                       </div>
                     </div>
                     <div className="col-xs-12">

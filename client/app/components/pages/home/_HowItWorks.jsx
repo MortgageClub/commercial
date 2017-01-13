@@ -9,13 +9,13 @@ class HowItWorks extends Component {
     return (
       <div>
         {/* HOW IT WORKS AREA START */}
-        <div className="services-area pb-60 pt-115">
+        <div className="services-area pb-60">
           <div className="container">
             <div className="row">
               <div className="col-md-12">
                 <div className="section-title-2 text-center how-it-works-title">
                   <h2>HOW IT WORKS</h2>
-                  <p>Our clients benefit from access to a diverse array of loan products and terms, transparent application and underwriting processes, quick funding timelines, and a first class client experience.</p>
+                  <p>Access a diverse array of loan products and terms, transparent application and underwriting processes, quick funding timelines, and a first-class client experience.</p>
                 </div>
               </div>
             </div>
@@ -41,7 +41,7 @@ class HowItWorks extends Component {
                     </div>
                     <div className="service-item-info">
                       <h5><a>Apply</a></h5>
-                      <p>We structure your loan package and present it to the lender.</p>
+                      <p>We structure and present your package to our lending sources.</p>
                     </div>
                   </div>
                 </div>
@@ -52,7 +52,7 @@ class HowItWorks extends Component {
                       <a><img src="/images/how_it_works_3.png" /></a>
                     </div>
                     <div className="service-item-info">
-                      <h5><a href="service-details.html">Underwrite</a></h5>
+                      <h5><a>Underwrite</a></h5>
                       <p>Final underwriting and lender commitment.</p>
                     </div>
                   </div>

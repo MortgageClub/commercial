@@ -9,7 +9,7 @@ class About extends Component {
     return (
       <div>
         {/* ABOUT SHELTEK AREA START */}
-        <div className="about-sheltek-area pb-115">
+        <div className="about-sheltek-area pb-115 pt-90">
           <div className="container">
             <div className="row">
               <div className="col-sm-6 col-xs-12">
@@ -18,8 +18,13 @@ class About extends Component {
                   <h2>ABOUT BLACKLINE LENDING</h2>
                 </div>
                 <div className="about-sheltek-info">
-                  <p><span className="tooltip-content">Blackline Lending</span> is a technology-driven lending platform that provides commercial real estate investors with easy access to competitive loan programs. Our lending sources include regional and national banks, credit unions, life insurance companies, CMBS, and CTL financiers.</p>
-                  <p>We offer fixed-rate loan terms from 5 to 20 years, amortization up to 30 years, up to 75% LTV, loan amounts from $500k to $15M nationwide. We currently have aggressive lending programs available for a vast majority of nationally recognized tenants including Walgreens, CVS and Rite Aid.</p>
+                  <p>We are a technology-driven lending platform built for commercial real estate investors. With optimizing software and first-rate lenders,we provide easy access to competitive loan programs. Lending sources include regional and national banks, credit unions, life insurance companies, CMBs, and CTL financiers.</p>
+                  <ul>
+                    <li>Fixed rate loan terms from 5 to 20 years</li>
+                    <li>Up to 75% LTV</li>
+                    <li>Amortization up to 30 years</li>
+                    <li>Loans from $500K to $15M nationwide</li>
+                  </ul>
                 </div>
               </div>
               <div className="col-sm-6 col-xs-12">
