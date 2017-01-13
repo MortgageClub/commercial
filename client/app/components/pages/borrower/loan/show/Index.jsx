@@ -31,24 +31,9 @@ class Index extends Component {
       $(".termsTab a").click();
     }
     else if(data.index == 4){
-      $(".propertyTab a").click();
-    }
-    else if(data.index == 5){
       $(".borrowerTab a").click();
     }
-    else if(data.index == 6){
-      $(".guarantorTab a").click();
-    }
-    else if(data.index == 7){
-      $(".loanTab a").click();
-    }
-    else if(data.index == 8){
-      $(".closingTab a").click();
-    }
-    else if(data.index == 9){
-      $(".contactsTab a").click();
-    }
-
+    
     if(data.type == "finished" && this.props.params.id){
       this.props.updateShowedGuide(this.props.params.id);
     }

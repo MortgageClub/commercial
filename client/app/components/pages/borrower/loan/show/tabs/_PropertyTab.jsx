@@ -16,24 +16,38 @@ class PropertyTab extends Component {
               <th width="10%">Download</th>
             </tr>
           </thead>
-          <tbody>
-            {
-              loan && loan.property
+          {
+            loan && loan.property
+            ?
+              loan.is_showed_guide != true
               ?
-                loan.is_showed_guide != true
-                ?
+                <tbody>
                   <tr>
                     <td>Appraisal report.pdf</td>
                     <td>Appraisal - Appraisal report</td>
                     <td>01/09/2017</td>
                     <td><a href="" target="_blank"><span className="fa fa-download"></span></a></td>
                   </tr>
-                :
-                  loan.property.documents.map(document => this.renderDocument(document))
+                  <tr>
+                    <td>Rent roll.pdf</td>
+                    <td>Rent Roll</td>
+                    <td>01/09/2017</td>
+                    <td><a href="" target="_blank"><span className="fa fa-download"></span></a></td>
+                  </tr>
+                  <tr>
+                    <td>Lease agreement.pdf</td>
+                    <td>Lease Agreement</td>
+                    <td>01/09/2017</td>
+                    <td><a href="" target="_blank"><span className="fa fa-download"></span></a></td>
+                  </tr>
+                </tbody>
               :
-                null
-            }
-          </tbody>
+                <tbody>
+                  { loan.property.documents.map(document => this.renderDocument(document)) }
+                </tbody>
+            :
+              null
+          }
         </table>
       </div>
     )
