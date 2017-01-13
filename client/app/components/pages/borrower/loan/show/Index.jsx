@@ -69,7 +69,7 @@ class Index extends Component {
               showStepsProgress={true}
               showSkipButton={true}
               scrollToSteps={false}
-              locale={{skip: 'Skip Tour'}}
+              locale={{back: 'Back', close: 'Close', last: 'Last', next: 'Next', skip: 'Skip Tour'}}
               callback={this.callback.bind(this)} />
           :
             null
