@@ -59,12 +59,20 @@ module Registrations
         loan_params = JSON.load cookies["loan_data"]
         address_params = loan_params["address"]
 
-        relationship_manager_title = LoanMemberTitle.find_by_title("Loan Advisor")
-        loan_member = User.find_by_email("dane.chodos@blacklinelending.com").try(:subjectable)
-        assigned_loan_member = nil
+        loan_advisor_title = LoanMemberTitle.find_by_title("Loan Advisor")
+        loan_advisor = User.find_by_email("dane.chodos@blacklinelending.com").try(:subjectable)
 
-        if loan_member && relationship_manager_title
-          assigned_loan_member = AssignedLoanMember.new(loan_member: loan_member, loan_member_title: relationship_manager_title)
+        loan_analyst_title = LoanMemberTitle.find_by_title("Loan Analyst")
+        loan_analyst = User.find_by_email("billy.tran@blacklinelending.com").try(:subjectable)
+
+        assigned_loan_members = []
+
+        if loan_advisor && loan_advisor_title
+          assigned_loan_members << AssignedLoanMember.new(loan_member: loan_advisor, loan_member_title: loan_advisor_title)
+        end
+
+        if loan_analyst && loan_analyst_title
+          assigned_loan_members << AssignedLoanMember.new(loan_member: loan_analyst, loan_member_title: loan_analyst_title)
         end
 
         loan = Loan.new
@@ -77,8 +85,10 @@ module Registrations
         loan.purpose = loan_params["purpose"]
         loan.note = loan_params["detail"]
         loan.status = :due_diligence
-        loan.assigned_loan_members = [assigned_loan_member] if assigned_loan_member.present?
+        loan.assigned_loan_members = assigned_loan_members if assigned_loan_members.present?
         loan.borrower = borrower
+        loan.headline_1 = "GREAT WORK!"
+        loan.headline_2 = "Your Loan Advisor will reach out to you soon for a 5-minutes consultation call as part of our diligence process."
 
         loan.save!
       end

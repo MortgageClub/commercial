@@ -95,7 +95,7 @@ module Loans
     end
 
     def property_image
-      object.property && object.property.image.present? ? object.property.image.expiring_url(10, :medium) : nil
+      object.property && object.property.image.present? ? object.property.image.expiring_url(10, :medium) : "/images/property_avatar.png"
     end
 
     def property_address
