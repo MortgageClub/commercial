@@ -57,7 +57,7 @@ class TabsContent extends Component {
         {
           title: 'Your loan documents',
           text: 'We try to organize your documents in a way that makes sense by grouping it into Property, Borrower, Guarantor, Loan, and Closing.',
-          selector: '.borrowerTab',
+          selector: '.propertyTab',
           position: 'top',
           type: 'hover',
           style: {

@@ -31,11 +31,12 @@ class Index extends Component {
       $(".termsTab a").click();
     }
     else if(data.index == 4){
-      $(".borrowerTab a").click();
+      $(".propertyTab a").click();
     }
-    console.log(data, this.joyride.getProgress());
+    
     if(data.type == "finished" && this.props.params.id){
-      // this.props.updateShowedGuide(this.props.params.id);
+      this.props.updateShowedGuide(this.props.params.id);
+      $(".overviewTab a").click();
     }
   }
 

@@ -10,7 +10,7 @@ class About extends Component {
     return (
       <div className="about-page">
         <div className="image-top">
-          <img src="/images/about_us.png" width="100%"/>
+          <img src="/images/about_us.jpg" width="100%"/>
         </div>
         <div className="page-wrapper">
           <div className="about-sheltek-area pt-90 pb-50">
