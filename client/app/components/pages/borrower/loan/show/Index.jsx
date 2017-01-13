@@ -63,13 +63,14 @@ class Index extends Component {
           ?
             <Joyride
               ref={c => (this.joyride = c)}
-                debug={false}
-                steps={this.props.steps}
-                type={"continuous"}
-                showStepsProgress={true}
-                showSkipButton={true}
-                scrollToSteps={false}
-                callback={this.callback.bind(this)} />
+              debug={false}
+              steps={this.props.steps}
+              type={"continuous"}
+              showStepsProgress={true}
+              showSkipButton={true}
+              scrollToSteps={false}
+              locale={{skip: 'Skip Tour'}}
+              callback={this.callback.bind(this)} />
           :
             null
         }

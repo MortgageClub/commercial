@@ -1,11 +1,11 @@
-$joyride-color: #f04 !default;
+$joyride-color: #95c41f !default;
 $joyride-zindex: 1500 !default;
 $joyride-overlay-color: rgba(#000, 0.5) !default;
 
 $joyride-beacon-color: $joyride-color !default;
 $joyride-beacon-size: 36px !default;
 
-$joyride-hole-border-radius: 4px !default;
+$joyride-hole-border-radius: 0px !default;
 $joyride-hole-shadow: 0 0 15px rgba(#000, 0.5) !default;
 
 $joyride-tooltip-animation: joyride-tooltip 0.4s forwards;
@@ -13,7 +13,7 @@ $joyride-tooltip-animation-timing: cubic-bezier(0, 1.05, 0.55, 1.18);
 
 $joyride-tooltip-arrow-size: 36px !default;
 $joyride-tooltip-bg-color: #fff !default;
-$joyride-tooltip-border-radius: 4px !default;
+$joyride-tooltip-border-radius: 0px !default;
 $joyride-tooltip-color: #555 !default;
 $joyride-tooltip-font-size: 16px !default;
 $joyride-tooltip-padding: 20px !default;
@@ -30,7 +30,7 @@ $joyride-header-border-width: 1px !default;
 
 $joyride-button-bg-color: $joyride-color !default;
 $joyride-button-color: #fff !default;
-$joyride-button-radius: 4px !default;
+$joyride-button-radius: 0px !default;
 
 $joyride-back-button-color: $joyride-color !default;
 $joyride-skip-button-color: #ccc !default;

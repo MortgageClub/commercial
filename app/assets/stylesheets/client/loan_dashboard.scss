@@ -203,11 +203,11 @@
     }
     .cd-breadcrumb.triangle li:first-of-type > * {
       padding-left: 30px;
-      border-radius: .25em 0 0 .25em;
+      // border-radius: .25em 0 0 .25em;
     }
     .cd-breadcrumb.triangle li:last-of-type > * {
       padding-right: 30px;
-      border-radius: 0 .25em .25em 0;
+      // border-radius: 0 .25em .25em 0;
     }
     .no-touch .cd-breadcrumb.triangle a:hover {
       /* steps already visited */
