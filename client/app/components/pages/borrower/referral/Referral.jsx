@@ -22,9 +22,6 @@ class Referral extends Component {
           <div className="pt-90 pb-70 referral-dashboard">
             <div className="container">
               <ReferralProgramHeader/>
-              <div className="text-center">
-                <iframe className="iframe-youtube" src="https://www.youtube.com/embed/Llw9Q6akRo4" frameBorder="0" allowFullScreen></iframe>
-              </div>
               <ReferralLink/>
               <InviteByEmail/>
               <ReferralResults/>
@@ -37,3 +34,7 @@ class Referral extends Component {
 }
 
 export default Referral;
+
+// <div className="text-center">
+//   <iframe className="iframe-youtube" src="https://www.youtube.com/embed/Llw9Q6akRo4" frameBorder="0" allowFullScreen></iframe>
+// </div>
