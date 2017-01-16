@@ -5,7 +5,7 @@ class InvitedReferralMailer < ApplicationMailer
     @loan_member = User.find_by_email("dane.chodos@blacklinelending.com")
     invited_referrals.each do |invited_referral|
       @invited_referral = invited_referral
-      mail(from: "dane.chodos@blacklinelending.com", to: @invited_referral.email, subject: subject)
+      mail(from: "Dane Chodos <dane.chodos@blacklinelending.com>", to: @invited_referral.email, subject: subject)
     end
   end
 end
