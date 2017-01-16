@@ -4,7 +4,8 @@
       <th>Referrer</th>
       <th>Name</th>
       <th>Email</th>
-      <th>Joined At</th>
+      <th>Phone</th>
+      <th>Joined</th>
       <th>Origination Fees</th>
       <th>Bonus</th>
       <th style="text-align: center">Action</th>
@@ -13,15 +14,19 @@
   <tbody>
     <% @referrals.each do |referral| %>
       <tr>
-        <td><%= referral.user.full_name %></td>
+        <td><%= referral.try(:user).try(:full_name) %></td>
         <td><%= referral.name %></td>
         <td><%= referral.email %></td>
-        <td><%= referral.joined_at ? referral.joined_at.strftime("%m/%d/%Y %T") : nil %></td>
+        <td><%= referral.phone %></td>
+        <td><%= referral.joined_at ? referral.joined_at.strftime("%m/%d/%Y") : nil %></td>
         <td><%= referral.origination_fees %></td>
         <td><%= referral.bonus %></td>
         <td style="text-align: center">
           <%= link_to edit_admins_invited_referral_path(referral) do %>
             <i class="icon-pencil3"></i>
+          <% end %>
+          <%= link_to admins_invited_referral_path(referral), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="icon-trash-alt color-red"></i>
           <% end %>
         </td>
       </tr>

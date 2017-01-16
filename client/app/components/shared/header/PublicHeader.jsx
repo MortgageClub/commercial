@@ -29,6 +29,7 @@ class PublicHeader extends Component {
                     </Link>
                   </div>
                 </div>
+                <div className="col-md-2 hidden-sm hidden-xs"></div>
                 <div className="col-md-7 hidden-sm hidden-xs">
                   <div className="company-info clearfix">
                     <div className="company-info-item">
@@ -36,7 +37,7 @@ class PublicHeader extends Component {
                         <img src="/images/icons/phone.png" alt="" />
                       </div>
                       <div className="header-info">
-                        <h6>(000) 000-0000</h6>
+                        <h6>(800) 929-0168</h6>
                         <p>Call us, we’re here for you.</p>
                       </div>
                     </div>

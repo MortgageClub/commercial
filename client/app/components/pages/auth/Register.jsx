@@ -4,6 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 import { register, removeErrors, addError } from '../../../actions/AuthAction';
 import { browserHistory } from 'react-router';
 import { isAuthenticated } from '../../../utils/AuthUtils';
+import { track } from '../../../utils/MixPanelUtils';
 import { Link } from 'react-router';
 import Recaptcha from 'react-recaptcha';
 import cookie from 'react-cookie';
@@ -36,6 +37,7 @@ class Register extends Component {
     }
 
     $(".recaptcha").attr("align", "center");
+    track("View Register Page");
   }
 
   // Recaptcha
@@ -160,6 +162,7 @@ class Register extends Component {
 
   submit(userInfo) {
     if(this.state.isVerifyCaptcha && userInfo.is_agree){
+      track("Click Register");
       this.props.register(userInfo);
     } else {
       let message = "";
@@ -177,6 +180,10 @@ class Register extends Component {
     }
   }
 
+  removeAlert() {
+    this.props.removeErrors();
+  }
+  
   renderErrors() {
     if (this.props.errorMessages) {
       const errors = this.props.errorMessages.map(error => {
@@ -185,7 +192,14 @@ class Register extends Component {
         )
       })
       return (
-        <ul className="alert alert-danger list-unstyled">{errors}</ul>
+        <div className="alert alert-danger list-unstyled">
+          <button type="button" className="close" onClick={this.removeAlert.bind(this)}>
+            <span aria-hidden="true">×</span>
+          </button>
+          <ul>
+            {errors}
+          </ul>
+        </div>
       )
     }
   }

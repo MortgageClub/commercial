@@ -3,14 +3,22 @@ import { getAll } from '../../../actions/BlogAction';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import BlogSidebar from './_BlogSiderbar';
+import Helmet from 'react-helmet';
+import { track } from '../../../utils/MixPanelUtils';
 
 class Blog extends Component {
   componentDidMount() {
     this.props.getAll(8);
+    track("View Blog Page");
   }
   render() {
     return (
       <div className="wrapper">
+        <Helmet title="My Title" 
+          meta={[
+            {name: "description", content: "Helmet application"},
+            {property: "og:type", content: "article"}
+          ]} />
         <div className="blog-area pt-115 pb-60">
           <div className="container">
             <div className="row">

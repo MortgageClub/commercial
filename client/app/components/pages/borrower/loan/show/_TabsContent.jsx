@@ -17,7 +17,7 @@ class TabsContent extends Component {
       this.props.addStep([
         {
           title: 'Overview',
-          text: 'Overview',
+          text: 'We display items that need your action to move forward here.',
           selector: '.overviewTab',
           position: 'top',
           type: 'hover',
@@ -30,7 +30,7 @@ class TabsContent extends Component {
         },
         {
           title: 'Quotes',
-          text: 'Quotes',
+          text: 'Here are 3 soft quotes from our lending sources for your scenario.',
           selector: '.quotesTab',
           position: 'top',
           type: 'hover',
@@ -43,7 +43,7 @@ class TabsContent extends Component {
         },
         {
           title: 'Terms',
-          text: 'Terms',
+          text: 'We display final loan terms and fees here in this tab.',
           selector: '.termsTab',
           position: 'top',
           type: 'hover',
@@ -55,74 +55,9 @@ class TabsContent extends Component {
           }
         },
         {
-          title: 'Property',
-          text: 'Property',
+          title: 'Your loan documents',
+          text: 'We try to organize your documents in a way that makes sense by grouping it into Property, Borrower, Guarantor, Loan, and Closing.',
           selector: '.propertyTab',
-          position: 'top',
-          type: 'hover',
-          style: {
-            beacon: {
-              inner: '#95c41f',
-              outer: '#95c41f'
-            }
-          }
-        },
-        {
-          title: 'Borrower',
-          text: 'Borrower',
-          selector: '.borrowerTab',
-          position: 'top',
-          type: 'hover',
-          style: {
-            beacon: {
-              inner: '#95c41f',
-              outer: '#95c41f'
-            }
-          }
-        },
-        {
-          title: 'Guarantor',
-          text: 'Guarantor',
-          selector: '.guarantorTab',
-          position: 'top',
-          type: 'hover',
-          style: {
-            beacon: {
-              inner: '#95c41f',
-              outer: '#95c41f'
-            }
-          }
-        },
-        {
-          title: 'Loan',
-          text: 'Loan',
-          selector: '.loanTab',
-          position: 'top',
-          type: 'hover',
-          style: {
-            beacon: {
-              inner: '#95c41f',
-              outer: '#95c41f'
-            }
-          }
-        },
-        {
-          title: 'Closing',
-          text: 'Closing',
-          selector: '.closingTab',
-          position: 'top',
-          type: 'hover',
-          style: {
-            beacon: {
-              inner: '#95c41f',
-              outer: '#95c41f'
-            }
-          }
-        },
-        {
-          title: 'Contacts',
-          text: 'Contacts',
-          selector: '.contactsTab',
           position: 'top',
           type: 'hover',
           style: {
@@ -139,7 +74,6 @@ class TabsContent extends Component {
   render() {
     return (
       <div>
-        <h4 className="dashboard-title">BORROWER DASHBOARD</h4>
         <ul className="nav nav-tabs" role="tablist">
           <li role="presentation" className="active overviewTab">
             <a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Overview</a>

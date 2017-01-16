@@ -1,0 +1,74 @@
+@media only screen and (max-width: 480px) {
+  .iframe-youtube {
+    width: 260px;
+    height: 144px;
+  }
+
+  .clipboard-button {
+    margin-top: 15px !important;
+    width: 100%;
+  }
+
+  .loan-information {
+    margin-top: 20px;
+  }
+
+  .container {
+    width: 400px;
+  }
+
+  .loans-dashboard {
+    padding-top: 25px;
+  }
+
+  .loan-dashboard {
+    padding-top: 25px;
+  }
+
+  .referral-dashboard {
+    padding-top: 25px;
+  }
+
+  .call-to-bg:before {
+    width: 0%;
+  }
+
+  .bg-3 {
+    background: none;
+  }
+
+  .find-home-box {
+    background: rgba(31, 34, 62, 0.9) none repeat scroll 0 0;
+  }
+
+  .about-page {
+    .page-wrapper {
+      .about-sheltek-area {
+        padding-top: 30px;
+
+        .container {
+          width: 100%;
+        }
+      };
+    }
+    .image-top {
+      margin-top: 0px;
+    }
+    .about-header {
+      font-size: 26px;
+      margin-bottom: 30px;
+      line-height: 1.0;
+    }
+    .our-team {
+      .container {
+        width: 100%;
+      }
+      p {
+        font-weight: 400;
+      }
+      p:last-child {
+        text-align: left;
+      }
+    }
+  }
+}

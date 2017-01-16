@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from './shared/header/Index';
 import Footer from './shared/Footer';
 import MobileMenu from './shared/MobileMenu';
-import { connect } from 'react-redux';
 
 class Index extends Component {
   componentDidMount() {
@@ -12,6 +11,10 @@ class Index extends Component {
       scrollSpeed: 900,
       animation: 'fade'
     });
+  }
+
+  componentWillMount() {
+    window.sr = ScrollReveal();
   }
 
   render() {
@@ -26,5 +29,5 @@ class Index extends Component {
   }
 }
 
-export default connect(null, { fetch })(Index)
+export default Index
 

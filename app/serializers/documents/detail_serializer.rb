@@ -9,5 +9,9 @@ module Documents
     def attachment_url
       object.attachment.expiring_url(300)
     end
+
+    def updated_at
+      object.updated_at ? object.updated_at.strftime("%m/%d/%Y") : ""
+    end
   end
 end

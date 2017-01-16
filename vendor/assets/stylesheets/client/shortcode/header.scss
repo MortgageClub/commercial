@@ -6,8 +6,10 @@
 --------------------------------------*/
 
 /*logo*/
-.logo {
-  padding: 13px 0;
+@media (min-width: 992px) {
+  .logo {
+    padding-top: 26px;
+  }
 }
 
 /*company-info*/

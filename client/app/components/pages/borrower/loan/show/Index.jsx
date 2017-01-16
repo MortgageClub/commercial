@@ -16,7 +16,7 @@ class Index extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if(this.joyride){
-      this.joyride.start();
+      this.joyride.start(true);
     }
   }
 
@@ -33,47 +33,66 @@ class Index extends Component {
     else if(data.index == 4){
       $(".propertyTab a").click();
     }
-    else if(data.index == 5){
-      $(".borrowerTab a").click();
-    }
-    else if(data.index == 6){
-      $(".guarantorTab a").click();
-    }
-    else if(data.index == 7){
-      $(".loanTab a").click();
-    }
-    else if(data.index == 8){
-      $(".closingTab a").click();
-    }
-    else if(data.index == 9){
-      $(".contactsTab a").click();
-    }
-
+    
     if(data.type == "finished" && this.props.params.id){
       this.props.updateShowedGuide(this.props.params.id);
+      $(".overviewTab a").click();
     }
   }
 
   render() {
     return (
       <div className="container pt-90 pb-30 loan-dashboard" style={{"minHeight": "400px"}}>
+        <h4 className="dashboard-title">BORROWER DASHBOARD</h4>
         {
           this.props.loan && this.props.loan.is_showed_guide !== true
           ?
             <Joyride
               ref={c => (this.joyride = c)}
-                debug={false}
-                steps={this.props.steps}
-                type={"continuous"}
-                showStepsProgress={true}
-                showSkipButton={true}
-                scrollToSteps={false}
-                callback={this.callback.bind(this)} />
+              debug={false}
+              steps={this.props.steps}
+              type={"continuous"}
+              showStepsProgress={true}
+              showSkipButton={true}
+              scrollToSteps={false}
+              callback={this.callback.bind(this)}
+              run={true}
+              locale={{back: 'Back', close: 'Close', last: 'Finish Tour', next: 'Next', skip: 'Skip Tour'}} />
           :
             null
         }
         <PropertyInfo loan={this.props.loan}/>
-        <div className="row pt-50">
+        {
+          this.props.loan
+          ?
+            <div className="pt-20">
+              <ol className="cd-breadcrumb triangle">
+                <li className={this.props.loan.status == "Due Diligence" ? "current" : null}>
+                  <span>Due Diligence</span>
+                </li>
+                <li className={this.props.loan.status == "Getting Quotes" ? "current" : null}>
+                  <span>Getting Quotes</span>
+                </li>
+                <li className={this.props.loan.status == "Processing" ? "current" : null}>
+                  <span>Processing</span>
+                </li>
+                <li className={this.props.loan.status == "Underwriting" ? "current" : null}>
+                  <span>Underwriting</span>
+                </li>
+                <li className={this.props.loan.status == "Closing" ? "current" : null}>
+                  <span>Closing</span>
+                </li>
+                <li className={this.props.loan.status == "Funding" ? "current" : null}>
+                  <span>Funding</span>
+                </li>
+                <li className={this.props.loan.status == "Closed" ? "current" : null}>
+                  <span>Closed</span>
+                </li>
+              </ol>
+            </div>
+          : null
+        }
+        <div className="row pt-10">
           <div className="col-md-9">
             <TabsContent />
           </div>

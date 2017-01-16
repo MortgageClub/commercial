@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 class Transactions extends Component {
+  componentDidMount() {
+    sr.reveal('.transaction-section-title');
+  }
+
   render() {
     return (
       <div>
@@ -9,9 +13,9 @@ class Transactions extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-12">
-                <div className="section-title-2 text-center">
+                <div className="section-title-2 text-center transaction-section-title">
                   <h2>RECENT TRANSACTIONS</h2>
-                  <p>Each transaction is unique and our clients’ needs dictate how we utilize our market expertise, resulting in an optimal financing structure for your real estate investment.</p>
+                  <p>Every commercial real estate loan is unique. Your needs dictate how we utilize our market expertise.</p>
                 </div>
               </div>
             </div>
@@ -21,10 +25,10 @@ class Transactions extends Component {
                 <div className="col-md-12">
                   <div className="service-item">
                     <div className="service-item-image">
-                      <a href="single-blog.html" tabIndex="0"><img src="/images/blog/1.jpg" alt=""/></a>
+                      <a><img src="/images/recent_transaction_1.jpg" /></a>
                     </div>
                     <div className="service-item-info">
-                      <h5><a href="service-details.html">IHOP</a></h5>
+                      <h5><a>IHOP</a></h5>
                       <table>
                         <tbody>
                           <tr>
@@ -56,10 +60,10 @@ class Transactions extends Component {
                 <div className="col-md-12">
                   <div className="service-item">
                     <div className="service-item-image">
-                      <a href="single-blog.html" tabIndex="0"><img src="/images/blog/1.jpg" alt=""/></a>
+                      <a><img src="/images/recent_transaction_2.png" /></a>
                     </div>
                     <div className="service-item-info">
-                      <h5><a href="service-details.html">FLOWER FOODS</a></h5>
+                      <h5><a>FLOWER FOODS</a></h5>
                       <table>
                         <tbody>
                           <tr>
@@ -91,10 +95,10 @@ class Transactions extends Component {
                 <div className="col-md-12">
                   <div className="service-item">
                     <div className="service-item-image">
-                      <a href="single-blog.html" tabIndex="0"><img src="/images/blog/1.jpg" alt=""/></a>
+                      <a><img src="/images/recent_transaction_3.jpg" /></a>
                     </div>
                     <div className="service-item-info">
-                      <h5><a href="service-details.html">CVS</a></h5>
+                      <h5><a>CVS</a></h5>
                       <table>
                         <tbody>
                           <tr>

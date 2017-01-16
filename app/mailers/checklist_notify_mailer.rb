@@ -5,7 +5,7 @@ class ChecklistNotifyMailer < ApplicationMailer
 
     loan.assigned_loan_members.each do |assigned_loan_member|
       title = assigned_loan_member.try(:loan_member_title).try(:title)
-      next unless title == "Relationship Manager" || title == "Loan Analyst"
+      next unless title == "Loan Advisor" || title == "Loan Analyst"
 
       @user = assigned_loan_member.loan_member.user
       mail(

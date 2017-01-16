@@ -7,9 +7,9 @@ class PropertyInfo extends Component {
   componentDidMount() {
     if (!this.props.steps){
       this.props.addStep({
-        title: 'Loan Information',
-        text: 'Loan Information',
-        selector: '.first-step',
+        title: 'Summary',
+        text: 'High level summary of your loan in progress',
+        selector: '.loan-information',
         position: 'bottom',
         type: 'hover',
         style: {
@@ -30,7 +30,7 @@ class PropertyInfo extends Component {
         <div className="col-md-3">
           <img src={loan && loan.property_image ? loan.property_image : "/images/flat/1.jpg"}/>
         </div>
-        <div className="col-md-9 first-step">
+        <div className="col-md-9 loan-information">
           {
             loan
             ?

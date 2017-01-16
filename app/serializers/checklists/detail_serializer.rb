@@ -19,5 +19,9 @@ module Checklists
     def document_type
       DocumentTypes::DetailSerializer.new(DocumentType.find(object.document_type_id))
     end
+
+    def due_date
+      object.due_date ? object.due_date.strftime("%m/%d/%Y") : ""
+    end
   end
 end

@@ -6,6 +6,7 @@ import { formatCurrency } from '../../../utils/FormatUtils';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { PURPOSES } from '../../../utils/ValueUtils';
+import { track } from '../../../utils/MixPanelUtils';
 import Geosuggest from '../../../../node_modules/react-geosuggest';
 import cookie from 'react-cookie';
 
@@ -26,12 +27,12 @@ class Slider extends Component {
     return (
       <div>
         {/* SLIDER SECTION START */}
-        <div className="slider-2 bg-3 bg-opacity-black-70">
+        <div className="slider-2 bg-3 bg-opacity-black-20">
           <div className="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
             <div className="find-home-box">
               <div className="section-title text-white">
-                <h3>FIND YOUR</h3>
-                <h2 className="h1">LOAN HERE</h2>
+                <h3>YOUR COMMERCIAL LOAN</h3>
+                <h2 className="h1">IS HERE</h2>
               </div>
               <div className="find-homes">
                 <form
@@ -39,7 +40,10 @@ class Slider extends Component {
                   <div className="row">
                     <div className="col-sm-12 col-xs-12">
                       <div className="find-home-item">
-                        <Geosuggest placeholder="Property Address" country="us" onSuggestSelect={this.onSuggestSelect.bind(this)}/>
+                        <Geosuggest 
+                          placeholder="Property Address" 
+                          country="us" 
+                          onSuggestSelect={this.onSuggestSelect.bind(this)}/>
                       </div>
                     </div>
                     <div className="col-sm-6 col-xs-12">
@@ -73,7 +77,7 @@ class Slider extends Component {
                           name="detail"
                           type="text"
                           component="textarea"
-                          placeholder="Please give us some details about what you’re looking for."/>
+                          placeholder="Details about what you’re looking for."/>
                       </div>
                     </div>
                     <div className="col-xs-12">
@@ -99,11 +103,20 @@ class Slider extends Component {
   }
 
   onSuggestSelect(suggest) {
-    let address = {};
-    this.setState({ address: suggest.label });
+    let address = "";
+
+    if(suggest.gmaps && suggest.gmaps.formatted_address){
+      address = suggest.gmaps.formatted_address;
+    }else{
+      address = suggest.label;
+    }
+    $(".geosuggest__input").val(address);
+    this.setState({ address: address });
   }
 
   submit(fillInfo) {
+    track("Submit Loan");
+
     if(isAuthenticated()){
       this.props.create({ ...fillInfo, address: this.state.address });
     } else {

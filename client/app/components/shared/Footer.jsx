@@ -47,7 +47,7 @@ class Footer extends Component {
                           <img src="/images/icons/phone-3.png" alt=""/>
                         </div>
                         <div className="address-info">
-                          <span>Phone: (000) 000-0000</span>
+                          <span>Phone: (800) 929-0168</span>
                         </div>
                       </li>
                       <li>

@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :loan_member_titles
     resources :loan_members
     resources :assigned_loan_members
-    resources :invited_referrals, only: [:index, :edit, :update]
+    resources :invited_referrals
   end
 
   namespace :advisors do

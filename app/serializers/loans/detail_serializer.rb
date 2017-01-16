@@ -95,7 +95,7 @@ module Loans
     end
 
     def property_image
-      object.property && object.property.image.present? ? object.property.image.expiring_url(10, :medium) : nil
+      object.property && object.property.image.present? ? object.property.image.expiring_url(10, :medium) : "/images/property_avatar.png"
     end
 
     def property_address
@@ -118,6 +118,10 @@ module Loans
       end
 
       loan_members_array
+    end
+
+    def checklists
+      object.checklists.order(status: :desc, due_date: :asc)
     end
   end
 end

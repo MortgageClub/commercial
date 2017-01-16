@@ -3,11 +3,13 @@ import { Link } from 'react-router';
 import { Field, reduxForm } from 'redux-form';
 import { login, removeErrors } from '../../../actions/AuthAction';
 import { isAuthenticated } from '../../../utils/AuthUtils';
+import { track } from '../../../utils/MixPanelUtils';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 
 class Login extends Component {
   componentWillMount() {
+    track("View Login Page");
     if (isAuthenticated()) {
       browserHistory.goBack();
     }
@@ -66,7 +68,12 @@ class Login extends Component {
   }
 
   submit(userInfo) {
+    track("Click Login");
     this.props.login(userInfo);
+  }
+
+  removeAlert() {
+    this.props.removeErrors();
   }
 
   renderErrors() {
@@ -77,7 +84,14 @@ class Login extends Component {
         )
       })
       return (
-        <ul className="alert alert-danger list-unstyled">{errors}</ul>
+        <div className="alert alert-danger list-unstyled">
+          <button type="button" className="close" onClick={this.removeAlert.bind(this)}>
+            <span aria-hidden="true">×</span>
+          </button>
+          <ul>
+            {errors}
+          </ul>
+        </div>
       )
     }
   }

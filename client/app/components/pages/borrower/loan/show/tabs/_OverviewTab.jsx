@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { formatDate } from '../../../../../../utils/FormatUtils';
 import { mark_done } from '../../../../../../actions/ChecklistAction';
 import ChecklistUpload from '../_ChecklistUpload';
 
@@ -11,7 +10,7 @@ class OverviewTab extends Component {
 
   render() {
     return (
-      <div>
+      <div className="table-responsive">
         {
           this.props.loan && this.props.loan.headline_1
           ?
@@ -26,26 +25,120 @@ class OverviewTab extends Component {
             null
         }
         {
-          this.props.loan && this.props.loan.checklists
+          this.props.loan && this.props.loan.is_showed_guide != true
           ?
-            <table className="table table-hover">
-              <thead>
-                <tr>
-                  <th width="10%">Status</th>
-                  <th width="40%">Task</th>
-                  <th width="10%">Info</th>
-                  <th width="20%">Due</th>
-                  <th width="20%">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                { this.props.loan.checklists.map(checklist => this.renderChecklist(checklist)) }
-              </tbody>
-            </table>
+            this.renderSampleData()
           :
-            null
+            this.props.loan && this.props.loan.checklists 
+            ?
+              this.renderRealData()
+            : 
+              null
         }
       </div>
+    )
+  }
+
+  renderRealData() {
+    return (
+      <table className="table table-hover">
+        <thead>
+          <tr>
+            <th width="10%">Status</th>
+            <th width="40%">Task</th>
+            <th width="10%">Info</th>
+            <th width="20%">Due</th>
+            <th width="20%">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          { this.props.loan.checklists.map(checklist => this.renderChecklist(checklist)) }
+        </tbody>
+      </table>
+    )
+  }
+
+  renderSampleData() {
+    return (
+      <table className="table table-hover">
+        <thead>
+          <tr>
+            <th width="10%">Status</th>
+            <th width="40%">Task</th>
+            <th width="10%">Info</th>
+            <th width="20%">Due</th>
+            <th width="20%">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr key={1}>
+            <td><span className="fa fa-close"></span></td>
+            <td>Business tax return for 2015</td>
+            <td>
+              <button
+                className="btnInfo"
+                data-toggle="popover"
+                data-trigger="focus"
+                title="Information"
+                data-content="">
+                <span className="fa fa-info-circle"></span>
+              </button>
+            </td>
+            <td>01/09/2017</td>
+            <td>
+              <div>
+                <button className="button-1 full-width">
+                  Upload
+                </button>
+              </div>
+            </td>
+          </tr>
+          <tr key={2}>
+            <td><span className="fa fa-check"></span></td>
+            <td>eSign Blackline exclusive agreement</td>
+            <td>
+              <button
+                className="btnInfo"
+                data-toggle="popover"
+                data-trigger="focus"
+                title="Information"
+                data-content="">
+                <span className="fa fa-info-circle"></span>
+              </button>
+            </td>
+            <td>01/06/2017</td>
+            <td>
+              <div>
+                <button className="button-1 full-width" disabled>
+                  Check Email
+                </button>
+              </div>
+            </td>
+          </tr>
+          <tr key={3}>
+            <td><span className="fa fa-check"></span></td>
+            <td>Personal financial statement</td>
+            <td>
+              <button
+                className="btnInfo"
+                data-toggle="popover"
+                data-trigger="focus"
+                title="Information"
+                data-content="">
+                <span className="fa fa-info-circle"></span>
+              </button>
+            </td>
+            <td>01/09/2017</td>
+            <td>
+              <div>
+                <button className="button-1 full-width">
+                  Review
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     )
   }
 
@@ -74,7 +167,7 @@ class OverviewTab extends Component {
             <span className="fa fa-info-circle"></span>
           </button>
         </td>
-        <td>{formatDate(checklist.due_date)}</td>
+        <td>{checklist.due_date}</td>
         <td>
           {
             checklist.checklist_type == "upload"
