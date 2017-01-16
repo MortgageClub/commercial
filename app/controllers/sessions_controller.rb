@@ -31,8 +31,8 @@ class SessionsController < ApplicationController
       end
     end
 
-    flash.now[:error] = "Your credentials are wrong. Please try again!"
-    render :new
+    flash[:error] = "Your credentials are wrong. Please try again!"
+    redirect_to sessions_new_path
   end
 
   def destroy
