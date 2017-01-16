@@ -129,6 +129,7 @@ class InviteByEmail extends Component {
                 <i className="fa fa-paper-plane" aria-hidden="true"></i> SEND INVITES
               </button>
               <span style={{color: 'green', display: 'none', marginLeft: 20}} className="messageSuccess">Invites sent successfully!</span>
+              <span style={{color: 'red', display: 'none', marginLeft: 20}} className="messageFail">Please fill out your referral info!</span>
             </div>
           </div>
         </form>
@@ -137,9 +138,12 @@ class InviteByEmail extends Component {
   }
 
   submit(inviteByEmail) {
-    console.log(inviteByEmail);
-    // this.props.invite(inviteByEmail);
-    $(".messageSuccess").show().delay(5000).fadeOut();
+    if(jQuery.isEmptyObject(inviteByEmail)){
+      $(".messageFail").show().delay(5000).fadeOut();
+    } else {
+      this.props.invite(inviteByEmail);
+      $(".messageSuccess").show().delay(5000).fadeOut();
+    }
   }
 }
 
