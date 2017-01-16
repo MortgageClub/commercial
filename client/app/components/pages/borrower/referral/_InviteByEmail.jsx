@@ -9,7 +9,7 @@ class InviteByEmail extends Component {
 
     return (
       <div className="invite-by-email-section">
-        <h4 className="mt-20">2. Automated Invite by Blackline</h4>
+        <h4 className="mt-20"><img width="27" src="/images/two.png"/> Automated Invite by Blackline</h4>
         <div className="mb-20">
           Enter your referrals’ emails into the form and we’ll invite them on your behalf. You’ll be CC’ed on these emails.
         </div>
