@@ -14,10 +14,9 @@ class Blog extends Component {
   render() {
     return (
       <div className="wrapper">
-        <Helmet title="My Title" 
+        <Helmet title="Blackline | Commercial real estate loans" 
           meta={[
-            {name: "description", content: "Helmet application"},
-            {property: "og:type", content: "article"}
+            {name: "description", content: "Commercial real estate loans"}
           ]} />
         <div className="blog-area pt-115 pb-60">
           <div className="container">
