@@ -8,7 +8,7 @@ class ReferralProgramHeader extends Component {
           <div className="col-md-12 col-xs-12">
             <div className="">
               <h4>REFERRAL PROGRAM</h4>
-              <p>Earn 25% of our origination fees for every borrower you refer to Blackline Lending. Below is your unique referral code. Send this link to potential borrowers or enter their emails into the form and we will invite them on your behalf. Referrals may be automated by Blackline Lending.</p>
+              <h5>Earn 25% of our origination fees for every client you refer to Blackline.</h5>
             </div>
           </div>
         </div>
