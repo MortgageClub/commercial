@@ -18,7 +18,7 @@ class About extends Component {
                   <h2>ABOUT BLACKLINE LENDING</h2>
                 </div>
                 <div className="about-sheltek-info">
-                  <p>We are a technology-driven lending platform built for commercial real estate investors. With optimizing software and first-rate lenders, we provide easy access to competitive loan programs. Lending sources include regional and national banks, credit unions, life insurance companies, CMBs, and CTL financiers.</p>
+                  <p>We are a technology-driven lending platform built for commercial real estate investors. With optimizing software and first-rate lenders, we provide easy access to competitive loan programs. Lending sources include regional and national banks, credit unions, life insurance companies, CMBS, and CTL financiers.</p>
                   <ul>
                     <li>Fixed rate loan terms from 5 to 20 years</li>
                     <li>Up to 75% LTV</li>

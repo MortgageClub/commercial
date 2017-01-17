@@ -15,7 +15,7 @@ class Services extends Component {
               <div className="col-md-12">
                 <div className="section-title-2 text-center">
                   <h2>THE BLACKLINE ADVANTAGE</h2>
-                  <p>Blackline Lending has a simple purpose: to help you find the best loan for your commercial property.</p>
+                  <p>We started Blackline Lending with a simple goal in mind: to help you find the best loan for your commercial real estate investment.</p>
                 </div>
               </div>
             </div>
@@ -25,20 +25,20 @@ class Services extends Component {
                   <div className="row">
                     <div className="col-lg-4 col-md-6 col-sm-4">
                       <div className="features-include-list">
-                        <h6><img src="images/icons/7.png" alt="" />NATIONAL PLATFORM</h6>
-                        <p>We lend in all 50 states specializing in $500k-$10M loans.</p>
+                        <h6><img src="images/icons/7.png" />NATIONAL PLATFORM</h6>
+                        <p>We lend in all 50 states, specializing in $500K-$10M loans.</p>
                       </div>
                     </div>
                     <div className="col-lg-4 col-md-6 col-sm-4">
                       <div className="features-include-list">
-                        <h6><img src="images/icons/7.png" alt="" />STREAMLINED SERVICE</h6>
-                        <p>We’ve build a streamlined borrower experience with you, the property owner, at the core.</p>
+                        <h6><img src="images/icons/7.png" />STREAMLINED SERVICE</h6>
+                        <p>Technology streamlines the process while keeping you at the core of the experience.</p>
                       </div>
                     </div>
                     <div className="col-lg-4 col-md-6 col-sm-4">
                       <div className="features-include-list">
-                        <h6><img src="images/icons/7.png" alt="" />TECHNOLOGY & PEOPLE</h6>
-                        <p>Our technology and licensed Loan Advisors work around the clock to make sure your loan goes smoothly.</p>
+                        <h6><img src="images/icons/7.png" />DEDICATED TEAM</h6>
+                        <p>Licensed loan advisors work around the clock to ensure that your loan goes smoothly.</p>
                       </div>
                     </div>
                   </div>
@@ -55,24 +55,24 @@ class Services extends Component {
             <div className="row">
               <div className="col-md-12">
                 <div className="section-title-2 text-center">
-                  <h2>10 POINT TIMELINE OVERVIEW</h2>
-                  <p>At Blackline we understand that timeliness and certainty of execution are critical to deal success. Once you engage our services we will work closely with you to keep you informed. Our team continually monitors the status of the loan process from ordering appraisals to the signing of loan documents. You can find a general overview of the process below:</p>
+                  <h2>10-POINT TIMELINE</h2>
+                  <p>Timeliness and certainty of execution are critical to deal success. Our team continuously monitors the status of the loan and keeps you informed throughout the process.</p>
                 </div>
               </div>
             </div>
             <div className="row">
               <div className="col-md-8 col-md-offset-2">
                 <div className="author-quote">
-                  <p>Begin with a conversation to understand investment goals and motivations</p>
-                  <p>After establishing goals the client completes a loan request form and provides necessary documentation</p>
-                  <p>Blackline assembles a loan package which markets the deal</p>
-                  <p>We submit the loan package to our funding sources</p>
-                  <p>Letter of Interest from lender which details terms and conditions of loan</p>
-                  <p>Client approves terms</p>
-                  <p>Order 3rd party reports</p>
+                  <p>Start conversation so we understand your investment goals and motivations</p>
+                  <p>Complete loan request form and provide necessary documentation</p>
+                  <p>We assemble loan package, which markets the deal</p>
+                  <p>We submit loan package to our funding sources</p>
+                  <p>Receive letter of interest from lender detailing terms and conditions of loan</p>
+                  <p>Approve terms of loan</p>
+                  <p>We order appraisal and other 3rd party reports</p>
                   <p>Final underwriting and lender commitment</p>
-                  <p>Loan documents sent out for review and signing</p>
-                  <p>Loan closes and funding is completed</p>
+                  <p>Review and sign loan documents</p>
+                  <p>Loan is closed, funding complete</p>
                 </div>
               </div>
             </div>

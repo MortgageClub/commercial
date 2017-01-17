@@ -171,7 +171,7 @@ class Terms extends Component {
                   We may provide links to third party websites, and some of the content appearing on Blackline Lending may be supplied by third parties. Blackline Lending has no responsibility for these third party websites nor for their content, which is subject to and governed by the Terms of Service and/or privacy policies, if any, of the applicable third party content providers.
                 </p>
                 <p>
-                  b. Ownership of Your Content; Licenses.<br/>You agree that any content you upload to the Websites and/or the Service (“Your Content”) shall become the property of Blackline Lending. This shall have no effect on Sections ___ (Copyright Policy), _____ (Limitation of Liability), and _____ (Indemnity by You) of this Agreement.
+                  b. Ownership of Your Content; Licenses.<br/>You agree that any content you upload to the Websites and/or the Service (“Your Content”) shall become the property of Blackline Lending. This shall have no effect on Sections 11 (Copyright Policy), 14 (Limitation of Liability), and 15 (Indemnity by You) of this Agreement.
                 </p>
                 <p>
                   However, with respect to Your Content, Blackline Lending grants you a worldwide, royalty-free and non-exclusive license(s) to use, distribute, reproduce, and publicly display such content, except with regard to commercial or for-profit use account.

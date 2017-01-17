@@ -23,7 +23,7 @@ class About extends Component {
                   Intelligent financing enables commercial real estate investors to build wealth and strengthen their investments. To secure advantageous loan terms, you need a team that understands the nuances of financial language and trends of capital markets.
                 </p>
                 <p>
-                  Investors deserve the best speed, rates, and service from their lender. And if you’re “in the black,” you’re profitable. That’s why Blackline Lending aims to be the financing partner of choice for profitable commercial real estate investments.
+                  Investors deserve the best speed, rates, and service from their lender. And if you’re “in the black,” you’re profitable. Blackline Lending aims to be the financing partner of choice for profitable commercial real estate investments.
                 </p>
                 <p>
                   Working with Blackline, you can access a nationwide platform and dedicated team of commercial real estate financing experts.
