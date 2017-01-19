@@ -43,7 +43,7 @@ class Index extends Component {
   render() {
     return (
       <div className="container pt-90 pb-30 loan-dashboard" style={{"minHeight": "400px"}}>
-        <h4 className="dashboard-title">BORROWER DASHBOARD</h4>
+        <h4 className="dashboard-title">CLIENT DASHBOARD</h4>
         {
           this.props.loan && this.props.loan.is_showed_guide !== true
           ?
