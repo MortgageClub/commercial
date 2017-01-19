@@ -8,7 +8,8 @@ import BookHomeHouse from './_BookHomeHouse';
 import Blog from './_Blog';
 import Transactions from './_Transactions';
 import PoweredByData from './_PoweredByData';
-import { track } from '../../../utils/MixPanelUtils';
+import { track, identify, setPeople, createGuid } from '../../../utils/MixPanelUtils';
+import cookie from 'react-cookie';
 
 class Index extends Component {
   componentDidMount() {
@@ -62,6 +63,26 @@ class Index extends Component {
         { breakpoint: 767, settings: { slidesToShow: 2, slidesToScroll: 1 } }, // Large Mobile
         { breakpoint: 479, settings: { slidesToShow: 1, slidesToScroll: 1 } }  // Small Mobile
       ]
+    });
+
+    var uuidUser = cookie.load("uuid_user");
+
+    if(uuidUser === undefined){
+      uuidUser = createGuid();
+      identify(uuidUser);
+
+      var date = new Date();
+      date.setDate(date.getDate() + 60);
+      cookie.save("uuid_user", uuidUser, {expires: date});
+      cookie.save("created_date", new Date(), {expires: date});
+    } else {
+      identify(uuidUser);
+    }
+
+    setPeople({
+      "uuid": uuidUser,
+      "$created": cookie.load("created_date"),
+      "$last_login": new Date()
     });
   }
 
