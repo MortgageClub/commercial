@@ -1,0 +1,22 @@
+<p>Hi <%= @first_name.titleize %>,</p> 
+
+<p>Thank you for choosing Blackline Lending. </p>
+
+<p>Blackline Lending was started to help real estate investors get financing for commercial properties in a more efficient, transparent, and empowered way. We’ve created a personalized Client Dashboard for you to easily navigate the loan process. </p>
+
+<p>
+  1. Please <a href="<%= @url_token %>">click here</a> to log in to your Client Dashboard <br/>
+  Username: <%= @borrower.user.email %> <br/>
+  Password: you'll be asked to choose a new password <br/>
+  After logging in, click on More Details <br/>
+</p>
+
+<p>
+  2. Under the Quotes tab, you’ll see 3 competitive soft quotes for your loan scenario.  
+</p>
+
+<p>
+If you have any issues or questions, please contact me at <a href="mailto:<%= @current_user.email %>"><%= @current_user.email %></a> or <%= ActionController::Base.helpers.number_to_phone @current_user.subjectable.phone_number %>
+</p>
+
+<%= @current_user.subjectable.email_signature.to_s.html_safe %>

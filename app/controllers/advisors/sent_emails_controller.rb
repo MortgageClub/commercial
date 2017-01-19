@@ -41,15 +41,24 @@ class Advisors::SentEmailsController < Advisors::BaseController
     @email_templates = []
 
     @first_name = @loan.borrower.user.first_name
+    @borrower = @loan.borrower
+    
+    @url_token = generate_user_token(@loan, @loan.borrower.user)
 
     default_template = render_to_string "email_templates/default", layout: false
-
+    new_account_with_quotes = render_to_string "email_templates/new_account_with_quotes", layout: false
+    
     @email_templates << {
       name: "Default Template",
       content: default_template
     }
 
-    @email_templates = @email_templates
+    @email_templates << {
+      name: "New Account With Quotes",
+      content: new_account_with_quotes
+    }
+
+    @email_templates
   end
 
   def prepare_receivers
@@ -66,5 +75,18 @@ class Advisors::SentEmailsController < Advisors::BaseController
         name: "#{assigned_loan_member.loan_member_title.title} <#{assigned_loan_member.loan_member.user.email}>"
       }
     end
+  end
+
+  def generate_user_token(loan, user)
+    if user.reset_password_token.nil?
+      token, enc = Devise.token_generator.generate(User, :reset_password_token)
+
+      user.reset_password_token = enc
+      user.reset_password_sent_at = Time.now.utc
+      user.save(validate: false)
+      loan.update(prepared_loan_token: token)
+    end
+
+    "#{Rails.application.config.action_mailer.default_url_options[:host]}/change-password?token=#{loan.prepared_loan_token}"
   end
 end
