@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     resources :loans, only: [:index, :edit, :update] do
       get :overview
       patch :overview_update
+      get :switch
 
       resources :documents
       resources :checklists

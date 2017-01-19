@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def create_service
-    find_service.new(params, request.headers, cookies, @resource)
+    find_service.new(params, request.headers, cookies, session, @resource)
   end
 
   def resource_class(mapping = nil)

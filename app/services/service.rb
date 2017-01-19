@@ -3,13 +3,14 @@ class Service
   include Support::Policy
   include Support::Validate
 
-  attr_accessor :user, :params, :headers, :cookies
+  attr_accessor :user, :params, :headers, :cookies, :session
 
-  def initialize(params, headers, cookies, user = nil)
+  def initialize(params, headers, cookies, session, user = nil)
     @params = params
     @headers = headers
     @user = user
     @cookies = cookies
+    @session = session
   end
 
   def execute

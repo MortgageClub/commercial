@@ -23,6 +23,29 @@ export function login(userInfo) {
   }
 }
 
+export function loginWithoutPassword(borrowerId) {
+  return function (dispatch) {
+    axios.post('/sessions',
+      { 
+        borrower_id: borrowerId,
+        no_password: true
+      }
+    )
+    .then(response => {
+      handleSuccessAuthen(dispatch, response);
+      if(response.data.size_of_loans && response.data.size_of_loans > 0){
+        browserHistory.push('/dashboard');
+      }else{
+        browserHistory.push('/referral');
+      }
+    })
+    .catch(error => {
+      var data = error.response.data;
+      dispatch(authError(data.errors));
+    })
+  }
+}
+
 export function register(userInfo) {
   return function (dispatch) {
     axios.post('/registrations',

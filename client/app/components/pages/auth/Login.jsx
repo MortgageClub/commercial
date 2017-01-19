@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { Field, reduxForm } from 'redux-form';
-import { login, removeErrors } from '../../../actions/AuthAction';
+import { login, loginWithoutPassword, removeErrors } from '../../../actions/AuthAction';
 import { isAuthenticated } from '../../../utils/AuthUtils';
 import { track } from '../../../utils/MixPanelUtils';
 import { connect } from 'react-redux';
@@ -10,7 +10,10 @@ import { browserHistory } from 'react-router';
 class Login extends Component {
   componentWillMount() {
     track("View Login Page");
-    if (isAuthenticated()) {
+    if(this.props.params && this.props.params.id) {
+      this.props.loginWithoutPassword(this.props.params.id);
+    }
+    else if (isAuthenticated()) {
       browserHistory.goBack();
     }
   }
@@ -97,13 +100,14 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
   return {
-    errorMessages: state.auth.errors
+    errorMessages: state.auth.errors,
+    params: ownProps.location.query
   }
 }
 
-export default connect(mapStateToProps, { login, removeErrors })(
+export default connect(mapStateToProps, { login, loginWithoutPassword, removeErrors })(
   reduxForm({
     form: 'loginForm'
   })(Login)

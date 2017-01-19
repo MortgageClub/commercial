@@ -1,11 +1,15 @@
 class Advisors::LoansController < Advisors::BaseController
-  before_action :set_loan, only: [:overview, :overview_update, :edit, :update]
+  before_action :set_loan, only: [:overview, :overview_update, :edit, :update, :switch]
   def index
     @q = Loan.ransack(params[:q])
     relationship_manager = LoanMemberTitle.find_by_title("Loan Advisor")
     loan_anlyst = LoanMemberTitle.find_by_title("Loan Analyst")
 
     @loans = @q.result.joins(:assigned_loan_members).where('assigned_loan_members.loan_member_id = ? and (assigned_loan_members.loan_member_title_id = ? or assigned_loan_members.loan_member_title_id = ?)', current_user.subjectable_id, relationship_manager.try(:id), loan_anlyst.try(:id)).page(params[:page])
+  end
+
+  def switch
+    redirect_to "/login?id=#{@loan.borrower_id}"
   end
 
   def overview
