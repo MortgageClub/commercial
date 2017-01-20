@@ -6,7 +6,8 @@ class Quote < ApplicationRecord
   enum name: {
     option_1: "option_1",
     option_2: "option_2",
-    option_3: "option_3"
+    option_3: "option_3",
+    option_4: "option_4"
   }
 
   enum status: {

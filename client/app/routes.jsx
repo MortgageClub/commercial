@@ -20,7 +20,7 @@ export default (
   <Route path="/" component={Index}>
     <IndexRoute component={Home}/>
     <Route path="/login" component={Login} />
-    <Route path="/blog" component={Blog} />
+    <Route path="/market-insights" component={Blog} />
     <Route path="/services" component={Services} />
     <Route path="/about" component={About} />
     <Route path="/terms-of-service" component={Terms} />
@@ -31,6 +31,6 @@ export default (
     <Route path="/dashboard" component={BorrowerDashboard} />
     <Route path="/referral" component={BorrowerReferral} />
     <Route path="/loans/:id" component={LoanDashboard} />
-    <Route path="/blog/:id" component={BlogDetails} />
+    <Route path="/market-insights/:id" component={BlogDetails} />
   </Route>
 );

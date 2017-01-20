@@ -26,7 +26,7 @@ class Services extends Component {
                     <div className="col-lg-4 col-md-6 col-sm-4">
                       <div className="features-include-list">
                         <h6><img src="images/icons/7.png" />NATIONAL PLATFORM</h6>
-                        <p>We lend in all 50 states, specializing in $500K-$10M loans.</p>
+                        <p>We lend in all 50 states, specializing in $500K-$15M loans.</p>
                       </div>
                     </div>
                     <div className="col-lg-4 col-md-6 col-sm-4">

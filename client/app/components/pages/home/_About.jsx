@@ -21,7 +21,7 @@ class About extends Component {
                   <p>We are a technology-driven lending platform built for commercial real estate investors. With optimizing software and first-rate lenders, we provide easy access to competitive loan programs. Lending sources include regional and national banks, credit unions, life insurance companies, CMBS, and CTL financiers.</p>
                   <ul>
                     <li>Fixed rate loan terms from 5 to 20 years</li>
-                    <li>Up to 75% LTV</li>
+                    <li>Up to 80% LTV</li>
                     <li>Amortization up to 30 years</li>
                     <li>Loans from $500K to $15M nationwide</li>
                   </ul>

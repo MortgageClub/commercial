@@ -42,17 +42,17 @@ class Blog extends Component {
       <div className="col-md-4" key={"homepage_" + blog.slug}>
         <article className="blog-item bg-gray">
           <div className="blog-image">
-            <Link to={`/blog/${blog.slug}`}>
+            <Link to={`/market-insights/${blog.slug}`}>
               <img src={blog.image_url}/>
             </Link>
           </div>
           <div className="blog-info">
             <div className="post-title-time">
-              <h5><Link to={`/blog/${blog.slug}`}>{blog.title}</Link></h5>
+              <h5><Link to={`/market-insights/${blog.slug}`}>{blog.title}</Link></h5>
               <p>{blog.created_at}</p>
             </div>
             <p>{blog.short_description}</p>
-            <Link to={`/blog/${blog.slug}`} className="read-more">Read more</Link>
+            <Link to={`/market-insights/${blog.slug}`} className="read-more">Read more</Link>
           </div>
         </article>
       </div>

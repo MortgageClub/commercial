@@ -53,7 +53,7 @@ class MobileMenu extends Component {
           <Link to="/services">Services</Link>
         </li>
         <li>
-          <Link to="/blog">Blog</Link>
+          <Link to="/market-insights">Market Insights</Link>
         </li>
         <li>
           <Link to="/about">About Us</Link>
@@ -86,7 +86,7 @@ class MobileMenu extends Component {
           <Link to="/services">Services</Link>
         </li>
         <li>
-          <Link to="/blog">Blog</Link>
+          <Link to="/market-insights">Market Insights</Link>
         </li>
         <li>
           <Link to="/about">About Us</Link>

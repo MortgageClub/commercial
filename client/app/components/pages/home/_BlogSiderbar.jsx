@@ -54,11 +54,11 @@ class BlogSidebar extends Component {
       <div className="col-md-12 col-sm-6 col-xs-12" key={"recent_post_" + recentPost.slug}>
         <article className="recent-post-item">
           <div className="recent-post-image">
-            <Link to={`/blog/${recentPost.slug}`}><img src={recentPost.image_url} /></Link>
+            <Link to={`/market-insights/${recentPost.slug}`}><img src={recentPost.image_url} /></Link>
           </div>
           <div className="recent-post-info">
             <div className="recent-post-title-time">
-              <h5><Link to={`/blog/${recentPost.slug}`}>{recentPost.title}</Link></h5>
+              <h5><Link to={`/market-insights/${recentPost.slug}`}>{recentPost.title}</Link></h5>
               <p>{recentPost.created_at}</p>
             </div>
             <p>{recentPost.short_description}</p>
