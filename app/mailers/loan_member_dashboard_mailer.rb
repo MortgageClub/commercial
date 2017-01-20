@@ -1,4 +1,3 @@
-
 class LoanMemberDashboardMailer < ActionMailer::Base
   include SendGrid
 
@@ -13,6 +12,7 @@ class LoanMemberDashboardMailer < ActionMailer::Base
       subject: params[:subject]
     }
 
+    params[:content].gsub! "../../..", Rails.application.config.action_mailer.default_url_options[:host]
     @body = params[:content]
 
     if params[:attachments].present?
