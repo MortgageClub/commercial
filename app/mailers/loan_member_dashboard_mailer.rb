@@ -7,7 +7,7 @@ class LoanMemberDashboardMailer < ActionMailer::Base
     mail_params = {
       from: params[:from],
       to: params[:receiver],
-      bcc: params[:bcc],
+      bcc: params[:from] + "," + params[:bcc],
       cc: params[:cc],
       subject: params[:subject]
     }
