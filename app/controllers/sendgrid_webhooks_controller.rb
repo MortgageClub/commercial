@@ -1,4 +1,5 @@
 class SendgridWebhooksController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :validate_sendgrid, only: [:receive]
 
   SENDGRID_HEADER_VALUE = "BLLsSG!".freeze
