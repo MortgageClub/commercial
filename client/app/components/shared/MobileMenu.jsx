@@ -12,6 +12,13 @@ class MobileMenu extends Component {
         this.props.logout();
       }.bind(this));
     }
+
+    $(".dropdown-user").on("click", function(e) {
+      var clickSignal = $(e.target).text() == "+" || $(e.target).text() == "-";
+      if(!clickSignal){
+        $(".mean-expand").click();
+      }
+    });
   }
 
   componentDidUpdate(prevProps) {
@@ -58,7 +65,7 @@ class MobileMenu extends Component {
         <li>
           <Link to="/about">About Us</Link>
         </li>
-        <li>
+        <li className="dropdown-user">
           <a>{this.props.userInfo && (this.props.userInfo.first_name + " " + this.props.userInfo.last_name)}</a>
           <ul>
             {
