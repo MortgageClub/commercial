@@ -31,12 +31,13 @@ export function fetch(id) {
   }
 }
 
-export function getAll(size) {
+export function getAll(size, blogType) {
   return function (dispatch) {
     axios.get('/blogs', {
         params: {
           size: size,
-          type: "detail"
+          type: "detail",
+          blog_type: blogType
         }
       })
       .then(response => {

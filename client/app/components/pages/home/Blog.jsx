@@ -8,9 +8,20 @@ import { track } from '../../../utils/MixPanelUtils';
 
 class Blog extends Component {
   componentDidMount() {
-    this.props.getAll(8);
+    if(this.props.params && this.props.params.type){
+      this.props.getAll(8, this.props.params.type);
+    } else {
+      this.props.getAll(8);
+    }
     track("View Blog Page");
   }
+
+  componentWillReceiveProps(newProps) {
+    if(newProps.params.type != this.props.params.type) {
+      this.props.getAll(8, newProps.params.type);
+    }
+  }
+
   render() {
     return (
       <div className="wrapper">
@@ -57,9 +68,10 @@ class Blog extends Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
   return {
-    blogs: state.blog.blogs_page
+    blogs: state.blog.blogs_page,
+    params: ownProps.location.query
   };
 }
 

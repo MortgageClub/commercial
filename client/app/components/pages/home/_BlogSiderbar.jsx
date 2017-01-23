@@ -7,6 +7,7 @@ class BlogSidebar extends Component {
   componentDidMount() {
     this.props.getAll(4);
   }
+
   render() {
     const recent_posts = this.props.blogs ? this.props.blogs.slice(0, 4) : [];
     return (
@@ -20,11 +21,11 @@ class BlogSidebar extends Component {
         <aside className="widget widget-categories mb-50">
           <h5>Categories</h5>
           <ul className="widget-categories-list">
-            <li><a href="#">Commercial Real Estate</a></li>
-            <li><a href="#">Financing</a></li>
-            <li><a href="#">Data</a></li>
-            <li><a href="#">Technology</a></li>
-            <li><a href="#">Events</a></li>
+            <li><Link activeClassName="active" to={{ pathname: "/market-insights", query: {type: "commercial_real_estate"} }}>Commercial Real Estate</Link></li>
+            <li><Link activeClassName="active" to={{ pathname: "/market-insights", query: {type: "financing"} }}>Financing</Link></li>
+            <li><Link activeClassName="active" to={{ pathname: "/market-insights", query: {type: "data"} }}>Data</Link></li>
+            <li><Link activeClassName="active" to={{ pathname: "/market-insights", query: {type: "technology"} }}>Technology</Link></li>
+            <li><Link activeClassName="active" to={{ pathname: "/market-insights", query: {type: "events"} }}>Events</Link></li>
           </ul>
         </aside>
         <aside className="widget widget-recent-post mb-50">
@@ -34,16 +35,6 @@ class BlogSidebar extends Component {
               recent_posts && recent_posts.map(recent_post => this.renderRecentPost(recent_post))
             }
           </div>
-        </aside>
-        <aside className="widget widget-archive mb-50">
-          <h5>Archive</h5>
-          <ul className="widget-archive-list">
-            <li><a href="#">August <span>2016</span></a></li>
-            <li><a href="#">June <span>2016</span> </a></li>
-            <li><a href="#">May <span>2016</span> </a></li>
-            <li><a href="#">April <span>2016</span> </a></li>
-            <li><a href="#">March <span>2016</span> </a></li>
-          </ul>
         </aside>
       </div>
     )
@@ -76,3 +67,13 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, {getAll})(BlogSidebar);
+// <aside className="widget widget-archive mb-50">
+//   <h5>Archive</h5>
+//   <ul className="widget-archive-list">
+//     <li><a href="#">August <span>2016</span></a></li>
+//     <li><a href="#">June <span>2016</span> </a></li>
+//     <li><a href="#">May <span>2016</span> </a></li>
+//     <li><a href="#">April <span>2016</span> </a></li>
+//     <li><a href="#">March <span>2016</span> </a></li>
+//   </ul>
+// </aside>
