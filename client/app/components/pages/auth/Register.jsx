@@ -141,10 +141,10 @@ class Register extends Component {
                           </div>
                         </div>
                         <div className="row">
-                          <div className="col-sm-6">
+                          <div className="col-sm-6 col-xs-6">
                             <button className="submit-btn-1 mt-20" type="submit" disabled={pristine || submitting}>Sign up</button>
                           </div>
-                          <div className="col-sm-6">
+                          <div className="col-sm-6 col-xs-6">
                             <button className="submit-btn-1 mt-20 f-right" type="reset" disabled={pristine} onClick={reset}>Clear</button>
                           </div>
                         </div>
