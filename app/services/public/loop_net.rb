@@ -5,7 +5,7 @@ module Public
   class LoopNet
     attr_accessor :browser, :csv, :addresses, :header
 
-    def initialize(addresses)
+    def initialize(addresses, uuid)
       @browser = Watir::Browser.new :phantomjs
       @browser.window.maximize
       @header = [
@@ -18,21 +18,23 @@ module Public
         "Date 3", "Event 3", "APN/Parcel ID Owner 3", "Owner 3", "Address 3", "Rights 3", "Sale Price 3", "Mortgage Date 3", "Mortgage Details (at time of loan) 3", "Mortgage Deed Type 3", "Lender Name 3", "Lender Address 3" 
       ]
 
-      @csv = CSV.open("public/output_loop_find_lender.csv", "ab")
+      @csv = CSV.open("public/output_loop_find_lender_#{uuid}.csv", "ab")
       @csv << header
       @addresses = addresses
     end
 
     def call
       login
-
+    
       @addresses.each do |address|
         ap "-----------------------------------start-----------------------------------"
-        begin
-          search(address)
-          get_properties
-        rescue Exception => e
-          ap e
+        if address
+          begin
+            search(address)
+            get_properties
+          rescue Exception => e
+            ap e.backtrace
+          end
         end
       end
 

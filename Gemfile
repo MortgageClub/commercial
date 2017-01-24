@@ -70,6 +70,8 @@ gem 'watir-webdriver'
 
 gem 'selenium-webdriver', '~> 2.53.4'
 
+gem 'pusher'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
