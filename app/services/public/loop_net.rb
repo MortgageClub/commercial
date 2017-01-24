@@ -115,7 +115,7 @@ module Public
           csv << row
         end
       else
-        browser.screenshot.save
+        # browser.screenshot.save
         ap "No Data Available"
       end
     end
