@@ -56,7 +56,7 @@ module Public
     end
 
     def get_properties
-      sleep(3)
+      sleep(6)
       if browser.link(class: "searchResultPhoto").exists?
         links = []
 
@@ -113,6 +113,7 @@ module Public
           csv << row
         end
       else
+        browser.screenshot.save
         ap "No Data Available"
       end
     end
