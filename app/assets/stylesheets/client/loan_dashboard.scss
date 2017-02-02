@@ -258,3 +258,15 @@
     }
   }
 }
+
+.fw-300 {
+  font-weight: 300;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+  border-radius: 0;
+  border-top: 3px solid #96c03d;
+}
+.nav-tabs > li > a {
+  border-radius: 0;
+}

@@ -39,15 +39,15 @@ class MortgageAdvisor extends Component {
                 </h5>
                 <div>
                   <span className="fa fa-user"></span>
-                  <span>License Number: {mortgageAdvisor.individual_bre}</span>
+                  <span className="fw-300">License Number: {mortgageAdvisor.individual_bre}</span>
                 </div>
                 <div>
                   <span className="fa fa-phone"></span>
-                  <span>{mortgageAdvisor.phone_number}</span>
+                  <span className="fw-300">{mortgageAdvisor.phone_number}</span>
                 </div>
                 <div>
                   <span className="fa fa-envelope"></span>
-                  <span><a href={"mailto:" + mortgageAdvisor.email}>{mortgageAdvisor.email}</a></span>
+                  <span className="fw-300"><a href={"mailto:" + mortgageAdvisor.email}>{mortgageAdvisor.email}</a></span>
                 </div>
               </div>
             </div>
