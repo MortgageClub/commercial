@@ -98,3 +98,20 @@
     list-style: disc;
   }
 }
+
+.btn-group button {
+  background: #c5c5c5 none repeat scroll 0 0;
+  color: #000000;
+  text-transform: uppercase;
+  border: 1px solid white;
+  font-size: 14px;
+  padding: 0px 15px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.btn-group button:hover, .btn-group button:focus, .btn-group button:active, .btn-group button.active{
+  background: #95c41f none repeat scroll 0 0;
+  color: white;
+  border: 1px solid white;
+}
