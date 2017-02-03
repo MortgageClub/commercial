@@ -56,6 +56,12 @@
                 <span>Email</span>
               <% end %>
             </li>
+            <li class="<%= active?("find_lenders") %>">
+              <%= link_to new_advisors_loan_find_lender_path(@loan) do %>
+                <i class="icon-search4"></i>
+                <span>Find Lenders</span>
+              <% end %>
+            </li>
           </ul>
         </div>
       </div>

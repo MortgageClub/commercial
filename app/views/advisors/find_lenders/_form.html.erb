@@ -1,0 +1,32 @@
+<%= form_tag advisors_loan_find_lenders_path(@loan), authenticity_token: true do |f| %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= label_tag :address %>
+        <%= text_field_tag :address, nil, class: "form-control", value: @loan.property_address %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= label_tag :search %>
+        <%= text_field_tag :search, nil, class: "form-control", placeholder: "Dollar General" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-wizard-actions">
+    <button class="btn btn-primary legitRipple" type="submit">Submit<i class="icon-arrow-right14 position-right"></i></button>
+  </div>
+<% end %>
+
+<% if @results %>
+  <% @results.each do |result| %>
+    <div class="row">
+      <div class="col-md-6"><%= result["name"] %></div>
+      <div class="col-md-6"><%= result["formatted_address"] %></div>
+    </div>
+  <% end %>
+<% end %>

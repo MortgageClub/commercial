@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       resources :documents
       resources :checklists
       resources :sent_emails, only: [:index, :create]
+      resources :find_lenders, only: [:new, :create]
       resources :quotes
     end
   end
