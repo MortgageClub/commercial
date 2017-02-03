@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
   namespace :advisors do
     resources :loop_net, only: [:new, :create]
+    resources :google_places, only: [:new, :create]
     resources :loans, only: [:index, :edit, :update] do
       get :overview
       patch :overview_update
