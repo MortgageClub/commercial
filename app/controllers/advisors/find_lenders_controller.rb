@@ -8,7 +8,7 @@ class Advisors::FindLendersController < Advisors::BaseController
     @results = Public::PlacesApi.new(params[:search], params[:address]).call
     addresses = @results.map { |result| result["formatted_address"] }
     uuid = SecureRandom.uuid
-    SearchAddressInLoopNet.perform_later(addresses, uuid, "simple")
+    FindLendersInLoopNet.perform_later(addresses, uuid)
 
     redirect_to action: :new, uuid: uuid
   end
