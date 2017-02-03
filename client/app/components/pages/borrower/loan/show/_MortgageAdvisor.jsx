@@ -6,8 +6,8 @@ class MortgageAdvisor extends Component {
   componentDidMount() {
     if (!this.props.steps){
       this.props.addStep({
-        title: 'Loan Advisor',
-        text: 'You can call, email, or text your Loan Advisor anytime.',
+        title: 'Loan advisor',
+        text: 'Call, email, or text your loan advisor at any time for updates and guidance.',
         selector: '.relationship-manager',
         position: 'left',
         type: 'hover',

@@ -17,7 +17,7 @@ class TabsContent extends Component {
       this.props.addStep([
         {
           title: 'Overview',
-          text: 'We display items that need your action to move forward here.',
+          text: 'See items that need your action to move the process forward.',
           selector: '.overviewTab',
           position: 'top',
           type: 'hover',
@@ -30,7 +30,7 @@ class TabsContent extends Component {
         },
         {
           title: 'Quotes',
-          text: 'Here are 3 soft quotes from our lending sources for your scenario.',
+          text: 'View the best 3 soft quotes from our lending sources for your unique scenario. Want to see more options? Get in touch with us.',
           selector: '.quotesTab',
           position: 'top',
           type: 'hover',
@@ -43,7 +43,7 @@ class TabsContent extends Component {
         },
         {
           title: 'Terms',
-          text: 'We display final loan terms and fees here in this tab.',
+          text: 'Find a comprehensive overview of your final loan terms and fees.',
           selector: '.termsTab',
           position: 'top',
           type: 'hover',
@@ -55,8 +55,8 @@ class TabsContent extends Component {
           }
         },
         {
-          title: 'Your loan documents',
-          text: 'We try to organize your documents in a way that makes sense by grouping it into Property, Borrower, Guarantor, Loan, and Closing.',
+          title: 'Loan documents',
+          text: 'Your documents are organized by what they relate to: Property, Borrower, Guarantor, Loan, and Closing.',
           selector: '.propertyTab',
           position: 'top',
           type: 'hover',

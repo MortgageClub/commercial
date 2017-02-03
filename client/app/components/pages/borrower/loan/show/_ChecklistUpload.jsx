@@ -21,7 +21,7 @@ class ChecklistUpload extends Component {
               <div className='dropzone'>
                 <Dropzone onDrop={this.onDrop.bind(this)} multiple={false}>
                   <i className="fa fa-cloud-upload fa-3x"></i>
-                  <div>You can drag and drop file here to upload. Or, click to choose file</div>
+                  <div>Select file to upload. Or drag and drop your file here.</div>
                 </Dropzone>
               </div>
               {
