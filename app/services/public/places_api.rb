@@ -12,13 +12,12 @@ module Public
 
     def call
       location = query_location
-      ap location
+      
       if location
         response = agent.get "https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{URI.escape(query)}&location=#{location["lat"]},#{location["lng"]}&radius=50000&key=#{key}"
         response = JSON.load(response.body)
 
         if response["status"] == "OK"
-          ap response["results"]
           response["results"]
         end
       end

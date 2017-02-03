@@ -1,4 +1,10 @@
 <%= form_tag advisors_loan_find_lenders_path(@loan), authenticity_token: true do |f| %>
+  <% if params[:uuid] %>
+    <div class="row alert">
+      Please wait to find lenders...
+    </div>
+  <% end %>
+
   <div class="row">
     <div class="col-md-12">
       <div class="form-group">
@@ -30,3 +36,21 @@
     </div>
   <% end %>
 <% end %>
+
+
+<script>
+  // Enable pusher logging - don't include this in production
+  // Pusher.logToConsole = true;
+
+  var pusher = new Pusher('97f2ae83aaf1a0fe9324', {
+    encrypted: true
+  });
+
+  var channel = pusher.subscribe('loop-net-channel');
+  channel.bind('crawl-done', function(data) {
+    if(data.uuid == "<%= params[:uuid] %>"){
+      $(".alert").remove();
+      alert("Please download file at: " + window.location.hostname + "/output_loop_find_lender_<%= params[:uuid] %>.csv");
+    }
+  });
+</script>
