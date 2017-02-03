@@ -3,10 +3,12 @@ class FindLendersInLoopNet < ApplicationJob
   queue_as :default
 
   def perform(addresses, uuid)
-    Public::LoopNetForPlaces.new(addresses, uuid).call
+    output = Public::LoopNetForPlaces.new(addresses, uuid).call
+    
     Pusher.trigger('loop-net-channel', 'crawl-done', {
       uuid: uuid,
-      message: "Crawl Done"
+      message: "Crawl Done",
+      data: output
     })
   end
 end

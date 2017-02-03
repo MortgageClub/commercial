@@ -1,20 +1,14 @@
 require "watir-webdriver"
-require "csv"
 
 module Public
   class LoopNetForPlaces
-    attr_accessor :browser, :csv, :addresses, :header
+    attr_accessor :browser, :addresses, :output
 
     def initialize(addresses, uuid)
       @browser = Watir::Browser.new :phantomjs
       @browser.window.maximize
-      @header = [
-        "Address Input", "Address Search", "Type", "Lender Name", "Lender Address", "Loan Amount", "Mortgage Date", "Mortgage Detail", "Sale Price", "Building Size"
-      ]
-
-      @csv = CSV.open("public/output_loop_find_lender_#{uuid}.csv", "ab")
-      @csv << header
       @addresses = addresses
+      @output = []
     end
 
     def call
@@ -33,7 +27,7 @@ module Public
       end
 
       close_browser
-      csv.close
+      @output
     end
 
     def login
@@ -53,22 +47,21 @@ module Public
 
     def get_properties(address)
       sleep(6)
-
-      row = CSV::Row.new(header,[])
-      row["Address Input"] = address
+      data = {}
+      data[:address_input] = address
 
       if browser.link(class: "searchResultPhoto").exists?
         browser.link(class: "searchResultPhoto").click
         sleep(1)
 
-        row["Address Search"] = browser.div(class: "listingProfileDetail").h1.text
+        data[:address_search] = browser.div(class: "listingProfileDetail").h1.text
         if browser.div(id: "SummaryTabControl_propertyTab").exists?
           browser.div(id: "SummaryTabControl_propertyTab").table.tbody.trs.each do |tr|
             if tr.th.text == "Primary Property Type:"
-              row["Type"] = tr.td.text
+              data[:type] = tr.td.text
             end
             if tr.th.text == "Building Size:"
-              row["Building Size"] = tr.td.text
+              data[:building_size] = tr.td.text
             end
           end
         end
@@ -82,17 +75,17 @@ module Public
             table.tbody.trs.each do |tr|
               case tr.th.text
               when "Mortgage Details (at time of loan)"
-                row["Mortgage Detail"] = tr.td.text
+                data[:mortgage_detail] = tr.td.text
               when "Sale Price"
-                row[tr.th.text] = tr.td.text
+                data[:sale_price] = tr.td.text
               when "Mortgage Date"
-                row[tr.th.text] = tr.td.text
+                data[:mortgage_date] = tr.td.text
               when "Mortgage Amount"
-                row["Loan Amount"] = tr.td.text
+                data[:mortgage_amount] = tr.td.text
               when "Lender Name"
-                row[tr.th.text] = tr.td.text
+                data[:lender_name] = tr.td.text
               when "Lender Address"
-                row[tr.th.text] = tr.td.text
+                data[:lender_address] = tr.td.text
               else
               end
             end
@@ -102,7 +95,7 @@ module Public
         ap "No Data Available"
       end
 
-      csv << row
+      @output << data
     end
 
     def close_browser

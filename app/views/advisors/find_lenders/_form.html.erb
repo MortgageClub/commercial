@@ -27,16 +27,27 @@
     <button class="btn btn-primary legitRipple" type="submit">Submit<i class="icon-arrow-right14 position-right"></i></button>
   </div>
 <% end %>
-
-<% if @results %>
-  <% @results.each do |result| %>
-    <div class="row">
-      <div class="col-md-6"><%= result["name"] %></div>
-      <div class="col-md-6"><%= result["formatted_address"] %></div>
-    </div>
-  <% end %>
-<% end %>
-
+<div class="row">
+  <div class="col-md-12 table-responsive">
+    <table id="table-data" style="margin-top: 10px; display: none" class="table table-bordered table-framed">
+      <thead>
+        <tr>
+          <th>Address Input</th>
+          <th>Address Search</th>
+          <th>Type</th>
+          <th>Lender Name</th>
+          <th>Lender Address</th>
+          <th>Loan Amount</th>
+          <th>Mortgage Date</th>
+          <th>Mortgage Detail</th>
+          <th>Sale Price</th>
+          <th>Building Size</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
 
 <script>
   // Enable pusher logging - don't include this in production
@@ -50,7 +61,22 @@
   channel.bind('crawl-done', function(data) {
     if(data.uuid == "<%= params[:uuid] %>"){
       $(".alert").remove();
-      alert("Please download file at: " + window.location.hostname + "/output_loop_find_lender_<%= params[:uuid] %>.csv");
+      $("#table-data").show();
+      for(var row of data.data){
+        var content = "<tr>";
+        content += "<td>" + (row.address_input == undefined ? "" : row.address_input) + "</td>";
+        content += "<td>" + (row.address_search == undefined ? "" : row.address_search) + "</td>";
+        content += "<td>" + (row.type == undefined ? "" : row.type) + "</td>";
+        content += "<td>" + (row.lender_name == undefined ? "" : row.lender_name) + "</td>";
+        content += "<td>" + (row.lender_address == undefined ? "" : row.lender_address) + "</td>";
+        content += "<td>" + (row.loan_amount == undefined ? "" : row.loan_amount) + "</td>";
+        content += "<td>" + (row.mortgage_date == undefined ? "" : row.mortgage_date) + "</td>";
+        content += "<td>" + (row.mortgage_detail == undefined ? "" : row.mortgage_detail) + "</td>";
+        content += "<td>" + (row.sale_price == undefined ? "" : row.sale_price) + "</td>";
+        content += "<td>" + (row.building_size == undefined ? "" : row.building_size) + "</td>";
+        content += "</tr>";
+        $("#table-data tbody").append(content);
+      }
     }
   });
 </script>
