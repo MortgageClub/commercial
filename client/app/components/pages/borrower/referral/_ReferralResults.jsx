@@ -19,9 +19,12 @@ class ReferralResults extends Component {
         <div className="row">
           <div className="col-md-12 col-xs-12">
             <h4>YOUR REFERRALS</h4>
-            <div className="mb-10">
-              Your referrals will appear here once they've joined Blackline. You can also keep track of your referral bonus. For any missing referral or specific information regarding our referral program, please email us at <a href="mailto:referral@blacklinelending.com">referral@blacklinelending.com</a>.
-            </div>
+            <p  className="mb-0">
+              Once your referrals have joined Blackline, they will appear here so you can keep track of your referral bonus.
+            </p>
+            <p className="mb-10">
+              For any missing referral or specific information regarding referral bonus, please email us at <a href="mailto:referral@blacklinelending.com">referral@blacklinelending.com</a>.
+            </p>
             <div className="table-responsive">
               <table className="table">
                 <thead>

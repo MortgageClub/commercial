@@ -12,13 +12,14 @@ class ReferralLink extends Component {
           <div className="col-md-12 col-xs-12">
             <div className="referral-link">
               <h4><img width="27" src="/images/one.png"/> Share your unique referral link</h4>
-              <div className="mb-10">Share your link (below) with clients, friends and family and make sure they sign up for their Blackline accounts using the right invite link.</div>
+              <p className="mb-0">Copy the link below to share your invite link with family, friends, and clients.</p>
               <form>
                 <a href={link} target="_blank" style={{"color": "#0000EE", "fontSize": "14px"}}> Blackline Lending </a>
                 <ClipboardButton className="submit-btn-1 mt-5 pull-right clipboard-button" data-clipboard-text={link}>
                   Copy to Clipboard
                 </ClipboardButton>
               </form>
+              <p className="mb-0">This is a unique code generated for you. So make sure they sign up with the right link!</p>
             </div>
           </div>
         </div>
