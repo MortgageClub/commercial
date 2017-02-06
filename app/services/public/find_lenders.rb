@@ -6,7 +6,8 @@ module Public
       @agent = Mechanize.new
       @agent.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       @address = address
-      @key = "AIzaSyDZ0GAVFZv5izmhnHjJHJoqkZITlpx2dbQ"
+      # @key = "AIzaSyDZ0GAVFZv5izmhnHjJHJoqkZITlpx2dbQ"
+      @key = "AIzaSyAju7nwoPgiasGdApz2XZMcgw0PDGvaRCM"
       @browser = Watir::Browser.new :phantomjs
       @browser.window.maximize
       @lenders = []
