@@ -7,7 +7,7 @@ class FindLendersInLoopNet < ApplicationJob
     
     Pusher.trigger('loop-net-channel', 'crawl-done', {
       uuid: uuid,
-      message: "Crawl Done",
+      message: "LoopNet",
       data: output
     })
   end

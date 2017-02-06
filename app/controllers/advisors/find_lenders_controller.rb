@@ -5,11 +5,16 @@ class Advisors::FindLendersController < Advisors::BaseController
   end
 
   def create
-    @results = Public::PlacesApi.new(params[:search], params[:address]).call
-    addresses = @results.map { |result| result["formatted_address"] }
     uuid = SecureRandom.uuid
-    FindLendersInLoopNet.perform_later(addresses, uuid)
 
+    if params[:type] == "By Location"
+      FindLendersInPlaces.perform_later(params[:address], uuid)
+    else
+      @results = Public::PlacesApi.new(params[:search], params[:address]).call
+      addresses = @results.map { |result| result["formatted_address"] }
+      FindLendersInLoopNet.perform_later(addresses, uuid)
+    end
+    
     redirect_to action: :new, uuid: uuid
   end
 

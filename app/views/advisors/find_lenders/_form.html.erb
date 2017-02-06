@@ -1,9 +1,18 @@
 <%= form_tag advisors_loan_find_lenders_path(@loan), authenticity_token: true do |f| %>
   <% if params[:uuid] %>
     <div class="row alert">
-      Please wait to find lenders...
+      Please wait, do not click on another tab...
     </div>
   <% end %>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= label_tag :type %>
+        <%= select_tag :type, options_for_select([ "By Location", "By Comparable Properties" ], "By Location"), class: "form-control"  %>
+      </div>
+    </div>
+  </div>
 
   <div class="row">
     <div class="col-md-12">
@@ -18,7 +27,7 @@
     <div class="col-md-12">
       <div class="form-group">
         <%= label_tag :search %>
-        <%= text_field_tag :search, nil, class: "form-control", placeholder: "Dollar General" %>
+        <%= text_field_tag :search, nil, class: "form-control", placeholder: "e.g., Dollar General" %>
       </div>
     </div>
   </div>
@@ -29,11 +38,10 @@
 <% end %>
 <div class="row">
   <div class="col-md-12 table-responsive">
-    <table id="table-data" style="margin-top: 10px; display: none" class="table table-bordered table-framed">
+    <table id="table-data-loopnet" style="margin-top: 10px; display: none" class="table table-bordered table-framed">
       <thead>
         <tr>
           <th>Address Input</th>
-          <th>Address Search</th>
           <th>Type</th>
           <th>Lender Name</th>
           <th>Lender Address</th>
@@ -42,6 +50,18 @@
           <th>Mortgage Detail</th>
           <th>Sale Price</th>
           <th>Building Size</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <table id="table-data-google-places" style="margin-top: 10px; display: none" class="table table-bordered table-framed">
+      <thead>
+        <tr>
+          <th>Lender</th>
+          <th>Address</th>
+          <th>Phone Number</th>
+          <th>Website</th>
+          <th>CRE?</th>
         </tr>
       </thead>
       <tbody></tbody>
@@ -61,21 +81,34 @@
   channel.bind('crawl-done', function(data) {
     if(data.uuid == "<%= params[:uuid] %>"){
       $(".alert").remove();
-      $("#table-data").show();
-      for(var row of data.data){
-        var content = "<tr>";
-        content += "<td>" + (row.address_input == undefined ? "" : row.address_input) + "</td>";
-        content += "<td>" + (row.address_search == undefined ? "" : row.address_search) + "</td>";
-        content += "<td>" + (row.type == undefined ? "" : row.type) + "</td>";
-        content += "<td>" + (row.lender_name == undefined ? "" : row.lender_name) + "</td>";
-        content += "<td>" + (row.lender_address == undefined ? "" : row.lender_address) + "</td>";
-        content += "<td>" + (row.loan_amount == undefined ? "" : row.loan_amount) + "</td>";
-        content += "<td>" + (row.mortgage_date == undefined ? "" : row.mortgage_date) + "</td>";
-        content += "<td>" + (row.mortgage_detail == undefined ? "" : row.mortgage_detail) + "</td>";
-        content += "<td>" + (row.sale_price == undefined ? "" : row.sale_price) + "</td>";
-        content += "<td>" + (row.building_size == undefined ? "" : row.building_size) + "</td>";
-        content += "</tr>";
-        $("#table-data tbody").append(content);
+      if(data.message == "LoopNet"){
+        $("#table-data-loopnet").show();
+        for(var row of data.data){
+          var content = "<tr>";
+          content += "<td>" + (row.address_input == undefined ? "" : row.address_input) + "</td>";
+          content += "<td>" + (row.type == undefined ? "" : row.type) + "</td>";
+          content += "<td>" + (row.lender_name == undefined ? "" : row.lender_name) + "</td>";
+          content += "<td>" + (row.lender_address == undefined ? "" : row.lender_address) + "</td>";
+          content += "<td>" + (row.loan_amount == undefined ? "" : row.loan_amount) + "</td>";
+          content += "<td>" + (row.mortgage_date == undefined ? "" : row.mortgage_date) + "</td>";
+          content += "<td>" + (row.mortgage_detail == undefined ? "" : row.mortgage_detail) + "</td>";
+          content += "<td>" + (row.sale_price == undefined ? "" : row.sale_price) + "</td>";
+          content += "<td>" + (row.building_size == undefined ? "" : row.building_size) + "</td>";
+          content += "</tr>";
+          $("#table-data-loopnet tbody").append(content);
+        }
+      } else {
+        $("#table-data-google-places").show();
+        for(var row of data.data){
+          var content = "<tr>";
+          content += "<td>" + (row.name == undefined ? "" : row.name) + "</td>";
+          content += "<td>" + (row.address == undefined ? "" : row.address) + "</td>";
+          content += "<td>" + (row.website == undefined ? "" : row.website) + "</td>";
+          content += "<td>" + (row.phone == undefined ? "" : row.phone) + "</td>";
+          content += "<td>" + (row.is_cre == undefined ? "" : row.is_cre) + "</td>";
+          content += "</tr>";
+          $("#table-data-google-places tbody").append(content);
+        }
       }
     }
   });
