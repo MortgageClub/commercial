@@ -34,8 +34,8 @@ module Public
 
       @place_ids = places.map { |place| place["place_id"] }.uniq 
       place_details
-
-      @lenders.sort_by{ |item| item[:name] }.reverse!
+      
+      @lenders.sort_by{ |item| item[:is_cre] }.reverse!
     end
 
     def query_location
