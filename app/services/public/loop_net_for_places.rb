@@ -27,7 +27,8 @@ module Public
       end
 
       close_browser
-      @output
+
+      @output.sort_by{ |item| item[:lender_name] }.reverse!
     end
 
     def login
@@ -89,12 +90,22 @@ module Public
               else
               end
             end
+
+            if data[:lender_name]
+              lender_info = Public::PlacesApi.new(data[:lender_name], address).near_location
+
+              if lender_info && lender_info[:address]
+                data[:lender_address] = lender_info[:address]
+                data[:lender_phone] = lender_info[:phone]
+              end
+            end
           end
         end
       else
         ap "No Data Available"
       end
 
+      data[:lender_name] = "" unless data[:lender_name]
       @output << data
     end
 
