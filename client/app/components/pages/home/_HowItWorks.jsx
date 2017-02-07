@@ -11,27 +11,42 @@ class HowItWorks extends Component {
   componentDidMount() {
     sr.reveal('.how-it-works-title');
     sr.reveal('.how-it-works-content');
+    $(".image-slideshow img").hide();
+    $(".image-slideshow img:nth(0)").show();
+  }
+
+  componentDidUpdate() {
+    $(".image-slideshow img").hide();
+    switch(this.state.active){
+      case "Shop":
+        $(".image-slideshow img:nth(0)").show();
+        break;
+      case "Apply":
+        $(".image-slideshow img:nth(1)").show();
+        break;
+      case "Underwrite":
+        $(".image-slideshow img:nth(2)").show();
+        break;
+      case "Closing":
+        $(".image-slideshow img:nth(3)").show();
+        break;
+    }
   }
 
   render() {
-    let imageUrl = "";
     let content = "";
 
     switch(this.state.active){
       case "Shop":
-        imageUrl = "/images/how/1.jpg";
         content = "Get at least 3 competitive quotes for your scenario.";
         break;
       case "Apply":
-        imageUrl = "/images/how/2.jpg";
         content = "We structure and present your package to our lending sources.";
         break;
       case "Underwrite":
-        imageUrl = "/images/how/3.jpg";
         content = "Final underwriting and lender commitment.";
         break;
       case "Closing":
-        imageUrl = "/images/how/4.jpg";
         content = "Loan closes and funding is completed.";
         break;
     }
@@ -58,8 +73,11 @@ class HowItWorks extends Component {
                 </div>
                 <p>{content}</p>
               </div>
-              <div className="col-md-7 col-xs-12">
-                <img src={imageUrl} />
+              <div className="col-md-7 col-xs-12 image-slideshow">
+                <img src="/images/how/1.jpg" />
+                <img src="/images/how/2.jpg" />
+                <img src="/images/how/3.jpg" />
+                <img src="/images/how/4.jpg" />
               </div>
             </div>
           </div>
