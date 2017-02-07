@@ -7,7 +7,7 @@ module Public
       @agent.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       @query = query
       @address = address
-      @key = "AIzaSyDZ0GAVFZv5izmhnHjJHJoqkZITlpx2dbQ"
+      @key = ENV['GOOGLE_PLACES_API_KEY']
     end
 
     def call
@@ -19,7 +19,11 @@ module Public
 
         if response["status"] == "OK"
           response["results"]
+        else
+          []
         end
+      else
+        []
       end
     end
 
