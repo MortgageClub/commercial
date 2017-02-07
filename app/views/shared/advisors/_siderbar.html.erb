@@ -16,6 +16,12 @@
                 <span>Overview</span>
               <% end %>
             </li>
+            <li class="<%= active?("find_lenders") %>">
+              <%= link_to new_advisors_loan_find_lender_path(@loan) do %>
+                <i class="icon-search4"></i>
+                <span>Find Lenders</span>
+              <% end %>
+            </li>
             <li class="<%= active?("documents") %>">
               <%= link_to advisors_loan_documents_path(@loan) do %>
                 <i class="icon-file-text2"></i>
@@ -54,12 +60,6 @@
               <%= link_to advisors_loan_sent_emails_path(@loan) do %>
                 <i class="icon-mail5"></i>
                 <span>Email</span>
-              <% end %>
-            </li>
-            <li class="<%= active?("find_lenders") %>">
-              <%= link_to new_advisors_loan_find_lender_path(@loan) do %>
-                <i class="icon-search4"></i>
-                <span>Find Lenders</span>
               <% end %>
             </li>
           </ul>
