@@ -66,7 +66,7 @@ gem 'sablon'
 
 gem 'mechanize'
 
-gem 'watir-webdriver'
+gem 'watir'
 
 gem 'selenium-webdriver', '~> 2.53.4'
 
