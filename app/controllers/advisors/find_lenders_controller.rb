@@ -12,7 +12,7 @@ class Advisors::FindLendersController < Advisors::BaseController
     else
       @results = Public::PlacesApi.new(params[:search], params[:address]).call
       addresses = @results.map { |result| result["formatted_address"] }
-      FindLendersInLoopNet.perform_later(addresses, uuid)
+      FindLendersInLoopNet.perform_later(params[:address], addresses, uuid)
     end
     
     redirect_to action: :new, uuid: uuid

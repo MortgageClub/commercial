@@ -2,13 +2,14 @@ require "watir-webdriver"
 
 module Public
   class LoopNetForPlaces
-    attr_accessor :browser, :addresses, :output
+    attr_accessor :browser, :addresses, :output, :address_input
 
-    def initialize(addresses, uuid)
+    def initialize(address_input, addresses, uuid)
       @browser = Watir::Browser.new :phantomjs
       @browser.window.maximize
       @addresses = addresses
       @output = []
+      @address_input = address_input
     end
 
     def call
@@ -92,9 +93,9 @@ module Public
             end
 
             if data[:lender_name]
-              lender_info = Public::PlacesApi.new(data[:lender_name], address).near_location
-
-              if lender_info && lender_info[:address]
+              lender_info = Public::PlacesApi.new(data[:lender_name], address_input).near_location
+              
+              if lender_info.present? && lender_info[:address].present?
                 data[:lender_address] = lender_info[:address]
                 data[:lender_phone] = lender_info[:phone]
               end
