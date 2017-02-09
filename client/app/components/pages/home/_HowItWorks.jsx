@@ -38,7 +38,7 @@ class HowItWorks extends Component {
 
     switch(this.state.active){
       case "Shop":
-        content = "Our pricing engine quickly turns around 3 competitive soft quotes for your specific scenario from our lending sources.";
+        content = "Our pricing engine quickly turns around 3 competitive soft quotes for your specific scenario from our lending sources. Your dedicated loan advisor will help you choose the financing program that best fits your needs.";
         break;
       case "Apply":
         content = "You complete loan request form and provide necessary documentation. We assemble and submit your loan package to our funding source.";
