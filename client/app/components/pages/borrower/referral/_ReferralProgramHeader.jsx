@@ -7,8 +7,9 @@ class ReferralProgramHeader extends Component {
         <div className="row">
           <div className="col-md-12 col-xs-12">
             <div className="">
-              <h4>REFERRAL PROGRAM</h4>
-              <h5>Earn 25% of our origination fees (or up to $5,000) for every client you refer to Blackline.</h5>
+              <h4>Referral Program</h4>
+              <p className="mb-0">Share your unique referral link with friends and colleagues for a cash reward!</p>
+              <p className="mb-0">Earn 25% of our origination fees—up to $5000—for every client you refer to Blackline.</p>
             </div>
           </div>
         </div>

@@ -1,25 +1,30 @@
-.referral-section {
-  .referral-link {
-    input {
-      width: 78%;
-    }
+.referral-dashboard {
+  p {
+    // margin-bottom: 0px;
+  }
+  .referral-section {
+    .referral-link {
+      input {
+        width: 78%;
+      }
 
-    button {
-      background: #95c41f none repeat scroll 0 0;
-      height: 40px;
-      margin: 0 0 0 -4px;
-      padding: 0 35px;
-      color: #fff;
-      text-transform: uppercase;
+      button {
+        background: #95c41f none repeat scroll 0 0;
+        height: 40px;
+        margin: 0 0 0 -4px;
+        padding: 0 35px;
+        color: #fff;
+        text-transform: uppercase;
 
-      &:hover {
-        background: #1f223e none repeat scroll 0 0;
+        &:hover {
+          background: #1f223e none repeat scroll 0 0;
+        }
       }
     }
   }
-}
 
-.iframe-youtube {
-  width: 560px;
-  height: 315px;
+  .iframe-youtube {
+    width: 560px;
+    height: 315px;
+  }
 }

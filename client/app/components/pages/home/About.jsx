@@ -38,7 +38,7 @@ class About extends Component {
             </div>
           </div>
         </div>
-        <div className="container text-center">
+        <div className="container text-center about-quote">
           <h3>
             “Ninety percent of all millionaires become so through owning real estate. More money has been made in real estate than in all industrial investments combined. The wise young man or wage earner of today invests his money in real estate.” -- Andrew Carnegie
           </h3>

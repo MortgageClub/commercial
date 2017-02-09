@@ -22,7 +22,7 @@ class Referral extends Component {
           <div className="pt-90 pb-70 referral-dashboard">
             <div className="container">
               <ReferralProgramHeader/>
-              <h4 className="mt-30">2 EASY WAYS TO SPREAD THE WORD AND TRACK YOUR REFERRALS</h4>
+              <h4 className="mt-20">2 EASY WAYS TO SPREAD THE WORD AND TRACK YOUR REFERRALS</h4>
               <ReferralLink/>
               <InviteByEmail/>
               <ReferralResults/>

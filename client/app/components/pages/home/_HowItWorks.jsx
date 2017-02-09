@@ -1,14 +1,58 @@
 import React, { Component } from 'react';
 
 class HowItWorks extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      active: "Shop"
+    }
+  }
+
   componentDidMount() {
     sr.reveal('.how-it-works-title');
+    sr.reveal('.how-it-works-content');
+    $(".image-slideshow img").hide();
+    $(".image-slideshow img:nth(0)").show();
+  }
+
+  componentDidUpdate() {
+    $(".image-slideshow img").hide();
+    switch(this.state.active){
+      case "Shop":
+        $(".image-slideshow img:nth(0)").show();
+        break;
+      case "Apply":
+        $(".image-slideshow img:nth(1)").show();
+        break;
+      case "Underwrite":
+        $(".image-slideshow img:nth(2)").show();
+        break;
+      case "Closing":
+        $(".image-slideshow img:nth(3)").show();
+        break;
+    }
   }
 
   render() {
+    let content = "";
+
+    switch(this.state.active){
+      case "Shop":
+        content = "Our pricing engine quickly turns around 3 competitive soft quotes for your specific scenario from our lending sources. Your dedicated loan advisor will help you choose the financing program that best fits your needs.";
+        break;
+      case "Apply":
+        content = "You complete loan request form and provide necessary documentation. We assemble and submit your loan package to our funding source.";
+        break;
+      case "Underwrite":
+        content = "We order appraisal and other 3rd party reports. Get status updates from your Client Dashboard as we underwrite your loan.";
+        break;
+      case "Closing":
+        content = "Loan closes and funding is completed. By replacing complex processes with powerful software, we ensure a fast and smooth closing.";
+        break;
+    }
+
     return (
       <div>
-        {/* HOW IT WORKS AREA START */}
         <div className="services-area pb-60">
           <div className="container">
             <div className="row">
@@ -19,63 +63,33 @@ class HowItWorks extends Component {
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="service-carousel">
-                {/* service-item */}
-                <div className="col-md-12">
-                  <div className="service-item">
-                    <div className="service-item-image">
-                      <a><img src="/images/how_it_works_1.png" /></a>
-                    </div>
-                    <div className="service-item-info">
-                      <h5><a>Shop</a></h5>
-                      <p>Get at least 3 competitive quotes for your scenario.</p>
-                    </div>
-                  </div>
+            <div className="row how-it-works-content">
+              <div className="col-md-5 col-xs-12">
+                <div className="btn-group">
+                  <button type="button" className={this.state.active == "Shop" ? "active" : ""} onClick={this.setActive.bind(this)}>Shop</button>
+                  <button type="button" className={this.state.active == "Apply" ? "active" : ""} onClick={this.setActive.bind(this)}>Apply</button>
+                  <button type="button" className={this.state.active == "Underwrite" ? "active" : ""} onClick={this.setActive.bind(this)}>Underwrite</button>
+                  <button type="button" className={this.state.active == "Closing" ? "active" : ""} onClick={this.setActive.bind(this)}>Closing</button>
                 </div>
-                {/* service-item */}
-                <div className="col-md-12">
-                  <div className="service-item">
-                    <div className="service-item-image">
-                      <a><img src="/images/how_it_works_2.png" /></a>
-                    </div>
-                    <div className="service-item-info">
-                      <h5><a>Apply</a></h5>
-                      <p>We structure and present your package to our lending sources.</p>
-                    </div>
-                  </div>
-                </div>
-                {/* service-item */}
-                <div className="col-md-12">
-                  <div className="service-item">
-                    <div className="service-item-image">
-                      <a><img src="/images/how_it_works_3.png" /></a>
-                    </div>
-                    <div className="service-item-info">
-                      <h5><a>Underwrite</a></h5>
-                      <p>Final underwriting and lender commitment.</p>
-                    </div>
-                  </div>
-                </div>
-                {/* service-item */}
-                <div className="col-md-12">
-                  <div className="service-item">
-                    <div className="service-item-image">
-                      <a><img src="/images/how_it_works_4.png" /></a>
-                    </div>
-                    <div className="service-item-info">
-                      <h5><a>Closing</a></h5>
-                      <p>Loan closes and funding is completed.</p>
-                    </div>
-                  </div>
-                </div>
+                <p className="mt-30">{content}</p>
+              </div>
+              <div className="col-md-7 col-xs-12 image-slideshow">
+                <img src="/images/how/1.jpg" />
+                <img src="/images/how/2.jpg" />
+                <img src="/images/how/3.jpg" />
+                <img src="/images/how/4.jpg" />
               </div>
             </div>
           </div>
         </div>
-        {/* SERVICES AREA END */}
       </div>
     )
+  }
+
+  setActive(event) {
+    this.setState({
+      active: $(event.target).text()
+    });
   }
 }
 

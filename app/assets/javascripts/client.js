@@ -21,4 +21,19 @@
 $(document).ready(function(){
   new WOW().init();
   $('[data-toggle="tooltip"]').tooltip();
+  
+  $('.counter1').counterUp({
+    delay: 10,
+    time: 600
+  });
+
+  $('.counter2').counterUp({
+    delay: 10,
+    time: 600
+  });
+  
+  $('.counter3').counterUp({
+    delay: 10,
+    time: 600
+  });
 })

@@ -8,7 +8,7 @@ class PropertyInfo extends Component {
     if (!this.props.steps){
       this.props.addStep({
         title: 'Summary',
-        text: 'High level summary of your loan in progress',
+        text: 'This is a high-level overview of your loan in progress.',
         selector: '.loan-information',
         position: 'bottom',
         type: 'hover',

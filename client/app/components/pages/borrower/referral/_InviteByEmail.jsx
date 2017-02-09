@@ -10,9 +10,9 @@ class InviteByEmail extends Component {
     return (
       <div className="invite-by-email-section">
         <h4 className="mt-20"><img width="27" src="/images/two.png"/> Automated invite by Blackline</h4>
-        <div className="mb-20">
-          Enter your referrals’ emails into the form and we’ll invite them on your behalf. You’ll be CC’ed on these emails.
-        </div>
+        <p className="mb-20">
+          Enter your referrals’ emails into the form and we’ll invite them on your behalf.
+        </p>
         <form onSubmit={handleSubmit(this.submit.bind(this))}>
           <div className="row">
             <div className="col-md-4 col-xs-12">
@@ -124,7 +124,7 @@ class InviteByEmail extends Component {
 
           <div className="row">
             <div className="col-md-12 col-xs-12">
-              <p><i className="fa fa-info-circle" aria-hidden="true"></i> For specific information regarding our referral program, please email us at <a href="mailto:referral@blacklinelending.com">referral@blacklinelending.com</a>.</p>
+              <p><i className="fa fa-info-circle" aria-hidden="true"></i> For specific information regarding referral bonus, please email us at <a href="mailto:referral@blacklinelending.com">referral@blacklinelending.com</a>.</p>
               <button className="submit-btn-1 mt-5" type="submit" disabled={submitting}>
                 <i className="fa fa-paper-plane" aria-hidden="true"></i> SEND INVITES
               </button>

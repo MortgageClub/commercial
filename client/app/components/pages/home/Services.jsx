@@ -93,21 +93,21 @@ class Services extends Component {
                     <div className="counter-item">
                       <h2>
                       <i className="fa fa-home" aria-hidden="true"></i>
-                      <span className="counter">8M</span>
+                      <span className="counter1">8</span><span>M</span>
                       </h2>
                       <p>Property Profiles</p>
                     </div>
                     <div className="counter-item">
                       <h2>
                       <i className="fa fa-key" aria-hidden="true"></i>
-                      <span className="counter">500+</span>
+                      <span className="counter2">500</span><span>+</span>
                       </h2>
                       <p>Funding Sources</p>
                     </div>
                     <div className="counter-item">
                       <h2>
                       <i className="fa fa-smile-o" aria-hidden="true"></i>
-                      <span className="counter">25K</span>
+                      <span className="counter3">25</span><span>K</span>
                       </h2>
                       <p>Lines of Code</p>
                     </div>

@@ -6,8 +6,8 @@ class MortgageAdvisor extends Component {
   componentDidMount() {
     if (!this.props.steps){
       this.props.addStep({
-        title: 'Loan Advisor',
-        text: 'You can call, email, or text your Loan Advisor anytime.',
+        title: 'Loan advisor',
+        text: 'Call, email, or text your loan advisor at any time for updates and guidance.',
         selector: '.relationship-manager',
         position: 'left',
         type: 'hover',
@@ -39,15 +39,15 @@ class MortgageAdvisor extends Component {
                 </h5>
                 <div>
                   <span className="fa fa-user"></span>
-                  <span>License Number: {mortgageAdvisor.individual_bre}</span>
+                  <span className="fw-300">License Number: {mortgageAdvisor.individual_bre}</span>
                 </div>
                 <div>
                   <span className="fa fa-phone"></span>
-                  <span>{mortgageAdvisor.phone_number}</span>
+                  <span className="fw-300">{mortgageAdvisor.phone_number}</span>
                 </div>
                 <div>
                   <span className="fa fa-envelope"></span>
-                  <span><a href={"mailto:" + mortgageAdvisor.email}>{mortgageAdvisor.email}</a></span>
+                  <span className="fw-300"><a href={"mailto:" + mortgageAdvisor.email}>{mortgageAdvisor.email}</a></span>
                 </div>
               </div>
             </div>

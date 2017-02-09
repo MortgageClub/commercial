@@ -1,0 +1,37 @@
+<%= form_tag advisors_loop_net_index_path, authenticity_token: true do |f| %>
+  <% if params[:uuid] %>
+    <div class="row alert">
+      Please wait to crawl data...
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= label_tag :address %>
+        <%= text_area_tag :address, nil, class: "form-control", rows: 5 %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-wizard-actions">
+    <button class="btn btn-primary legitRipple" type="submit">Submit<i class="icon-arrow-right14 position-right"></i></button>
+  </div>
+<% end %>
+
+<script>
+  // Enable pusher logging - don't include this in production
+  // Pusher.logToConsole = true;
+
+  var pusher = new Pusher('97f2ae83aaf1a0fe9324', {
+    encrypted: true
+  });
+
+  var channel = pusher.subscribe('loop-net-channel');
+  channel.bind('crawl-done', function(data) {
+    if(data.uuid == "<%= params[:uuid] %>"){
+      $(".alert").remove();
+      alert("Please download file at: " + window.location.hostname + "/output_loop_find_lender_<%= params[:uuid] %>.csv");
+    }
+  });
+</script>
