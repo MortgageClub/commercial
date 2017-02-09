@@ -124,7 +124,7 @@ class InviteByEmail extends Component {
 
           <div className="row">
             <div className="col-md-12 col-xs-12">
-              <p><i className="fa fa-info-circle" aria-hidden="true"></i> For specific information regarding referral bonus, please email us at <a href="mailto:info@blacklinelending.com">info@blacklinelending.com</a>.</p>
+              <p><i className="fa fa-info-circle" aria-hidden="true"></i> For specific information regarding referral bonus, please email us at <a href="mailto:referral@blacklinelending.com">referral@blacklinelending.com</a>.</p>
               <button className="submit-btn-1 mt-5" type="submit" disabled={submitting}>
                 <i className="fa fa-paper-plane" aria-hidden="true"></i> SEND INVITES
               </button>
