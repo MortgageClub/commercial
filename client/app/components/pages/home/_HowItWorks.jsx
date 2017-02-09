@@ -38,16 +38,16 @@ class HowItWorks extends Component {
 
     switch(this.state.active){
       case "Shop":
-        content = "Get at least 3 competitive quotes for your scenario.";
+        content = "Our pricing engine quickly turns around 3 competitive soft quotes for your specific scenario from our lending sources.";
         break;
       case "Apply":
-        content = "We structure and present your package to our lending sources.";
+        content = "You complete loan request form and provide necessary documentation. We assemble and submit your loan package to our funding source.";
         break;
       case "Underwrite":
-        content = "Final underwriting and lender commitment.";
+        content = "We order appraisal and other 3rd party reports. Get status updates from your Client Dashboard as we underwrite your loan.";
         break;
       case "Closing":
-        content = "Loan closes and funding is completed.";
+        content = "Loan closes and funding is completed. By replacing complex processes with powerful software, we ensure a fast and smooth closing.";
         break;
     }
 
@@ -71,7 +71,7 @@ class HowItWorks extends Component {
                   <button type="button" className={this.state.active == "Underwrite" ? "active" : ""} onClick={this.setActive.bind(this)}>Underwrite</button>
                   <button type="button" className={this.state.active == "Closing" ? "active" : ""} onClick={this.setActive.bind(this)}>Closing</button>
                 </div>
-                <p>{content}</p>
+                <p className="mt-30">{content}</p>
               </div>
               <div className="col-md-7 col-xs-12 image-slideshow">
                 <img src="/images/how/1.jpg" />
