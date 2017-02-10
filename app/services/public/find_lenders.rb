@@ -17,14 +17,14 @@ module Public
       places = []
 
       if location
-        response_bank = agent.get "https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{URI.escape('bank')}&location=#{location["lat"]},#{location["lng"]}&radius=50000&key=#{key}"
+        response_bank = agent.get "https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=#{URI.escape('bank')}&location=#{location["lat"]},#{location["lng"]}&key=#{key}&rankby=prominence"
         response_bank = JSON.load(response_bank.body)
 
         if response_bank["status"] == "OK"
           places += response_bank["results"]
         end
 
-        response_credit_union = agent.get "https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{URI.escape('credit union')}&location=#{location["lat"]},#{location["lng"]}&radius=50000&key=#{key}"
+        response_credit_union = agent.get "https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=#{URI.escape('credit union')}&location=#{location["lat"]},#{location["lng"]}&key=#{key}&rankby=prominence"
         response_credit_union = JSON.load(response_credit_union.body)
         
         if response_credit_union["status"] == "OK"

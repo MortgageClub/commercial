@@ -11,7 +11,7 @@ class Advisors::FindLendersController < Advisors::BaseController
       FindLendersInPlaces.perform_later(params[:address], uuid)
     else
       @results = Public::PlacesApi.new(params[:search], params[:address]).call
-      addresses = @results.map { |result| result["formatted_address"] }
+      addresses = @results.map { |result| result["vicinity"] }
       FindLendersInLoopNet.perform_later(params[:address], addresses, uuid)
     end
     
