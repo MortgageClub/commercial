@@ -24,6 +24,7 @@ default: &default
 development:
   <<: *default
   database: commercial_development
+
   # staging
   # adapter: postgresql
   # encoding: unicode
@@ -33,6 +34,15 @@ development:
   # password: f9aa7349e936edac47628406cab2f8f426ce1c8a7efd48b305e71c2454a2377e
   # database: d20m17e1be7ru1
 
+  # production
+  # adapter: postgresql
+  # encoding: unicode
+  # pool: 5
+  # host: ec2-54-235-173-161.compute-1.amazonaws.com
+  # username: fgghgomlfigspf
+  # password: 8640bcfb2659879386be8c8577734e1e00c3f7dc2367d00a9691969540492607
+  # database: d3k1loa56n81v2
+  
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
